@@ -186,13 +186,13 @@
 </head>
 <body>
     <header>
-        <h1>🚀 Pandemo61</h1>
+        <h1>🎵 Pandemo61</h1>
         <p>Développeur d'Applications Android</p>
     </header>
 
     <nav>
         <a href="#apropos">À propos</a>
-        <a href="#applications">Mes Apps</a>
+        <a href="#applications">Blind Test</a>
         <a href="#competences">Compétences</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -213,37 +213,35 @@
             </p>
         </section>
 
-        <!-- MES APPLICATIONS -->
+        <!-- BLIND TEST APPLICATION -->
         <section id="applications">
-            <h2>📱 Mes Applications</h2>
+            <h2>🎵 Blind Test - Mon Application</h2>
             
             <div class="app-card">
-                <h3>BlindBeat</h3>
-                <p>Description de votre première application...</p>
-                <p><strong>Catégorie :</strong> [Utilitaire / Jeu / Social / ...]</p>
-                <div class="links">
-                    <a href="https://play.google.com/store/apps/details?id=com.pandemo61.app1" class="btn" target="_blank">
-                        📥 Voir sur Play Store
+                <h3>🎶 Blind Test</h3>
+                <p>
+                    <strong>Testez vos connaissances musicales !</strong> Blind Test est une application 
+                    interactive et divertissante qui vous permet de deviner des chansons à partir d'extraits audio. 
+                    Parfait pour les amateurs de musique de tous les styles.
+                </p>
+                <p><strong>Catégorie :</strong> <span class="badge">Jeu</span> <span class="badge">Musique</span></p>
+                
+                <h4 style="color: #667eea; margin-top: 1rem; margin-bottom: 0.5rem;">✨ Fonctionnalités :</h4>
+                <ul style="margin-left: 1.5rem; color: #666;">
+                    <li>Centaines d'extraits musicaux</li>
+                    <li>Plusieurs niveaux de difficulté</li>
+                    <li>Système de score et classement</li>
+                    <li>Interface intuitive et fluide</li>
+                    <li>Musiques de tous les genres</li>
+                </ul>
+
+                <div class="links" style="margin-top: 1.5rem;">
+                    <a href="https://play.google.com/store/apps/details?id=com.pandemo61.blindtest" class="btn" target="_blank">
+                        📥 Télécharger sur Play Store
                     </a>
-                    <a href="#" class="btn" style="background: #764ba2;">ℹ️ En savoir plus</a>
+                    <a href="#" class="btn" style="background: #764ba2;">ℹ️ Plus d'infos</a>
                 </div>
             </div>
-
-            <div class="app-card">
-                <h3>Application 2</h3>
-                <p>Description de votre deuxième application...</p>
-                <p><strong>Catégorie :</strong> [Utilitaire / Jeu / Social / ...]</p>
-                <div class="links">
-                    <a href="https://play.google.com/store/apps/details?id=com.pandemo61.app2" class="btn" target="_blank">
-                        📥 Voir sur Play Store
-                    </a>
-                    <a href="#" class="btn" style="background: #764ba2;">ℹ️ En savoir plus</a>
-                </div>
-            </div>
-
-            <p style="margin-top: 2rem; text-align: center; color: #666;">
-                <em>Plus d'applications à venir...</em>
-            </p>
         </section>
 
         <!-- COMPÉTENCES -->
@@ -256,264 +254,7 @@
                 <div class="skill">Java</div>
                 <div class="skill">Android SDK</div>
                 <div class="skill">Android Studio</div>
-                <div class="skill">Jetpack Compose</div><!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandemo61 - Développeur d'Applications</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #667eea;
-        }
-
-        nav {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            background: white;
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        section h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
-
-        .app-card {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-            transition: transform 0.3s;
-        }
-
-        .app-card:hover {
-            transform: translateX(10px);
-        }
-
-        .app-card h3 {
-            color: #764ba2;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-card p {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-        }
-
-        .links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            background: #667eea;
-            color: white;
-            padding: 0.7rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background: #764ba2;
-        }
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .skill {
-            background: #f0f0f0;
-            padding: 1rem;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            nav a {
-                margin: 0 0.5rem;
-                font-size: 0.9rem;
-            }
-
-            section {
-                padding: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>🚀 Pandemo61</h1>
-        <p>Développeur d'Applications Android</p>
-    </header>
-
-    <nav>
-        <a href="#apropos">À propos</a>
-        <a href="#applications">Mes Apps</a>
-        <a href="#competences">Compétences</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        <!-- À PROPOS -->
-        <section id="apropos">
-            <h2>👨‍💻 À propos de moi</h2>
-            <p>
-                Bienvenue ! Je suis <strong>Pandemo61</strong>, un développeur d'applications passionné basé sur la création 
-                d'expériences mobiles innovantes et performantes. Je crée des applications 
-                Android de qualité professionnelle disponibles sur le Google Play Store.
-            </p>
-            <p style="margin-top: 1rem;">
-                Mon expertise porte sur le développement natif Android, avec un focus particulier sur 
-                l'optimisation, l'UI/UX et l'expérience utilisateur. Chacune de mes applications est 
-                développée avec attention au détail et aux meilleures pratiques de l'industrie.
-            </p>
-        </section>
-
-        <!-- MES APPLICATIONS -->
-        <section id="applications">
-            <h2>📱 Mes Applications</h2>
-            
-            <div class="app-card">
-                <h3>Application 1</h3>
-                <p>Description de votre première application...</p>
-                <p><strong>Catégorie :</strong> [Utilitaire / Jeu / Social / ...]</p>
-                <div class="links">
-                    <a href="https://play.google.com/store/apps/details?id=com.pandemo61.app1" class="btn" target="_blank">
-                        📥 Voir sur Play Store
-                    </a>
-                    <a href="#" class="btn" style="background: #764ba2;">ℹ️ En savoir plus</a>
-                </div>
-            </div>
-
-            <div class="app-card">
-                <h3>Application 2</h3>
-                <p>Description de votre deuxième application...</p>
-                <p><strong>Catégorie :</strong> [Utilitaire / Jeu / Social / ...]</p>
-                <div class="links">
-                    <a href="https://play.google.com/store/apps/details?id=com.pandemo61.app2" class="btn" target="_blank">
-                        📥 Voir sur Play Store
-                    </a>
-                    <a href="#" class="btn" style="background: #764ba2;">ℹ️ En savoir plus</a>
-                </div>
-            </div>
-
-            <p style="margin-top: 2rem; text-align: center; color: #666;">
-                <em>Plus d'applications à venir...</em>
-            </p>
-        </section>
-
-        <!-- COMPÉTENCES -->
-        <section id="competences">
-            <h2>🛠️ Mes Compétences</h2>
-            
-            <h3 style="color: #764ba2; margin-top: 1.5rem; margin-bottom: 1rem;">Langages & Frameworks</h3>
-            <div class="skills">
-                <div class="skill">Kotlin</div>
-                <div class="skill">Java</div>
-                <div class="skill">Android SDK</div>
-                <div class="skill">Android Studio</div>
+                <div class="skill">Jetpack Compose</div>
                 <div class="skill">Room Database</div>
             </div>
 
@@ -540,16 +281,17 @@
         <!-- CONTACT -->
         <section id="contact">
             <h2>📧 Contactez-moi</h2>
-            <p>Vous avez une question ou une opportunité ? N'hésitez pas à me contacter :</p>
+            <p>Vous avez des questions sur Blind Test ou d'autres projets ? N'hésitez pas à me contacter :</p>
             
             <div class="links" style="margin-top: 1.5rem;">
                 <a href="mailto:pandemo61@gmail.com" class="btn">📧 Email</a>
                 <a href="https://github.com/pandemo61" class="btn" target="_blank">🐙 GitHub</a>
+                <a href="https://linkedin.com/in/pandemo61" class="btn" target="_blank">💼 LinkedIn</a>
+                <a href="https://twitter.com/pandemo61" class="btn" target="_blank">𝕏 Twitter</a>
             </div>
 
             <p style="margin-top: 1.5rem; color: #666;">
-                <strong>Email :</strong> pandemo61@gmail.com<br>
-                <strong>Localisation :</strong> Brussels / Belgium
+                <strong>Email :</strong> <a href="mailto:pandemo61@gmail.com" style="color: #667eea; text-decoration: none;">pandemo61@gmail.com</a><br>
             </p>
         </section>
     </div>
