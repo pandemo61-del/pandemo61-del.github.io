@@ -139,6 +139,7 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
@@ -152,12 +153,15 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
+    const auth = getAuth(app);
 
     async function loadTopSongs() {
-        const roomsRef = ref(db, 'rooms');
-        const recentRoomsQuery = query(roomsRef, limitToLast(200)); // Scan last 200 rooms
-
         try {
+            await signInAnonymously(auth);
+
+            const roomsRef = ref(db, 'rooms');
+            const recentRoomsQuery = query(roomsRef, limitToLast(200));
+
             const snapshot = await get(recentRoomsQuery);
             const content = document.getElementById('content');
 

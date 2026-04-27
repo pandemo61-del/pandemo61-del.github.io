@@ -152,6 +152,7 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
@@ -165,6 +166,7 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
+    const auth = getAuth(app);
 
     function formatDate(timestamp) {
         if (!timestamp) return "Inconnue";
@@ -176,11 +178,13 @@
     }
 
     async function loadActivity() {
-        const usersRef = ref(db, 'users/production');
-        // Sort by lastSeen to show most recently active
-        const activityQuery = query(usersRef, orderByChild('lastSeen'), limitToLast(50));
-
         try {
+            await signInAnonymously(auth);
+
+            const usersRef = ref(db, 'users/production');
+            // Sort by lastSeen to show most recently active
+            const activityQuery = query(usersRef, orderByChild('lastSeen'), limitToLast(50));
+
             const snapshot = await get(activityQuery);
             const content = document.getElementById('content');
 
