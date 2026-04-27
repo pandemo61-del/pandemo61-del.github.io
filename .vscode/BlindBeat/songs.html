@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Chansons - BlindBeat</title>
+    <style>
+        :root {
+            --bg: #0A0A1A;
+            --surface: #12122A;
+            --surface-light: #1E1E40;
+            --primary: #F5820D;
+            --primary-light: #FF9F43;
+            --accent-gold: #FFD700;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0C0;
+            --border: #2A2A50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .nav a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .song-card {
+            display: flex;
+            align-items: center;
+            background: var(--surface);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            gap: 15px;
+        }
+
+        .song-cover {
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .song-details {
+            flex: 1;
+        }
+
+        .song-title {
+            font-weight: bold;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .song-artist {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .count-badge {
+            background: var(--surface-light);
+            padding: 5px 12px;
+            border-radius: 15px;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎵 Chansons les plus jouées</h1>
+        <p>Découvrez les hits favoris de la communauté.</p>
+    </header>
+
+    <div class="nav">
+        <a href="leaderboard.html">Top Joueurs</a>
+        <a href="songs.html" class="active">Top Chansons</a>
+        <a href="activity.html">Activité</a>
+    </div>
+
+    <div id="content">
+        <div class="loading">Analyse des salons en cours...</div>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, get, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+        authDomain: "blindbeat-a51d5.firebaseapp.com",
+        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "blindbeat-a51d5",
+        storageBucket: "blindbeat-a51d5.firebasestorage.app",
+        messagingSenderId: "1037778546860",
+        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    async function loadTopSongs() {
+        const roomsRef = ref(db, 'rooms');
+        const recentRoomsQuery = query(roomsRef, limitToLast(200)); // Scan last 200 rooms
+
+        try {
+            const snapshot = await get(recentRoomsQuery);
+            const content = document.getElementById('content');
+
+            if (!snapshot.exists()) {
+                content.innerHTML = "<div class='loading'>Aucun salon trouvé.</div>";
+                return;
+            }
+
+            const songCounts = {};
+            snapshot.forEach((roomSnap) => {
+                const room = roomSnap.val();
+                if (room.questions) {
+                    room.questions.forEach(q => {
+                        const id = q.id;
+                        if (!id) return;
+                        if (!songCounts[id]) {
+                            songCounts[id] = {
+                                count: 0,
+                                title: q.trackTitle,
+                                artist: q.trackArtist,
+                                cover: q.cover
+                            };
+                        }
+                        songCounts[id].count++;
+                    });
+                }
+            });
+
+            const sortedSongs = Object.values(songCounts).sort((a, b) => b.count - a.count).slice(0, 50);
+
+            if (sortedSongs.length === 0) {
+                content.innerHTML = "<div class='loading'>Aucune chanson trouvée dans les salons récents.</div>";
+                return;
+            }
+
+            let html = "";
+            sortedSongs.forEach((s) => {
+                html += `
+                    <div class="song-card">
+                        <img src="${s.cover || 'https://via.placeholder.com/60'}" class="song-cover" alt="cover">
+                        <div class="song-details">
+                            <span class="song-title">${s.title}</span>
+                            <span class="song-artist">${s.artist}</span>
+                        </div>
+                        <div class="count-badge">${s.count} fois</div>
+                    </div>
+                `;
+            });
+
+            content.innerHTML = html;
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors de l'analyse.</div>";
+        }
+    }
+
+    loadTopSongs();
+</script>
+
+</body>
+</html>

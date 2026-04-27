@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activité Joueurs - BlindBeat</title>
+    <style>
+        :root {
+            --bg: #0A0A1A;
+            --surface: #12122A;
+            --surface-light: #1E1E40;
+            --primary: #F5820D;
+            --primary-light: #FF9F43;
+            --accent-gold: #FFD700;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0C0;
+            --border: #2A2A50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .nav a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface-light);
+            padding: 15px;
+            text-align: left;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            font-size: 1.5rem;
+        }
+
+        .status-online {
+            color: #4CAF50;
+            font-size: 0.8rem;
+        }
+
+        .date {
+            font-family: monospace;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .badge {
+            background: var(--surface-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>👥 Activité des Joueurs</h1>
+        <p>Qui sont les membres les plus actifs de la communauté ?</p>
+    </header>
+
+    <div class="nav">
+        <a href="leaderboard.html">Top Joueurs</a>
+        <a href="songs.html">Top Chansons</a>
+        <a href="activity.html" class="active">Activité</a>
+    </div>
+
+    <div id="content">
+        <div class="loading">Chargement des données d'activité...</div>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+        authDomain: "blindbeat-a51d5.firebaseapp.com",
+        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "blindbeat-a51d5",
+        storageBucket: "blindbeat-a51d5.firebasestorage.app",
+        messagingSenderId: "1037778546860",
+        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    function formatDate(timestamp) {
+        if (!timestamp) return "Inconnue";
+        const d = new Date(timestamp);
+        return d.toLocaleString('fr-FR', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+    }
+
+    async function loadActivity() {
+        const usersRef = ref(db, 'users/production');
+        // Sort by lastSeen to show most recently active
+        const activityQuery = query(usersRef, orderByChild('lastSeen'), limitToLast(50));
+
+        try {
+            const snapshot = await get(activityQuery);
+            const content = document.getElementById('content');
+
+            if (!snapshot.exists()) {
+                content.innerHTML = "<div class='loading'>Aucune donnée d'activité.</div>";
+                return;
+            }
+
+            const players = [];
+            snapshot.forEach((child) => {
+                players.push(child.val());
+            });
+
+            players.sort((a, b) => (b.lastSeen || 0) - (a.lastSeen || 0));
+
+            let html = `<table>
+                <thead>
+                    <tr>
+                        <th>Joueur</th>
+                        <th>Parties</th>
+                        <th>Inscription</th>
+                        <th>Dernière visite</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+            const now = Date.now();
+
+            players.forEach((p) => {
+                const isOnline = (now - (p.lastSeen || 0)) < 5 * 60 * 1000; // Active in last 5 min
+
+                html += `
+                    <tr>
+                        <td>
+                            <div class="player-info">
+                                <span class="avatar">${p.avatar || '🎵'}</span>
+                                <span>${p.name || 'Anonyme'}</span>
+                                ${p.stats?.gamesPlayed > 100 ? '<span class="badge">Vétéran</span>' : ''}
+                            </div>
+                        </td>
+                        <td>${p.stats?.gamesPlayed || 0}</td>
+                        <td class="date">${formatDate(p.createdAt)}</td>
+                        <td class="date">${formatDate(p.lastSeen)}</td>
+                        <td>
+                            ${isOnline ? '<span class="status-online">● En ligne</span>' : '<span style="color:gray; font-size:0.8rem">Hors ligne</span>'}
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `</tbody></table>`;
+            content.innerHTML = html;
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors du chargement.</div>";
+        }
+    }
+
+    loadActivity();
+</script>
+
+</body>
+</html>
