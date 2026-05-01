@@ -154,6 +154,7 @@
     import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
+    // Intégration directe pour éviter les erreurs d'import local
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
         authDomain: "blindbeat-a51d5.firebaseapp.com",
@@ -178,18 +179,20 @@
     }
 
     async function loadActivity() {
+        const content = document.getElementById('content');
         try {
+            console.log("Connexion...");
             await signInAnonymously(auth);
 
             const usersRef = ref(db, 'users/production');
             // Sort by lastSeen to show most recently active
             const activityQuery = query(usersRef, orderByChild('lastSeen'), limitToLast(50));
 
+            console.log("Récupération de l'activité...");
             const snapshot = await get(activityQuery);
-            const content = document.getElementById('content');
 
             if (!snapshot.exists()) {
-                content.innerHTML = "<div class='loading'>Aucune donnée d'activité.</div>";
+                content.innerHTML = "<div class='loading'>Aucune donnée d'activité disponible.</div>";
                 return;
             }
 
@@ -223,10 +226,10 @@
                             <div class="player-info">
                                 <span class="avatar">${p.avatar || '🎵'}</span>
                                 <span>${p.name || 'Anonyme'}</span>
-                                ${p.stats?.gamesPlayed > 100 ? '<span class="badge">Vétéran</span>' : ''}
+                                ${p.stats?.allTime?.gamesPlayed > 100 || p.stats?.gamesPlayed > 100 ? '<span class="badge">Vétéran</span>' : ''}
                             </div>
                         </td>
-                        <td>${p.stats?.gamesPlayed || 0}</td>
+                        <td>${p.stats?.allTime?.gamesPlayed || p.stats?.gamesPlayed || 0}</td>
                         <td class="date">${formatDate(p.createdAt)}</td>
                         <td class="date">${formatDate(p.lastSeen)}</td>
                         <td>
@@ -241,7 +244,7 @@
 
         } catch (error) {
             console.error(error);
-            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors du chargement.</div>";
+            content.innerHTML = `<div class='loading'>Erreur lors du chargement : ${error.message}</div>`;
         }
     }
 

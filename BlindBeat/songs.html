@@ -169,7 +169,17 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-    import { firebaseConfig } from "./firebase-config.js";
+
+    // Intégration directe pour éviter les erreurs d'import local
+    const firebaseConfig = {
+        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+        authDomain: "blindbeat-a51d5.firebaseapp.com",
+        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "blindbeat-a51d5",
+        storageBucket: "blindbeat-a51d5.firebasestorage.app",
+        messagingSenderId: "1037778546860",
+        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+    };
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
@@ -208,21 +218,28 @@
     };
 
     async function loadData() {
+        const content = document.getElementById('content');
         try {
+            console.log("Connexion...");
             await signInAnonymously(auth);
             const roomsRef = ref(db, 'rooms');
             const recentRoomsQuery = query(roomsRef, limitToLast(300));
+
+            console.log("Récupération des salons...");
             const snapshot = await get(recentRoomsQuery);
 
             if (snapshot.exists()) {
                 snapshot.forEach(child => allRooms.push(child.val()));
+            } else {
+                content.innerHTML = "<div class='loading'>Aucun salon trouvé.</div>";
+                return;
             }
 
             renderFilters();
             processSongs();
         } catch (error) {
             console.error(error);
-            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors du chargement.</div>";
+            content.innerHTML = `<div class='loading'>Erreur lors du chargement : ${error.message}</div>`;
         }
     }
 

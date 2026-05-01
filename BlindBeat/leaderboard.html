@@ -145,77 +145,104 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-    import { firebaseConfig } from "./firebase-config.js";
+
+    // Intégration directe pour éviter les erreurs d'import local (CORS/file://)
+    const firebaseConfig = {
+        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+        authDomain: "blindbeat-a51d5.firebaseapp.com",
+        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "blindbeat-a51d5",
+        storageBucket: "blindbeat-a51d5.firebasestorage.app",
+        messagingSenderId: "1037778546860",
+        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+    };
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const auth = getAuth(app);
 
     async function loadLeaderboard() {
+        const content = document.getElementById('content');
         try {
+            console.log("Tentative de connexion...");
             await signInAnonymously(auth);
+            console.log("Connecté !");
 
             const usersRef = ref(db, 'users/production');
-            // Utilise les stats allTime pour un classement historique permanent
             const topQuery = query(usersRef, orderByChild('stats/allTime/totalScore'), limitToLast(50));
 
+            console.log("Récupération des données...");
             const snapshot = await get(topQuery);
-            const content = document.getElementById('content');
 
             if (!snapshot.exists()) {
-                content.innerHTML = "<div class='loading'>Aucune donnée disponible.</div>";
+                content.innerHTML = "<div class='loading'>Aucune donnée disponible. Essayez de trier par score simple si allTime est vide.</div>";
+
+                // Fallback vers les anciennes stats si allTime n'est pas encore peuplé
+                const fallbackQuery = query(usersRef, orderByChild('stats/totalScore'), limitToLast(50));
+                const fallbackSnap = await get(fallbackQuery);
+                if (!fallbackSnap.exists()) return;
+                renderData(fallbackSnap);
                 return;
             }
 
-            const players = [];
-            snapshot.forEach((child) => {
-                players.push(child.val());
-            });
-
-            // Firebase returns in ascending order, we want descending
-            players.sort((a, b) => (b.stats?.allTime?.totalScore || 0) - (a.stats?.allTime?.totalScore || 0));
-
-            let html = `<table>
-                <thead>
-                    <tr>
-                        <th>Rang</th>
-                        <th>Joueur</th>
-                        <th>Score Total</th>
-                        <th>Victoires</th>
-                        <th>Précision</th>
-                    </tr>
-                </thead>
-                <tbody>`;
-
-            players.forEach((p, index) => {
-                const s = p.stats?.allTime || p.stats; // Fallback pour les anciens profils non migrés
-                const accuracy = s?.totalAnswers > 0
-                    ? Math.round((s.correctAnswers / s.totalAnswers) * 100)
-                    : 0;
-
-                html += `
-                    <tr>
-                        <td class="rank">#${index + 1}</td>
-                        <td>
-                            <div class="player-info">
-                                <span class="avatar">${p.avatar || '🎵'}</span>
-                                <span>${p.name || 'Anonyme'}</span>
-                            </div>
-                        </td>
-                        <td class="score">${s?.totalScore || 0}</td>
-                        <td>${s?.gamesWon || 0}</td>
-                        <td>${accuracy}%</td>
-                    </tr>
-                `;
-            });
-
-            html += `</tbody></table>`;
-            content.innerHTML = html;
+            renderData(snapshot);
 
         } catch (error) {
-            console.error(error);
-            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors du chargement.</div>";
+            console.error("Erreur détaillée:", error);
+            content.innerHTML = `<div class='loading'>Erreur : ${error.message}<br><small>Vérifiez les règles d'indexation dans Firebase.</small></div>`;
         }
+    }
+
+    function renderData(snapshot) {
+        const content = document.getElementById('content');
+        const players = [];
+        snapshot.forEach((child) => {
+            players.push(child.val());
+        });
+
+        // Tri descendant
+        players.sort((a, b) => {
+            const scoreA = a.stats?.allTime?.totalScore || a.stats?.totalScore || 0;
+            const scoreB = b.stats?.allTime?.totalScore || b.stats?.totalScore || 0;
+            return scoreB - scoreA;
+        });
+
+        let html = `<table>
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Joueur</th>
+                    <th>Score Total</th>
+                    <th>Victoires</th>
+                    <th>Précision</th>
+                </tr>
+            </thead>
+            <tbody>`;
+
+        players.forEach((p, index) => {
+            const s = p.stats?.allTime || p.stats;
+            const accuracy = s?.totalAnswers > 0
+                ? Math.round((s.correctAnswers / s.totalAnswers) * 100)
+                : 0;
+
+            html += `
+                <tr>
+                    <td class="rank">#${index + 1}</td>
+                    <td>
+                        <div class="player-info">
+                            <span class="avatar">${p.avatar || '🎵'}</span>
+                            <span>${p.name || 'Anonyme'}</span>
+                        </div>
+                    </td>
+                    <td class="score">${s?.totalScore || 0}</td>
+                    <td>${s?.gamesWon || 0}</td>
+                    <td>${accuracy}%</td>
+                </tr>
+            `;
+        });
+
+        html += `</tbody></table>`;
+        content.innerHTML = html;
     }
 
     loadLeaderboard();
