@@ -145,16 +145,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
-        authDomain: "blindbeat-a51d5.firebaseapp.com",
-        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
-        projectId: "blindbeat-a51d5",
-        storageBucket: "blindbeat-a51d5.firebasestorage.app",
-        messagingSenderId: "1037778546860",
-        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
-    };
+    import { firebaseConfig } from "./firebase-config.js";
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
@@ -165,7 +156,8 @@
             await signInAnonymously(auth);
 
             const usersRef = ref(db, 'users/production');
-            const topQuery = query(usersRef, orderByChild('stats/totalScore'), limitToLast(50));
+            // Utilise les stats allTime pour un classement historique permanent
+            const topQuery = query(usersRef, orderByChild('stats/allTime/totalScore'), limitToLast(50));
 
             const snapshot = await get(topQuery);
             const content = document.getElementById('content');
@@ -181,7 +173,7 @@
             });
 
             // Firebase returns in ascending order, we want descending
-            players.sort((a, b) => (b.stats?.totalScore || 0) - (a.stats?.totalScore || 0));
+            players.sort((a, b) => (b.stats?.allTime?.totalScore || 0) - (a.stats?.allTime?.totalScore || 0));
 
             let html = `<table>
                 <thead>
@@ -196,9 +188,10 @@
                 <tbody>`;
 
             players.forEach((p, index) => {
-                const accuracy = p.stats?.gamesPlayed > 0
-                    ? Math.round((p.stats.correctAnswers / (p.stats.gamesPlayed * 10)) * 100)
-                    : 0; // Assumption based on common stats
+                const s = p.stats?.allTime || p.stats; // Fallback pour les anciens profils non migrés
+                const accuracy = s?.totalAnswers > 0
+                    ? Math.round((s.correctAnswers / s.totalAnswers) * 100)
+                    : 0;
 
                 html += `
                     <tr>
@@ -209,9 +202,9 @@
                                 <span>${p.name || 'Anonyme'}</span>
                             </div>
                         </td>
-                        <td class="score">${p.stats?.totalScore || 0}</td>
-                        <td>${p.stats?.gamesWon || 0}</td>
-                        <td>${p.stats?.accuracy || accuracy}%</td>
+                        <td class="score">${s?.totalScore || 0}</td>
+                        <td>${s?.gamesWon || 0}</td>
+                        <td>${accuracy}%</td>
                     </tr>
                 `;
             });

@@ -115,6 +115,31 @@
             font-style: italic;
             color: var(--text-secondary);
         }
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-light);
+            color: white;
+            border-color: var(--primary-light);
+        }
     </style>
 </head>
 <body>
@@ -131,6 +156,10 @@
         <a href="activity.html">Activité</a>
     </div>
 
+    <div id="filters" class="filter-bar">
+        <!-- Rempli dynamiquement -->
+    </div>
+
     <div id="content">
         <div class="loading">Analyse des salons en cours...</div>
     </div>
@@ -140,86 +169,112 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
-        authDomain: "blindbeat-a51d5.firebaseapp.com",
-        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
-        projectId: "blindbeat-a51d5",
-        storageBucket: "blindbeat-a51d5.firebasestorage.app",
-        messagingSenderId: "1037778546860",
-        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
-    };
+    import { firebaseConfig } from "./firebase-config.js";
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const auth = getAuth(app);
 
-    async function loadTopSongs() {
+    const THEMES = [
+        { id: '0', label: 'Tout' },
+        { id: '132', label: 'Pop' },
+        { id: '116', label: 'Rap' },
+        { id: '152', label: 'Rock' },
+        { id: '113', label: 'Electro' },
+        { id: '165', label: 'R&B' },
+        { id: '464', label: 'Metal' },
+        { id: '129', label: 'Jazz' },
+        { id: '98', label: 'Classique' },
+        { id: '173', label: 'Film' },
+    ];
+
+    let currentGenre = '0';
+    let allRooms = [];
+
+    function renderFilters() {
+        const filterEl = document.getElementById('filters');
+        filterEl.innerHTML = THEMES.map(t => `
+            <button class="filter-btn ${currentGenre === t.id ? 'active' : ''}"
+                    onclick="window.setGenre('${t.id}')">
+                ${t.label}
+            </button>
+        `).join('');
+    }
+
+    window.setGenre = (id) => {
+        currentGenre = id;
+        renderFilters();
+        processSongs();
+    };
+
+    async function loadData() {
         try {
             await signInAnonymously(auth);
-
             const roomsRef = ref(db, 'rooms');
-            const recentRoomsQuery = query(roomsRef, limitToLast(200));
-
+            const recentRoomsQuery = query(roomsRef, limitToLast(300));
             const snapshot = await get(recentRoomsQuery);
-            const content = document.getElementById('content');
 
-            if (!snapshot.exists()) {
-                content.innerHTML = "<div class='loading'>Aucun salon trouvé.</div>";
-                return;
+            if (snapshot.exists()) {
+                snapshot.forEach(child => allRooms.push(child.val()));
             }
 
-            const songCounts = {};
-            snapshot.forEach((roomSnap) => {
-                const room = roomSnap.val();
-                if (room.questions) {
-                    room.questions.forEach(q => {
-                        const id = q.id;
-                        if (!id) return;
-                        if (!songCounts[id]) {
-                            songCounts[id] = {
-                                count: 0,
-                                title: q.trackTitle,
-                                artist: q.trackArtist,
-                                cover: q.cover
-                            };
-                        }
-                        songCounts[id].count++;
-                    });
-                }
-            });
-
-            const sortedSongs = Object.values(songCounts).sort((a, b) => b.count - a.count).slice(0, 50);
-
-            if (sortedSongs.length === 0) {
-                content.innerHTML = "<div class='loading'>Aucune chanson trouvée dans les salons récents.</div>";
-                return;
-            }
-
-            let html = "";
-            sortedSongs.forEach((s) => {
-                html += `
-                    <div class="song-card">
-                        <img src="${s.cover || 'https://via.placeholder.com/60'}" class="song-cover" alt="cover">
-                        <div class="song-details">
-                            <span class="song-title">${s.title}</span>
-                            <span class="song-artist">${s.artist}</span>
-                        </div>
-                        <div class="count-badge">${s.count} fois</div>
-                    </div>
-                `;
-            });
-
-            content.innerHTML = html;
-
+            renderFilters();
+            processSongs();
         } catch (error) {
             console.error(error);
-            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors de l'analyse.</div>";
+            document.getElementById('content').innerHTML = "<div class='loading'>Erreur lors du chargement.</div>";
         }
     }
 
-    loadTopSongs();
+    function processSongs() {
+        const content = document.getElementById('content');
+        const songCounts = {};
+
+        allRooms.forEach((room) => {
+            // Filtrer par genre si nécessaire
+            if (currentGenre !== '0' && room.theme?.id !== currentGenre) return;
+
+            if (room.questions) {
+                room.questions.forEach(q => {
+                    const id = q.id;
+                    if (!id) return;
+                    if (!songCounts[id]) {
+                        songCounts[id] = {
+                            count: 0,
+                            title: q.trackTitle,
+                            artist: q.trackArtist,
+                            cover: q.cover
+                        };
+                    }
+                    songCounts[id].count++;
+                });
+            }
+        });
+
+        const sortedSongs = Object.values(songCounts).sort((a, b) => b.count - a.count).slice(0, 50);
+
+        if (sortedSongs.length === 0) {
+            content.innerHTML = "<div class='loading'>Aucune chanson trouvée pour ce filtre.</div>";
+            return;
+        }
+
+        let html = "";
+        sortedSongs.forEach((s) => {
+            html += `
+                <div class="song-card">
+                    <img src="${s.cover || 'https://via.placeholder.com/60'}" class="song-cover" alt="cover">
+                    <div class="song-details">
+                        <span class="song-title">${s.title}</span>
+                        <span class="song-artist">${s.artist}</span>
+                    </div>
+                    <div class="count-badge">${s.count} fois</div>
+                </div>
+            `;
+        });
+        content.innerHTML = html;
+    }
+
+    loadData();
 </script>
 
 </body>
