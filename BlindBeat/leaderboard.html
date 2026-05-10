@@ -49,6 +49,7 @@
             gap: 15px;
             margin-bottom: 30px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .nav a {
@@ -134,6 +135,7 @@
         <a href="leaderboard.html" class="active">Top Joueurs</a>
         <a href="songs.html">Top Chansons</a>
         <a href="activity.html">Activité</a>
+        <a href="rooms.html">Salons</a>
     </div>
 
     <div id="content">
@@ -146,7 +148,6 @@
     import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-    // Intégration directe pour éviter les erreurs d'import local (CORS/file://)
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
         authDomain: "blindbeat-a51d5.firebaseapp.com",
@@ -164,32 +165,24 @@
     async function loadLeaderboard() {
         const content = document.getElementById('content');
         try {
-            console.log("Tentative de connexion...");
             await signInAnonymously(auth);
-            console.log("Connecté !");
-
             const usersRef = ref(db, 'users/production');
             const topQuery = query(usersRef, orderByChild('stats/allTime/totalScore'), limitToLast(50));
-
-            console.log("Récupération des données...");
             const snapshot = await get(topQuery);
 
             if (!snapshot.exists()) {
-                content.innerHTML = "<div class='loading'>Aucune donnée disponible. Essayez de trier par score simple si allTime est vide.</div>";
-
-                // Fallback vers les anciennes stats si allTime n'est pas encore peuplé
                 const fallbackQuery = query(usersRef, orderByChild('stats/totalScore'), limitToLast(50));
                 const fallbackSnap = await get(fallbackQuery);
-                if (!fallbackSnap.exists()) return;
+                if (!fallbackSnap.exists()) {
+                    content.innerHTML = "<div class='loading'>Aucune donnée disponible.</div>";
+                    return;
+                }
                 renderData(fallbackSnap);
                 return;
             }
-
             renderData(snapshot);
-
         } catch (error) {
-            console.error("Erreur détaillée:", error);
-            content.innerHTML = `<div class='loading'>Erreur : ${error.message}<br><small>Vérifiez les règles d'indexation dans Firebase.</small></div>`;
+            content.innerHTML = `<div class='loading'>Erreur : ${error.message}</div>`;
         }
     }
 
@@ -200,7 +193,6 @@
             players.push(child.val());
         });
 
-        // Tri descendant
         players.sort((a, b) => {
             const scoreA = a.stats?.allTime?.totalScore || a.stats?.totalScore || 0;
             const scoreB = b.stats?.allTime?.totalScore || b.stats?.totalScore || 0;

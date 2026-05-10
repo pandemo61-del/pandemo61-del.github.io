@@ -49,6 +49,7 @@
             gap: 15px;
             margin-bottom: 30px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .nav a {
@@ -154,6 +155,7 @@
         <a href="leaderboard.html">Top Joueurs</a>
         <a href="songs.html" class="active">Top Chansons</a>
         <a href="activity.html">Activité</a>
+        <a href="rooms.html">Salons</a>
     </div>
 
     <div id="filters" class="filter-bar">
@@ -170,7 +172,6 @@
     import { getDatabase, ref, get, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-    // Intégration directe pour éviter les erreurs d'import local
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
         authDomain: "blindbeat-a51d5.firebaseapp.com",
@@ -220,12 +221,9 @@
     async function loadData() {
         const content = document.getElementById('content');
         try {
-            console.log("Connexion...");
             await signInAnonymously(auth);
             const roomsRef = ref(db, 'rooms');
             const recentRoomsQuery = query(roomsRef, limitToLast(300));
-
-            console.log("Récupération des salons...");
             const snapshot = await get(recentRoomsQuery);
 
             if (snapshot.exists()) {
@@ -238,8 +236,7 @@
             renderFilters();
             processSongs();
         } catch (error) {
-            console.error(error);
-            content.innerHTML = `<div class='loading'>Erreur lors du chargement : ${error.message}</div>`;
+            content.innerHTML = `<div class='loading'>Erreur : ${error.message}</div>`;
         }
     }
 
@@ -248,9 +245,7 @@
         const songCounts = {};
 
         allRooms.forEach((room) => {
-            // Filtrer par genre si nécessaire
             if (currentGenre !== '0' && room.theme?.id !== currentGenre) return;
-
             if (room.questions) {
                 room.questions.forEach(q => {
                     const id = q.id;
@@ -268,10 +263,13 @@
             }
         });
 
-        const sortedSongs = Object.values(songCounts).sort((a, b) => b.count - a.count).slice(0, 50);
+        const sortedSongs = Object.values(songCounts)
+            .filter(s => s.count > 1)
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 50);
 
         if (sortedSongs.length === 0) {
-            content.innerHTML = "<div class='loading'>Aucune chanson trouvée pour ce filtre.</div>";
+            content.innerHTML = "<div class='loading'>Aucune chanson n'a été jouée plus d'une fois.</div>";
             return;
         }
 

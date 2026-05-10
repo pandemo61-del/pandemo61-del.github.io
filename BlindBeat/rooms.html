@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Salons - BlindBeat</title>
+    <style>
+        :root {
+            --bg: #0A0A1A;
+            --surface: #12122A;
+            --surface-light: #1E1E40;
+            --primary: #F5820D;
+            --primary-light: #FF9F43;
+            --error: #ff4444;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0C0;
+            --border: #2A2A50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .nav a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--surface);
+        }
+
+        .btn.active {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: var(--error);
+            border-color: var(--error);
+            padding: 4px 8px;
+            font-size: 0.8rem;
+        }
+
+        .btn-danger:hover {
+            background: var(--error);
+            color: white;
+        }
+
+        .group-header {
+            background: var(--surface-light);
+            padding: 10px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 8px;
+            color: var(--primary-light);
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        th {
+            background: rgba(255,255,255,0.05);
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .date {
+            font-family: monospace;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .stats-summary {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .stat-item {
+            background: var(--surface);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .stat-item:hover {
+            background: var(--surface-light);
+            border-color: var(--primary-light);
+        }
+
+        .stat-item.active {
+            border-color: var(--primary-light);
+            background: rgba(245, 130, 13, 0.1);
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-light);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .status-badge {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .status-lobby { background: #2196f3; }
+        .status-playing { background: #4caf50; }
+        .status-finished { background: #9c27b0; }
+        .status-closed { background: #607d8b; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎮 Gestion des Salons</h1>
+        <p>Visualisation et nettoyage de la base de données</p>
+    </header>
+
+    <div class="nav">
+        <a href="leaderboard.html">Top Joueurs</a>
+        <a href="songs.html">Top Chansons</a>
+        <a href="activity.html">Activité</a>
+        <a href="rooms.html" class="active">Salons</a>
+    </div>
+
+    <div class="controls">
+        <button id="groupByDay" class="btn active" onclick="setGrouping('day')">Par Jour</button>
+        <button id="groupByWeek" class="btn" onclick="setGrouping('week')">Par Semaine</button>
+        <button id="groupByMonth" class="btn" onclick="setGrouping('month')">Par Mois</button>
+    </div>
+
+    <div id="summary" class="stats-summary"></div>
+
+    <div id="content">
+        <div class="loading">Chargement des salons...</div>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, get, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+        authDomain: "blindbeat-a51d5.firebaseapp.com",
+        databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "blindbeat-a51d5",
+        storageBucket: "blindbeat-a51d5.firebasestorage.app",
+        messagingSenderId: "1037778546860",
+        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+
+    let allRooms = [];
+    let currentGrouping = 'day';
+    let currentStatusFilter = 'all';
+
+    window.setGrouping = (type) => {
+        currentGrouping = type;
+        document.querySelectorAll('.controls .btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('groupBy' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+        renderRooms();
+    };
+
+    window.setStatusFilter = (status) => {
+        currentStatusFilter = status;
+        renderRooms();
+    };
+
+    window.deleteRoom = async (id) => {
+        if (confirm(`Supprimer le salon ${id} ?`)) {
+            try {
+                await remove(ref(db, `rooms/${id}`));
+                allRooms = allRooms.filter(r => r.id !== id);
+                renderRooms();
+            } catch (e) {
+                alert("Erreur: " + e.message);
+            }
+        }
+    };
+
+    window.deleteGroup = async (groupName, ids) => {
+        if (confirm(`Supprimer TOUS les salons de "${groupName}" (${ids.length} salons) ?`)) {
+            try {
+                const promises = ids.map(id => remove(ref(db, `rooms/${id}`)));
+                await Promise.all(promises);
+                const idSet = new Set(ids);
+                allRooms = allRooms.filter(r => !idSet.has(r.id));
+                renderRooms();
+            } catch (e) {
+                alert("Erreur lors de la suppression groupée: " + e.message);
+            }
+        }
+    };
+
+    async function init() {
+        try {
+            await signInAnonymously(auth);
+
+            const snapshot = await get(ref(db, 'rooms'));
+            if (snapshot.exists()) {
+                snapshot.forEach(child => {
+                    allRooms.push({ id: child.key, ...child.val() });
+                });
+            }
+            renderRooms();
+        } catch (e) {
+            document.getElementById('content').innerHTML = `<div class="loading">Erreur: ${e.message}</div>`;
+        }
+    }
+
+    function getGroupKey(timestamp, type) {
+        if (!timestamp) return "Date Inconnue";
+        const d = new Date(timestamp);
+        if (type === 'day') return d.toLocaleDateString('fr-FR');
+        if (type === 'month') return d.toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
+        if (type === 'week') {
+            const firstDayOfYear = new Date(d.getFullYear(), 0, 1);
+            const pastDaysOfYear = (d - firstDayOfYear) / 86400000;
+            const weekNum = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+            return `Semaine ${weekNum} - ${d.getFullYear()}`;
+        }
+        return "Autre";
+    }
+
+    function renderRooms() {
+        const content = document.getElementById('content');
+        const summary = document.getElementById('summary');
+        if (allRooms.length === 0) {
+            content.innerHTML = '<div class="loading">Aucun salon trouvé.</div>';
+            summary.innerHTML = '';
+            return;
+        }
+
+        // Stats summary
+        const total = allRooms.length;
+        const playing = allRooms.filter(r => r.status === 'playing').length;
+        const finished = allRooms.filter(r => r.status === 'finished').length;
+        const lobby = allRooms.filter(r => r.status === 'lobby').length;
+
+        summary.innerHTML = `
+            <div class="stat-item ${currentStatusFilter === 'all' ? 'active' : ''}" onclick="window.setStatusFilter('all')">
+                <span class="stat-value">${total}</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item ${currentStatusFilter === 'lobby' ? 'active' : ''}" onclick="window.setStatusFilter('lobby')">
+                <span class="stat-value" style="color: #2196f3">${lobby}</span>
+                <span class="stat-label">Lobby</span>
+            </div>
+            <div class="stat-item ${currentStatusFilter === 'playing' ? 'active' : ''}" onclick="window.setStatusFilter('playing')">
+                <span class="stat-value" style="color: #4caf50">${playing}</span>
+                <span class="stat-label">En cours</span>
+            </div>
+            <div class="stat-item ${currentStatusFilter === 'finished' ? 'active' : ''}" onclick="window.setStatusFilter('finished')">
+                <span class="stat-value" style="color: #9c27b0">${finished}</span>
+                <span class="stat-label">Terminés</span>
+            </div>
+        `;
+
+        // Apply status filter
+        const filteredRooms = currentStatusFilter === 'all'
+            ? allRooms
+            : allRooms.filter(r => r.status === currentStatusFilter);
+
+        if (filteredRooms.length === 0) {
+            content.innerHTML = `<div class="loading">Aucun salon trouvé avec le statut "${currentStatusFilter}".</div>`;
+            return;
+        }
+
+        // Sort by date desc
+        const sorted = [...filteredRooms].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+        const groups = {};
+        sorted.forEach(room => {
+            const key = getGroupKey(room.createdAt, currentGrouping);
+            if (!groups[key]) groups[key] = [];
+            groups[key].push(room);
+        });
+
+        let html = "";
+        for (const [groupName, rooms] of Object.entries(groups)) {
+            const roomIds = JSON.stringify(rooms.map(r => r.id)).replace(/"/g, "'");
+            html += `
+                <div class="group-header">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span>${groupName}</span>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary)">${rooms.length} salons</span>
+                    </div>
+                    <button class="btn btn-danger" onclick="window.deleteGroup('${groupName}', ${roomIds})">
+                        Tout supprimer (${rooms.length})
+                    </button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date/Heure</th>
+                            <th>Code</th>
+                            <th>Hôte (Pseudo)</th>
+                            <th>Thème</th>
+                            <th>Progrès</th>
+                            <th>Statut</th>
+                            <th>Joueurs</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            rooms.forEach(r => {
+                const playerCount = r.players ? Object.keys(r.players).length : 0;
+                const hostName = r.players && r.host ? (r.players[r.host]?.name || '???') : '???';
+                const dateObj = new Date(r.createdAt);
+                const timeStr = dateObj.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+                const progress = r.status === 'lobby' ? `0/${r.questionCount || 0}` : `${(r.currentRound || 0) + 1}/${r.questionCount || 0}`;
+
+                html += `
+                    <tr>
+                        <td class="date">${timeStr}</td>
+                        <td style="font-family: monospace; font-weight: bold">${r.id}</td>
+                        <td>
+                            <span style="font-weight: 600">${hostName}</span><br>
+                            <small style="color: var(--text-secondary); font-size: 0.7rem">${r.host || '???'}</small>
+                        </td>
+                        <td>${r.theme?.label || 'Inconnu'}</td>
+                        <td style="text-align: center">${progress}</td>
+                        <td><span class="status-badge status-${r.status}">${r.status}</span></td>
+                        <td style="text-align: center">${playerCount}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="window.deleteRoom('${r.id}')">Supprimer</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `</tbody></table>`;
+        }
+        content.innerHTML = html;
+    }
+
+    init();
+</script>
+
+</body>
+</html>

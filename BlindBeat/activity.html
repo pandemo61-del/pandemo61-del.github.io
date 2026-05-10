@@ -49,6 +49,7 @@
             gap: 15px;
             margin-bottom: 30px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .nav a {
@@ -142,6 +143,7 @@
         <a href="leaderboard.html">Top Joueurs</a>
         <a href="songs.html">Top Chansons</a>
         <a href="activity.html" class="active">Activité</a>
+        <a href="rooms.html">Salons</a>
     </div>
 
     <div id="content">
@@ -154,7 +156,6 @@
     import { getDatabase, ref, get, query, orderByChild, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-    // Intégration directe pour éviter les erreurs d'import local
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
         authDomain: "blindbeat-a51d5.firebaseapp.com",
@@ -181,14 +182,9 @@
     async function loadActivity() {
         const content = document.getElementById('content');
         try {
-            console.log("Connexion...");
             await signInAnonymously(auth);
-
             const usersRef = ref(db, 'users/production');
-            // Sort by lastSeen to show most recently active
             const activityQuery = query(usersRef, orderByChild('lastSeen'), limitToLast(50));
-
-            console.log("Récupération de l'activité...");
             const snapshot = await get(activityQuery);
 
             if (!snapshot.exists()) {
@@ -216,10 +212,8 @@
                 <tbody>`;
 
             const now = Date.now();
-
             players.forEach((p) => {
-                const isOnline = (now - (p.lastSeen || 0)) < 5 * 60 * 1000; // Active in last 5 min
-
+                const isOnline = (now - (p.lastSeen || 0)) < 5 * 60 * 1000;
                 html += `
                     <tr>
                         <td>
@@ -241,10 +235,8 @@
 
             html += `</tbody></table>`;
             content.innerHTML = html;
-
         } catch (error) {
-            console.error(error);
-            content.innerHTML = `<div class='loading'>Erreur lors du chargement : ${error.message}</div>`;
+            content.innerHTML = `<div class='loading'>Erreur : ${error.message}</div>`;
         }
     }
 
