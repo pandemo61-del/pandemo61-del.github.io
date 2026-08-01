@@ -265,7 +265,7 @@
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    const ADMIN_UID = "HcEXtGa5OXdtjuBjFXF6Bcy9Ymq2";
+    const ADMIN_UIDS = ["HcEXtGa5OXdtjuBjFXF6Bcy9Ymq2", "lwBz4lZ85ffc3TiJ5oEuwm4nz2Y2"];
 
     let allRooms = [];
     let currentGrouping = 'day';
@@ -297,7 +297,7 @@
             loginBtn.style.display = 'none';
             logoutBtn.style.display = 'block';
 
-            if (user.uid !== ADMIN_UID) {
+            if (!ADMIN_UIDS.includes(user.uid)) {
                 userInfo.innerHTML += `<br><span style="color: var(--error)">⚠️ Vous n'êtes pas administrateur. La suppression risque d'échouer.</span>`;
             }
 
