@@ -230,6 +230,14 @@
         <button id="groupByMonth" class="btn" onclick="setGrouping('month')">Par Mois</button>
     </div>
 
+    <div id="auth-section" class="stats-summary" style="display: none; flex-direction: column; align-items: center; margin-bottom: 30px;">
+        <p id="user-info" style="margin-bottom: 10px; color: var(--text-secondary);"></p>
+        <button id="loginBtn" class="btn" style="background: #4285F4; color: white; border: none; font-weight: bold;">
+            Se connecter avec Google
+        </button>
+        <button id="logoutBtn" class="btn btn-danger" style="display: none; margin-top: 10px;">Déconnexion</button>
+    </div>
+
     <div id="summary" class="stats-summary"></div>
 
     <div id="content">
@@ -240,7 +248,7 @@
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
     import { getDatabase, ref, get, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
-    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
@@ -255,15 +263,58 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const ADMIN_UID = "HcEXtGa5OXdtjuBjFXF6Bcy9Ymq2";
 
     let allRooms = [];
     let currentGrouping = 'day';
     let currentStatusFilter = 'all';
 
+    const authSection = document.getElementById('auth-section');
+    const userInfo = document.getElementById('user-info');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const content = document.getElementById('content');
+
+    loginBtn.onclick = async () => {
+        try {
+            await signInWithPopup(auth, provider);
+        } catch (e) {
+            alert("Erreur de connexion : " + e.message);
+        }
+    };
+
+    logoutBtn.onclick = async () => {
+        await signOut(auth);
+        location.reload();
+    };
+
+    onAuthStateChanged(auth, (user) => {
+        authSection.style.display = 'flex';
+        if (user) {
+            userInfo.innerHTML = `Connecté en tant que : <b>${user.displayName || user.email}</b><br><small>UID: ${user.uid}</small>`;
+            loginBtn.style.display = 'none';
+            logoutBtn.style.display = 'block';
+
+            if (user.uid !== ADMIN_UID) {
+                userInfo.innerHTML += `<br><span style="color: var(--error)">⚠️ Vous n'êtes pas administrateur. La suppression risque d'échouer.</span>`;
+            }
+
+            loadData();
+        } else {
+            userInfo.innerText = "Veuillez vous connecter pour gérer les salons.";
+            loginBtn.style.display = 'block';
+            logoutBtn.style.display = 'none';
+            content.innerHTML = '<div class="loading">Accès restreint. Connectez-vous.</div>';
+        }
+    });
+
     window.setGrouping = (type) => {
         currentGrouping = type;
         document.querySelectorAll('.controls .btn').forEach(b => b.classList.remove('active'));
-        document.getElementById('groupBy' + type.charAt(0).toUpperCase() + type.slice(1)).classList.add('active');
+        const btn = document.getElementById('groupBy' + type.charAt(0).toUpperCase() + type.slice(1));
+        if (btn) btn.classList.add('active');
         renderRooms();
     };
 
@@ -273,18 +324,20 @@
     };
 
     window.deleteRoom = async (id) => {
+        if (!auth.currentUser) return alert("Veuillez vous connecter.");
         if (confirm(`Supprimer le salon ${id} ?`)) {
             try {
                 await remove(ref(db, `rooms/${id}`));
                 allRooms = allRooms.filter(r => r.id !== id);
                 renderRooms();
             } catch (e) {
-                alert("Erreur: " + e.message);
+                alert("Erreur (Permission refusée ?) : " + e.message);
             }
         }
     };
 
     window.deleteGroup = async (groupName, ids) => {
+        if (!auth.currentUser) return alert("Veuillez vous connecter.");
         if (confirm(`Supprimer TOUS les salons de "${groupName}" (${ids.length} salons) ?`)) {
             try {
                 const promises = ids.map(id => remove(ref(db, `rooms/${id}`)));
@@ -293,16 +346,16 @@
                 allRooms = allRooms.filter(r => !idSet.has(r.id));
                 renderRooms();
             } catch (e) {
-                alert("Erreur lors de la suppression groupée: " + e.message);
+                alert("Erreur lors de la suppression groupée : " + e.message);
             }
         }
     };
 
-    async function init() {
+    async function loadData() {
         try {
-            await signInAnonymously(auth);
-
+            content.innerHTML = '<div class="loading">Chargement des salons...</div>';
             const snapshot = await get(ref(db, 'rooms'));
+            allRooms = [];
             if (snapshot.exists()) {
                 snapshot.forEach(child => {
                     allRooms.push({ id: child.key, ...child.val() });
@@ -310,7 +363,7 @@
             }
             renderRooms();
         } catch (e) {
-            document.getElementById('content').innerHTML = `<div class="loading">Erreur: ${e.message}</div>`;
+            content.innerHTML = `<div class="loading">Erreur de lecture : ${e.message}</div>`;
         }
     }
 
@@ -442,7 +495,7 @@
         content.innerHTML = html;
     }
 
-    init();
+    // Le démarrage est géré par onAuthStateChanged
 </script>
 
 </body>
