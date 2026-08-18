@@ -36,6 +36,17 @@
         header {
             text-align: center;
             margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         h1 {
@@ -127,6 +138,7 @@
 
 <div class="container">
     <header>
+        <img src="icon.png" alt="BlindBeat Icon" class="app-icon">
         <h1>🏆 BlindBeat Leaderboard</h1>
         <p>Les meilleurs joueurs du monde !</p>
     </header>
@@ -136,6 +148,11 @@
         <a href="songs.html">Top Chansons</a>
         <a href="activity.html">Activité</a>
         <a href="rooms.html">Salons</a>
+    </div>
+
+    <div class="controls">
+        <button id="showProd" class="btn active" onclick="setEnv('production')">Production</button>
+        <button id="showDev" class="btn" onclick="setEnv('development')">Développement</button>
     </div>
 
     <div id="content">
@@ -162,11 +179,22 @@
     const db = getDatabase(app);
     const auth = getAuth(app);
 
+    let currentEnv = 'production';
+
+    window.setEnv = (env) => {
+        currentEnv = env;
+        document.querySelectorAll('.controls .btn').forEach(b => b.classList.remove('active'));
+        if (env === 'production') document.getElementById('showProd').classList.add('active');
+        else document.getElementById('showDev').classList.add('active');
+        loadLeaderboard();
+    };
+
     async function loadLeaderboard() {
         const content = document.getElementById('content');
+        content.innerHTML = `<div class="loading">Chargement (${currentEnv})...</div>`;
         try {
             await signInAnonymously(auth);
-            const usersRef = ref(db, 'users/production');
+            const usersRef = ref(db, `users/${currentEnv}`);
             const topQuery = query(usersRef, orderByChild('stats/allTime/totalScore'), limitToLast(50));
             const snapshot = await get(topQuery);
 
