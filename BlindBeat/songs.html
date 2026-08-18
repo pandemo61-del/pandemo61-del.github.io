@@ -166,9 +166,37 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 0;
             padding-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .player-group.expanded .player-header {
             border-bottom: 1px solid var(--border);
+            margin-bottom: 15px;
+        }
+
+        .player-songs {
+            display: none;
+        }
+
+        .player-group.expanded .player-songs {
+            display: block;
+        }
+
+        .view-distribution {
+            display: flex;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .dist-pill {
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .player-name {
@@ -234,7 +262,7 @@
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-    import { getDatabase, ref, get, query, limitToLast } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+    import { getDatabase, ref, get, query, limitToLast, orderByChild } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
     import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -297,19 +325,27 @@
         processData();
     };
 
+    window.togglePlayer = (pid) => {
+        const el = document.getElementById('player-' + pid);
+        if (el) el.classList.toggle('expanded');
+    };
+
     async function loadData() {
         const content = document.getElementById('content');
         try {
             await signInAnonymously(auth);
             const roomsRef = ref(db, 'rooms');
-            // On analyse plus de salons pour avoir plus de données
-            const recentRoomsQuery = query(roomsRef, limitToLast(500));
-            const snapshot = await get(recentRoomsQuery);
+            // On récupère tout pour être sûr de ne rien rater (comme dans rooms.html)
+            const snapshot = await get(roomsRef);
 
             if (snapshot.exists()) {
-                snapshot.forEach(child => allRooms.push(child.val()));
+                allRooms = [];
+                snapshot.forEach(child => {
+                    const data = child.val();
+                    if (data) allRooms.push(data);
+                });
             } else {
-                content.innerHTML = "<div class='loading'>Aucun salon trouvé.</div>";
+                content.innerHTML = "<div class='loading'>Aucun salon trouvé dans la base.</div>";
                 return;
             }
 
@@ -436,20 +472,37 @@
 
         sortedPlayers.forEach(p => {
             const pSongs = Object.values(p.songs)
-                .sort((a, b) => b.count - a.count)
-                .slice(0, 15);
+                .sort((a, b) => b.count - a.count);
+
+            // Calculate distribution
+            const distribution = {};
+            pSongs.forEach(s => {
+                distribution[s.count] = (distribution[s.count] || 0) + 1;
+            });
+            const distHtml = Object.entries(distribution)
+                .sort((a, b) => Number(a[0]) - Number(b[0]))
+                .map(([count, num]) => `<span class="dist-pill">${count}x: <b>${num}</b></span>`)
+                .join('');
+
+            const topSongs = pSongs.slice(0, 15);
 
             html += `
-                <div class="player-group">
-                    <div class="player-header">
+                <div class="player-group" id="player-${p.id}">
+                    <div class="player-header" onclick="window.togglePlayer('${p.id}')">
                         <span style="font-size: 1.5rem">${p.avatar || '🎵'}</span>
-                        <span class="player-name">${p.name || "Anonyme"}</span>
-                        <span style="margin-left: auto; color: var(--text-secondary); font-size: 0.8rem">
-                            ${Object.keys(p.songs).length} morceaux vus
-                        </span>
+                        <div style="flex: 1">
+                            <div class="player-name">${p.name || "Anonyme"}</div>
+                            <div class="view-distribution">${distHtml}</div>
+                        </div>
+                        <div style="text-align: right">
+                            <span style="display: block; color: var(--text-secondary); font-size: 0.8rem">
+                                ${Object.keys(p.songs).length} morceaux
+                            </span>
+                            <small style="color: var(--primary-light)">cliquer pour voir ▾</small>
+                        </div>
                     </div>
                     <div class="player-songs">
-                        ${pSongs.map(s => `
+                        ${topSongs.map(s => `
                             <div class="song-card" style="padding: 5px; margin-bottom: 5px; border-color: rgba(255,255,255,0.05)">
                                 <img src="${s.cover || 'icon.png'}" class="song-cover" style="width: 40px; height: 40px;" alt="cover" onerror="this.src='icon.png'">
                                 <div class="song-details">
@@ -459,6 +512,7 @@
                                 <div class="count-badge" style="font-size: 0.7rem; padding: 2px 8px;">${s.count} fois</div>
                             </div>
                         `).join('')}
+                        ${pSongs.length > 15 ? `<div style="text-align:center; font-size:0.7rem; color:var(--text-secondary); margin-top:5px;">... et ${pSongs.length - 15} autres</div>` : ''}
                     </div>
                 </div>
             `;
