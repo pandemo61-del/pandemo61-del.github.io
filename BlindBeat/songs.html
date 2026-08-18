@@ -219,8 +219,8 @@
     </div>
 
     <div class="view-mode-bar">
-        <button id="modeGlobal" class="mode-btn active" onclick="window.setViewMode('global')">🏆 Top Global</button>
-        <button id="modePlayers" class="mode-btn" onclick="window.setViewMode('players')">👤 Par Joueur</button>
+        <button id="modeGlobal" class="mode-btn" onclick="window.setViewMode('global')">🏆 Top Global</button>
+        <button id="modePlayers" class="mode-btn active" onclick="window.setViewMode('players')">👤 Par Joueur</button>
     </div>
 
     <div id="filters" class="filter-bar">
@@ -265,7 +265,7 @@
     ];
 
     let currentGenre = '0';
-    let currentViewMode = 'global';
+    let currentViewMode = 'players';
     let allRooms = [];
 
     function renderFilters() {
