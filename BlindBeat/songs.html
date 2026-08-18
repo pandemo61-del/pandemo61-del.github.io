@@ -153,6 +153,53 @@
             color: white;
             border-color: var(--primary-light);
         }
+
+        .player-group {
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.02);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .player-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-light);
+        }
+
+        .view-mode-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .mode-btn.active {
+            color: var(--primary-light);
+            border-bottom-color: var(--primary-light);
+        }
     </style>
 </head>
 <body>
@@ -169,6 +216,11 @@
         <a href="songs.html" class="active">Top Chansons</a>
         <a href="activity.html">Activité</a>
         <a href="rooms.html">Salons</a>
+    </div>
+
+    <div class="view-mode-bar">
+        <button id="modeGlobal" class="mode-btn active" onclick="window.setViewMode('global')">🏆 Top Global</button>
+        <button id="modePlayers" class="mode-btn" onclick="window.setViewMode('players')">👤 Par Joueur</button>
     </div>
 
     <div id="filters" class="filter-bar">
@@ -213,10 +265,16 @@
     ];
 
     let currentGenre = '0';
+    let currentViewMode = 'global';
     let allRooms = [];
 
     function renderFilters() {
         const filterEl = document.getElementById('filters');
+        if (currentViewMode === 'players') {
+            filterEl.style.display = 'none';
+            return;
+        }
+        filterEl.style.display = 'flex';
         filterEl.innerHTML = THEMES.map(t => `
             <button class="filter-btn ${currentGenre === t.id ? 'active' : ''}"
                     onclick="window.setGenre('${t.id}')">
@@ -228,7 +286,15 @@
     window.setGenre = (id) => {
         currentGenre = id;
         renderFilters();
-        processSongs();
+        processData();
+    };
+
+    window.setViewMode = (mode) => {
+        currentViewMode = mode;
+        document.getElementById('modeGlobal').classList.toggle('active', mode === 'global');
+        document.getElementById('modePlayers').classList.toggle('active', mode === 'players');
+        renderFilters();
+        processData();
     };
 
     async function loadData() {
@@ -247,13 +313,21 @@
             }
 
             renderFilters();
-            processSongs();
+            processData();
         } catch (error) {
             content.innerHTML = `<div class='loading'>Erreur : ${error.message}</div>`;
         }
     }
 
-    function processSongs() {
+    function processData() {
+        if (currentViewMode === 'global') {
+            processGlobalSongs();
+        } else {
+            processPlayerSongs();
+        }
+    }
+
+    function processGlobalSongs() {
         const content = document.getElementById('content');
         const songCounts = {};
 
@@ -296,6 +370,77 @@
                         <span class="song-artist">${s.artist}</span>
                     </div>
                     <div class="count-badge">${s.count} fois</div>
+                </div>
+            `;
+        });
+        content.innerHTML = html;
+    }
+
+    function processPlayerSongs() {
+        const content = document.getElementById('content');
+        const players = {}; // { id: { name, avatar, songs: { sid: { title, artist, cover, count } } } }
+
+        allRooms.forEach((room) => {
+            const roomPlayers = room.players || {};
+            const roomQuestions = room.questions || [];
+
+            Object.entries(roomPlayers).forEach(([pid, pinfo]) => {
+                if (!players[pid]) {
+                    players[pid] = { name: pinfo.name, avatar: pinfo.avatar, songs: {} };
+                }
+                roomQuestions.forEach(q => {
+                    if (!q.id) return;
+                    if (!players[pid].songs[q.id]) {
+                        players[pid].songs[q.id] = {
+                            title: q.trackTitle,
+                            artist: q.trackArtist,
+                            cover: q.cover,
+                            count: 0
+                        };
+                    }
+                    players[pid].songs[q.id].count++;
+                });
+            });
+        });
+
+        // Convert and sort players by total songs played desc
+        const sortedPlayers = Object.entries(players)
+            .map(([id, p]) => ({ id, ...p }))
+            .sort((a, b) => Object.keys(b.songs).length - Object.keys(a.songs).length)
+            .slice(0, 20); // Top 20 active players
+
+        if (sortedPlayers.length === 0) {
+            content.innerHTML = "<div class='loading'>Aucune donnée par joueur.</div>";
+            return;
+        }
+
+        let html = "";
+        sortedPlayers.forEach(p => {
+            const pSongs = Object.values(p.songs)
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 10); // Show top 10 songs for this player
+
+            html += `
+                <div class="player-group">
+                    <div class="player-header">
+                        <span style="font-size: 1.5rem">${p.avatar || '🎵'}</span>
+                        <span class="player-name">${p.name}</span>
+                        <span style="margin-left: auto; color: var(--text-secondary); font-size: 0.8rem">
+                            ${Object.keys(p.songs).length} morceaux uniques
+                        </span>
+                    </div>
+                    <div class="player-songs">
+                        ${pSongs.map(s => `
+                            <div class="song-card" style="padding: 5px; margin-bottom: 5px; border-color: rgba(255,255,255,0.05)">
+                                <img src="${s.cover || 'https://via.placeholder.com/60'}" class="song-cover" style="width: 40px; height: 40px;" alt="cover">
+                                <div class="song-details">
+                                    <span class="song-title" style="font-size: 0.85rem">${s.title}</span>
+                                    <span class="song-artist" style="font-size: 0.75rem">${s.artist}</span>
+                                </div>
+                                <div class="count-badge" style="font-size: 0.7rem; padding: 2px 8px;">${s.count} fois</div>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             `;
         });
