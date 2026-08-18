@@ -302,7 +302,8 @@
         try {
             await signInAnonymously(auth);
             const roomsRef = ref(db, 'rooms');
-            const recentRoomsQuery = query(roomsRef, limitToLast(300));
+            // On analyse plus de salons pour avoir plus de données
+            const recentRoomsQuery = query(roomsRef, limitToLast(500));
             const snapshot = await get(recentRoomsQuery);
 
             if (snapshot.exists()) {
@@ -335,7 +336,8 @@
             if (currentGenre !== '0' && room.theme?.id !== currentGenre) return;
             if (room.questions) {
                 room.questions.forEach(q => {
-                    const id = q.id;
+                    // Fallback si l'ID est manquant (titre + artiste)
+                    const id = q.id || (q.trackTitle + " - " + q.trackArtist);
                     if (!id) return;
                     if (!songCounts[id]) {
                         songCounts[id] = {
@@ -350,10 +352,10 @@
             }
         });
 
+        // On enlève le filtre .filter(s => s.count > 1) pour tout voir
         const sortedSongs = Object.values(songCounts)
-            .filter(s => s.count > 1)
             .sort((a, b) => b.count - a.count)
-            .slice(0, 50);
+            .slice(0, 100); // Top 100
 
         if (sortedSongs.length === 0) {
             content.innerHTML = "<div class='loading'>Aucune chanson n'a été jouée plus d'une fois.</div>";
@@ -389,16 +391,17 @@
                     players[pid] = { name: pinfo.name, avatar: pinfo.avatar, songs: {} };
                 }
                 roomQuestions.forEach(q => {
-                    if (!q.id) return;
-                    if (!players[pid].songs[q.id]) {
-                        players[pid].songs[q.id] = {
+                    const sid = q.id || (q.trackTitle + " - " + q.trackArtist);
+                    if (!sid) return;
+                    if (!players[pid].songs[sid]) {
+                        players[pid].songs[sid] = {
                             title: q.trackTitle,
                             artist: q.trackArtist,
                             cover: q.cover,
                             count: 0
                         };
                     }
-                    players[pid].songs[q.id].count++;
+                    players[pid].songs[sid].count++;
                 });
             });
         });
