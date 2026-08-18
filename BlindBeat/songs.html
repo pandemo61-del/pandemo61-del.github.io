@@ -331,19 +331,25 @@
     function processGlobalSongs() {
         const content = document.getElementById('content');
         const songCounts = {};
+        let roomsWithQuestions = 0;
 
         allRooms.forEach((room) => {
             if (currentGenre !== '0' && room.theme?.id !== currentGenre) return;
-            if (room.questions) {
-                room.questions.forEach(q => {
-                    // Fallback si l'ID est manquant (titre + artiste)
+
+            const questions = Array.isArray(room.questions)
+                ? room.questions
+                : (room.questions ? Object.values(room.questions) : []);
+
+            if (questions.length > 0) {
+                roomsWithQuestions++;
+                questions.forEach(q => {
                     const id = q.id || (q.trackTitle + " - " + q.trackArtist);
                     if (!id) return;
                     if (!songCounts[id]) {
                         songCounts[id] = {
                             count: 0,
-                            title: q.trackTitle,
-                            artist: q.trackArtist,
+                            title: q.trackTitle || "Titre inconnu",
+                            artist: q.trackArtist || "Artiste inconnu",
                             cover: q.cover
                         };
                     }
@@ -352,21 +358,23 @@
             }
         });
 
-        // On enlève le filtre .filter(s => s.count > 1) pour tout voir
         const sortedSongs = Object.values(songCounts)
             .sort((a, b) => b.count - a.count)
-            .slice(0, 100); // Top 100
+            .slice(0, 100);
 
         if (sortedSongs.length === 0) {
-            content.innerHTML = "<div class='loading'>Aucune chanson n'a été jouée plus d'une fois.</div>";
+            content.innerHTML = `<div class='loading'>Aucune chanson trouvée dans les ${allRooms.length} derniers salons (${roomsWithQuestions} salons ont des questions).</div>`;
             return;
         }
 
-        let html = "";
+        let html = `<div style="text-align: center; margin-bottom: 20px; color: var(--text-secondary); font-size: 0.8rem;">
+            Analyse de ${allRooms.length} salons (${roomsWithQuestions} avec questions). ${Object.keys(songCounts).length} morceaux uniques trouvés.
+        </div>`;
+
         sortedSongs.forEach((s) => {
             html += `
                 <div class="song-card">
-                    <img src="${s.cover || 'https://via.placeholder.com/60'}" class="song-cover" alt="cover">
+                    <img src="${s.cover || 'icon.png'}" class="song-cover" alt="cover" onerror="this.src='icon.png'">
                     <div class="song-details">
                         <span class="song-title">${s.title}</span>
                         <span class="song-artist">${s.artist}</span>
@@ -380,62 +388,70 @@
 
     function processPlayerSongs() {
         const content = document.getElementById('content');
-        const players = {}; // { id: { name, avatar, songs: { sid: { title, artist, cover, count } } } }
+        const players = {};
+        let roomsWithQuestions = 0;
 
         allRooms.forEach((room) => {
             const roomPlayers = room.players || {};
-            const roomQuestions = room.questions || [];
+            const questions = Array.isArray(room.questions)
+                ? room.questions
+                : (room.questions ? Object.values(room.questions) : []);
 
-            Object.entries(roomPlayers).forEach(([pid, pinfo]) => {
-                if (!players[pid]) {
-                    players[pid] = { name: pinfo.name, avatar: pinfo.avatar, songs: {} };
-                }
-                roomQuestions.forEach(q => {
-                    const sid = q.id || (q.trackTitle + " - " + q.trackArtist);
-                    if (!sid) return;
-                    if (!players[pid].songs[sid]) {
-                        players[pid].songs[sid] = {
-                            title: q.trackTitle,
-                            artist: q.trackArtist,
-                            cover: q.cover,
-                            count: 0
-                        };
+            if (questions.length > 0) {
+                roomsWithQuestions++;
+                Object.entries(roomPlayers).forEach(([pid, pinfo]) => {
+                    if (!players[pid]) {
+                        players[pid] = { name: pinfo.name, avatar: pinfo.avatar, songs: {} };
                     }
-                    players[pid].songs[sid].count++;
+                    questions.forEach(q => {
+                        const sid = q.id || (q.trackTitle + " - " + q.trackArtist);
+                        if (!sid) return;
+                        if (!players[pid].songs[sid]) {
+                            players[pid].songs[sid] = {
+                                title: q.trackTitle || "Titre inconnu",
+                                artist: q.trackArtist || "Artiste inconnu",
+                                cover: q.cover,
+                                count: 0
+                            };
+                        }
+                        players[pid].songs[sid].count++;
+                    });
                 });
-            });
+            }
         });
 
-        // Convert and sort players by total songs played desc
         const sortedPlayers = Object.entries(players)
             .map(([id, p]) => ({ id, ...p }))
             .sort((a, b) => Object.keys(b.songs).length - Object.keys(a.songs).length)
-            .slice(0, 20); // Top 20 active players
+            .slice(0, 30);
 
         if (sortedPlayers.length === 0) {
-            content.innerHTML = "<div class='loading'>Aucune donnée par joueur.</div>";
+            content.innerHTML = `<div class='loading'>Aucune donnée par joueur dans les ${allRooms.length} derniers salons.</div>`;
             return;
         }
 
-        let html = "";
+        let html = `<div style="text-align: center; margin-bottom: 20px; color: var(--text-secondary); font-size: 0.8rem;">
+            Analyse de ${allRooms.length} salons (${roomsWithQuestions} avec questions). ${sortedPlayers.length} joueurs actifs trouvés.
+        </div>`;
+
         sortedPlayers.forEach(p => {
             const pSongs = Object.values(p.songs)
                 .sort((a, b) => b.count - a.count)
-                .slice(0, 10); // Show top 10 songs for this player
+                .slice(0, 15);
 
             html += `
                 <div class="player-group">
                     <div class="player-header">
                         <span style="font-size: 1.5rem">${p.avatar || '🎵'}</span>
-                        <span class="player-name">${p.name}</span>
+                        <span class="player-name">${p.name || "Anonyme"}</span>
                         <span style="margin-left: auto; color: var(--text-secondary); font-size: 0.8rem">
-                            ${Object.keys(p.songs).length} morceaux uniques
+                            ${Object.keys(p.songs).length} morceaux vus
                         </span>
                     </div>
                     <div class="player-songs">
                         ${pSongs.map(s => `
                             <div class="song-card" style="padding: 5px; margin-bottom: 5px; border-color: rgba(255,255,255,0.05)">
-                                <img src="${s.cover || 'https://via.placeholder.com/60'}" class="song-cover" style="width: 40px; height: 40px;" alt="cover">
+                                <img src="${s.cover || 'icon.png'}" class="song-cover" style="width: 40px; height: 40px;" alt="cover" onerror="this.src='icon.png'">
                                 <div class="song-details">
                                     <span class="song-title" style="font-size: 0.85rem">${s.title}</span>
                                     <span class="song-artist" style="font-size: 0.75rem">${s.artist}</span>
