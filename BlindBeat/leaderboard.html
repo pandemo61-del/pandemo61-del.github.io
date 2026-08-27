@@ -236,6 +236,8 @@
                     <th>Score Total</th>
                     <th>Victoires</th>
                     <th>Précision</th>
+                    <th>💡 Indices</th>
+                    <th>📺 Pubs</th>
                 </tr>
             </thead>
             <tbody>`;
@@ -258,6 +260,8 @@
                     <td class="score">${s?.totalScore || 0}</td>
                     <td>${s?.gamesWon || 0}</td>
                     <td>${accuracy}%</td>
+                    <td>${s?.hintsUsed || 0}</td>
+                    <td>${s?.adsWatched || 0}</td>
                 </tr>
             `;
         });
