@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist Admin - Dashboard</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Ce script s'exécute immédiatement, même si les modules sont bloqués
+        window.addEventListener('load', () => {
+            if (window.location.protocol === 'file:') {
+                document.getElementById('file-warning').classList.remove('hidden');
+                document.getElementById('auth-status').innerText = 'Erreur Protocole';
+            }
+        });
+    </script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-800 text-white min-h-screen p-4">
+            <div class="flex items-center gap-3 mb-8 px-2">
+                <img src="assets/icon.png" class="w-10 h-10 rounded-lg shadow-lg" alt="App Icon">
+                <h1 class="text-xl font-bold tracking-tight">AllWhist Admin</h1>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="index.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white">
+                    <i class="fas fa-chart-line w-6"></i> Dashboard
+                </a>
+                <a href="users.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-users w-6"></i> Utilisateurs
+                </a>
+                <a href="games.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-gamepad w-6"></i> Parties
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <div id="file-warning" class="hidden mb-6 p-4 bg-red-100 border border-red-200 text-red-700 rounded-xl">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <strong>Attention:</strong> Le dashboard doit être lancé via un serveur local (ex: <code>npx serve</code>) pour que Firebase fonctionne.
+            </div>
+            <header class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Vue d'ensemble</h2>
+                <div class="flex items-center gap-4">
+                    <button id="btn-login" class="text-sm font-medium px-4 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition">
+                        <i class="fab fa-google mr-2"></i> Connexion Admin
+                    </button>
+                    <div id="auth-status" class="text-sm font-medium px-4 py-2 rounded-full bg-yellow-100 text-yellow-700">
+                        Vérification...
+                    </div>
+                    <button id="btn-logout" class="hidden bg-slate-200 text-slate-600 p-2 rounded-lg hover:bg-slate-300 transition" title="Se déconnecter">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                    <button onclick="window.location.reload()" class="bg-emerald-50 text-emerald-600 p-2 rounded-lg hover:bg-emerald-100 transition">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium">Total Utilisateurs</h3>
+                        <i class="fas fa-users text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="stat-users" class="text-4xl font-bold text-gray-800">-</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium">Parties Jouées</h3>
+                        <i class="fas fa-gamepad text-emerald-500 bg-emerald-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="stat-games" class="text-4xl font-bold text-gray-800">-</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium">Variante Populaire</h3>
+                        <i class="fas fa-star text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="stat-popular" class="text-xl font-bold text-gray-800">Chargement...</p>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg font-bold mb-4">Parties par Variante</h3>
+                    <div class="relative h-[350px] w-full">
+                        <canvas id="variantsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg font-bold mb-4">Activité Récente (7j)</h3>
+                    <div class="relative h-[350px] w-full">
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { db, auth, collection, getDocs, query, orderBy, limit, onAuthStateChanged, googleProvider, signInWithPopup } from './firebase-config.js';
+
+        const authStatus = document.getElementById('auth-status');
+        const btnLogin = document.getElementById('btn-login');
+        const btnLogout = document.getElementById('btn-logout');
+
+        console.log("Admin module initializing...");
+
+        // Auth
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authStatus.innerText = `Connecté: ${user.email}`;
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-green-100 text-green-700';
+                btnLogin.classList.add('hidden');
+                btnLogout.classList.remove('hidden');
+                loadStats();
+            } else {
+                authStatus.innerText = 'Accès Restreint';
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-red-100 text-red-700';
+                btnLogin.classList.remove('hidden');
+                btnLogout.classList.add('hidden');
+            }
+        });
+
+        btnLogin.onclick = () => {
+            signInWithPopup(auth, googleProvider).catch(err => {
+                console.error("Login failed", err);
+                alert("Erreur de connexion : " + err.message);
+            });
+        };
+
+        btnLogout.onclick = () => {
+            auth.signOut().then(() => {
+                window.location.reload();
+            });
+        };
+
+        async function loadStats() {
+            try {
+                // Fetch Games
+                const gamesSnap = await getDocs(collection(db, 'games'));
+                const games = [];
+                const distinctUsersFromGames = new Set();
+                gamesSnap.forEach(doc => {
+                    const data = doc.data();
+                    games.push(data);
+                    if (data.userId) distinctUsersFromGames.add(data.userId);
+                });
+
+                // Fetch Users root documents
+                const usersSnap = await getDocs(collection(db, 'users'));
+                const userIds = new Set(usersSnap.docs.map(doc => doc.id));
+
+                // Fusionner les deux sources pour le total
+                distinctUsersFromGames.forEach(uid => userIds.add(uid));
+
+                document.getElementById('stat-users').innerText = userIds.size;
+                document.getElementById('stat-games').innerText = games.length;
+
+                // Variants stats
+                const variantsCount = {};
+                games.forEach(g => {
+                    variantsCount[g.varianteId] = (variantsCount[g.varianteId] || 0) + 1;
+                });
+
+                const sortedVariants = Object.entries(variantsCount).sort((a, b) => b[1] - a[1]);
+                if (sortedVariants.length > 0) {
+                    document.getElementById('stat-popular').innerText = sortedVariants[0][0];
+                }
+
+                // Charts
+                renderVariantsChart(variantsCount);
+                renderActivityChart(games);
+
+            } catch (error) {
+                console.error("Error loading stats:", error);
+                alert("Erreur lors du chargement des statistiques. Vérifiez les règles Firestore.");
+            }
+        }
+
+        function renderVariantsChart(counts) {
+            const ctx = document.getElementById('variantsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(counts),
+                    datasets: [{
+                        data: Object.values(counts),
+                        backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6']
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderActivityChart(games) {
+            const ctx = document.getElementById('activityChart').getContext('2d');
+
+            // Group by date (last 7 days)
+            const days = {};
+            for(let i=6; i>=0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                days[date.toISOString().split('T')[0]] = 0;
+            }
+
+            games.forEach(g => {
+                const date = g.createdAt?.split('T')[0];
+                if (days[date] !== undefined) days[date]++;
+            });
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Object.keys(days).map(d => d.split('-').slice(1).reverse().join('/')),
+                    datasets: [{
+                        label: 'Parties',
+                        data: Object.values(days),
+                        borderColor: '#10b981',
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)'
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { stepSize: 1 }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        // Check if the module script loaded
+        setTimeout(() => {
+            const authStatus = document.getElementById('auth-status');
+            if (authStatus && authStatus.innerText === 'Vérification...') {
+                console.error("Le script d'authentification semble bloqué.");
+                authStatus.innerText = "Erreur de chargement";
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-red-100 text-red-700';
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
