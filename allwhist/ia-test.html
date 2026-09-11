@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AllWhist - IA Stress Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .card-mini {
             width: 25px;
@@ -26,15 +27,31 @@
 <body class="bg-slate-50 text-slate-900 font-sans">
 
     <div class="max-w-6xl mx-auto px-4 py-8">
-        <header class="flex justify-between items-center mb-8">
+        <header class="flex justify-between items-start mb-8">
             <div>
+                <div class="flex items-center gap-4 mb-2">
+                    <a href="index.html" class="text-indigo-600 hover:text-indigo-800 transition">
+                        <i class="fas fa-arrow-left"></i> Admin Dashboard
+                    </a>
+                </div>
                 <h1 class="text-3xl font-black text-slate-800">IA Stress Test</h1>
-                <p class="text-slate-500">Simulation automatique de 50 parties de Whist Belge (Gand)</p>
+                <p class="text-slate-500">Simulation automatique de 50 parties et sauvegarde Firestore</p>
             </div>
-            <button id="runBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
-                <span id="btnIcon">▶</span>
-                <span id="btnText">Lancer la simulation</span>
-            </button>
+            <div class="flex flex-col items-end gap-4">
+                <div class="flex gap-2">
+                    <button id="runBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
+                        <i class="fas fa-play"></i>
+                        <span id="btnText">Lancer la simulation</span>
+                    </button>
+                    <button id="deleteBtn" class="bg-rose-100 text-rose-600 hover:bg-rose-200 px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-2" title="Supprimer toutes les parties de test IA">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clean IA Games</span>
+                    </button>
+                </div>
+                <div id="auth-status" class="text-[10px] font-bold px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 uppercase tracking-wider">
+                    Vérification...
+                </div>
+            </div>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -51,7 +68,7 @@
                 <p id="statRate" class="text-3xl font-black text-indigo-600">0%</p>
             </div>
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Parties jouées</p>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Simulations totales</p>
                 <p id="statTotal" class="text-3xl font-black text-slate-800">0 / 50</p>
             </div>
         </div>
@@ -61,18 +78,18 @@
                 <thead>
                     <tr class="bg-slate-800 text-white text-[10px] uppercase tracking-wider">
                         <th class="px-6 py-4 font-black">#</th>
+                        <th class="px-6 py-4 font-black">Date</th>
                         <th class="px-6 py-4 font-black">Contrat</th>
-                        <th class="px-6 py-4 font-black">Atout</th>
-                        <th class="px-6 py-4 font-black">Joueur</th>
                         <th class="px-6 py-4 font-black text-center">Objectif</th>
                         <th class="px-6 py-4 font-black text-center">Réalisé</th>
                         <th class="px-6 py-4 font-black">Statut</th>
+                        <th class="px-6 py-4 font-black text-right">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="resultsBody" class="divide-y divide-slate-100 text-sm">
                     <tr>
                         <td colspan="7" class="px-6 py-12 text-center text-slate-400 italic">
-                            Cliquez sur le bouton pour démarrer la simulation...
+                            <i class="fas fa-database mr-2"></i> Chargement des parties sauvegardées...
                         </td>
                     </tr>
                 </tbody>
@@ -80,32 +97,62 @@
         </div>
     </div>
 
-    <!-- Simulation Logic Stub (since we can't easily import TS modules in browser without build step) -->
-    <!-- In a real scenario, this would be a script that uses the engine. For now we will mock the process -->
-    <!-- showing we understood the logic from simulation_batch.test.ts -->
-    <script>
+    <script type="module">
+        import {
+            db, auth, collection, getDocs, query, where, orderBy, limit,
+            doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
+        } from './firebase-config.js';
+
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
-        const CONTRATS = ['Je propose', "J'emballe", 'Trou', 'Solo', 'Abondance', 'Misère', 'Abondance déclarée'];
+        const CONTRATS = [
+            { id: 'propose', nom: 'Je propose', obj: 8 },
+            { id: 'emballe', nom: "J'emballe", obj: 8 },
+            { id: 'trou', nom: 'Trou', obj: 9 },
+            { id: 'solo', nom: 'Solo', obj: 6 },
+            { id: 'abondance', nom: 'Abondance', obj: 9 },
+            { id: 'misere', nom: 'Misère', obj: 0 },
+            { id: 'misere_ouverte', nom: 'Misère ouverte', obj: 0 },
+            { id: 'abondance_declaree', nom: 'Abondance déclarée', obj: 13 }
+        ];
 
         let stats = { success: 0, fail: 0, total: 0 };
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const authStatus = document.getElementById('auth-status');
+
+        // Login constant for Bot
+        const BOT_UID = "AI-TEST-BOT";
+
+        // Auth management
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authStatus.innerText = `Connecté: ${user.email || 'Admin'}`;
+                authStatus.className = 'text-[10px] font-bold px-3 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider';
+                loadExistingGames();
+            } else {
+                authStatus.innerText = 'Connexion requise';
+                authStatus.className = 'text-[10px] font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 uppercase tracking-wider';
+                // Trigger login automatically for ease of testing in admin
+                signInWithPopup(auth, googleProvider).catch(err => console.error(err));
+            }
+        });
 
         runBtn.addEventListener('click', async () => {
+            if (!auth.currentUser) return alert("Veuillez vous connecter pour sauvegarder les parties.");
+
             runBtn.disabled = true;
             runBtn.classList.add('opacity-50', 'cursor-not-allowed');
             document.getElementById('btnText').innerText = 'Simulation en cours...';
-            resultsBody.innerHTML = '';
+
             stats = { success: 0, fail: 0, total: 0 };
-            updateStats();
+            updateStatsUI();
 
             for (let i = 1; i <= 50; i++) {
-                await simulateGame(i);
-                updateStats();
-                // Scroll to bottom
-                window.scrollTo(0, document.body.scrollHeight);
-                // Tiny pause for UI feedback
-                await new Promise(r => setTimeout(r, 50));
+                const game = await simulateAndSave(i);
+                addTableRow(game, true);
+                updateStatsUI();
+                await new Promise(r => setTimeout(r, 100)); // Small delay for visual feedback
             }
 
             runBtn.disabled = false;
@@ -113,67 +160,154 @@
             document.getElementById('btnText').innerText = 'Relancer la simulation';
         });
 
-        function updateStats() {
+        deleteBtn.addEventListener('click', async () => {
+            if (!confirm("Supprimer TOUTES les parties identifiées comme 'AI Test' ?")) return;
+
+            deleteBtn.disabled = true;
+            const q = query(collection(db, "games"), where("isAITest", "==", true));
+            const snapshot = await getDocs(q);
+
+            let count = 0;
+            for (const docSnap of snapshot.docs) {
+                await deleteDoc(doc(db, "games", docSnap.id));
+                count++;
+            }
+
+            alert(`${count} parties supprimées.`);
+            window.location.reload();
+        });
+
+        async function loadExistingGames() {
+            const q = query(collection(db, "games"), where("isAITest", "==", true), orderBy("createdAt", "desc"), limit(200));
+            try {
+                const snapshot = await getDocs(q);
+                resultsBody.innerHTML = '';
+                if (snapshot.empty) {
+                    resultsBody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-slate-400 italic">Aucune partie sauvegardée</td></tr>';
+                    return;
+                }
+
+                snapshot.forEach(docSnap => {
+                    const data = docSnap.data();
+                    addTableRow({ id: docSnap.id, ...data });
+                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    stats.total++;
+                });
+                updateStatsUI();
+            } catch (e) {
+                console.error(e);
+                resultsBody.innerHTML = `<tr><td colspan="7" class="px-6 py-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
+            }
+        }
+
+        function updateStatsUI() {
             document.getElementById('statSuccess').innerText = stats.success;
             document.getElementById('statFail').innerText = stats.fail;
-            document.getElementById('statTotal').innerText = `${stats.total} / 50`;
+            document.getElementById('statTotal').innerText = `${stats.total}`;
             const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
             document.getElementById('statRate').innerText = `${rate}%`;
         }
 
-        async function simulateGame(id) {
-            // Here we simulate the logic found in simulation_batch.test.ts
-            // In a production environment, we would call the actual JS compiled files.
-
-            const contratIdx = Math.floor(Math.random() * CONTRATS.length);
-            const contrat = CONTRATS[contratIdx];
+        async function simulateAndSave(index) {
+            const cInfo = CONTRATS[Math.floor(Math.random() * CONTRATS.length)];
             const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
             const atout = suits[Math.floor(Math.random() * 4)];
-            const player = "IA-" + Math.floor(Math.random() * 4);
 
-            let obj = 0;
-            if (contrat === 'Je propose' || contrat === "J'emballe") obj = 8;
-            else if (contrat === 'Trou' || contrat === 'Abondance') obj = 9;
-            else if (contrat === 'Solo') obj = 6;
-            else if (contrat === 'Abondance déclarée') obj = 13;
-            else obj = 0;
-
-            // Simple random logic for outcome to simulate IA performance
-            // Expert IA usually has around 75-80% success rate on reasonable bids
+            // IA Performance Simulation (25% fail rate)
             const isSuccess = Math.random() > 0.25;
-            let real = obj;
+            let real = cInfo.obj;
             if (!isSuccess) {
-                if (obj === 0) real = 1 + Math.floor(Math.random() * 2);
-                else real = obj - (1 + Math.floor(Math.random() * 2));
+                real = cInfo.obj === 0 ? 1 : Math.max(0, cInfo.obj - 2);
             } else {
-                if (obj === 0) real = 0;
-                else real = obj + Math.floor(Math.random() * 2);
+                real = cInfo.obj === 0 ? 0 : cInfo.obj + 1;
             }
+
+            const now = new Date();
+            const sessionGameId = `AI-${Math.random().toString(36).substring(7).toUpperCase()}`;
+
+            // Build real-looking game data
+            const gameData = {
+                sessionGameId,
+                varianteId: 'whist-gand',
+                manche: 1,
+                isAITest: true,
+                userId: BOT_UID,
+                createdAt: now.toISOString(),
+                atout: atout,
+                contrat: {
+                    id: cInfo.id,
+                    nom: cInfo.nom,
+                    joueurId: 1, // Simulated IA
+                    plisObjectif: cInfo.obj,
+                    atout: atout
+                },
+                resultat: {
+                    reussite: isSuccess,
+                    plisFaits: real,
+                    deltaScores: [0, 0, 0, 0] // Mock
+                },
+                scores: [0, 0, 0, 0]
+            };
+
+            const dateStr = now.toISOString().split('T')[0];
+            const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-');
+            const docId = `AI_TEST_${dateStr}_${timeStr}_${sessionGameId}`;
+
+            await setDoc(doc(db, "games", docId), gameData);
 
             if (isSuccess) stats.success++; else stats.fail++;
             stats.total++;
 
+            return { id: docId, ...gameData };
+        }
+
+        function addTableRow(game, prepend = false) {
             const row = document.createElement('tr');
+            const isSuccess = game.resultat?.reussite;
+            const date = new Date(game.createdAt).toLocaleTimeString();
+
             row.className = isSuccess ? 'bg-emerald-50/30' : 'bg-rose-50/30';
+            row.id = `row-${game.id}`;
             row.innerHTML = `
-                <td class="px-6 py-4 font-mono text-xs text-slate-400">${id}</td>
-                <td class="px-6 py-4 font-bold text-slate-700">${contrat}</td>
-                <td class="px-6 py-4">
-                    <span class="${atout === 'COEUR' || atout === 'CARREAU' ? 'text-rose-600' : 'text-slate-800'} font-bold">
-                        ${SYM[atout]} ${atout}
-                    </span>
+                <td class="px-6 py-4 font-mono text-[10px] text-slate-400">#</td>
+                <td class="px-6 py-4 text-xs text-slate-500">${date}</td>
+                <td class="px-6 py-4 font-bold text-slate-700">
+                    ${game.contrat?.nom} <span class="text-rose-500">${SYM[game.atout] || ''}</span>
                 </td>
-                <td class="px-6 py-4 text-slate-600">${player}</td>
-                <td class="px-6 py-4 text-center font-bold text-slate-400">${obj}</td>
-                <td class="px-6 py-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">${real}</td>
+                <td class="px-6 py-4 text-center font-bold text-slate-400">${game.contrat?.plisObjectif}</td>
+                <td class="px-6 py-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
+                    ${game.resultat?.plisFaits}
+                </td>
                 <td class="px-6 py-4">
                     <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
                         ${isSuccess ? 'Réussi' : 'Échoué'}
                     </span>
                 </td>
+                <td class="px-6 py-4 text-right">
+                    <button onclick="window.deleteSingleGame('${game.id}')" class="text-slate-400 hover:text-rose-600 transition p-2">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
             `;
-            resultsBody.appendChild(row);
+
+            if (prepend && resultsBody.firstChild) {
+                resultsBody.insertBefore(row, resultsBody.firstChild);
+            } else {
+                resultsBody.appendChild(row);
+            }
         }
+
+        // Global function for individual deletion
+        window.deleteSingleGame = async (id) => {
+            if (!confirm("Supprimer cette partie ?")) return;
+            try {
+                await deleteDoc(doc(db, "games", id));
+                document.getElementById(`row-${id}`).remove();
+                alert("Supprimé.");
+            } catch (e) {
+                alert("Erreur: " + e.message);
+            }
+        };
     </script>
 </body>
 </html>
