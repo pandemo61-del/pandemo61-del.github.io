@@ -39,6 +39,10 @@
             </div>
             <div class="flex flex-col items-end gap-4">
                 <div class="flex gap-2">
+                    <button id="btnLogin" class="hidden bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-2">
+                        <i class="fab fa-google"></i>
+                        <span>Connexion</span>
+                    </button>
                     <button id="runBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
                         <i class="fas fa-play"></i>
                         <span id="btnText">Lancer la simulation</span>
@@ -46,6 +50,9 @@
                     <button id="deleteBtn" class="bg-rose-100 text-rose-600 hover:bg-rose-200 px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-2" title="Supprimer toutes les parties de test IA">
                         <i class="fas fa-trash-alt"></i>
                         <span>Clean IA Games</span>
+                    </button>
+                    <button id="btnLogout" class="hidden bg-slate-200 text-slate-600 p-3 rounded-xl hover:bg-slate-300 transition" title="Déconnexion">
+                        <i class="fas fa-sign-out-alt"></i>
                     </button>
                 </div>
                 <div id="auth-status" class="text-[10px] font-bold px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 uppercase tracking-wider">
@@ -119,6 +126,8 @@
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
         const deleteBtn = document.getElementById('deleteBtn');
+        const btnLogin = document.getElementById('btnLogin');
+        const btnLogout = document.getElementById('btnLogout');
         const authStatus = document.getElementById('auth-status');
 
         // Login constant for Bot
@@ -129,14 +138,28 @@
             if (user) {
                 authStatus.innerText = `Connecté: ${user.email || 'Admin'}`;
                 authStatus.className = 'text-[10px] font-bold px-3 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider';
+                btnLogin.classList.add('hidden');
+                btnLogout.classList.remove('hidden');
                 loadExistingGames();
             } else {
-                authStatus.innerText = 'Connexion requise';
+                authStatus.innerText = 'Accès Restreint';
                 authStatus.className = 'text-[10px] font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 uppercase tracking-wider';
-                // Trigger login automatically for ease of testing in admin
-                signInWithPopup(auth, googleProvider).catch(err => console.error(err));
+                btnLogin.classList.remove('hidden');
+                btnLogout.classList.add('hidden');
+                resultsBody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-rose-500 font-bold">Veuillez vous connecter pour accéder aux données.</td></tr>';
             }
         });
+
+        btnLogin.onclick = () => {
+            signInWithPopup(auth, googleProvider).catch(err => {
+                console.error("Login failed", err);
+                alert("Erreur de connexion : " + err.message);
+            });
+        };
+
+        btnLogout.onclick = () => {
+            auth.signOut().then(() => window.location.reload());
+        };
 
         runBtn.addEventListener('click', async () => {
             if (!auth.currentUser) return alert("Veuillez vous connecter pour sauvegarder les parties.");
@@ -222,6 +245,24 @@
                 real = cInfo.obj === 0 ? 0 : cInfo.obj + 1;
             }
 
+            // Génération de plis fictifs pour que game-detail.html fonctionne
+            const mockPlis = [];
+            for (let i = 0; i < 13; i++) {
+                const winnerId = Math.floor(Math.random() * 4);
+                mockPlis.push({
+                    numero: i + 1,
+                    gagnantId: winnerId,
+                    cartesJouees: [0, 1, 2, 3].map(pid => ({
+                        joueurId: pid,
+                        carte: {
+                            valeur: 2 + Math.floor(Math.random() * 12),
+                            couleur: suits[Math.floor(Math.random() * 4)],
+                            id: `mock-${i}-${pid}`
+                        }
+                    }))
+                });
+            }
+
             const now = new Date();
             const sessionGameId = `AI-${Math.random().toString(36).substring(7).toUpperCase()}`;
 
@@ -241,6 +282,7 @@
                     plisObjectif: cInfo.obj,
                     atout: atout
                 },
+                plis: mockPlis,
                 resultat: {
                     reussite: isSuccess,
                     plisFaits: real,
@@ -283,8 +325,11 @@
                         ${isSuccess ? 'Réussi' : 'Échoué'}
                     </span>
                 </td>
-                <td class="px-6 py-4 text-right">
-                    <button onclick="window.deleteSingleGame('${game.id}')" class="text-slate-400 hover:text-rose-600 transition p-2">
+                <td class="px-6 py-4 text-right flex justify-end gap-2">
+                    <a href="game-detail.html#id=${game.id}" class="text-indigo-600 hover:text-indigo-800 transition p-2" title="Voir l'analyse">
+                        <i class="fas fa-chart-bar"></i>
+                    </a>
+                    <button onclick="window.deleteSingleGame('${game.id}')" class="text-slate-400 hover:text-rose-600 transition p-2" title="Supprimer">
                         <i class="fas fa-trash"></i>
                     </button>
                 </td>
