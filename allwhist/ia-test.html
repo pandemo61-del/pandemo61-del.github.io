@@ -15,7 +15,446 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            font-size: 10px;<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist - IA Stress Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-mini {
+            width: 25px;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             font-size: 10px;
+            font-weight: bold;
+            margin-right: 2px;
+            background: white;
+        }
+        .suit-red { color: #e11d48; }
+        .suit-black { color: #1e293b; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <header class="flex justify-between items-start mb-8">
+            <div>
+                <div class="flex items-center gap-4 mb-2">
+                    <a href="index.html" class="text-indigo-600 hover:text-indigo-800 transition">
+                        <i class="fas fa-arrow-left"></i> Admin Dashboard
+                    </a>
+                </div>
+                <h1 class="text-3xl font-black text-slate-800">IA Stress Test</h1>
+                <p class="text-slate-500">Simulation automatique de 50 parties et sauvegarde Firestore</p>
+            </div>
+            <div class="flex flex-col items-end gap-4">
+                <div class="flex gap-2">
+            <button id="deleteFailedBtn"
+                    class="bg-amber-100 text-amber-700 hover:bg-amber-200 px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-2"
+                    title="Supprimer uniquement les parties IA réussies">
+                <i class="fas fa-broom"></i>
+                <span>Clean winned</span>
+            </button>
+            
+            <button id="deleteBtn"
+                    class="bg-rose-100 text-rose-600 hover:bg-rose-200 px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-2"
+                    title="Supprimer toutes les parties IA">
+                <i class="fas fa-trash-alt"></i>
+                <span>Clean All IA</span>
+            </button>
+                    <button id="runBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
+                        <i class="fas fa-play"></i>
+                        <span id="btnText">Lancer la simulation</span>
+                    </button>
+                    <button id="deleteBtn" class="bg-rose-100 text-rose-600 hover:bg-rose-200 px-4 py-3 rounded-xl font-bold transition-all flex items-center gap-2" title="Supprimer toutes les parties de test IA">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clean IA Games</span>
+                    </button>
+                    <button id="btnLogout" class="hidden bg-slate-200 text-slate-600 p-3 rounded-xl hover:bg-slate-300 transition" title="Déconnexion">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+                <div id="auth-status" class="text-[10px] font-bold px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 uppercase tracking-wider">
+                    Vérification...
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Réussites</p>
+                <p id="statSuccess" class="text-3xl font-black text-emerald-600">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Échecs</p>
+                <p id="statFail" class="text-3xl font-black text-rose-600">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Taux de succès</p>
+                <p id="statRate" class="text-3xl font-black text-indigo-600">0%</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Simulations totales</p>
+                <p id="statTotal" class="text-3xl font-black text-slate-800">0 / 50</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-800 text-white text-[10px] uppercase tracking-wider">
+                        <th class="px-6 py-4 font-black">#</th>
+                        <th class="px-6 py-4 font-black">Date</th>
+                        <th class="px-6 py-4 font-black">Contrat</th>
+                        <th class="px-6 py-4 font-black text-center">Objectif</th>
+                        <th class="px-6 py-4 font-black text-center">Réalisé</th>
+                        <th class="px-6 py-4 font-black">Statut</th>
+                        <th class="px-6 py-4 font-black text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody" class="divide-y divide-slate-100 text-sm">
+                    <tr>
+                        <td colspan="7" class="px-6 py-12 text-center text-slate-400 italic">
+                            <i class="fas fa-database mr-2"></i> Chargement des parties sauvegardées...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module">
+        import {
+            db, auth, collection, getDocs, query, where, orderBy, limit,
+            doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
+        } from './firebase-config.js';
+
+        const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
+        const BOT_UID = "AI-TEST-BOT";
+
+        // --- LOGIQUE IA PORTÉE DE SIMPLEAI.TS ---
+        function evaluerForce(hand) {
+            let points = hand.reduce((acc, c) => {
+                if (c.valeur === 14) return acc + 4;
+                if (c.valeur === 13) return acc + 3;
+                if (c.valeur === 12) return acc + 2;
+                if (c.valeur === 11) return acc + 1;
+                return acc;
+            }, 0);
+
+            const repart = { COEUR: 0, CARREAU: 0, TREFLE: 0, PIQUE: 0 };
+            hand.forEach(c => repart[c.couleur]++);
+
+            let bestCol = 'PIQUE'; let max = 0;
+            Object.entries(repart).forEach(([col, nb]) => {
+                if (nb > max) { max = nb; bestCol = col; }
+                if (nb === 0) points += 3; // Chicane
+                if (nb === 1) points += 1; // Singleton
+            });
+
+            points += Math.max(0, max - 4) * 2; // Bonus longueur
+            return { force: points, bestCol, nbAtouts: max };
+        }
+
+        function deciderEnchere(hand) {
+            const { force, bestCol, nbAtouts } = evaluerForce(hand);
+            const asAtout = hand.some(c => c.couleur === bestCol && c.valeur === 14);
+            const roiAtout = hand.some(c => c.couleur === bestCol && c.valeur === 13);
+
+            if (force >= 30 && nbAtouts >= 7 && (asAtout || roiAtout))
+                return { id: 'abondance', nom: 'Abondance', obj: 9, atout: bestCol };
+            if (force >= 22 && nbAtouts >= 5 && (asAtout || roiAtout))
+                return { id: 'solo', nom: 'Solo', obj: 6, atout: bestCol };
+            if (force >= 14 && nbAtouts >= 5)
+                return { id: 'propose', nom: 'Je propose', obj: 8, atout: bestCol };
+
+            const hHauts = hand.filter(c => c.valeur >= 11);
+            if (force <= 6 && hHauts.length <= 1)
+                return { id: 'misere', nom: 'Misère', obj: 0, atout: null };
+
+            return null; // Passe
+        }
+
+        let stats = { success: 0, fail: 0, total: 0 };
+        const resultsBody = document.getElementById('resultsBody');
+        const runBtn = document.getElementById('runBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const deleteFailedBtn = document.getElementById('deleteFailedBtn');
+        const btnLogin = document.getElementById('btnLogin');
+        const btnLogout = document.getElementById('btnLogout');
+        const authStatus = document.getElementById('auth-status');
+
+        // Auth management
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authStatus.innerText = `Connecté: ${user.email || 'Admin'}`;
+                authStatus.className = 'text-[10px] font-bold px-3 py-1 rounded-full bg-green-100 text-green-700 uppercase tracking-wider';
+                btnLogin.classList.add('hidden');
+                btnLogout.classList.remove('hidden');
+                loadExistingGames();
+            } else {
+                authStatus.innerText = 'Accès Restreint';
+                authStatus.className = 'text-[10px] font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 uppercase tracking-wider';
+                btnLogin.classList.remove('hidden');
+                btnLogout.classList.add('hidden');
+                resultsBody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-rose-500 font-bold">Veuillez vous connecter pour accéder aux données.</td></tr>';
+            }
+        });
+
+        btnLogin.onclick = () => {
+            signInWithPopup(auth, googleProvider).catch(err => {
+                console.error("Login failed", err);
+                alert("Erreur de connexion : " + err.message);
+            });
+        };
+
+        btnLogout.onclick = () => {
+            auth.signOut().then(() => window.location.reload());
+        };
+
+        runBtn.addEventListener('click', async () => {
+            if (!auth.currentUser) return alert("Connectez-vous d'abord.");
+            runBtn.disabled = true;
+            document.getElementById('btnText').innerText = 'Simulation...';
+            resultsBody.innerHTML = '';
+            stats = { success: 0, fail: 0, total: 0 };
+
+            for (let i = 1; i <= 50; i++) {
+                const game = await simulateAndSave(i);
+                if (game.isPasse) {
+                    i--; // On ne compte pas les passes dans les 50
+                    continue;
+                }
+                addTableRow(game, true);
+                if (game.resultat.reussite) stats.success++; else stats.fail++;
+                stats.total++;
+                updateStatsUI();
+                await new Promise(r => setTimeout(r, 50));
+            }
+            runBtn.disabled = false;
+            document.getElementById('btnText').innerText = 'Relancer';
+        });
+
+        deleteBtn.addEventListener('click', async () => {
+            if (!confirm("Supprimer TOUTES les parties identifiées comme 'AI Test' ?")) return;
+
+            deleteBtn.disabled = true;
+            const q = query(collection(db, "games"), where("isAITest", "==", true));
+            const snapshot = await getDocs(q);
+
+            let count = 0;
+            for (const docSnap of snapshot.docs) {
+                await deleteDoc(doc(db, "games", docSnap.id));
+                count++;
+            }
+
+            alert(`${count} parties supprimées.`);
+            window.location.reload();
+        });
+        
+        deleteFailedBtn.addEventListener('click', async () => {
+            if (!confirm("Supprimer uniquement les parties IA Réussies ?")) return;
+        
+            deleteFailedBtn.disabled = true;
+        
+            const q = query(
+                collection(db, "games"),
+                where("isAITest", "==", true)
+            );
+        
+            const snapshot = await getDocs(q);
+        
+            let count = 0;
+        
+            for (const docSnap of snapshot.docs) {
+        
+                const data = docSnap.data();
+        
+                if (data.resultat?.reussite === true) {
+                    await deleteDoc(doc(db, "games", docSnap.id));
+                    count++;
+                }
+            }
+        
+            alert(`${count} parties réussies supprimées.`);
+        
+            window.location.reload();
+        });
+        
+        async function loadExistingGames() {
+            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(200));
+            try {
+                const snapshot = await getDocs(q);
+                resultsBody.innerHTML = '';
+                if (snapshot.empty) {
+                    resultsBody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-slate-400 italic">Aucune partie sauvegardée</td></tr>';
+                    return;
+                }
+
+                const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                docs.forEach(data => {
+                    addTableRow(data);
+                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    stats.total++;
+                });
+                updateStatsUI();
+            } catch (e) {
+                console.error(e);
+                resultsBody.innerHTML = `<tr><td colspan="7" class="px-6 py-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
+            }
+        }
+
+        function updateStatsUI() {
+            document.getElementById('statSuccess').innerText = stats.success;
+            document.getElementById('statFail').innerText = stats.fail;
+            document.getElementById('statTotal').innerText = `${stats.total}`;
+            const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
+            document.getElementById('statRate').innerText = `${rate}%`;
+        }
+
+        async function simulateAndSave(index) {
+            const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
+            const deck = [];
+            suits.forEach(s => {
+                for (let v = 2; v <= 14; v++) deck.push({ valeur: v, couleur: s, id: `${v}-${s}` });
+            });
+            deck.sort(() => Math.random() - 0.5);
+
+            const hands = [[], [], [], []];
+            for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
+
+            let contrat = null;
+            let bidderId = -1;
+            for(let i=0; i<4; i++) {
+                const decision = deciderEnchere(hands[i]);
+                if (decision) { contrat = decision; bidderId = i; break; }
+            }
+
+            if (!contrat) return { isPasse: true };
+
+            const atout = contrat.atout;
+            const plis = [];
+            let leaderId = 0;
+            const plisGagnes = [0, 0, 0, 0];
+
+            for (let pNum = 1; pNum <= 13; pNum++) {
+                const pliCartes = [];
+                let couleurDemandee = null;
+
+                for (let i = 0; i < 4; i++) {
+                    const pid = (leaderId + i) % 4;
+                    const hand = hands[pid];
+                    let cardToPlay;
+
+                    if (i === 0) {
+                        cardToPlay = hand.pop();
+                        couleurDemandee = cardToPlay.couleur;
+                    } else {
+                        const indexInSuit = hand.findIndex(c => c.couleur === couleurDemandee);
+                        if (indexInSuit !== -1) cardToPlay = hand.splice(indexInSuit, 1)[0];
+                        else {
+                            const indexAtout = hand.findIndex(c => c.couleur === atout);
+                            cardToPlay = indexAtout !== -1 ? hand.splice(indexAtout, 1)[0] : hand.pop();
+                        }
+                    }
+                    pliCartes.push({ joueurId: pid, carte: cardToPlay });
+                }
+
+                let best = pliCartes[0];
+                for(let i=1; i<4; i++) {
+                    const c = pliCartes[i];
+                    const isAtout = atout && c.carte.couleur === atout;
+                    const bestIsAtout = atout && best.carte.couleur === atout;
+                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === couleurDemandee && c.carte.valeur > best.carte.valeur)) {
+                        best = c;
+                    }
+                }
+                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
+                plisGagnes[best.joueurId]++;
+                leaderId = best.joueurId;
+            }
+
+            const realPlis = plisGagnes[bidderId] + (contrat.id === 'propose' ? plisGagnes[(bidderId+2)%4] : 0);
+            const isSuccess = contrat.obj === 0 ? (plisGagnes[bidderId] === 0) : (realPlis >= contrat.obj);
+
+            const gameData = {
+                varianteId: 'whist-gand',
+                manche: 1,
+                isAITest: true,
+                userId: BOT_UID,
+                createdAt: new Date().toISOString(),
+                atout: atout,
+                contrat: { ...contrat, joueurId: bidderId, plisObjectif: contrat.obj },
+                plis: plis,
+                resultat: { reussite: isSuccess, plisFaits: realPlis }
+            };
+
+            const docId = `AI_STRESS_${Date.now()}_${index}`;
+            await setDoc(doc(db, "games", docId), gameData);
+            return { id: docId, ...gameData };
+        }
+
+        function addTableRow(game, prepend = false) {
+            const row = document.createElement('tr');
+            const isSuccess = game.resultat?.reussite;
+            const date = new Date(game.createdAt).toLocaleTimeString();
+
+            row.className = isSuccess ? 'bg-emerald-50/30' : 'bg-rose-50/30';
+            row.id = `row-${game.id}`;
+            row.innerHTML = `
+                <td class="px-6 py-4 font-mono text-[10px] text-slate-400">#</td>
+                <td class="px-6 py-4 text-xs text-slate-500">${date}</td>
+                <td class="px-6 py-4 font-bold text-slate-700">
+                    ${game.contrat?.nom} <span class="text-rose-500">${SYM[game.atout] || ''}</span>
+                </td>
+                <td class="px-6 py-4 text-center font-bold text-slate-400">${game.contrat?.plisObjectif}</td>
+                <td class="px-6 py-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
+                    ${game.resultat?.plisFaits}
+                </td>
+                <td class="px-6 py-4">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
+                        ${isSuccess ? 'Réussi' : 'Échoué'}
+                    </span>
+                </td>
+                <td class="px-6 py-4 text-right flex justify-end gap-2">
+                    <a href="game-detail.html#id=${game.id}" class="text-indigo-600 hover:text-indigo-800 transition p-2" title="Voir l'analyse">
+                        <i class="fas fa-chart-bar"></i>
+                    </a>
+                    <button onclick="window.deleteSingleGame('${game.id}')" class="text-slate-400 hover:text-rose-600 transition p-2" title="Supprimer">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+
+            if (prepend && resultsBody.firstChild) {
+                resultsBody.insertBefore(row, resultsBody.firstChild);
+            } else {
+                resultsBody.appendChild(row);
+            }
+        }
+
+        window.deleteSingleGame = async (id) => {
+            if (!confirm("Supprimer cette partie ?")) return;
+            try {
+                await deleteDoc(doc(db, "games", id));
+                const row = document.getElementById(`row-${id}`);
+                if (row) row.remove();
+            } catch (e) {
+                alert("Erreur: " + e.message);
+            }
+        };
+    </script>
+</body>
+</html>
             font-weight: bold;
             margin-right: 2px;
             background: white;
