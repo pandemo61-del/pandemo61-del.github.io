@@ -184,7 +184,7 @@
         });
 
         deleteBtn.addEventListener('click', async () => {
-            if (!confirm("Supprimer uniquement les parties IA échouées ?")) return;
+            if (!confirm("Supprimer uniquement les parties IA réussies ?")) return;
         
             deleteBtn.disabled = true;
         
@@ -200,7 +200,7 @@
             for (const docSnap of snapshot.docs) {
                 const data = docSnap.data();
         
-                if (data.resultat?.reussite === false) {
+                if (data.resultat?.reussite === true) {
                     await deleteDoc(doc(db, "games", docSnap.id));
                     count++;
                 }
