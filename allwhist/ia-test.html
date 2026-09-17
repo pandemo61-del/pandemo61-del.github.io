@@ -184,19 +184,29 @@
         });
 
         deleteBtn.addEventListener('click', async () => {
-            if (!confirm("Supprimer TOUTES les parties identifiées comme 'AI Test' ?")) return;
-
+            if (!confirm("Supprimer uniquement les parties IA échouées ?")) return;
+        
             deleteBtn.disabled = true;
-            const q = query(collection(db, "games"), where("isAITest", "==", true));
+        
+            const q = query(
+                collection(db, "games"),
+                where("isAITest", "==", true)
+            );
+        
             const snapshot = await getDocs(q);
-
+        
             let count = 0;
+        
             for (const docSnap of snapshot.docs) {
-                await deleteDoc(doc(db, "games", docSnap.id));
-                count++;
+                const data = docSnap.data();
+        
+                if (data.resultat?.reussite === false) {
+                    await deleteDoc(doc(db, "games", docSnap.id));
+                    count++;
+                }
             }
-
-            alert(`${count} parties supprimées.`);
+        
+            alert(`${count} parties échouées supprimées.`);
             window.location.reload();
         });
 
