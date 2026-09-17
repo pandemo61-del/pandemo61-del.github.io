@@ -189,10 +189,16 @@
                                 </span>
                         
                                 ${data.isAITest ? `
-                                    <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-[10px] font-bold">
+                                    <span class="flex items-center gap-1 px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-[10px] font-bold">
+                                        <i class="fas fa-robot"></i>
                                         IA
                                     </span>
-                                ` : 'Human'}
+                                ` : `
+                                    <span class="flex items-center gap-1 px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[10px] font-bold">
+                                        <i class="fas fa-user"></i>
+                                        Humain
+                                    </span>
+                                `}
                             </div>
                         </td>
                         <td class="p-4 text-sm font-medium">Manche ${data.manche || '?'}</td>
