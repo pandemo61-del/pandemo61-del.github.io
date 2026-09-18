@@ -242,7 +242,44 @@
             }
 
             let teamTotal = 0;
-            list.innerHTML = data.plis.map((pli, idx) => {
+            let rowsHtml = [];
+
+            // LIGNE DE CARTE ÉCARTÉE (Petite misère par exemple)
+            const aDesCartesEcartees = data.contrat?.carteEcartee || (data.contrat?.cartesEcartees && Object.keys(data.contrat.cartesEcartees).length > 0);
+            if (aDesCartesEcartees) {
+                let ecarteRow = `
+                    <div class="pli-row px-6 py-3 bg-slate-50 border-b border-gray-200 border-l-4 border-amber-400">
+                        <div class="text-center text-[10px] font-bold text-amber-600 uppercase tracking-wider leading-none">Écart</div>
+                        <div class="text-center text-sm font-black text-gray-300">-</div>
+                        <div class="flex gap-1 justify-center">
+                            <div class="expert-icon bg-amber-500">🗂️</div>
+                        </div>
+                        <div class="grid grid-cols-4 gap-4">
+                            ${[0,1,2,3].map(pid => {
+                                let carte = null;
+                                if (data.contrat.joueurId === pid && data.contrat.carteEcartee) {
+                                    carte = data.contrat.carteEcartee;
+                                } else if (data.contrat.cartesEcartees?.[pid]) {
+                                    carte = data.contrat.cartesEcartees[pid];
+                                }
+                                return `
+                                    <div class="flex justify-center relative">
+                                        ${carte ? `
+                                            <div class="card-mini border-amber-300 bg-amber-50/50 opacity-90 shadow-sm" title="Carte écartée au début">
+                                                <span class="text-[10px] font-black leading-none ${CARD_COLOR[carte.couleur]}">${getLabel(carte.valeur)}</span>
+                                                <span class="text-xs ${CARD_COLOR[carte.couleur]}">${SYMBOLE[carte.couleur]}</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+                rowsHtml.push(ecarteRow);
+            }
+
+            const tricksHtml = data.plis.map((pli, idx) => {
                 if (teamIds.includes(pli.gagnantId)) teamTotal++;
 
                 const errors = (data.erreurs || []).filter(e => e.pliNum === idx);
@@ -280,7 +317,9 @@
                         </div>
                     </div>
                 `;
-            }).join('');
+            });
+
+            list.innerHTML = [...rowsHtml, ...tricksHtml].join('');
         }
 
         function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }

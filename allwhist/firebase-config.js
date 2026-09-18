@@ -11,23 +11,11 @@ const firebaseConfig = {
 // Initialisation via CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs, query, where, orderBy, limit, doc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import {
-    getAuth,
-    GoogleAuthProvider,
-    onAuthStateChanged,
-    signInWithPopup,
-    signOut
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, signInAnonymously, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-export {
-    auth,
-    googleProvider,
-    onAuthStateChanged,
-    signInWithPopup,
-    signOut
-};
+export { db, auth, collection, getDocs, query, where, orderBy, limit, doc, setDoc, deleteDoc, signInAnonymously, onAuthStateChanged, googleProvider, signInWithPopup };

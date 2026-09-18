@@ -62,11 +62,11 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-gray-50 text-gray-500 uppercase text-xs font-bold">
                         <tr>
-                            <th class="p-4 border-b">Utilisateur UID</th>
-                            <th class="p-4 border-b">Crédits Coach</th>
-                            <th class="p-4 border-b">Langue</th>
+                            <th class="p-4 border-b">Pseudo / UID</th>
+                            <th class="p-4 border-b text-center">Crédits Coach</th>
+                            <th class="p-4 border-b text-center">Langue</th>
                             <th class="p-4 border-b">Dernière Connexion</th>
-                            <th class="p-4 border-b">Action</th>
+                            <th class="p-4 border-b text-right">Action</th>
                         </tr>
                     </thead>
                     <tbody id="users-tbody" class="divide-y divide-gray-100">
@@ -169,22 +169,27 @@
 
                     // Fetch racine pour 'lastSeen'
                     const rootSnap = await getDoc(doc(db, 'users', uid));
-                    const lastSeen = rootSnap.exists() ? rootSnap.data().lastSeen : (settings.lastDailyRewardDate || 'N/A');
+                    const rootData = rootSnap.exists() ? rootSnap.data() : {};
+                    const lastSeen = rootData.lastSeen || (settings.lastDailyRewardDate || 'N/A');
+                    const pseudo = rootData.pseudo || (settings.pseudo || 'Anonyme');
 
                     const row = document.createElement('tr');
                     row.className = 'hover:bg-gray-50 transition';
                     row.innerHTML = `
-                        <td class="p-4 font-mono text-xs text-gray-600">${uid}</td>
                         <td class="p-4">
+                            <div class="text-sm font-bold text-gray-800">${pseudo}</div>
+                            <div class="font-mono text-[10px] text-gray-400">${uid}</div>
+                        </td>
+                        <td class="p-4 text-center">
                             <span class="px-2 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">
                                 ${settings.coachCredits || 0} 🪙
                             </span>
                         </td>
-                        <td class="p-4 uppercase text-sm font-medium text-gray-500">${settings.langue || 'fr'}</td>
+                        <td class="p-4 uppercase text-sm font-medium text-gray-500 text-center">${settings.langue || 'fr'}</td>
                         <td class="p-4 text-sm text-gray-500">${lastSeen}</td>
-                        <td class="p-4">
-                            <button onclick="showDetails('${uid}')" class="text-blue-500 hover:text-blue-700 font-medium text-sm">
-                                <i class="fas fa-eye mr-1"></i> Voir détails
+                        <td class="p-4 text-right">
+                            <button onclick="showDetails('${uid}')" class="bg-blue-50 text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition" title="Voir détails">
+                                <i class="fas fa-eye"></i>
                             </button>
                         </td>
                     `;

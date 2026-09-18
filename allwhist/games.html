@@ -93,10 +93,6 @@
         const authStatus = document.getElementById('auth-status');
         const btnLogin = document.getElementById('btn-login');
         const btnLogout = document.getElementById('btn-logout');
-        const btnToggleAI = document.getElementById('btn-toggle-ai');
-        
-        // Show AI Games by default //
-        let showAIGames = true;
 
         // Check if running via file://
         if (window.location.protocol === 'file:') {
@@ -133,24 +129,6 @@
             });
         };
 
-        btnToggleAI.addEventListener('click', () => {
-            showAIGames = !showAIGames;
-        
-            if (showAIGames) {
-                btnToggleAI.innerHTML = `
-                    <i class="fas fa-robot"></i>
-                    <span>Masquer les parties IA</span>
-                `;
-            } else {
-                btnToggleAI.innerHTML = `
-                    <i class="fas fa-eye"></i>
-                    <span>Afficher les parties IA</span>
-                `;
-            }
-        
-            loadGames();
-        });
-        
         async function loadGames() {
             const tbody = document.getElementById('games-tbody');
             console.log("Loading games...");
@@ -169,11 +147,7 @@
                 const items = querySnapshot.docs.map(doc => ({ id: doc.id, data: doc.data() }));
                 items.sort((a, b) => new Date(b.data.createdAt) - new Date(a.data.createdAt));
 
-                const filteredItems = items.filter(({ data }) => {
-                    return showAIGames || data.isAITest !== true;
-                });
-                
-                filteredItems.forEach(({ id, data }) => {
+                items.forEach(({ id, data }) => {
                     const date = new Date(data.createdAt).toLocaleString('fr-FR');
                     const reussite = data.resultat?.reussite;
 
@@ -183,26 +157,15 @@
                     row.innerHTML = `
                         <td class="p-4 text-sm text-gray-600">${date}</td>
                         <td class="p-4">
-                            <div class="flex items-center gap-2">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold uppercase tracking-wider">
-                                    ${data.varianteId || 'Inconnue'}
-                                </span>
-                        
-                                ${data.isAITest ? `
-                                    <span class="flex items-center gap-1 px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-[10px] font-bold">
-                                        <i class="fas fa-robot"></i>
-                                        IA
-                                    </span>
-                                ` : `
-                                    <span class="flex items-center gap-1 px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-[10px] font-bold">
-                                        <i class="fas fa-user"></i>
-                                        Humain
-                                    </span>
-                                `}
-                            </div>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-bold uppercase tracking-wider">
+                                ${data.varianteId || 'Inconnue'}
+                            </span>
                         </td>
                         <td class="p-4 text-sm font-medium">Manche ${data.manche || '?'}</td>
-                        <td class="p-4 font-mono text-[10px] text-gray-400">${data.userId?.slice(0,8) || 'System'}...</td>
+                        <td class="p-4">
+                            <div class="text-sm font-bold text-gray-700">${data.userPseudo || 'Anonyme'}</div>
+                            <div class="text-[9px] font-mono text-gray-400">${data.userId?.slice(0,8) || 'System'}...</div>
+                        </td>
                         <td class="p-4">
                             ${reussite !== undefined ? (
                                 reussite
