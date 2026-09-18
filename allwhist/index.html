@@ -111,7 +111,22 @@
     </div>
 
     <script type="module">
-        import { db, auth, collection, getDocs, query, orderBy, limit, onAuthStateChanged, googleProvider, signInWithPopup } from './firebase-config.js';
+        import {
+            db,
+            auth,
+            collection,
+            getDocs,
+            query,
+            where,
+            limit,
+            doc,
+            setDoc,
+            deleteDoc,
+            onAuthStateChanged,
+            googleProvider,
+            signInWithPopup,
+            signOut
+        } from './firebase-config.js';
 
         const authStatus = document.getElementById('auth-status');
         const btnLogin = document.getElementById('btn-login');
