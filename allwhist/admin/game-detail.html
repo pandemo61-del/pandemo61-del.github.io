@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist Admin - Analyse de la Partie</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-mini {
+            width: 34px;
+            height: 48px;
+            border-radius: 4px;
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        .card-mini.winner {
+            border: 2px solid #10b981;
+            background-color: #f0fdf4;
+            transform: scale(1.1);
+            z-index: 10;
+        }
+        .card-mini.starter {
+            border-color: #3b82f6;
+        }
+        .expert-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .expert-icon:hover { transform: scale(1.2); }
+        .expert-icon-error { background-color: #ef4444; }
+        .expert-icon-warn  { background-color: #f59e0b; }
+        .expert-icon-good  { background-color: #10b981; }
+
+        .pli-row {
+            display: grid;
+            grid-template-columns: 40px 50px 60px 1fr;
+            align-items: center;
+            gap: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-800 text-white min-h-screen p-4 fixed left-0 top-0">
+            <div class="flex items-center gap-3 mb-8 px-2">
+                <img src="assets/icon.png" class="w-10 h-10 rounded-lg shadow-lg" alt="App Icon">
+                <h1 class="text-xl font-bold tracking-tight">AllWhist Admin</h1>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-chart-line w-6"></i> Dashboard
+                </a>
+                <a href="users.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-users w-6"></i> Utilisateurs
+                </a>
+                <a href="games.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white transition">
+                    <i class="fas fa-gamepad w-6"></i> Parties
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-64 p-8">
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <a href="games.html" class="text-emerald-600 hover:text-emerald-700 font-medium mb-2 block">
+                        <i class="fas fa-arrow-left mr-1"></i> Retour à la liste
+                    </a>
+                    <h2 id="page-title" class="text-3xl font-bold text-gray-800">Analyse de la Manche</h2>
+                </div>
+                <div id="auth-status" class="text-sm font-medium px-4 py-2 rounded-full bg-yellow-100 text-yellow-700">
+                    Vérification...
+                </div>
+            </header>
+
+            <!-- Summary Cards -->
+            <div id="game-info" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 animate-pulse h-20"></div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 animate-pulse h-20"></div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 animate-pulse h-20"></div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 animate-pulse h-20"></div>
+            </div>
+
+            <!-- Analysis Table -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden mb-8">
+                <div class="bg-slate-800 text-white px-6 py-4 pli-row text-[10px] font-black uppercase tracking-widest">
+                    <div class="text-center">#</div>
+                    <div class="text-center">Total</div>
+                    <div class="text-center">Avis</div>
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        <div id="h0">J1</div>
+                        <div id="h1">J2</div>
+                        <div id="h2">J3</div>
+                        <div id="h3">J4</div>
+                    </div>
+                </div>
+
+                <div id="tricks-list" class="divide-y divide-gray-100">
+                    <!-- Loaded dynamically -->
+                    <div class="p-20 text-center text-gray-400">
+                        <i class="fas fa-circle-notch fa-spin text-3xl mb-4"></i>
+                        <p>Chargement des plis...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debug Data -->
+            <div class="mt-12 border-t pt-8">
+                <button onclick="document.getElementById('debug-box').classList.toggle('hidden')" class="text-xs text-slate-400 hover:text-slate-600 font-bold uppercase tracking-widest">
+                    <i class="fas fa-bug mr-1"></i> Voir les données brutes
+                </button>
+                <pre id="debug-box" class="hidden mt-4 bg-slate-900 text-emerald-400 p-6 rounded-xl text-[10px] font-mono overflow-auto max-h-[400px]"></pre>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Expert -->
+    <div id="modal-expert" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-50 transition-opacity">
+        <div class="bg-white rounded-3xl w-full max-w-sm p-8 shadow-2xl scale-in-center">
+            <div class="flex items-center gap-3 mb-4">
+                <div id="expert-badge" class="w-10 h-10 rounded-full flex items-center justify-center text-white">
+                    <i id="expert-icon-modal" class="fas"></i>
+                </div>
+                <h3 id="expert-title" class="text-xl font-bold"></h3>
+            </div>
+            <p id="expert-desc" class="text-gray-600 leading-relaxed mb-8"></p>
+            <button onclick="document.getElementById('modal-expert').classList.add('hidden')" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-black transition shadow-lg">
+                Compris
+            </button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { db, auth, onAuthStateChanged } from './firebase-config.js';
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const SYMBOLE = { PIQUE: '♠', COEUR: '♥', CARREAU: '♦', TREFLE: '♣' };
+        const CARD_COLOR = { PIQUE: 'text-slate-900', TREFLE: 'text-slate-900', COEUR: 'text-red-600', CARREAU: 'text-red-600' };
+
+        function getGameId() {
+            if (window.location.hash.includes('id=')) return window.location.hash.split('id=')[1]?.split('&')[0];
+            return new URLSearchParams(window.location.search).get('id');
+        }
+
+        const gameId = getGameId();
+        const authStatus = document.getElementById('auth-status');
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authStatus.innerText = `Connecté: ${user.email}`;
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-green-100 text-green-700';
+                if (gameId) loadGameDetail(gameId);
+                else {
+                    document.getElementById('tricks-list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">ID de partie manquant dans l\'URL</div>';
+                }
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+
+        async function loadGameDetail(id) {
+            console.log("Loading game:", id);
+            try {
+                const snap = await getDoc(doc(db, 'games', id));
+                if (!snap.exists()) {
+                    document.getElementById('tricks-list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">Partie introuvable dans la base de données</div>';
+                    return;
+                }
+                const data = snap.data();
+                console.log("Game data received:", data);
+
+                document.getElementById('debug-box').innerText = JSON.stringify(data, null, 2);
+
+                renderGameInfo(data);
+                renderTricks(data);
+            } catch (error) {
+                console.error("Firestore error:", error);
+                document.getElementById('tricks-list').innerHTML = '<div class="p-10 text-center text-rose-500 font-bold">Erreur de chargement: ' + error.message + '</div>';
+            }
+        }
+
+        function renderGameInfo(data) {
+            const container = document.getElementById('game-info');
+            const res = data.resultat || {};
+            const cards = [
+                { label: 'Variante', value: data.varianteId || 'N/A', color: 'text-blue-600' },
+                { label: 'Contrat', value: data.contrat?.nom || 'Passe', color: 'text-emerald-600' },
+                { label: 'Objectif', value: `${data.contrat?.plisObjectif || 0} plis`, color: 'text-amber-600' },
+                { label: 'Résultat', value: res.reussite ? 'Réussi' : 'Chuté', color: res.reussite ? 'text-green-600' : 'text-rose-600' }
+            ];
+
+            container.innerHTML = cards.map(c => `
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <span class="text-[10px] font-black uppercase text-slate-400 block mb-1">${c.label}</span>
+                    <span class="text-lg font-bold ${c.color}">${c.value}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderTricks(data) {
+            const list = document.getElementById('tricks-list');
+            if (!list) return;
+
+            const bidderId = data.contrat?.joueurId;
+            const partnerId = data.contrat?.partenaireId;
+            const teamIds = [bidderId, partnerId].filter(id => id !== undefined);
+
+            // Headers
+            const players = data.donne || [0, 1, 2, 3].map(i => ({ joueurId: i, nom: `J${i+1}` }));
+            players.forEach(j => {
+                const el = document.getElementById(`h${j.joueurId}`);
+                if (el) {
+                    const isBidder = j.joueurId === bidderId;
+                    const isPartner = j.joueurId === partnerId;
+                    el.innerHTML = `${j.joueurId === 0 ? 'VOUS' : (j.nom ? j.nom.toUpperCase() : 'IA')} ${isBidder ? '🎯' : (isPartner ? '🤝' : '')}`;
+                    if (isBidder || isPartner) el.className = "text-emerald-500 font-black";
+                }
+            });
+
+            if (!data.plis || data.plis.length === 0) {
+                list.innerHTML = '<div class="p-10 text-center text-slate-400 italic">Aucun pli enregistré</div>';
+                return;
+            }
+
+            let teamTotal = 0;
+            let rowsHtml = [];
+
+            // LIGNE DE CARTE ÉCARTÉE (Petite misère par exemple)
+            const aDesCartesEcartees = data.contrat?.carteEcartee || (data.contrat?.cartesEcartees && Object.keys(data.contrat.cartesEcartees).length > 0);
+            if (aDesCartesEcartees) {
+                let ecarteRow = `
+                    <div class="pli-row px-6 py-3 bg-slate-50 border-b border-gray-200 border-l-4 border-amber-400">
+                        <div class="text-center text-[10px] font-bold text-amber-600 uppercase tracking-wider leading-none">Écart</div>
+                        <div class="text-center text-sm font-black text-gray-300">-</div>
+                        <div class="flex gap-1 justify-center">
+                            <div class="expert-icon bg-amber-500">🗂️</div>
+                        </div>
+                        <div class="grid grid-cols-4 gap-4">
+                            ${[0,1,2,3].map(pid => {
+                                let carte = null;
+                                if (data.contrat.joueurId === pid && data.contrat.carteEcartee) {
+                                    carte = data.contrat.carteEcartee;
+                                } else if (data.contrat.cartesEcartees?.[pid]) {
+                                    carte = data.contrat.cartesEcartees[pid];
+                                }
+                                return `
+                                    <div class="flex justify-center relative">
+                                        ${carte ? `
+                                            <div class="card-mini border-amber-300 bg-amber-50/50 opacity-90 shadow-sm" title="Carte écartée au début">
+                                                <span class="text-[10px] font-black leading-none ${CARD_COLOR[carte.couleur]}">${getLabel(carte.valeur)}</span>
+                                                <span class="text-xs ${CARD_COLOR[carte.couleur]}">${SYMBOLE[carte.couleur]}</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+                rowsHtml.push(ecarteRow);
+            }
+
+            const tricksHtml = data.plis.map((pli, idx) => {
+                if (teamIds.includes(pli.gagnantId)) teamTotal++;
+
+                const errors = (data.erreurs || []).filter(e => e.pliNum === idx);
+
+                return `
+                    <div class="pli-row px-6 py-4 hover:bg-slate-50 transition border-l-4 ${teamIds.includes(pli.gagnantId) ? 'border-emerald-500' : 'border-transparent'}">
+                        <div class="text-center text-xs font-bold text-slate-400">${idx + 1}</div>
+                        <div class="text-center text-sm font-black text-emerald-600">${teamTotal}</div>
+                        <div class="flex gap-1 justify-center">
+                            ${errors.map(e => `
+                                <div class="expert-icon ${e.type === 'error' ? 'expert-icon-error' : 'expert-icon-warn'}"
+                                     onclick="window.showTip('${e.type}', '${e.titre || 'Avis'}', '${(e.message || e.description || '').replace(/'/g, "\\'")}')">
+                                    ${e.type === 'error' ? '!' : '?'}
+                                </div>
+                            `).join('')}
+                            ${errors.length === 0 ? '<div class="expert-icon expert-icon-good">★</div>' : ''}
+                        </div>
+                        <div class="grid grid-cols-4 gap-4">
+                            ${[0,1,2,3].map(pid => {
+                                const cp = pli.cartesJouees.find(c => c.joueurId === pid);
+                                const isWinner = pli.gagnantId === pid;
+                                const isStarter = pli.cartesJouees[0]?.joueurId === pid;
+                                return `
+                                    <div class="flex justify-center relative">
+                                        ${cp ? `
+                                            <div class="card-mini ${isWinner ? 'winner' : ''} ${isStarter ? 'starter' : ''}">
+                                                <span class="text-[10px] font-black leading-none ${CARD_COLOR[cp.carte.couleur]}">${getLabel(cp.carte.valeur)}</span>
+                                                <span class="text-xs ${CARD_COLOR[cp.carte.couleur]}">${SYMBOLE[cp.carte.couleur]}</span>
+                                                ${isStarter ? '<div class="absolute -top-1.5 bg-blue-500 text-[5px] text-white px-1 rounded-full font-bold">1er</div>' : ''}
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            list.innerHTML = [...rowsHtml, ...tricksHtml].join('');
+        }
+
+        function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }
+
+        window.showTip = (type, title, desc) => {
+            const modal = document.getElementById('modal-expert');
+            const badge = document.getElementById('expert-badge');
+            const icon = document.getElementById('expert-icon-modal');
+
+            document.getElementById('expert-title').innerText = title;
+            document.getElementById('expert-desc').innerText = desc;
+
+            badge.className = `w-12 h-12 rounded-full flex items-center justify-center text-white mb-4 ${type === 'error' ? 'bg-red-500' : 'bg-amber-500'}`;
+            icon.className = `fas ${type === 'error' ? 'fa-bolt' : 'fa-question-circle'} text-xl`;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        };
+    </script>
+</body>
+</html>

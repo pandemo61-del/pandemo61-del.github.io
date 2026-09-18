@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * Règle Admin
+     * Remplacez 'VOTRE_UID_GOOGLE' par votre UID Firebase (visible dans la console Firebase Auth)
+     * une fois que vous vous serez connecté pour la première fois.
+     */
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.uid == '8h33F1UBYlfugGa5FBPRCNNJ7D12' // Votre UID actuel
+        || request.auth.token.email == 'votre-email@gmail.com'
+      );
+    }
+
+    // Utilisateurs : Accès à leurs propres réglages et statistiques
+    match /users/{userId} {
+      match /private/{document=**} {
+        allow read, write: if request.auth != null && (request.auth.uid == userId || isAdmin());
+      }
+      // Permettre à l'admin de voir la liste
+      allow read: if isAdmin();
+    }
+
+    // Parties : Tout utilisateur peut créer une partie. Lecture restreinte à l'auteur ou admin.
+    match /games/{gameId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        isAdmin()
+      );
+      // Seul l'admin peut modifier ou supprimer des historiques de parties
+      allow update, delete: if isAdmin();
+    }
+
+    // Autres collections : Lecture seule pour les authentifiés par défaut
+    match /{document=**} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+  }
+}
