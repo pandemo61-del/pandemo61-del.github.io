@@ -1,7 +1,7 @@
 /**
  * IA Test Runner - Node.js version
  * Exécute 50 parties de Whist de Gand et génère un rapport JSON.
- * Utilise les modules du moteur de jeu.
+ * Utilise les modules du moteur de jeu .
  */
 
 const { melanger, creerJeu, distribuer } = require('../src/engine/deck');
