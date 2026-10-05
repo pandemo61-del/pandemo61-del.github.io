@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist Admin - Gestion des Parties</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-mini {
+            width: 25px; height: 35px; border: 1px solid #ccc; border-radius: 3px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: bold; margin-right: 2px; background: white;
+        }
+        .suit-red { color: #e11d48; }
+        .suit-black { color: #1e293b; }
+        .tab-active { border-bottom: 3px solid #10b981; color: #10b981; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-800 text-white min-h-screen p-4 fixed left-0 top-0">
+            <div class="flex items-center gap-3 mb-8 px-2">
+                <img src="assets/icon.png" class="w-10 h-10 rounded-lg shadow-lg" alt="App Icon">
+                <h1 class="text-xl font-bold tracking-tight">AllWhist Admin</h1>
+            </div>
+            <nav class="space-y-2">
+                <div class="px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Administration</div>
+                <a href="index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-chart-line w-6"></i> Dashboard
+                </a>
+                <a href="users.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-users w-6"></i> Utilisateurs
+                </a>
+                <a href="games.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold">
+                    <i class="fas fa-gamepad w-6"></i> Historique Parties
+                </a>
+
+                <div class="pt-4 px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Espace Jeu Web</div>
+                <a href="../web/play.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition text-emerald-400 font-bold">
+                    <i class="fas fa-play-circle w-6"></i> Salle de Jeu
+                </a>
+                <a href="../web/learn.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-graduation-cap w-6"></i> Apprentissage
+                </a>
+                <a href="../web/ia-test.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-robot w-6"></i> Laboratoire IA
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-64 p-8">
+            <header class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">Gestion des Parties</h2>
+                <div class="flex items-center gap-4">
+                    <button id="btn-login" class="text-sm font-medium px-4 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition">
+                        <i class="fab fa-google mr-2"></i> Connexion
+                    </button>
+                    <div id="auth-status" class="text-sm font-medium px-4 py-2 rounded-full bg-yellow-100 text-yellow-700">
+                        Vérification...
+                    </div>
+                    <button id="btn-logout" class="hidden bg-slate-200 text-slate-600 p-2 rounded-lg hover:bg-slate-300 transition" title="Se déconnecter">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Tabs -->
+            <div class="flex gap-8 border-b border-gray-200 mb-8">
+                <button onclick="switchTab('history')" id="tab-history" class="pb-4 px-2 font-bold text-sm uppercase tracking-wider tab-active transition-all">Historique Réel</button>
+                <button onclick="switchTab('ai-test')" id="tab-ai-test" class="pb-4 px-2 font-bold text-sm uppercase tracking-wider text-gray-400 hover:text-gray-600 transition-all">Stress Test IA</button>
+            </div>
+
+            <!-- Tab 1: History -->
+            <div id="view-history" class="space-y-6">
+                <div class="mb-6 flex gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <div class="relative flex-1">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="search-uid" placeholder="Filtrer par UID Utilisateur..." class="w-full pl-10 p-2 rounded-lg border border-gray-200 focus:outline-emerald-500 text-sm">
+                    </div>
+                    <button onclick="loadGames()" class="bg-emerald-50 text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-100 transition font-bold text-sm">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold">
+                            <tr>
+                                <th class="p-4 border-b">Date / Heure</th>
+                                <th class="p-4 border-b">Variante</th>
+                                <th class="p-4 border-b">Manche</th>
+                                <th class="p-4 border-b">Utilisateur</th>
+                                <th class="p-4 border-b">Résultat</th>
+                                <th class="p-4 border-b text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="games-tbody" class="divide-y divide-gray-100">
+                            <tr><td colspan="6" class="p-8 text-center text-gray-400 italic">Chargement...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 2: AI Test -->
+            <div id="view-ai-test" class="hidden space-y-8">
+                <div class="flex flex-wrap gap-4 items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                    <div class="flex items-center gap-4">
+                        <button id="runBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-emerald-200 transition-all flex items-center gap-2">
+                            <i class="fas fa-play"></i>
+                            <span id="btnText">Lancer la simulation (50)</span>
+                        </button>
+                        <p class="text-xs text-gray-400 max-w-xs italic">Annonces IWW : Solo 6-8, Abondance 9-11, Misères, Trou.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="deleteSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-4 py-2.5 rounded-lg font-bold text-xs transition-all">Supprimer Succès</button>
+                        <button id="deleteBtn" class="text-rose-600 hover:text-rose-700 bg-rose-50 px-4 py-2.5 rounded-lg font-bold text-xs transition-all">Nettoyer tout</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-gray-400 text-[10px] font-black uppercase mb-1">Réussites</h3>
+                        <p id="statSuccess" class="text-3xl font-black text-emerald-600">0</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-gray-400 text-[10px] font-black uppercase mb-1">Échecs</h3>
+                        <p id="statFail" class="text-3xl font-black text-rose-600">0</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-gray-400 text-[10px] font-black uppercase mb-1">Taux Succès</h3>
+                        <p id="statRate" class="text-3xl font-black text-blue-600">0%</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <h3 class="text-gray-400 text-[10px] font-black uppercase mb-1">Total Simulation</h3>
+                        <p id="statTotal" class="text-3xl font-black text-slate-700">0</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold">
+                            <tr>
+                                <th class="p-4 border-b">Heure</th>
+                                <th class="p-4 border-b">Contrat</th>
+                                <th class="p-4 border-b">Joueur</th>
+                                <th class="p-4 border-b text-center">Objectif</th>
+                                <th class="p-4 border-b text-center">Réalisé</th>
+                                <th class="p-4 border-b">Statut</th>
+                                <th class="p-4 border-b text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody" class="divide-y divide-gray-100">
+                            <tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune donnée</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import {
+            db, auth, collection, getDocs, query, where, orderBy, limit,
+            doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
+        } from './firebase-config.js';
+
+        const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
+        const BOT_UID = "AI-TEST-BOT";
+
+        const authStatus = document.getElementById('auth-status');
+        const btnLogin = document.getElementById('btn-login');
+        const btnLogout = document.getElementById('btn-logout');
+        const gamesTbody = document.getElementById('games-tbody');
+        const resultsBody = document.getElementById('resultsBody');
+        const runBtn = document.getElementById('runBtn');
+
+        let stats = { success: 0, fail: 0, total: 0 };
+
+        // --- Auth Management ---
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authStatus.innerText = `Connecté: ${user.email}`;
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-green-100 text-green-700';
+                btnLogin.classList.add('hidden');
+                btnLogout.classList.remove('hidden');
+                loadGames();
+                loadExistingAIGames();
+            } else {
+                authStatus.innerText = 'Accès Restreint';
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-red-100 text-red-700';
+                btnLogin.classList.remove('hidden');
+                btnLogout.classList.add('hidden');
+                gamesTbody.innerHTML = '<tr><td colspan="6" class="p-8 text-center text-rose-500 font-bold">Connexion requise.</td></tr>';
+                resultsBody.innerHTML = '<tr><td colspan="7" class="p-8 text-center text-rose-500 font-bold">Connexion requise.</td></tr>';
+            }
+        });
+
+        btnLogin.onclick = () => signInWithPopup(auth, googleProvider).catch(console.error);
+        btnLogout.onclick = () => auth.signOut().then(() => window.location.reload());
+
+        // --- Tabs Logic ---
+        window.switchTab = (tab) => {
+            document.getElementById('view-history').classList.toggle('hidden', tab !== 'history');
+            document.getElementById('view-ai-test').classList.toggle('hidden', tab !== 'ai-test');
+            document.getElementById('tab-history').className = `pb-4 px-2 font-bold text-sm uppercase tracking-wider transition-all ${tab === 'history' ? 'tab-active' : 'text-gray-400 hover:text-gray-600'}`;
+            document.getElementById('tab-ai-test').className = `pb-4 px-2 font-bold text-sm uppercase tracking-wider transition-all ${tab === 'ai-test' ? 'tab-active' : 'text-gray-400 hover:text-gray-600'}`;
+        };
+
+        // --- Real History Logic ---
+        async function loadGames() {
+            try {
+                const q = query(collection(db, "games"), orderBy("createdAt", "desc"), limit(50));
+                const snap = await getDocs(q);
+                gamesTbody.innerHTML = '';
+                if (snap.empty) { gamesTbody.innerHTML = '<tr><td colspan="6" class="p-8 text-center text-gray-400 italic">Aucune partie</td></tr>'; return; }
+                snap.forEach(docSnap => addRealGameRow(docSnap.id, docSnap.data()));
+            } catch (e) { console.error(e); gamesTbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-rose-500">Erreur: ${e.message}</td></tr>`; }
+        }
+
+        function addRealGameRow(id, data) {
+            const date = new Date(data.createdAt).toLocaleString('fr-FR');
+            const isSuccess = data.resultat?.reussite;
+            const isWeb = data.isWebPlay === true;
+            const row = document.createElement('tr');
+            row.className = 'hover:bg-gray-50 transition';
+            row.innerHTML = `
+                <td class="p-4 text-sm text-gray-600">${date}</td>
+                <td class="p-4"><span class="px-2 py-1 ${isWeb ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-700'} rounded-lg text-[10px] font-black uppercase tracking-wider">${data.varianteId || 'Inconnue'} ${isWeb ? '🌐' : ''}</span></td>
+                <td class="p-4 text-sm font-medium">Manche ${data.manche || '?'}</td>
+                <td class="p-4"><div class="text-sm font-bold text-gray-700">${data.userPseudo || 'Anonyme'}</div></td>
+                <td class="p-4">${isSuccess !== undefined ? (isSuccess ? '<span class="text-emerald-500 font-bold">✓ Succès</span>' : '<span class="text-rose-500 font-bold">✗ Échec</span>') : '<span class="text-gray-400 italic">En cours</span>'}</td>
+                <td class="p-4 text-right"><a href="game-detail.html#id=${id}" class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500 text-white rounded-lg text-xs font-bold hover:bg-emerald-600 transition"><i class="fas fa-info-circle"></i> Détails</a></td>
+            `;
+            gamesTbody.appendChild(row);
+        }
+
+        // --- AI Stress Test Logic ---
+        async function loadExistingAIGames() {
+            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(200));
+            try {
+                const snap = await getDocs(q);
+                resultsBody.innerHTML = '';
+                stats = { success: 0, fail: 0, total: 0 };
+                const docs = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+                docs.forEach(data => {
+                    addAIGameRow(data);
+                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    stats.total++;
+                });
+                updateStatsUI();
+            } catch (e) { console.error(e); }
+        }
+
+        runBtn.addEventListener('click', async () => {
+            runBtn.disabled = true; document.getElementById('btnText').innerText = 'Simulation...';
+            let simCount = 0;
+            while (simCount < 50) {
+                const game = await simulateAndSave(simCount + 1);
+                if (game.isPasse) continue;
+                simCount++; addAIGameRow(game, true);
+                if (game.resultat.reussite) stats.success++; else stats.fail++;
+                stats.total++; updateStatsUI();
+                await new Promise(r => setTimeout(r, 50));
+            }
+            runBtn.disabled = false; document.getElementById('btnText').innerText = 'Lancer la simulation (50)';
+        });
+
+        document.getElementById('deleteBtn').onclick = async () => {
+            if (!confirm("Tout supprimer ?")) return;
+            const snap = await getDocs(query(collection(db, "games"), where("isAITest", "==", true)));
+            for (const d of snap.docs) await deleteDoc(doc(db, "games", d.id));
+            window.location.reload();
+        };
+
+        document.getElementById('deleteSuccessBtn').onclick = async () => {
+            if (!confirm("Supprimer succès ?")) return;
+            const snap = await getDocs(query(collection(db, "games"), where("isAITest", "==", true), where("resultat.reussite", "==", true)));
+            for (const d of snap.docs) await deleteDoc(doc(db, "games", d.id));
+            window.location.reload();
+        };
+
+        function addAIGameRow(game, prepend = false) {
+            const row = document.createElement('tr');
+            const isSuccess = game.resultat?.reussite;
+            const date = new Date(game.createdAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            row.className = 'hover:bg-gray-50 transition';
+            row.id = `row-${game.id}`;
+            row.innerHTML = `
+                <td class="p-4 text-xs text-gray-500">${date}</td>
+                <td class="p-4"><span class="font-bold text-gray-700">${game.contrat?.nom}</span> <span class="ml-1 text-rose-500 font-bold">${SYM[game.atout] || 'SA'}</span></td>
+                <td class="p-4 text-xs text-slate-400 font-medium">${game.userPseudo}</td>
+                <td class="p-4 text-center font-bold text-gray-400">${game.contrat?.plisObjectif}</td>
+                <td class="p-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">${game.resultat?.plisFaits}</td>
+                <td class="p-4"><span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${isSuccess ? 'Succès' : 'Échec'}</span></td>
+                <td class="p-4 text-right flex justify-end gap-2"><a href="game-detail.html#id=${game.id}" class="text-emerald-600 p-2 rounded-lg hover:bg-emerald-50"><i class="fas fa-chart-bar"></i></a><button onclick="window.deleteSingle('${game.id}')" class="text-gray-400 p-2 hover:text-rose-600"><i class="fas fa-trash"></i></button></td>
+            `;
+            if (prepend && resultsBody.firstChild) resultsBody.insertBefore(row, resultsBody.firstChild);
+            else resultsBody.appendChild(row);
+        }
+
+        window.deleteSingle = async (id) => {
+            if (confirm("Supprimer ?")) { await deleteDoc(doc(db, "games", id)); document.getElementById(`row-${id}`)?.remove(); }
+        };
+
+        function updateStatsUI() {
+            document.getElementById('statSuccess').innerText = stats.success;
+            document.getElementById('statFail').innerText = stats.fail;
+            document.getElementById('statTotal').innerText = stats.total;
+            document.getElementById('statRate').innerText = Math.round((stats.success / stats.total) * 100 || 0) + '%';
+        }
+
+        // --- IA Engine (Same as old ia-test.html) ---
+        function evaluerForce(hand) {
+            const fb = hand.reduce((acc, c) => acc + (c.valeur === 14 ? 4 : c.valeur === 13 ? 3 : c.valeur === 12 ? 2 : c.valeur === 11 ? 1 : 0), 0);
+            const rep = { COEUR:0, CARREAU:0, TREFLE:0, PIQUE:0 }; hand.forEach(c => rep[c.couleur]++);
+            let bc = 'PIQUE', max = 0; Object.entries(rep).forEach(([k, v]) => { if (v > max) { max = v; bc = k; } });
+            const bonus = Object.values(rep).reduce((acc, n) => acc + (n === 0 ? 3 : n === 1 ? 1 : 0), 0) + Math.max(0, max - 4) * 2;
+            return { force: fb + bonus, bestCol: bc, nbAtouts: max };
+        }
+
+        function deciderEnchere(hand) {
+            const { force, bestCol, nbAtouts } = evaluerForce(hand);
+            const nbAs = hand.filter(c => c.valeur === 14).length;
+            const forceM = hand.reduce((acc, c) => acc + (c.valeur >= 11 ? 10 : c.valeur >= 8 ? 2 : 0), 0);
+            const aHon = hand.some(c => c.couleur === bestCol && c.valeur >= 13);
+            if (nbAs === 3) return { id: 'trou', nom: 'Trou', prio: 7, obj: 9, pts: 30, atout: null };
+            if (nbAs === 4) return { id: 'trou_royal', nom: 'Trou Royal', prio: 7, obj: 9, pts: 30, atout: 'COEUR' };
+            if (force >= 45 && aHon) return { id: 'chelem', nom: 'Chelem', prio: 12, obj: 13, pts: 250, atout: bestCol };
+            if (force >= 40 && aHon) return { id: 'abondance_11', nom: 'Abondance 11', prio: 10, obj: 11, pts: 70, atout: bestCol };
+            if (forceM <= 25 && nbAs === 0) {
+                if (forceM === 0) return { id: 'misere_ouverte', nom: 'Misère sur Table', prio: 11, obj: 0, pts: 120, atout: null };
+                if (forceM <= 10) return { id: 'misere', nom: 'Grande Misère', prio: 9, obj: 0, pts: 60, atout: null };
+                if (forceM <= 20) return { id: 'petite_misere', nom: 'Petite Misère', prio: 4, obj: 0, pts: 30, atout: null };
+            }
+            if (force >= 35 && aHon) return { id: 'abondance_10', nom: 'Abondance 10', prio: 8, obj: 10, pts: 50, atout: bestCol };
+            if (force >= 30 && nbAtouts >= 6 && aHon) return { id: 'abondance_9', nom: 'Abondance 9', prio: 6, obj: 9, pts: 40, atout: bestCol };
+            if (force >= 28 && nbAtouts >= 6 && aHon) return { id: 'solo_8', nom: 'Solo 8', prio: 5, obj: 8, pts: 25, atout: bestCol };
+            if (force >= 25 && nbAtouts >= 5 && aHon) return { id: 'solo_7', nom: 'Solo 7', prio: 3, obj: 7, pts: 20, atout: bestCol };
+            if (force >= 22 && nbAtouts >= 5 && aHon) return { id: 'solo_6', nom: 'Solo 6', prio: 2, obj: 6, pts: 15, atout: bestCol };
+            if (force >= 15 && nbAtouts >= 5) return { id: 'propose', nom: 'Je propose', prio: 1, obj: 8, pts: 10, atout: bestCol };
+            return null;
+        }
+
+        async function simulateAndSave(index) {
+            const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
+            const deck = []; suits.forEach(s => { for (let v = 2; v <= 14; v++) deck.push({ valeur: v, couleur: s, id: `${v}-${s}` }); });
+            deck.sort(() => Math.random() - 0.5);
+            const hands = [[],[],[],[]]; for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
+            let contrat = null, bidderId = -1, partnerId = -1;
+            for(let i=0; i<4; i++) {
+                const dec = deciderEnchere(hands[i]);
+                if (dec) {
+                    contrat = dec; bidderId = i;
+                    if (dec.id === 'petite_misere') { hands[i].sort((a,b) => b.valeur - a.valeur); contrat.carteEcartee = hands[i].shift(); }
+                    if (dec.id === 'propose') {
+                        for(let j=1; j<4; j++) {
+                            const pId = (i+j)%4;
+                            if (hands[pId].filter(c => c.couleur === dec.atout).length >= 4) { partnerId = pId; break; }
+                        }
+                        if (partnerId === -1) { contrat = null; bidderId = -1; continue; }
+                    } else if (dec.id === 'trou') {
+                        const asP = hands[i].filter(c => c.valeur === 14).map(c => c.couleur);
+                        const asM = suits.find(s => !asP.includes(s));
+                        for(let j=0; j<4; j++) if(j!==i && hands[j].some(c => c.valeur === 14 && c.couleur === asM)) { partnerId = j; break; }
+                        contrat.atout = asM;
+                    }
+                    break;
+                }
+            }
+            if (!contrat) return { isPasse: true };
+            if (contrat.id === 'petite_misere') {
+                contrat.cartesEcartees = {};
+                for (let i = 0; i < 4; i++) {
+                    if (i !== bidderId) { hands[i].sort((a,b) => b.valeur - a.valeur); contrat.cartesEcartees[i] = hands[i].shift(); }
+                    else contrat.cartesEcartees[i] = contrat.carteEcartee;
+                }
+            }
+            const atout = contrat.atout, plis = [], plisGagnes = [0,0,0,0];
+            let leaderId = 0;
+            for (let pNum = 1; pNum <= 13; pNum++) {
+                if (hands[0].length === 0 || hands[1].length === 0 || hands[2].length === 0 || hands[3].length === 0) break;
+                const pliCartes = []; let couleurD = null;
+                for (let i = 0; i < 4; i++) {
+                    const pid = (leaderId + i) % 4, hand = hands[pid];
+                    let card;
+                    if (i === 0) { card = hand.pop(); couleurD = card.couleur; }
+                    else {
+                        const idxS = hand.findIndex(c => c.couleur === couleurD);
+                        if (idxS !== -1) card = hand.splice(idxS, 1)[0];
+                        else {
+                            const idxA = hand.findIndex(c => c.couleur === atout);
+                            card = idxA !== -1 ? hand.splice(idxA, 1)[0] : hand.pop();
+                        }
+                    }
+                    pliCartes.push({ joueurId: pid, carte: card });
+                }
+                let best = pliCartes[0];
+                for(let i=1; i<4; i++) {
+                    const c = pliCartes[i], isA = atout && c.carte.couleur === atout, bIsA = atout && best.carte.couleur === atout;
+                    if ((isA && !bIsA) || (isA && bIsA && c.carte.valeur > best.carte.valeur) || (!isA && !bIsA && c.carte.couleur === couleurD && c.carte.valeur > best.carte.valeur)) best = c;
+                }
+                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
+                plisGagnes[best.joueurId]++; leaderId = best.joueurId;
+            }
+            const plisTeam = plisGagnes[bidderId] + (partnerId !== -1 ? plisGagnes[partnerId] : 0);
+            const isSuccess = (contrat.obj === 0) ? (plisGagnes[bidderId] === 0) : (plisTeam >= contrat.obj);
+            const delta = { 0:0, 1:0, 2:0, 3:0 };
+            const defenseIds = [0,1,2,3].filter(id => id !== bidderId && id !== partnerId);
+            let gain = isSuccess ? contrat.pts : -contrat.pts;
+            if (isSuccess && (contrat.id.includes('solo') || contrat.id === 'propose')) gain += (plisTeam - contrat.obj);
+            if (isSuccess) {
+                const totalG = gain * defenseIds.length;
+                if (partnerId !== -1) { delta[bidderId] = Math.floor(totalG / 2); delta[partnerId] = totalG - delta[bidderId]; }
+                else delta[bidderId] = totalG;
+                defenseIds.forEach(id => delta[id] = -gain);
+            } else {
+                const totalP = Math.abs(gain) * defenseIds.length;
+                if (partnerId !== -1) { delta[bidderId] = -Math.floor(totalP / 2); delta[partnerId] = -(totalP - Math.abs(delta[bidderId])); }
+                else delta[bidderId] = -totalP;
+                defenseIds.forEach(id => delta[id] = Math.abs(gain));
+            }
+            const gameData = { varianteId: 'whist-gand', manche: 1, isAITest: true, userId: BOT_UID, userPseudo: 'IA Expert', createdAt: new Date().toISOString(), atout: atout, contrat: { ...contrat, joueurId: bidderId, plisObjectif: contrat.obj, ...(partnerId !== -1 ? { partenaireId: partnerId } : {}) }, plis: plis, resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta } };
+            const docId = `AI_STRESS_${Date.now()}_${index}`;
+            await setDoc(doc(db, "games", docId), gameData);
+            return { id: docId, ...gameData };
+        }
+
+    </script>
+</body>
+</html>
