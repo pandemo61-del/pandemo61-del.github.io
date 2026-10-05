@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist - Apprentissage & Guide des Annonces Whist Belge</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .active-tab {
+            background-color: #059669;
+            color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800">
+    <div class="flex">
+
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-slate-800 text-white min-h-screen p-4 fixed left-0 top-0 bottom-0 z-20">
+            <div class="flex items-center gap-3 mb-8 px-2">
+                <img src="assets/icon.png" class="w-10 h-10 rounded-lg shadow-lg" alt="App Icon">
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">AllWhist</h1>
+                    <p class="text-xs text-slate-400 font-medium">Whist Belge En Ligne</p>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <div class="px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Espace Jeu</div>
+                <a href="play.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-play-circle w-6"></i> Salle de Jeu
+                </a>
+                <a href="learn.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white transition font-bold shadow-md">
+                    <i class="fas fa-graduation-cap w-6"></i> Apprentissage & Annonces
+                </a>
+                <a href="ia-test.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-robot w-6"></i> Laboratoire IA
+                </a>
+
+                <div class="pt-6 px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Administration</div>
+                <a href="../admin/index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition text-slate-300">
+                    <i class="fas fa-user-shield w-6"></i> Dashboard Admin
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-64 p-8">
+            <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div>
+                    <div class="flex items-center gap-3">
+                        <span class="p-2 bg-emerald-100 text-emerald-700 rounded-xl">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </span>
+                        <h2 class="text-2xl font-black text-slate-800">Espace Apprentissage Whist Belge</h2>
+                    </div>
+                    <p class="text-slate-500 text-sm mt-1">Guide officiel des annonces, règles de calcul des points et parties d'entraînement dédiées à chaque contrat.</p>
+                </div>
+                <a href="play.html" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition shadow-md flex items-center gap-2 text-sm">
+                    <i class="fas fa-play"></i> Lancer une Partie
+                </a>
+            </header>
+
+            <!-- Navigation Onglets -->
+            <div class="flex flex-wrap gap-2 mb-8 bg-slate-200 p-1.5 rounded-2xl w-fit">
+                <button onclick="switchTab('annonces')" id="tab-btn-annonces" class="tab-btn active-tab px-5 py-2.5 rounded-xl font-bold text-sm transition">
+                    <i class="fas fa-list-ol mr-2"></i> Guide des Annonces
+                </button>
+                <button onclick="switchTab('scenarios')" id="tab-btn-scenarios" class="tab-btn text-slate-600 hover:text-slate-900 px-5 py-2.5 rounded-xl font-bold text-sm transition">
+                    <i class="fas fa-chess-board mr-2"></i> Scénarios Pratiques
+                </button>
+                <button onclick="switchTab('regles')" id="tab-btn-regles" class="tab-btn text-slate-600 hover:text-slate-900 px-5 py-2.5 rounded-xl font-bold text-sm transition">
+                    <i class="fas fa-book-open mr-2"></i> Règles & Déroulement
+                </button>
+                <button onclick="switchTab('conseils')" id="tab-btn-conseils" class="tab-btn text-slate-600 hover:text-slate-900 px-5 py-2.5 rounded-xl font-bold text-sm transition">
+                    <i class="fas fa-lightbulb mr-2"></i> Stratégie & Conseils
+                </button>
+            </div>
+
+            <!-- ── TAB 1 : GUIDE DES ANNONCES ── -->
+            <section id="sec-annonces" class="tab-sec">
+                <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl mb-6 flex items-start gap-3 text-amber-900 text-sm">
+                    <i class="fas fa-info-circle text-amber-600 mt-0.5 text-lg"></i>
+                    <div>
+                        <strong>Règle du Calcul des Points :</strong>
+                        Tous les contrats se jouent à <strong>somme nulle</strong> entre les 4 joueurs. Pour les contrats à l'atout avec objectif de plis, chaque pli réalisé au-delà de l'objectif rapporte un bonus de <strong>+1 point par surplis par adversaire</strong>.
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <!-- Propose -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-lg uppercase">Priorité 1</span>
+                                <span class="text-xs font-bold text-slate-400">Paire (2v2)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Je propose</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Le joueur propose une couleur d'atout pour chercher un partenaire et faire 8 plis à deux.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 8 plis</span>
+                                <span class="font-black text-emerald-600">+10 pts (+1/surplis)</span>
+                            </div>
+                            <a href="play.html?scenario=gand-propose" class="mt-3 py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-xs flex items-center justify-between border border-emerald-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Emballe -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-lg uppercase">Priorité 1.5</span>
+                                <span class="text-xs font-bold text-slate-400">Paire (2v2)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">J'emballe</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">S'allier avec le proposant sur la couleur proposée. L'équipe tente de faire 8 plis ensemble.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 8 plis</span>
+                                <span class="font-black text-emerald-600">+10 pts (+1/surplis)</span>
+                            </div>
+                            <a href="play.html?scenario=gand-propose" class="mt-3 py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-xs flex items-center justify-between border border-emerald-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Demande -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-black rounded-lg uppercase">Priorité 1.8</span>
+                                <span class="text-xs font-bold text-slate-400">As Secret (2v2)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Demande à l'As</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Si personne n'emballe, le proposant appelle un As qu'il n'a pas. Le détenteur devient son partenaire secret.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 8 plis</span>
+                                <span class="font-black text-emerald-600">+10 pts (+1/surplis)</span>
+                            </div>
+                            <a href="play.html?scenario=gand-demande" class="mt-3 py-2 px-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-xs flex items-center justify-between border border-emerald-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Solo 6 -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-lg uppercase">Priorité 2</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Solo 6</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Le joueur choisit son atout et tente de réaliser 6 plis seul contre les 3 autres.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 6 plis</span>
+                                <span class="font-black text-blue-600">+15 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-solo-6" class="mt-3 py-2 px-3 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-xl text-xs flex items-center justify-between border border-blue-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Solo 7 -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-lg uppercase">Priorité 3</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Solo 7</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Faire 7 plis seul avec l'atout de son choix.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 7 plis</span>
+                                <span class="font-black text-blue-600">+20 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-solo-7" class="mt-3 py-2 px-3 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-xl text-xs flex items-center justify-between border border-blue-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Petite Misere -->
+                    <div class="bg-white p-5 rounded-2xl border border-rose-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-rose-100 text-rose-800 text-xs font-black rounded-lg uppercase">Priorité 4</span>
+                                <span class="text-xs font-bold text-rose-500">Sans Atout</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Petite Misère</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Zéro pli en écartant 1 carte cachée au début (joue avec 12 cartes). Aucun pli permis !</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 0 pli</span>
+                                <span class="font-black text-rose-600">+30 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-petite-misere" class="mt-3 py-2 px-3 bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold rounded-xl text-xs flex items-center justify-between border border-rose-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Solo 8 -->
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-blue-100 text-blue-800 text-xs font-black rounded-lg uppercase">Priorité 5</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Solo 8</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Faire 8 plis seul avec l'atout de son choix.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 8 plis</span>
+                                <span class="font-black text-blue-600">+25 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-solo-8" class="mt-3 py-2 px-3 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-xl text-xs flex items-center justify-between border border-blue-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Abondance 9 -->
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs font-black rounded-lg uppercase">Priorité 6</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Abondance 9</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Faire 9 plis seul. L'annonceur choisit l'atout.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 9 plis</span>
+                                <span class="font-black text-purple-600">+40 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-abondance-9" class="mt-3 py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold rounded-xl text-xs flex items-center justify-between border border-purple-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Le Trou -->
+                    <div class="bg-white p-5 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-amber-200 text-amber-900 text-xs font-black rounded-lg uppercase">Priorité 7</span>
+                                <span class="text-xs font-bold text-amber-700">Forcé (3 As)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Le Trou</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Obligatoire si un joueur a 3 As. L'atout est la couleur du 4ème As. L'équipe doit faire 9 plis.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-amber-200 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 9 plis</span>
+                                <span class="font-black text-amber-700">+30 pts (+1/surplis)</span>
+                            </div>
+                            <a href="play.html?scenario=gand-trou" class="mt-3 py-2 px-3 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold rounded-xl text-xs flex items-center justify-between border border-amber-300 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Trou Royal -->
+                    <div class="bg-white p-5 rounded-2xl border border-amber-300 bg-amber-100/40 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-amber-300 text-amber-950 text-xs font-black rounded-lg uppercase">Priorité 7.5</span>
+                                <span class="text-xs font-bold text-amber-800">Forcé (4 As)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Trou Royal</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Obligatoire avec les 4 As en main ! Le partenaire est le détenteur du Roi de Cœur. Objectif: 9 plis.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-amber-200 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 9 plis</span>
+                                <span class="font-black text-amber-800">+60 pts (+1/surplis)</span>
+                            </div>
+                            <a href="play.html?scenario=gand-trou-royal" class="mt-3 py-2 px-3 bg-amber-200 hover:bg-amber-300 text-amber-950 font-bold rounded-xl text-xs flex items-center justify-between border border-amber-400 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Abondance 10 -->
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs font-black rounded-lg uppercase">Priorité 8</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Abondance 10</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Faire 10 plis seul avec l'atout de son choix.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 10 plis</span>
+                                <span class="font-black text-purple-600">+50 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-abondance-10" class="mt-3 py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold rounded-xl text-xs flex items-center justify-between border border-purple-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Grande Misere -->
+                    <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-rose-100 text-rose-800 text-xs font-black rounded-lg uppercase">Priorité 9</span>
+                                <span class="text-xs font-bold text-rose-500">Sans Atout</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Grande Misère</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Ne faire AUCUN pli avec les 13 cartes en main. Jeu sans atout.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 0 pli</span>
+                                <span class="font-black text-rose-600">+60 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-misere" class="mt-3 py-2 px-3 bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold rounded-xl text-xs flex items-center justify-between border border-rose-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Abondance 11 -->
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs font-black rounded-lg uppercase">Priorité 10</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Abondance 11</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Faire 11 plis seul avec l'atout de son choix.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 11 plis</span>
+                                <span class="font-black text-purple-600">+70 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-abondance-10" class="mt-3 py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold rounded-xl text-xs flex items-center justify-between border border-purple-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Abondance 12 -->
+                    <div class="bg-white p-5 rounded-2xl border border-purple-200 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-purple-200 text-purple-900 text-xs font-black rounded-lg uppercase">Priorité 10.5</span>
+                                <span class="text-xs font-bold text-slate-400">Soliste (1v3)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Abondance 12</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Faire 12 plis seul avec l'atout de son choix.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 12 plis</span>
+                                <span class="font-black text-purple-700">+100 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-chelem" class="mt-3 py-2 px-3 bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold rounded-xl text-xs flex items-center justify-between border border-purple-200 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Misere sur Table -->
+                    <div class="bg-white p-5 rounded-2xl border border-rose-300 bg-rose-50/30 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-rose-200 text-rose-900 text-xs font-black rounded-lg uppercase">Priorité 11</span>
+                                <span class="text-xs font-bold text-rose-600">Cartes Visibles</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Misère sur Table</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Zéro pli. Les cartes du soliste sont étalées face visible sur la table après le premier pli.</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 0 pli</span>
+                                <span class="font-black text-rose-700">+120 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-misere-ouverte" class="mt-3 py-2 px-3 bg-rose-100 hover:bg-rose-200 text-rose-900 font-bold rounded-xl text-xs flex items-center justify-between border border-rose-300 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Chelem -->
+                    <div class="bg-white p-5 rounded-2xl border border-amber-400 bg-gradient-to-br from-amber-50 to-white shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="px-2.5 py-1 bg-amber-400 text-amber-950 text-xs font-black rounded-lg uppercase">Priorité 12</span>
+                                <span class="text-xs font-bold text-amber-800">Grand Chelem</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">Chelem</h3>
+                            <p class="text-xs text-slate-500 mt-1 mb-3">Réaliser les 13 plis de la manche seul. Le contrat ultime du Whist !</p>
+                        </div>
+                        <div>
+                            <div class="pt-3 border-t border-amber-200 flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-600">Objectif: 13 plis</span>
+                                <span class="font-black text-amber-800">+250 pts par adv.</span>
+                            </div>
+                            <a href="play.html?scenario=gand-chelem" class="mt-3 py-2 px-3 bg-amber-200 hover:bg-amber-300 text-amber-950 font-bold rounded-xl text-xs flex items-center justify-between border border-amber-400 transition">
+                                <span>🎯 Jouer l'annonce</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── TAB 2 : SCÉNARIOS PRATIQUES ── -->
+            <section id="sec-scenarios" class="tab-sec hidden">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-slate-800 mb-1">Mises en Situation & Scénarios par Annonce</h3>
+                    <p class="text-slate-500 text-sm">Sélectionnez une catégorie d'annonce pour lancer une partie pré-distribuée avec des cartes ciblées.</p>
+                </div>
+
+                <!-- Filtre par catégorie d'annonce -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <button onclick="filterScenarios('all')" class="scen-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow-sm transition">Toutes les annonces</button>
+                    <button onclick="filterScenarios('propose')" class="scen-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Propose & Demande</button>
+                    <button onclick="filterScenarios('trou')" class="scen-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Le Trou (3 & 4 As)</button>
+                    <button onclick="filterScenarios('solo')" class="scen-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Solo (6, 7, 8)</button>
+                    <button onclick="filterScenarios('misere')" class="scen-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Misère (Petite & Grande)</button>
+                    <button onclick="filterScenarios('abondance')" class="scen-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Abondance & Chelem</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Propose -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between" data-cat="propose">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-emerald-600 text-xs font-bold"><i class="fas fa-handshake"></i> Paire</span>
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-black rounded-md">Annonce : Je propose</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Je Propose (Alliance)</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous possédez 5 Cœurs de valeur avec As-Roi-Valet. C'est l'occasion idéale de proposer une couleur d'atout et de chercher un partenaire.
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-propose" class="w-full py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-center text-xs transition border border-emerald-200 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Demande -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between" data-cat="propose">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-emerald-600 text-xs font-bold"><i class="fas fa-hand-holding-hand"></i> As Secret</span>
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-black rounded-md">Annonce : Demande</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">La Demande à l'As</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous avez 5 Cœurs très forts (As, Roi, Dame, Valet, 10) et l'As de Pique. C'est la main parfaite pour faire une Proposition et appeler l'As de Trèfle.
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-demande" class="w-full py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-center text-xs transition border border-emerald-200 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Le Trou -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-amber-200 bg-amber-50/30 shadow-sm flex flex-col justify-between" data-cat="trou">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-amber-700 text-xs font-bold"><i class="fas fa-gem"></i> Forcé</span>
+                                <span class="px-2 py-0.5 bg-amber-200 text-amber-900 text-[10px] font-black rounded-md">Annonce : Le Trou</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Le Trou (3 As en main)</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous possédez 3 As (Cœur, Pique, Carreau). Le règlement vous oblige à annoncer "Trou". Votre partenaire sera celui qui possède le 4ème As (Trèfle).
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-trou" class="w-full py-3 bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold rounded-xl text-center text-xs transition border border-amber-300 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Trou Royal -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-amber-300 bg-amber-100/30 shadow-sm flex flex-col justify-between" data-cat="trou">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-amber-800 text-xs font-bold"><i class="fas fa-crown"></i> Légendaire</span>
+                                <span class="px-2 py-0.5 bg-amber-300 text-amber-950 text-[10px] font-black rounded-md">Annonce : Trou Royal</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Le Trou Royal (4 As en main)</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous recevez les 4 As de la distribution ! Vous annoncez "Trou Royal". Votre partenaire désigné est le possesseur du Roi de Cœur.
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-trou-royal" class="w-full py-3 bg-amber-200 hover:bg-amber-300 text-amber-950 font-bold rounded-xl text-center text-xs transition border border-amber-400 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Solo 6 -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between" data-cat="solo">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-blue-600 text-xs font-bold"><i class="fas fa-user-ninja"></i> Soliste</span>
+                                <span class="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-black rounded-md">Annonce : Solo 6</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Le Solo 6</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous possédez 7 Piques menés par l'As et le Roi. Tentez de réaliser 6 plis tout seul contre les 3 autres joueurs réunis.
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-solo-6" class="w-full py-3 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-xl text-center text-xs transition border border-blue-200 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Solo 7 -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between" data-cat="solo">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-blue-600 text-xs font-bold"><i class="fas fa-user-ninja"></i> Soliste</span>
+                                <span class="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-black rounded-md">Annonce : Solo 7</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Le Solo 7</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                7 Piques majeurs et 2 As latéraux pour aller chercher 7 plis en solo face aux 3 défenseurs.
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-solo-7" class="w-full py-3 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-xl text-center text-xs transition border border-blue-200 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Petite Misère -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-rose-200 shadow-sm flex flex-col justify-between" data-cat="misere">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-rose-600 text-xs font-bold"><i class="fas fa-shield-alt"></i> Sans Atout</span>
+                                <span class="px-2 py-0.5 bg-rose-100 text-rose-800 text-[10px] font-black rounded-md">Annonce : Petite Misère</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">La Petite Misère</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous n'avez aucune grosse carte supérieure au 7, sauf une Dame isolée. Écartez cette Dame et jouez la Petite Misère (0 pli).
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-petite-misere" class="w-full py-3 bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold rounded-xl text-center text-xs transition border border-rose-200 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Misère sur Table -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-rose-300 shadow-sm flex flex-col justify-between" data-cat="misere">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-rose-700 text-xs font-bold"><i class="fas fa-eye"></i> Cartes Visibles</span>
+                                <span class="px-2 py-0.5 bg-rose-200 text-rose-900 text-[10px] font-black rounded-md">Annonce : Misère sur Table</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Misère sur Table</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Main composée uniquement de 2, 3 et 4 dans toutes les couleurs. Annoncez Misère sur Table (120 pts par adversaire) !
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-misere-ouverte" class="w-full py-3 bg-rose-100 hover:bg-rose-200 text-rose-900 font-bold rounded-xl text-center text-xs transition border border-rose-300 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Abondance 9 -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-purple-200 shadow-sm flex flex-col justify-between" data-cat="abondance">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-purple-700 text-xs font-bold"><i class="fas fa-crown"></i> Soliste</span>
+                                <span class="px-2 py-0.5 bg-purple-100 text-purple-800 text-[10px] font-black rounded-md">Annonce : Abondance 9</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">L'Abondance 9</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Main maîtresse à Trèfle avec As-Roi-Dame-Valet-10-9-8 et 2 As de reprise latérale pour faire 9 plis seul.
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-abondance-9" class="w-full py-3 bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold rounded-xl text-center text-xs transition border border-purple-200 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                    <!-- Chelem -->
+                    <div class="scenario-item bg-white p-6 rounded-2xl border border-amber-300 bg-gradient-to-br from-amber-50 to-white shadow-sm flex flex-col justify-between" data-cat="abondance">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-amber-800 text-xs font-bold"><i class="fas fa-trophy"></i> Grand Chelem</span>
+                                <span class="px-2 py-0.5 bg-amber-300 text-amber-950 text-[10px] font-black rounded-md">Annonce : Chelem</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-800 mb-2">Le Grand Chelem (13 plis)</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Vous possédez 9 Cœurs maîtres et tous les As/Rois de reprise pour accomplir l'exploit suprême : 13 plis sur 13 !
+                            </p>
+                        </div>
+                        <a href="play.html?scenario=gand-chelem" class="w-full py-3 bg-amber-200 hover:bg-amber-300 text-amber-950 font-bold rounded-xl text-center text-xs transition border border-amber-400 block">
+                            Jouer l'annonce →
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── TAB 3 : RÈGLES & DÉROULEMENT ── -->
+            <section id="sec-regles" class="tab-sec hidden">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <h3 class="text-xl font-bold text-slate-800 border-b border-slate-100 pb-4">Règles fondamentales du Whist Belge (Whist de Gand)</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-black flex items-center justify-center flex-shrink-0 text-sm">1</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">La Distribution</h4>
+                                <p class="text-slate-500 text-xs">Chaque joueur reçoit 13 cartes d'un jeu de 52 cartes. Le rôle du donneur tourne à chaque manche dans le sens horaire.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-black flex items-center justify-center flex-shrink-0 text-sm">2</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Les Enchères</h4>
+                                <p class="text-slate-500 text-xs">Chaque joueur à son tour annonce un contrat ou passe. L'enchère la plus haute remporte la souscription. Si tous passent, redistribution.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-black flex items-center justify-center flex-shrink-0 text-sm">3</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">L'As Secret (Demande / Trou)</h4>
+                                <p class="text-slate-500 text-xs">Le partenaire est gardé secret jusqu'au moment où la carte appelée (l'As ou le Roi de Cœur) est jouée sur la table !</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-black flex items-center justify-center flex-shrink-0 text-sm">4</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Le Jeu de la Carte</h4>
+                                <p class="text-slate-500 text-xs">Le joueur à gauche du donneur entame. Il est obligatoire de fournir la couleur demandée. Si l'on n'en a pas, on peut couper (atout) ou se défausser.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── TAB 4 : CONSEILS & STRATÉGIE ── -->
+            <section id="sec-conseils" class="tab-sec hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4">
+                        <span class="text-3xl">♠️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm mb-1">Évaluation de la Main</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Comptez 4 pts par As, 3 pts par Roi, 2 pts par Dame et 1 pt par Valet. Ajoutez +2 pts par carte au-delà de 4 dans votre couleur la plus longue. Au-delà de 16 pts, envisagez une Proposition !</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4">
+                        <span class="text-3xl">🛡️</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm mb-1">Défense contre la Misère</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">En défense contre un joueur ayant annoncé Misère, jouez vos cartes les plus HAUTES (As, Rois) pour forcer le soliste à prendre le pli avec une carte intermédiaire.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4">
+                        <span class="text-3xl">🤝</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm mb-1">Stratégie d'Emballage</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">N'emballez la proposition d'un joueur que si vous possédez au moins l'As ou le Roi dans la couleur proposée, ou 4 cartes d'atout avec des rentrées annexes.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4">
+                        <span class="text-3xl">👑</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm mb-1">Discrétion de l'As Secret</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Si vous possédez l'As appelé lors d'une Demande, ne jouez pas cet As trop tôt si cela ne vous apporte rien : gardez le mystère le plus longtemps possible !</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-sec').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-slate-600');
+            });
+
+            document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('text-slate-600');
+        }
+
+        function filterScenarios(cat) {
+            document.querySelectorAll('.scen-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-200', 'text-slate-700');
+            });
+            event.currentTarget.classList.remove('bg-slate-200', 'text-slate-700');
+            event.currentTarget.classList.add('bg-emerald-600', 'text-white', 'shadow-sm');
+
+            document.querySelectorAll('.scenario-item').forEach(item => {
+                if (cat === 'all' || item.dataset.cat === cat) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// Configuration Firebase (copiée de src/services/firebase.ts)
+// Configuration Firebase pour l'application Web AllWhist
 const firebaseConfig = {
   projectId: "allwhist-61182",
   appId: "1:814265216795:web:c3f057ccc617633045edbe",
