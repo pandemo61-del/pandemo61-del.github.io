@@ -1,0 +1,49 @@
+name: Sync project to presentation site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-send2ereader-web
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this project
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Check out the presentation repository
+        uses: actions/checkout@v4
+        with:
+          repository: pandemo61-del/pandemo61-del.github.io
+          ref: main
+          path: presentation
+          token: ${{ secrets.PRESENTATION_REPO_TOKEN }}
+
+      - name: Sync tracked project files
+        run: |
+          mkdir -p presentation/send2ereader-web
+          rsync -a --delete --exclude='.git/' source/ presentation/send2ereader-web/
+
+      - name: Commit and push changes
+        working-directory: presentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all -- send2ereader-web
+          if git diff --cached --quiet -- send2ereader-web; then
+            echo "The synchronized project is already up to date."
+            exit 0
+          fi
+          git commit -m "Sync send2ereader-web project"
+          git push origin HEAD:main

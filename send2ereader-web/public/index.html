@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send to Ereader</title>
+    <meta name="theme-color" content="#f1f5f1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <div class="topline">
+          <a class="brand" href="/" aria-label="Send to Ereader home">
+            <span class="brand-mark" aria-hidden="true">s</span>
+            <span>send<span class="brand-accent">2</span>ereader</span>
+          </a>
+          <span class="privacy-note"><span class="privacy-dot"></span>Private, one-time pairing</span>
+        </div>
+        <div class="intro">
+          <p class="eyebrow">A better way to get reading</p>
+          <h1>Your next read,<br /><em>just a little closer.</em></h1>
+          <p class="intro-copy">Pair your e-reader, then send a book or a link straight to it.</p>
+        </div>
+      </header>
+
+      <div class="workflow-grid">
+        <section class="panel receiver-panel" aria-labelledby="pairHeading">
+          <div class="step-label"><span>01</span> Pair your device</div>
+          <h2 id="pairHeading">Your e-reader</h2>
+          <p class="panel-copy">Open this page on your e-reader to get a one-time code.</p>
+
+        <div class="device-mode">
+          <button id="createKeyBtn" type="button">Generate key for device</button>
+        </div>
+
+        <div class="receiver-box">
+          <label for="receiverKey">Your pairing code</label>
+          <div class="key-row">
+            <input id="receiverKey" type="text" value="----" readonly />
+          </div>
+          <p class="key-hint">Enter this code on the device you’re sending from.</p>
+          <div id="downloadBox" class="download-box hidden">
+            <h3>Ready to read</h3>
+            <a id="downloadLink" href="#">Open file</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel send-panel" aria-labelledby="sendHeading">
+        <div class="step-label"><span>02</span> Send something to read</div>
+        <h2 id="sendHeading">Send a book</h2>
+        <p class="panel-copy">Choose an ebook from your device or add a web link.</p>
+        <form id="uploadForm">
+          <label for="senderKey">Shared key</label>
+          <input id="senderKey" name="key" type="text" maxlength="4" required placeholder="ABCD" />
+
+          <label for="fileInput">Ebook file</label>
+          <input id="fileInput" name="file" type="file" accept=".epub,.mobi,.pdf,.txt,.cbz,.cbr,application/epub+zip,application/x-mobipocket-ebook,application/pdf,text/plain,application/zip" />
+
+          <label for="urlInput">Optional URL</label>
+          <input id="urlInput" name="url" type="url" placeholder="https://example.com/book.epub" />
+
+          <details class="options">
+            <summary>Conversion and file options</summary>
+            <label for="readerProfile">Target e-reader for comic PDF</label>
+            <select id="readerProfile" name="readerProfile">
+              <option value="kobo-clara-colour">Kobo Clara Colour (1072 x 1448)</option>
+              <option value="kobo-clara-bw">Kobo Clara BW (1072 x 1448)</option>
+              <option value="kobo-libra-colour">Kobo Libra Colour (1264 x 1680)</option>
+              <option value="kindle-paperwhite">Kindle Paperwhite 2024 (1264 x 1680)</option>
+              <option value="kindle-scribe">Kindle Scribe (1860 x 2480)</option>
+              <option value="custom">Custom resolution</option>
+            </select>
+            <p class="reader-profile-note">Comic PDF pages are sized and rendered for the selected screen.</p>
+            <div id="customResolution" class="resolution-fields hidden">
+              <div>
+                <label for="customWidth">Screen width (px)</label>
+                <input id="customWidth" name="customWidth" type="number" min="400" max="10000" value="1072" />
+              </div>
+              <div>
+                <label for="customHeight">Screen height (px)</label>
+                <input id="customHeight" name="customHeight" type="number" min="400" max="10000" value="1448" />
+              </div>
+            </div>
+            <fieldset class="comic-mode-group">
+              <legend>Comic reading mode</legend>
+              <label class="mode-option"><input type="radio" name="comicMode" value="bd" checked /> BD mode</label>
+              <label class="mode-option"><input type="radio" name="comicMode" value="panel" /> Panel mode</label>
+            </fieldset>
+            <p class="reader-profile-note">BD mode keeps each comic page intact. Panel mode splits extracted panels into separate PDF pages for a more compressed reading flow.</p>
+            <div class="checkboxes">
+              <label><input type="checkbox" name="kepubify" checked /> Kepubify (Kobo)</label>
+              <label><input type="checkbox" name="kindlegen" checked /> KindleGen (Kindle)</label>
+              <label><input type="checkbox" name="pdfcropmargins" /> Crop PDF margins</label>
+              <label><input type="checkbox" name="transliteration" /> Transliterate filename</label>
+            </div>
+          </details>
+
+          <button type="submit">Upload and send</button>
+        </form>
+
+        <div id="status" class="status"></div>
+      </section>
+      </div>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
