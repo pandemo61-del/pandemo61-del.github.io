@@ -8,10 +8,11 @@ A self-hosted web app for sending ebooks and comics from a browser to a Kindle o
 - Send EPUB, MOBI, PDF, TXT, CBZ, and CBR files, or add a URL
 - Download the file on the e-reader when it is ready
 - Optionally convert EPUB to MOBI for Kindle or EPUB to Kepub for Kobo
-- Convert CBZ/CBR archives to PDFs sized for the e-reader resolution
+- Convert CBZ/CBR archives to PDFs sized for the e-reader resolution, automatically trimming white borders and sizing each PDF page to its content to avoid letterboxing
 - Two comic reading modes:
-  - **BD mode** groups detected panels for a more natural comic reading experience and avoids cutting through panels
+  - **BD mode** shows near-square panels individually and pairs adjacent panels only when their combined shape is closer to square, making speech balloons easier to read without cutting through panels
   - **Panel mode** places detected panels on separate PDF pages
+- Panel detection combines adaptive thresholding, Otsu thresholding, and edge contours, filtering duplicate and very small regions while supporting dark backgrounds
 - Remove small page numbers detected in the bottom margin of comic pages
 - Choose a preset Kobo or Kindle profile, or enter a custom resolution for comic PDFs
 - Optionally crop PDF margins
