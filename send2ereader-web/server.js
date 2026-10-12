@@ -130,7 +130,9 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Route explicite pour comic-generator.html AVANT la wildcard
 app.get('/comic-generator.html', (_req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(__dirname, 'comic-generator.html'));
 });
 
@@ -360,6 +362,7 @@ app.get('*', (_req, res) => {
 app.listen(PORT, () => {
   console.log(`send2ereader-web running on http://localhost:${PORT}`);
 });
+
 app.post('/api/generate-test-comic', async (req, res) => {
   try {
     // Générer un comic de test (50 pages)
