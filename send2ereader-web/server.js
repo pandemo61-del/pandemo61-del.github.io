@@ -353,8 +353,26 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-ensureUploadFolder();
-
 app.listen(PORT, () => {
   console.log(`send2ereader-web running on http://localhost:${PORT}`);
 });
+app.post('/api/generate-test-comic', async (req, res) => {
+  try {
+    // Générer un comic de test (50 pages)
+    const { generateTestComic } = require('./test-comic-generator');
+    const result = await generateTestComic();
+    
+    res.json({
+      success: true,
+      downloadUrl: `/download/${result.filename}?key=test`,
+      size: (result.size / (1024 * 1024)).toFixed(2) // en MB
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+ensureUploadFolder();
