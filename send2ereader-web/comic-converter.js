@@ -218,68 +218,6 @@ function findFooterPageNumberRects(data, width, height) {
     });
 }
 
-function panelBounds(panels) {
-  return panels.reduce((bounds, panel) => ({
-    left: Math.min(bounds.left, panel.left),
-    top: Math.min(bounds.top, panel.top),
-    right: Math.max(bounds.right, panel.left + panel.width),
-    bottom: Math.max(bounds.bottom, panel.top + panel.height)
-  }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
-}
-
-function squareAspectError(width, height) {
-  return Math.abs(Math.log(width / height));
-}
-
-function areAdjacentPanels(first, second) {
-  const firstRight = first.left + first.width;
-  const secondRight = second.left + second.width;
-  const firstBottom = first.top + first.height;
-  const secondBottom = second.top + second.height;
-
-  const verticalOverlap = Math.max(0, Math.min(firstBottom, secondBottom) - Math.max(first.top, second.top));
-  const horizontalOverlap = Math.max(0, Math.min(firstRight, secondRight) - Math.max(first.left, second.left));
-  const horizontalGap = Math.max(0, second.left - firstRight, first.left - secondRight);
-  const verticalGap = Math.max(0, second.top - firstBottom, first.top - secondBottom);
-
-  const sideBySide = verticalOverlap / Math.min(first.height, second.height) >= 0.5
-    && horizontalGap <= Math.max(first.height, second.height) * 0.08;
-  const stacked = horizontalOverlap / Math.min(first.width, second.width) >= 0.5
-    && verticalGap <= Math.max(first.width, second.width) * 0.08;
-  return sideBySide || stacked;
-}
-
-function groupBdPanels(panels) {
-  const groups = [];
-  for (let index = 0; index < panels.length; index += 1) {
-    const current = panels[index];
-    const currentError = squareAspectError(current.width, current.height);
-    const next = panels[index + 1];
-
-    if (currentError <= Math.log(1.35) || !next || !areAdjacentPanels(current, next)) {
-      groups.push(current);
-      continue;
-    }
-
-    const mergedBounds = panelBounds([current, next]);
-    const mergedWidth = mergedBounds.right - mergedBounds.left;
-    const mergedHeight = mergedBounds.bottom - mergedBounds.top;
-    const mergedError = squareAspectError(mergedWidth, mergedHeight);
-    if (mergedError < currentError && mergedError <= Math.log(1.6)) {
-      groups.push({
-        left: mergedBounds.left,
-        top: mergedBounds.top,
-        width: mergedWidth,
-        height: mergedHeight
-      });
-      index += 1;
-    } else {
-      groups.push(current);
-    }
-  }
-  return groups;
-}
-
 function toGrayscale(data, width, height) {
   const gray = new Uint8Array(width * height);
   for (let pixel = 0, channel = 0; pixel < gray.length; pixel += 1, channel += 3) {
@@ -424,30 +362,17 @@ function calculateMaskConfidence(mask, width, panel) {
   return foregroundPixels / (panel.width * panel.height);
 }
 
-function calculateVariance(gray, width, panel) {
-  let total = 0;
-  let squaredTotal = 0;
-  const pixelCount = panel.width * panel.height;
-  for (let y = panel.top; y < panel.top + panel.height; y += 1) {
-    for (let x = panel.left; x < panel.left + panel.width; x += 1) {
-      const value = gray[y * width + x];
-      total += value;
-      squaredTotal += value * value;
-    }
-  }
-  const mean = total / pixelCount;
-  return squaredTotal / pixelCount - mean * mean;
-}
-
-function detectWithAdaptiveThreshold(gray, width, height, isDarkBackground, minPanelSize) {
+function detectPanelsAdaptiveThreshold(gray, width, height, isDarkBackground, minPanelSize) {
   const blockSize = isDarkBackground ? 15 : 11;
   const offset = isDarkBackground ? 5 : 2;
   const means = localMean(gray, width, height, blockSize);
   const threshold = new Uint8Array(gray.length);
+
   for (let pixel = 0; pixel < threshold.length; pixel += 1) {
     const isBright = gray[pixel] > means[pixel] - offset;
     threshold[pixel] = Number(isDarkBackground ? isBright : !isBright);
   }
+
   const mask = cleanBinaryMask(threshold, width, height, 3);
   return findBinaryComponents(mask, width, height)
     .filter((panel) => panel.width >= minPanelSize
@@ -455,142 +380,6 @@ function detectWithAdaptiveThreshold(gray, width, height, isDarkBackground, minP
       && panel.width * panel.height < width * height * 0.9)
     .map((panel) => ({ ...panel, confidence: calculateMaskConfidence(mask, width, panel) }))
     .filter((panel) => panel.confidence > 0.1);
-}
-
-function otsuThreshold(gray) {
-  const histogram = new Uint32Array(256);
-  for (const value of gray) histogram[value] += 1;
-  const total = gray.length;
-  let totalWeighted = 0;
-  for (let value = 0; value < histogram.length; value += 1) totalWeighted += value * histogram[value];
-
-  let backgroundCount = 0;
-  let backgroundWeighted = 0;
-  let bestVariance = -1;
-  let threshold = 0;
-  for (let value = 0; value < histogram.length; value += 1) {
-    backgroundCount += histogram[value];
-    backgroundWeighted += value * histogram[value];
-    const foregroundCount = total - backgroundCount;
-    if (!backgroundCount || !foregroundCount) continue;
-    const backgroundMean = backgroundWeighted / backgroundCount;
-    const foregroundMean = (totalWeighted - backgroundWeighted) / foregroundCount;
-    const variance = backgroundCount * foregroundCount * (backgroundMean - foregroundMean) ** 2;
-    if (variance > bestVariance) {
-      bestVariance = variance;
-      threshold = value;
-    }
-  }
-  return threshold;
-}
-
-function detectWithOtsuThreshold(gray, width, height, isDarkBackground, minPanelSize) {
-  const threshold = otsuThreshold(gray);
-  const binary = new Uint8Array(gray.length);
-  for (let pixel = 0; pixel < binary.length; pixel += 1) {
-    const isBright = gray[pixel] > threshold;
-    binary[pixel] = Number(isDarkBackground ? !isBright : isBright);
-  }
-  const mask = cleanBinaryMask(binary, width, height, 5);
-  const pageArea = width * height;
-  return findBinaryComponents(mask, width, height)
-    .filter((panel) => panel.width >= minPanelSize
-      && panel.height >= minPanelSize
-      && Math.max(panel.width, panel.height) / Math.min(panel.width, panel.height) < 10
-      && panel.width * panel.height < pageArea * 0.9)
-    .map((panel) => ({ ...panel, confidence: 0.8 }));
-}
-
-function findCannyEdges(gray, width, height) {
-  const length = gray.length;
-  const horizontal = new Int16Array(length);
-  const vertical = new Int16Array(length);
-  const magnitude = new Uint16Array(length);
-  const edgeState = new Uint8Array(length);
-
-  for (let y = 1; y < height - 1; y += 1) {
-    const row = y * width;
-    for (let x = 1; x < width - 1; x += 1) {
-      const index = row + x;
-      const top = index - width;
-      const bottom = index + width;
-      const gx = -gray[top - 1] + gray[top + 1] - 2 * gray[index - 1] + 2 * gray[index + 1]
-        - gray[bottom - 1] + gray[bottom + 1];
-      const gy = -gray[top - 1] - 2 * gray[top] - gray[top + 1]
-        + gray[bottom - 1] + 2 * gray[bottom] + gray[bottom + 1];
-      horizontal[index] = gx;
-      vertical[index] = gy;
-      magnitude[index] = Math.min(65535, Math.round(Math.hypot(gx, gy)));
-    }
-  }
-
-  for (let y = 1; y < height - 1; y += 1) {
-    const row = y * width;
-    for (let x = 1; x < width - 1; x += 1) {
-      const index = row + x;
-      const value = magnitude[index];
-      if (value < 50) continue;
-      const gx = horizontal[index];
-      const gy = vertical[index];
-      const absX = Math.abs(gx);
-      const absY = Math.abs(gy);
-      let before;
-      let after;
-      if (absY * 2 < absX) {
-        before = magnitude[index - 1];
-        after = magnitude[index + 1];
-      } else if (absX * 2 < absY) {
-        before = magnitude[index - width];
-        after = magnitude[index + width];
-      } else if (gx * gy > 0) {
-        before = magnitude[index - width - 1];
-        after = magnitude[index + width + 1];
-      } else {
-        before = magnitude[index - width + 1];
-        after = magnitude[index + width - 1];
-      }
-      if (value >= before && value >= after) edgeState[index] = value >= 150 ? 2 : 1;
-    }
-  }
-
-  const stack = new Int32Array(length);
-  let stackLength = 0;
-  for (let pixel = 0; pixel < length; pixel += 1) {
-    if (edgeState[pixel] === 2) stack[stackLength++] = pixel;
-  }
-  while (stackLength) {
-    const pixel = stack[--stackLength];
-    const y = Math.floor(pixel / width);
-    const x = pixel - y * width;
-    for (let neighborY = Math.max(1, y - 1); neighborY <= Math.min(height - 2, y + 1); neighborY += 1) {
-      const row = neighborY * width;
-      for (let neighborX = Math.max(1, x - 1); neighborX <= Math.min(width - 2, x + 1); neighborX += 1) {
-        const neighbor = row + neighborX;
-        if (edgeState[neighbor] === 1) {
-          edgeState[neighbor] = 2;
-          stack[stackLength++] = neighbor;
-        }
-      }
-    }
-  }
-
-  const edges = new Uint8Array(length);
-  for (let pixel = 0; pixel < length; pixel += 1) edges[pixel] = Number(edgeState[pixel] === 2);
-  return edges;
-}
-
-function detectWithBrightnessDifference(gray, width, height, minPanelSize) {
-  let edges = findCannyEdges(gray, width, height);
-  edges = morphBinary(morphBinary(edges, width, height, 3, true), width, height, 3, true);
-  edges = morphBinary(morphBinary(edges, width, height, 7, true), width, height, 7, false);
-  return findBinaryComponents(edges, width, height)
-    .filter((panel) => panel.width >= minPanelSize && panel.height >= minPanelSize)
-    .map((panel) => ({ ...panel, variance: calculateVariance(gray, width, panel) }))
-    .filter((panel) => panel.variance > 100)
-    .map(({ variance, ...panel }) => ({
-      ...panel,
-      confidence: Math.min(variance / 1000, 1)
-    }));
 }
 
 function intersectionOverUnion(first, second) {
@@ -641,42 +430,103 @@ function extendTruncatedPanels(panels, height, yTolerance) {
 function detectPanelRegions(data, width, height, minPanelSize = 100, yTolerance = 20) {
   const gray = toGrayscale(data, width, height);
   const isDarkBackground = gray.reduce((sum, value) => sum + value, 0) / gray.length < 127;
-  const adaptivePanels = detectWithAdaptiveThreshold(gray, width, height, isDarkBackground, minPanelSize);
-  const otsuPanels = detectWithOtsuThreshold(gray, width, height, isDarkBackground, minPanelSize);
-  const edgePanels = detectWithBrightnessDifference(gray, width, height, minPanelSize);
-  const pageArea = width * height;
-  const filteredOtsu = otsuPanels.filter((panel) => panel.width * panel.height < pageArea * 0.9);
-  const filteredEdges = edgePanels.filter((panel) => panel.width * panel.height >= pageArea * 0.02
-    || [...adaptivePanels, ...filteredOtsu].some((other) => intersectionOverUnion(panel, other) >= 0.3));
-  const candidates = removeDuplicatePanels([...adaptivePanels, ...filteredOtsu, ...filteredEdges])
-    .filter((panel) => panel.width * panel.height >= pageArea * 0.01)
-    .sort((first, second) => first.top - second.top || first.left - second.left);
-  const panels = extendTruncatedPanels(candidates, height, yTolerance);
-  return panels.length
-    ? panels.map(({ confidence, pixelCount, ...panel }) => panel)
-    : [{ left: 0, top: 0, width, height }];
-}
 
-function buildBdPanels(data, width, height, minPanelSize, yTolerance) {
-  const detectedPanels = detectPanelRegions(data, width, height, minPanelSize, yTolerance).filter((panel) => {
-    const panelWidthRatio = panel.width / width;
-    const panelHeightRatio = panel.height / height;
-    return panelWidthRatio >= 0.12 && panelHeightRatio >= 0.10;
-  });
+  const panels = detectPanelsAdaptiveThreshold(gray, width, height, isDarkBackground, minPanelSize);
 
-  if (detectedPanels.length <= 1) {
+  if (panels.length === 0) {
     return [{ left: 0, top: 0, width, height }];
   }
 
-  return groupBdPanels(detectedPanels);
+  const candidates = removeDuplicatePanels(panels)
+    .sort((first, second) => first.top - second.top || first.left - second.left);
+
+  return extendTruncatedPanels(candidates, height, yTolerance)
+    .map(({ confidence, pixelCount, ...panel }) => panel);
 }
 
-function findPanelRegions(data, width, height, layoutMode = 'panel', minPanelSize = 100, yTolerance = 20) {
-  if (layoutMode === 'bd') {
-    return buildBdPanels(data, width, height, minPanelSize, yTolerance);
+function sortPanelsForReadingOrder(panels) {
+  if (panels.length === 0) return [];
+  if (panels.length === 1) return panels;
+
+  function bounds(panel, axis) {
+    if (axis === 1) return [panel.top, panel.top + panel.height];
+    return [panel.left, panel.left + panel.width];
   }
 
-  return detectPanelRegions(data, width, height, minPanelSize, yTolerance);
+  function split(items, axis) {
+    const ordered = [...items].sort((a, b) => bounds(a, axis)[0] - bounds(b, axis)[0]);
+    const low = Math.min(...ordered.map(p => bounds(p, axis)[0]));
+    const high = Math.max(...ordered.map(p => bounds(p, axis)[1]));
+    const tolerance = (high - low) * 0.015;
+    const groups = [];
+    let currentGroup = [ordered[0]];
+    let groupEnd = bounds(ordered[0], axis)[1];
+
+    for (const panel of ordered.slice(1)) {
+      const [start, end] = bounds(panel, axis);
+      if (start >= groupEnd - tolerance) {
+        groups.push(currentGroup);
+        currentGroup = [panel];
+        groupEnd = end;
+      } else {
+        currentGroup.push(panel);
+        groupEnd = Math.max(groupEnd, end);
+      }
+    }
+    if (currentGroup.length) groups.push(currentGroup);
+    return groups;
+  }
+
+  function byRows(items) {
+    const ordered = [...items].sort((a, b) => a.top - b.top || a.left - b.left);
+    const heights = ordered.map(p => p.height).sort((a, b) => a - b);
+    const heightMedian = heights[Math.floor(heights.length / 2)];
+    const tolerance = 0.15 * heightMedian;
+    const rows = [];
+
+    for (const panel of ordered) {
+      if (rows.length && panel.top - rows[rows.length - 1][0].top <= tolerance) {
+        rows[rows.length - 1].push(panel);
+      } else {
+        rows.push([panel]);
+      }
+    }
+
+    return rows.flatMap(row => row.sort((a, b) => a.left - b.left));
+  }
+
+  function order(items) {
+    if (items.length <= 1) return items;
+
+    const horizontalGroups = split(items, 1);
+    if (horizontalGroups.length > 1) {
+      return horizontalGroups.flatMap(g => order(g));
+    }
+
+    const verticalGroups = split(items, 0);
+    if (verticalGroups.length > 1) {
+      return verticalGroups.flatMap(g => order(g));
+    }
+
+    return byRows(items);
+  }
+
+  return order(panels);
+}
+
+function findPanelRegionsForLayout(data, width, height, layoutMode = 'panel', minPanelSize = 100, yTolerance = 20) {
+  const panels = detectPanelRegions(data, width, height, minPanelSize, yTolerance);
+
+  if (layoutMode === 'bd') {
+    const filtered = panels.filter((panel) => {
+      const panelWidthRatio = panel.width / width;
+      const panelHeightRatio = panel.height / height;
+      return panelWidthRatio >= 0.12 && panelHeightRatio >= 0.10;
+    });
+    return filtered.length > 1 ? filtered : [{ left: 0, top: 0, width, height }];
+  }
+
+  return sortPanelsForReadingOrder(panels);
 }
 
 async function convertComicToPdf(inputPath, outputPath, profileId = 'kobo-clara-colour', customWidth, customHeight, options = {}) {
@@ -729,6 +579,7 @@ async function convertComicToPdf(inputPath, outputPath, profileId = 'kobo-clara-
           raw: { width: scan.info.width, height: scan.info.height, channels: 3 }
         }).png().toFile(pageImagePath);
       }
+
       let detectedPanels;
       if (pageIndex < 2) {
         detectedPanels = [{ left: 0, top: 0, width: metadata.width, height: metadata.height }];
@@ -739,9 +590,11 @@ async function convertComicToPdf(inputPath, outputPath, profileId = 'kobo-clara-
           .resize(MAX_PANEL_DETECTION_SIDE, MAX_PANEL_DETECTION_SIDE, { fit: 'inside', withoutEnlargement: true })
           .raw()
           .toBuffer({ resolveWithObject: true });
+
         const detectionScaleX = scan.info.width / detection.info.width;
         const detectionScaleY = scan.info.height / detection.info.height;
-        const detectedAtScale = findPanelRegions(
+
+        const detectedAtScale = findPanelRegionsForLayout(
           detection.data,
           detection.info.width,
           detection.info.height,
@@ -749,6 +602,7 @@ async function convertComicToPdf(inputPath, outputPath, profileId = 'kobo-clara-
           100 / Math.max(detectionScaleX, detectionScaleY),
           20 / detectionScaleY
         );
+
         detectedPanels = detectedAtScale.map((panel) => {
           const left = Math.floor(panel.left * detectionScaleX);
           const top = Math.floor(panel.top * detectionScaleY);
@@ -757,6 +611,7 @@ async function convertComicToPdf(inputPath, outputPath, profileId = 'kobo-clara-
           return { left, top, width: right - left, height: bottom - top };
         });
       }
+
       const scaleX = metadata.width / scan.info.width;
       const scaleY = metadata.height / scan.info.height;
       const panels = detectedPanels.map((panel) => {
@@ -810,9 +665,9 @@ async function convertComicToPdf(inputPath, outputPath, profileId = 'kobo-clara-
 
 module.exports = {
   convertComicToPdf,
-  findPanelRegions,
+  findPanelRegions: findPanelRegionsForLayout,
   findFooterPageNumberRects,
-  groupBdPanels,
+  sortPanelsForReadingOrder,
   READER_PROFILES,
   resolveReaderProfile
 };
