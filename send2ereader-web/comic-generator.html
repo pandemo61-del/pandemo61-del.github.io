@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comic Generator</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 50px auto; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    .progress { margin: 20px 0; }
+    .status { color: #666; margin-top: 10px; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>📖 Test Comic Generator</h1>
+  
+  <button id="generateBtn" onclick="generateComic()">
+    Generate Test Comic (50 pages)
+  </button>
+
+  <div class="progress" id="progress" style="display: none;">
+    <div id="status" class="status"></div>
+    <a id="downloadLink" style="display: none; margin-top: 10px;">
+      Download Comic
+    </a>
+  </div>
+
+  <script>
+    async function generateComic() {
+      const btn = document.getElementById('generateBtn');
+      const progress = document.getElementById('progress');
+      const status = document.getElementById('status');
+
+      btn.disabled = true;
+      progress.style.display = 'block';
+      status.textContent = '⏳ Generating comic...';
+
+      try {
+        const response = await fetch('/api/generate-test-comic', {
+          method: 'POST'
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          status.innerHTML = `
+            <span class="success">✅ Comic generated successfully!</span><br>
+            Size: ${data.size || 'N/A'} MB
+          `;
+          
+          const downloadLink = document.getElementById('downloadLink');
+          downloadLink.href = data.downloadUrl;
+          downloadLink.textContent = '📥 Download Comic';
+          downloadLink.style.display = 'block';
+        } else {
+          status.innerHTML = `<span class="error">❌ Error: ${data.error}</span>`;
+        }
+      } catch (error) {
+        status.innerHTML = `<span class="error">❌ Error: ${error.message}</span>`;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
