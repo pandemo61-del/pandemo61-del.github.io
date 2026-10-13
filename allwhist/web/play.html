@@ -359,6 +359,7 @@
         import {
             db, auth, collection, doc, setDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
+        import { getWhistContractName } from '../shared/whist-contracts.js';
         import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
@@ -681,19 +682,11 @@
             const playerId = tourEnchere % 4;
             const decision = chooseWhistBid(hand, currentBid, 'expert', playerId, WHIST_CONTRACTS);
             if (decision.action === 'passe' || !decision.contratId) return null;
-            const names = {
-                propose: 'Je propose', emballe: 'J\'emballe', demande: 'Demande à l\'As',
-                solo_6: 'Solo 6', solo_7: 'Solo 7', solo_8: 'Solo 8',
-                petite_misere: 'Petite Misère', misere: 'Grande Misère',
-                misere_ouverte: 'Misère sur Table', trou: 'Trou', trou_royal: 'Trou Royal',
-                abondance_9: 'Abondance 9', abondance_10: 'Abondance 10',
-                abondance_11: 'Abondance 11', abondance_12: 'Abondance 12', chelem: 'Chelem',
-            };
             return {
                 ...BAREME_IWW[decision.contratId],
                 ...decision,
                 id: decision.contratId,
-                nom: names[decision.contratId],
+                nom: getWhistContractName({ id: decision.contratId }),
             };
         }
 

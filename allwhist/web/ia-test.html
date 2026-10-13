@@ -176,6 +176,7 @@
             db, auth, collection, getDocs, query, where, orderBy, limit,
             doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
+        import { getWhistContractName } from '../shared/whist-contracts.js';
         import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
@@ -240,6 +241,7 @@
                 ...BAREME_IWW[decision.contratId],
                 ...decision,
                 id: decision.contratId,
+                nom: getWhistContractName({ id: decision.contratId }),
             };
         }
 
@@ -693,7 +695,7 @@
             row.innerHTML = `
                 <td class="p-4 text-xs text-gray-500">${date}</td>
                 <td class="p-4">
-                    <span class="font-bold text-gray-700">${game.contrat?.nom}</span>
+                    <span class="font-bold text-gray-700">${getWhistContractName(game.contrat)}</span>
                     <span class="ml-1 text-rose-500 font-bold">${SYM[game.atout] || 'SA'}</span>
                     ${game.contrat?.carteEcartee ? `<span class="ml-2 text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border font-mono" title="Carte écartée">🗂️ ${game.contrat.carteEcartee.valeur === 14 ? 'A' : game.contrat.carteEcartee.valeur === 13 ? 'K' : game.contrat.carteEcartee.valeur === 12 ? 'Q' : game.contrat.carteEcartee.valeur === 11 ? 'J' : game.contrat.carteEcartee.valeur}-${SYM[game.contrat.carteEcartee.couleur]}</span>` : ''}
                 </td>
