@@ -163,6 +163,7 @@
 
     <script type="module">
         import { db, auth, onAuthStateChanged } from './firebase-config.js';
+        import { getWhistContractName } from '../shared/whist-contracts.js';
         import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
         const SYMBOLE = { PIQUE: '♠', COEUR: '♥', CARREAU: '♦', TREFLE: '♣' };
@@ -215,7 +216,7 @@
             const res = data.resultat || {};
             const cards = [
                 { label: 'Variante', value: data.varianteId || 'N/A', color: 'text-blue-600' },
-                { label: 'Contrat', value: data.contrat?.nom || 'Passe', color: 'text-emerald-600' },
+                { label: 'Contrat', value: getWhistContractName(data.contrat), color: 'text-emerald-600' },
                 { label: 'Objectif', value: `${data.contrat?.plisObjectif || 0} plis`, color: 'text-amber-600' },
                 { label: 'Résultat', value: res.reussite ? 'Réussi' : 'Chuté', color: res.reussite ? 'text-green-600' : 'text-rose-600' }
             ];
