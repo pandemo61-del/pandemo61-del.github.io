@@ -652,7 +652,10 @@
                     historiqueEncheres.push({ joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } });
                     passesConsecutifs = 0;
                     propositionRelancee = false;
-                    document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom} (J${id+1})`;
+                    const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout
+                        ? ` — Atout ${SYM[meilleureEnchere.atout]}`
+                        : '';
+                    document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom}${atoutTrou} (J${id+1})`;
                 }
                 tourEnchere++; prochainTourEnchere();
             }
@@ -826,7 +829,10 @@
             meilleureEnchere = { id, nom, atout, asPartenaire, sa: !atout, joueurId: 0, partenaireId: pId };
             historiqueEncheres.push({ joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } });
             propositionRelancee = false;
-            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom} (VOUS)`; prochainTourEnchere();
+            const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout
+                ? ` — Atout ${SYM[atout]}`
+                : '';
+            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (VOUS)`; prochainTourEnchere();
         }
 
         document.getElementById('btn-passe').onclick = () => { modalEnchere.classList.add('hidden'); passerEnchereWeb(tourEnchere % 4); };
