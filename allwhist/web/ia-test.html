@@ -181,6 +181,20 @@
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const BOT_UID = "AI-TEST-BOT";
 
+        function cleanFirestoreData(value) {
+            if (Array.isArray(value)) {
+                return value.map(item => item === undefined ? null : cleanFirestoreData(item));
+            }
+            if (value !== null && typeof value === 'object') {
+                return Object.fromEntries(
+                    Object.entries(value)
+                        .filter(([, item]) => item !== undefined)
+                        .map(([key, item]) => [key, cleanFirestoreData(item)])
+                );
+            }
+            return value;
+        }
+
         // --- Check for local file protocol ---
         if (window.location.protocol === 'file:') {
             document.getElementById('file-warning')?.classList.remove('hidden');
@@ -405,19 +419,26 @@
             let simCount = 0;
             const target = 50;
 
-            while (simCount < target) {
-                const game = await simulateAndSave(simCount + 1);
-                if (game.isPasse) continue;
+            try {
+                while (simCount < target) {
+                    const game = await simulateAndSave(simCount + 1);
+                    if (game.isPasse) continue;
 
-                simCount++;
-                addTableRow(game, true);
-                if (game.resultat.reussite) stats.success++; else stats.fail++;
-                stats.total++;
-                updateStatsUI();
-                await new Promise(r => setTimeout(r, 50));
+                    simCount++;
+                    addTableRow(game, true);
+                    if (game.resultat.reussite) stats.success++; else stats.fail++;
+                    stats.total++;
+                    updateStatsUI();
+                    await new Promise(r => setTimeout(r, 50));
+                }
+            } catch (error) {
+                console.error("AI simulation failed", error);
+                const message = error instanceof Error ? error.message : String(error);
+                alert("Erreur pendant la simulation : " + message);
+            } finally {
+                runBtn.disabled = false;
+                document.getElementById('btnText').innerText = 'Relancer la simulation (50)';
             }
-            runBtn.disabled = false;
-            document.getElementById('btnText').innerText = 'Relancer la simulation (50)';
         });
 
         deleteBtn.addEventListener('click', async () => {
@@ -658,7 +679,7 @@
             };
 
             const docId = `AI_STRESS_${Date.now()}_${index}`;
-            await setDoc(doc(db, "games", docId), gameData);
+            await setDoc(doc(db, "games", docId), cleanFirestoreData(gameData));
             return { id: docId, ...gameData };
         }
 
