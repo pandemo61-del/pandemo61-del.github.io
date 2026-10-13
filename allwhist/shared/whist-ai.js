@@ -1,7 +1,7 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.0.0';
+export const WHIST_AI_VERSION = '1.1.0';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
@@ -125,8 +125,9 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
   if (currentBid?.id === 'propose' && currentBid.joueurId !== playerId) {
     const trump = currentBid.atout;
     const suitCards = hand.filter(card => card.couleur === trump);
-    const supported = suitCards.length >= 5 ||
-      (suitCards.length >= 3 && suitCards.some(card => card.valeur >= 13));
+    const topHonors = suitCards.filter(card => card.valeur >= 13).length;
+    const supported = suitCards.length >= 6 ||
+      (suitCards.length >= 3 && topHonors >= 2);
     const contract = availableContract(contracts, 'emballe', hand, currentBid, playerId);
     if (supported && contract && contractPriority(contract) > currentPriority) {
       return decisionFor(contract, trump);
@@ -238,6 +239,19 @@ export function chooseWhistCard(hand, playerId, trick, trump, contract, playedCa
       const candidates = unexhausted.length ? unexhausted : legal;
       return [...candidates].sort((a, b) => b.valeur - a.valeur)[0];
     }
+    if (['demande', 'trou', 'trou_royal'].includes(contract?.id) && contract.joueurId === playerId) {
+      const calledSuit = typeof contract.asPartenaire === 'object'
+        ? contract.asPartenaire.couleur
+        : String(contract.asPartenaire ?? '').match(/^\d+[_-](COEUR|CARREAU|TREFLE|PIQUE)$/)?.[1];
+      const calledCardPlayed = [
+        ...completedTricks.flatMap(done => done.cartesJouees ?? []),
+        ...(trick.cartesJouees ?? []),
+      ].some(play => calledCardMatches(play.carte, contract.asPartenaire));
+      const calledSuitCards = legal.filter(card => card.couleur === calledSuit);
+      if (calledSuit && !calledCardPlayed && calledSuitCards.length) {
+        return [...calledSuitCards].sort((a, b) => a.valeur - b.valeur)[0];
+      }
+    }
     const unseenHigher = card =>
       Math.max(0, 14 - card.valeur -
         hand.filter(own => own.couleur === card.couleur && own.valeur > card.valeur).length -
@@ -258,25 +272,28 @@ export function chooseWhistCard(hand, playerId, trick, trump, contract, playedCa
   const partnerId = revealedPartner(contract ?? {}, completedTricks, trick, hand, playerId);
   const teammateAhead = teamFor(contract, partnerId, playerId, currentWinner.joueurId);
   const isMisereSolist = contract?.id?.includes('misere') && contract.joueurId === playerId;
+  const calledCard = contract?.asPartenaire && hand.find(card => calledCardMatches(card, contract.asPartenaire));
+  const remainingOpponents = [1, 2, 3]
+    .slice(0, 3 - trick.cartesJouees.length)
+    .map(offset => (playerId + offset) % 4)
+    .some(opponentId => !teamFor(contract, partnerId, playerId, opponentId));
 
   if (isMisereSolist) {
     const safe = legal.filter(card => !beats(card, currentWinner.carte, ledSuit, activeTrump));
     if (!safe.length) return [...legal].sort((a, b) => a.valeur - b.valeur)[0];
-    const isLast = trick.cartesJouees.length === 3;
-    return discardCard(safe, activeTrump, isLast && currentWinner.carte.valeur >= 10);
+    return discardCard(safe, activeTrump, true);
   }
 
   if (contract?.id?.includes('misere') && contract.joueurId !== playerId) {
     if (currentWinner.joueurId === contract.joueurId) {
-      const safe = legal.filter(card => !beats(card, currentWinner.carte, ledSuit, activeTrump));
-      if (safe.length) return [...safe].sort((a, b) => b.valeur - a.valeur)[0];
+      const winning = legal.filter(card => beats(card, currentWinner.carte, ledSuit, activeTrump));
+      if (winning.length) return [...winning].sort((a, b) => a.valeur - b.valeur)[0];
     }
-    if (currentWinner.joueurId !== contract.joueurId && teammateAhead) {
-      return discardCard(legal, activeTrump);
-    }
-    const winning = legal.filter(card => beats(card, currentWinner.carte, ledSuit, activeTrump));
-    if (winning.length) return [...winning].sort((a, b) => a.valeur - b.valeur)[0];
     return discardCard(legal, activeTrump);
+  }
+
+  if (teammateAhead && calledCard && partnerId === playerId && remainingOpponents) {
+    return calledCard;
   }
 
   if (teammateAhead) return discardCard(legal, activeTrump);

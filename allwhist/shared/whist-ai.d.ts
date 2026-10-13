@@ -8,8 +8,11 @@ export interface WhistBidContract {
   priorite?: number;
   prio?: number;
   joueurId?: number;
+  partenaireId?: number;
   atout?: Couleur;
   sanAtout?: boolean;
+  seul?: boolean;
+  asPartenaire?: Carte | string;
   disponibleSi?: (hand: Carte[], currentBid?: ContratJoue | null, playerId?: number) => boolean;
 }
 
