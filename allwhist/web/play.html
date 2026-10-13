@@ -366,6 +366,7 @@
 
         let currentUser = null;
         let hands = [[], [], [], []];
+        let mainsInitiales = [[], [], [], []];
         let pliCourant = [];
         let plisHistory = [];
         let leaderId = 0;
@@ -542,6 +543,7 @@
                 hands = [[], [], [], []];
                 for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
             }
+            mainsInitiales = hands.map(hand => hand.map(card => ({ ...card })));
             updateDealerBadge();
 
             plisGagnes = [0, 0, 0, 0];
@@ -844,6 +846,11 @@
                     plisObjectif: obj,
                     ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
                 },
+                donne: mainsInitiales.map((mainInitiale, joueurId) => ({
+                    joueurId,
+                    nom: joueurId === 0 ? userPseudo : `IA-${joueurId}`,
+                    mainInitiale
+                })),
                 plis: plisHistory,
                 resultat: { reussite: reussite, plisFaits: plisTeam, deltaScores: delta }
             };

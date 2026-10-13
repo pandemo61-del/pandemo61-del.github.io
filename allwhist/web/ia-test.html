@@ -98,6 +98,10 @@
                 </div>
 
                 <div class="flex gap-2">
+                    <button id="exportFailuresBtn" class="text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        <span>Exporter les échecs DB</span>
+                    </button>
                     <button id="deleteSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
                         <i class="fas fa-check"></i>
                         <span>Supprimer Succès</span>
@@ -269,6 +273,7 @@
         const runBtn = document.getElementById('runBtn');
         const deleteBtn = document.getElementById('deleteBtn');
         const deleteSuccessBtn = document.getElementById('deleteSuccessBtn');
+        const exportFailuresBtn = document.getElementById('exportFailuresBtn');
         const btnLogin = document.getElementById('btn-login');
         const btnLogout = document.getElementById('btn-logout');
         const authStatus = document.getElementById('auth-status');
@@ -299,6 +304,135 @@
         btnLogout.onclick = () => {
             auth.signOut().then(() => window.location.reload());
         };
+
+        exportFailuresBtn.addEventListener('click', async () => {
+            if (!auth.currentUser) return alert("Connectez-vous d'abord.");
+
+            exportFailuresBtn.disabled = true;
+            try {
+                const failedGames = await getDocs(query(
+                    collection(db, "games"),
+                    where("resultat.reussite", "==", false)
+                ));
+                const games = failedGames.docs.map(docSnap => {
+                    const data = docSnap.data();
+                    const reconstructed = reconstituerDonne(data);
+                    return {
+                        varianteId: data.varianteId ?? null,
+                        isAITest: data.isAITest === true,
+                        isWebPlay: data.isWebPlay === true,
+                        atout: data.atout ?? null,
+                        contrat: data.contrat ?? null,
+                        donne: reconstructed.donne,
+                        reconstitution: reconstructed.meta,
+                        plis: data.plis ?? null,
+                        resultat: data.resultat ?? null,
+                        erreurs: data.erreurs ?? null,
+                        historiqueEncheres: data.historiqueEncheres ?? null,
+                    };
+                });
+                const completeDeals = games.filter(game =>
+                    game.reconstitution.exacte
+                ).length;
+                const payload = {
+                    exportedAt: new Date().toISOString(),
+                    totalEchecs: games.length,
+                    mainsExactes: completeDeals,
+                    games,
+                };
+                const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `allwhist-echecs-${new Date().toISOString().slice(0, 10)}.json`;
+                link.click();
+                URL.revokeObjectURL(url);
+                alert(`${games.length} échec(s) exporté(s). ${completeDeals} donne(s) ont des mains initiales exactes ; les autres sont marquées comme partielles ou reconstituées après écart.`);
+            } catch (error) {
+                console.error("Échec de l'export des parties:", error);
+                alert(`Impossible d'exporter les échecs : ${error.message}`);
+            } finally {
+                exportFailuresBtn.disabled = false;
+            }
+        });
+
+        function reconstituerDonne(game) {
+            const donneEnregistree = Array.isArray(game.donne) &&
+                game.donne.length === 4 &&
+                game.donne.every(player => Array.isArray(player.mainInitiale));
+            if (donneEnregistree) {
+                const mains = game.donne.map(player => ({
+                    joueurId: player.joueurId,
+                    mainInitiale: player.mainInitiale
+                }));
+                const counts = mains.map(player => player.mainInitiale.length);
+                return {
+                    donne: mains,
+                    meta: {
+                        source: 'donne-enregistree',
+                        exacte: counts.every(count => count === 13),
+                        apresEcart: counts.every(count => count === 12),
+                        cartesParJoueur: counts,
+                        doublons: 0,
+                        plisEnregistres: game.plis?.length ?? 0,
+                    }
+                };
+            }
+
+            const joueurs = Array.from({ length: 4 }, (_, joueurId) => ({
+                joueurId,
+                mainInitiale: []
+            }));
+            const cartesVues = new Set();
+            let doublons = 0;
+
+            const ajouterCarte = (joueurId, carte) => {
+                if (!Number.isInteger(joueurId) || joueurId < 0 || joueurId > 3 || !carte?.id) return;
+                if (cartesVues.has(carte.id)) {
+                    doublons++;
+                    return;
+                }
+                cartesVues.add(carte.id);
+                joueurs[joueurId].mainInitiale.push(carte);
+            };
+
+            for (const pli of game.plis ?? []) {
+                for (const action of pli.cartesJouees ?? []) {
+                    ajouterCarte(action.joueurId, action.carte);
+                }
+            }
+
+            const contrat = game.contrat ?? {};
+            const cartesEcartees = contrat.cartesEcartees;
+            if (cartesEcartees && typeof cartesEcartees === 'object') {
+                for (const [joueurId, carte] of Object.entries(cartesEcartees)) {
+                    ajouterCarte(Number(joueurId), carte);
+                }
+            } else if (contrat.carteEcartee) {
+                ajouterCarte(contrat.joueurId, contrat.carteEcartee);
+            }
+
+            const counts = joueurs.map(joueur => joueur.mainInitiale.length);
+            const exacte = doublons === 0 && counts.every(count => count === 13);
+            const apresEcart = doublons === 0 && counts.every(count => count === 12);
+
+            return {
+                donne: joueurs.map(joueur => ({
+                    ...joueur,
+                    mainInitiale: joueur.mainInitiale.sort((a, b) =>
+                        a.couleur.localeCompare(b.couleur) || a.valeur - b.valeur
+                    )
+                })),
+                meta: {
+                    source: 'cartes-jouees-et-ecarts-enregistres',
+                    exacte,
+                    apresEcart,
+                    cartesParJoueur: counts,
+                    doublons,
+                    plisEnregistres: game.plis?.length ?? 0,
+                }
+            };
+        }
 
         runBtn.addEventListener('click', async () => {
             if (!auth.currentUser) return alert("Connectez-vous d'abord.");
@@ -385,6 +519,7 @@
 
             const hands = [[], [], [], []];
             for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
+            const initialHands = hands.map(hand => hand.map(card => ({ ...card })));
 
             let contrat = null;
             let bidderId = -1;
@@ -513,6 +648,11 @@
                     plisObjectif: contrat.obj,
                     ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
                 },
+                donne: initialHands.map((mainInitiale, joueurId) => ({
+                    joueurId,
+                    nom: `IA-${joueurId}`,
+                    mainInitiale
+                })),
                 plis: plis,
                 resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta }
             };
