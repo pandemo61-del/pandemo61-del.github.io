@@ -168,6 +168,9 @@
                     </tbody>
                 </table>
             </div>
+            <footer class="mt-3 text-right text-xs text-slate-400">
+                Page mise à jour le <time id="page-last-modified"></time>
+            </footer>
         </main>
     </div>
 
@@ -178,6 +181,10 @@
         } from './firebase-config.js';
         import { getWhistContractName } from '../shared/whist-contracts.js';
         import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
+
+        const pageLastModified = new Date(document.lastModified);
+        document.getElementById('page-last-modified').textContent =
+            new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(pageLastModified);
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const BOT_UID = "AI-TEST-BOT";
