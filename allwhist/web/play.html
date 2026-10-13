@@ -359,6 +359,7 @@
         import {
             db, auth, collection, doc, setDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
+        import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const COULEUR_CSS = { 'COEUR': 'text-red-600', 'CARREAU': 'text-red-600', 'TREFLE': 'text-slate-900', 'PIQUE': 'text-slate-900' };
@@ -380,8 +381,10 @@
 
         let donneurId = 3;
         let meilleureEnchere = null;
+        let historiqueEncheres = [];
         let tourEnchere = 0;
         let passesConsecutifs = 0;
+        let propositionRelancee = false;
         let jeuActif = false;
 
         const BAREME_IWW = {
@@ -402,6 +405,19 @@
             misere_ouverte: { pts: 120, prio: 11, obj: 0, seul: true, sa: true },
             chelem: { pts: 250, prio: 12, obj: 13, seul: true }
         };
+        const WHIST_CONTRACTS = Object.entries(BAREME_IWW).map(([id, contract]) => ({
+            id,
+            priorite: contract.prio,
+            plisMin: contract.obj,
+            seul: contract.seul,
+            sanAtout: contract.sa === true,
+            disponibleSi: (hand, currentBid, playerId) => {
+                if (id === 'trou') return hand.filter(card => card.valeur === 14).length === 3;
+                if (id === 'trou_royal') return hand.filter(card => card.valeur === 14).length === 4;
+                if (id === 'emballe') return currentBid?.id === 'propose' && currentBid.joueurId !== playerId;
+                return true;
+            },
+        }));
 
         const btnStart = document.getElementById('btn-start');
         const modalEnchere = document.getElementById('modal-enchere');
@@ -501,6 +517,7 @@
                 else { currentManche++; }
             }
             plisHistory = [];
+            historiqueEncheres = [];
             updateMancheBadge();
             const scenarioId = new URLSearchParams(window.location.search).get('scenario');
             if (scenarioId) {
@@ -550,6 +567,7 @@
             pliCourant = [];
             leaderId = 0;
             passesConsecutifs = 0;
+            propositionRelancee = false;
             jeuActif = false;
             updatePlisUI();
             document.getElementById('contrat-badge').classList.add('hidden');
@@ -600,7 +618,16 @@
         }
 
         async function prochainTourEnchere() {
-            if (passesConsecutifs >= 4 && meilleureEnchere) { finaliserEnchere(); return; }
+            if (passesConsecutifs >= 3 && meilleureEnchere) {
+                if (meilleureEnchere.id === 'propose' && !propositionRelancee) {
+                    propositionRelancee = true;
+                    passesConsecutifs = 0;
+                    tourEnchere = meilleureEnchere.joueurId;
+                } else {
+                    finaliserEnchere();
+                    return;
+                }
+            }
             if (passesConsecutifs >= 4 && !meilleureEnchere) { showMessage("Tout le monde a passé. Redistribution..."); setTimeout(() => startNewGame(true), 2000); return; }
             const id = tourEnchere % 4;
             updateTurnIndicator(id);
@@ -609,43 +636,62 @@
                     await new Promise(r => setTimeout(r, settings.aiSpeed));
                     const decision = deciderEnchereIA(hands[0], meilleureEnchere);
                     const currPrio = meilleureEnchere ? BAREME_IWW[meilleureEnchere.id].prio : -1;
-                    if (decision && BAREME_IWW[decision.id].prio > currPrio) validerEnchereHumain(decision.id, decision.nom, decision.atout);
-                    else { passesConsecutifs++; tourEnchere++; prochainTourEnchere(); }
+                    if (decision && BAREME_IWW[decision.id].prio > currPrio) validerEnchereHumain(decision.id, decision.nom, decision.atout, decision.asPartenaire);
+                    else passerEnchereWeb(id);
                 } else openBiddingModal();
             } else {
                 await new Promise(r => setTimeout(r, settings.aiSpeed));
                 const decision = deciderEnchereIA(hands[id], meilleureEnchere);
-                if (!decision || (meilleureEnchere && BAREME_IWW[decision.id].prio <= BAREME_IWW[meilleureEnchere.id].prio)) passesConsecutifs++;
+                if (!decision || (meilleureEnchere && BAREME_IWW[decision.id].prio <= BAREME_IWW[meilleureEnchere.id].prio)) {
+                    passerEnchereWeb(id);
+                    return;
+                }
                 else {
                     let pId = (decision.id === 'emballe') ? meilleureEnchere.joueurId : -1;
                     meilleureEnchere = { ...decision, joueurId: id, partenaireId: pId };
+                    historiqueEncheres.push({ joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } });
                     passesConsecutifs = 0;
+                    propositionRelancee = false;
                     document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom} (J${id+1})`;
                 }
                 tourEnchere++; prochainTourEnchere();
             }
         }
 
-        function deciderEnchereIA(hand, currentBid) {
-            const fb = hand.reduce((acc, c) => acc + (c.valeur === 14 ? 4 : c.valeur === 13 ? 3 : c.valeur === 12 ? 2 : c.valeur === 11 ? 1 : 0), 0);
-            const rep = { COEUR: 0, CARREAU: 0, TREFLE: 0, PIQUE: 0 }; hand.forEach(c => rep[c.couleur]++);
-            let bc = 'PIQUE', max = 0; Object.entries(rep).forEach(([k, v]) => { if (v > max) { max = v; bc = k; } });
-            const force = fb + Math.max(0, max - 4) * 2;
-            const aHonneurAtout = hand.some(c => c.couleur === bc && c.valeur >= 13);
-
-            if (currentBid && currentBid.id === 'propose' && currentBid.joueurId !== tourEnchere % 4) {
-                const colProposee = currentBid.atout;
-                const nbCol = hand.filter(c => c.couleur === colProposee).length;
-                if (nbCol >= 4 || (nbCol >= 2 && hand.some(c => c.couleur === colProposee && c.valeur >= 13))) {
-                    return { id: 'emballe', nom: 'J\'emballe', atout: colProposee };
-                }
+        function passerEnchereWeb(playerId) {
+            historiqueEncheres.push({ joueurId: playerId, action: 'passe' });
+            const proposerRefuse = propositionRelancee &&
+                meilleureEnchere?.id === 'propose' &&
+                meilleureEnchere.joueurId === playerId;
+            if (proposerRefuse) {
+                meilleureEnchere = null;
+                passesConsecutifs = 1;
+                propositionRelancee = false;
+            } else {
+                passesConsecutifs++;
             }
+            tourEnchere++;
+            prochainTourEnchere();
+        }
 
-            if (force >= 40 && aHonneurAtout) return { id: 'abondance_11', nom: 'Abondance 11', atout: bc };
-            if (force >= 30 && max >= 6 && aHonneurAtout) return { id: 'abondance_9', nom: 'Abondance 9', atout: bc };
-            if (force >= 22 && max >= 5 && aHonneurAtout) return { id: 'solo_6', nom: 'Solo 6', atout: bc };
-            if (force >= 15 && max >= 5) return { id: 'propose', nom: 'Propose', atout: bc };
-            return null;
+        function deciderEnchereIA(hand, currentBid) {
+            const playerId = tourEnchere % 4;
+            const decision = chooseWhistBid(hand, currentBid, 'expert', playerId, WHIST_CONTRACTS);
+            if (decision.action === 'passe' || !decision.contratId) return null;
+            const names = {
+                propose: 'Je propose', emballe: 'J\'emballe', demande: 'Demande à l\'As',
+                solo_6: 'Solo 6', solo_7: 'Solo 7', solo_8: 'Solo 8',
+                petite_misere: 'Petite Misère', misere: 'Grande Misère',
+                misere_ouverte: 'Misère sur Table', trou: 'Trou', trou_royal: 'Trou Royal',
+                abondance_9: 'Abondance 9', abondance_10: 'Abondance 10',
+                abondance_11: 'Abondance 11', abondance_12: 'Abondance 12', chelem: 'Chelem',
+            };
+            return {
+                ...BAREME_IWW[decision.contratId],
+                ...decision,
+                id: decision.contratId,
+                nom: names[decision.contratId],
+            };
         }
 
         function finaliserEnchere() {
@@ -678,7 +724,13 @@
                 if (i === bidderId || i === partnerId) { b.classList.add('border-emerald-400'); tl.innerText = "EQUIPE A"; tl.className = "absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-600 text-white text-[8px] font-black rounded-full shadow-md z-10 border border-white/20"; tl.classList.remove('hidden'); }
                 else { b.classList.add('border-rose-400'); tl.innerText = "EQUIPE B"; tl.className = "absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-rose-600 text-white text-[8px] font-black rounded-full shadow-md z-10 border border-white/20"; tl.classList.remove('hidden'); }
             }
-            if (contratFinal.id === 'petite_misere') { hands.forEach(h => { h.sort((a,b) => b.valeur - a.valeur); h.shift(); }); renderHandsUI(); }
+            if (contratFinal.id === 'petite_misere') {
+                hands.forEach(hand => {
+                    const discarded = chooseMisereDiscard(hand);
+                    if (discarded) hand.splice(hand.findIndex(card => card.id === discarded.id), 1);
+                });
+                renderHandsUI();
+            }
             leaderId = (donneurId + 1) % 4; startTrick();
         }
 
@@ -759,18 +811,61 @@
 
         window.validerAtoutWeb = (atout) => { modalAtout.classList.add('hidden'); validerEnchereHumain(window.tmpContrat.id, window.tmpContrat.nom, atout); };
 
-        function validerEnchereHumain(id, nom, atout) {
+        function validerEnchereHumain(id, nom, atout, asPartenaire) {
+            if (id === 'trou' && !asPartenaire) {
+                const aces = hands[0].filter(card => card.valeur === 14).map(card => card.couleur);
+                const couleurAppelee = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'].find(suit => !aces.includes(suit));
+                asPartenaire = couleurAppelee ? `14_${couleurAppelee}` : undefined;
+                atout = couleurAppelee ?? atout;
+            }
+            if (id === 'trou_royal') {
+                asPartenaire ??= '13_COEUR';
+                atout = 'COEUR';
+            }
             let pId = (id === 'emballe' && meilleureEnchere) ? meilleureEnchere.joueurId : -1;
-            meilleureEnchere = { id, nom, atout, sa: !atout, joueurId: 0, partenaireId: pId };
+            meilleureEnchere = { id, nom, atout, asPartenaire, sa: !atout, joueurId: 0, partenaireId: pId };
+            historiqueEncheres.push({ joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } });
+            propositionRelancee = false;
             passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom} (VOUS)`; prochainTourEnchere();
         }
 
-        document.getElementById('btn-passe').onclick = () => { modalEnchere.classList.add('hidden'); passesConsecutifs++; tourEnchere++; prochainTourEnchere(); };
+        document.getElementById('btn-passe').onclick = () => { modalEnchere.classList.add('hidden'); passerEnchereWeb(tourEnchere % 4); };
+
+        function choixCarteWeb(playerId) {
+            const hand = hands[playerId];
+            return chooseWhistCard(
+                hand,
+                playerId,
+                {
+                    numero: plisHistory.length + 1,
+                    couleurDemandee: pliCourant[0]?.carte.couleur,
+                    cartesJouees: pliCourant,
+                },
+                contratFinal?.atout,
+                { ...contratFinal, sanAtout: !!contratFinal?.sa },
+                plisHistory.flatMap(trick => trick.cartesJouees.map(play => play.carte)),
+                plisHistory,
+            );
+        }
+
+        function revealWebPartner(playerId, card) {
+            if (!contratFinal?.asPartenaire || (Number.isInteger(contratFinal.partenaireId) && contratFinal.partenaireId >= 0)) return;
+            const match = String(contratFinal.asPartenaire).match(/^(\d+)[_-](COEUR|CARREAU|TREFLE|PIQUE)$/);
+            if (match && card.valeur === Number(match[1]) && card.couleur === match[2]) {
+                contratFinal.partenaireId = playerId;
+            }
+        }
 
         function startTrick() {
             pliCourant = []; clearTableUI();
             if (leaderId !== 0) playAIUntilHuman();
-            else { updateTurnIndicator(0); renderHandsUI(); if (settings.autoPlay) setTimeout(() => { const card = hands[0].filter(c => isCardPlayable(c)).sort((a,b) => a.valeur - b.valeur)[0]; if (card) window.playHumanCard(card.id); }, settings.aiSpeed); }
+            else {
+                updateTurnIndicator(0); renderHandsUI();
+                if (settings.autoPlay) setTimeout(() => {
+                    const card = choixCarteWeb(0);
+                    if (card) window.playHumanCard(card.id);
+                }, settings.aiSpeed);
+            }
         }
 
         async function playAIUntilHuman() {
@@ -778,13 +873,19 @@
                 const pid = (leaderId + pliCourant.length) % 4;
                 if (pid === 0) {
                     updateTurnIndicator(0); renderHandsUI();
-                    if (settings.autoPlay) { await new Promise(r => setTimeout(r, settings.aiSpeed)); const card = hands[0].filter(c => isCardPlayable(c)).sort((a,b) => a.valeur - b.valeur)[0]; if (card) window.playHumanCard(card.id); }
+                    if (settings.autoPlay) {
+                        await new Promise(r => setTimeout(r, settings.aiSpeed));
+                        const card = choixCarteWeb(0);
+                        if (card) window.playHumanCard(card.id);
+                    }
                     return;
                 }
                 updateTurnIndicator(pid); await new Promise(r => setTimeout(r, settings.aiSpeed));
-                const h = hands[pid]; let card;
-                if (pliCourant.length === 0) card = h.pop();
-                else { const cd = pliCourant[0].carte.couleur, idx = h.findIndex(c => c.couleur === cd); card = idx !== -1 ? h.splice(idx, 1)[0] : h.pop(); }
+                const h = hands[pid];
+                const card = choixCarteWeb(pid);
+                if (!card) throw new Error(`Aucune carte jouable pour le joueur ${pid}.`);
+                revealWebPartner(pid, card);
+                h.splice(h.findIndex(held => held.id === card.id), 1);
                 pliCourant.push({ joueurId: pid, carte: card }); renderTableCard(pid, card);
                 if (pliCourant.length === 4) { evaluateTrickEnd(); return; }
             }
@@ -795,7 +896,7 @@
             const idx = hands[0].findIndex(c => c.id === cardId); if (idx === -1) return;
             const tid = (leaderId + pliCourant.length) % 4; if (tid !== 0) return;
             const card = hands[0][idx]; if (!isCardPlayable(card)) return;
-            hands[0].splice(idx, 1); pliCourant.push({ joueurId: 0, carte: card }); renderHandsUI(); renderTableCard(0, card);
+            hands[0].splice(idx, 1); revealWebPartner(0, card); pliCourant.push({ joueurId: 0, carte: card }); renderHandsUI(); renderTableCard(0, card);
             if (pliCourant.length === 4) evaluateTrickEnd(); else playAIUntilHuman();
         };
 
@@ -835,6 +936,8 @@
                 varianteId: 'whist-gand',
                 manche: currentManche,
                 isWebPlay: true,
+                sourcePlatform: 'web',
+                aiVersion: WHIST_AI_VERSION,
                 userId: userId,
                 userPseudo: userPseudo,
                 createdAt: new Date().toISOString(),
@@ -844,6 +947,7 @@
                     nom: contratFinal.nom,
                     joueurId: bidderId,
                     plisObjectif: obj,
+                    ...(contratFinal.asPartenaire ? { asPartenaire: contratFinal.asPartenaire } : {}),
                     ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
                 },
                 donne: mainsInitiales.map((mainInitiale, joueurId) => ({
@@ -852,7 +956,8 @@
                     mainInitiale
                 })),
                 plis: plisHistory,
-                resultat: { reussite: reussite, plisFaits: plisTeam, deltaScores: delta }
+                resultat: { reussite: reussite, plisFaits: plisTeam, deltaScores: delta },
+                historiqueEncheres,
             };
 
             const docId = `WEB_PLAY_${Date.now()}`;

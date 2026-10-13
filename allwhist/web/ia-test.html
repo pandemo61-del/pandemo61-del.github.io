@@ -176,6 +176,7 @@
             db, auth, collection, getDocs, query, where, orderBy, limit,
             doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
+        import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const BOT_UID = "AI-TEST-BOT";
@@ -185,34 +186,7 @@
             document.getElementById('file-warning')?.classList.remove('hidden');
         }
 
-        // --- Logic IA Simulation (Whist Belge) ---
-        function evaluerForce(hand) {
-            const forceBrute = hand.reduce((acc, c) => {
-                if (c.valeur === 14) return acc + 4; // As
-                if (c.valeur === 13) return acc + 3; // Roi
-                if (c.valeur === 12) return acc + 2; // Dame
-                if (c.valeur === 11) return acc + 1; // Valet
-                return acc;
-            }, 0);
-
-            const repart = { COEUR: 0, CARREAU: 0, TREFLE: 0, PIQUE: 0 };
-            hand.forEach(c => repart[c.couleur]++);
-
-            let bestCol = 'PIQUE'; let max = 0;
-            Object.entries(repart).forEach(([col, nb]) => {
-                if (nb > max) { max = nb; bestCol = col; }
-            });
-
-            let bonusVides = 0;
-            Object.values(repart).forEach(nb => {
-                if (nb === 0) bonusVides += 3;
-                if (nb === 1) bonusVides += 1;
-            });
-            const bonusDistrib = Math.max(0, max - 4) * 2;
-
-            return { force: forceBrute + bonusDistrib + bonusVides, bestCol, nbAtouts: max };
-        }
-
+        // --- Shared Whist de Gand AI ---
         const BAREME_IWW = {
             propose: { pts: 10, prio: 1, obj: 8, seul: false },
             emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
@@ -231,41 +205,28 @@
             misere_ouverte: { pts: 120, prio: 11, obj: 0, seul: true, sa: true },
             chelem: { pts: 250, prio: 12, obj: 13, seul: true }
         };
+        const WHIST_CONTRACTS = Object.entries(BAREME_IWW).map(([id, contract]) => ({
+            id,
+            priorite: contract.prio,
+            plisMin: contract.obj,
+            seul: contract.seul,
+            sanAtout: contract.sa === true,
+            disponibleSi: (hand, currentBid, playerId) => {
+                if (id === 'trou') return hand.filter(card => card.valeur === 14).length === 3;
+                if (id === 'trou_royal') return hand.filter(card => card.valeur === 14).length === 4;
+                if (id === 'emballe') return currentBid?.id === 'propose' && currentBid.joueurId !== playerId;
+                return true;
+            },
+        }));
 
-        function deciderEnchere(hand) {
-            const { force, bestCol, nbAtouts } = evaluerForce(hand);
-            const nbAs = hand.filter(c => c.valeur === 14).length;
-            const forceMisere = hand.reduce((acc, c) => {
-                if (c.valeur >= 11) return acc + 10;
-                if (c.valeur >= 8) return acc + 2;
-                return acc;
-            }, 0);
-
-            const aHonneurAtout = hand.some(c => c.couleur === bestCol && c.valeur >= 13);
-
-            if (nbAs === 3) return { id: 'trou', nom: 'Trou', ...BAREME_IWW.trou, atout: null };
-            if (nbAs === 4) return { id: 'trou_royal', nom: 'Trou Royal', ...BAREME_IWW.trou_royal, atout: 'COEUR' };
-
-            if (force >= 45 && aHonneurAtout) return { id: 'chelem', nom: 'Chelem', ...BAREME_IWW.chelem, atout: bestCol };
-            if (force >= 40 && aHonneurAtout) return { id: 'abondance_11', nom: 'Abondance 11', ...BAREME_IWW.abondance_11, atout: bestCol };
-
-            const peutMisere = forceMisere <= 25 && nbAs === 0;
-
-            if (force >= 35 && aHonneurAtout) return { id: 'abondance_10', nom: 'Abondance 10', ...BAREME_IWW.abondance_10, atout: bestCol };
-            if (force >= 30 && nbAtouts >= 6 && aHonneurAtout) return { id: 'abondance_9', nom: 'Abondance 9', ...BAREME_IWW.abondance_9, atout: bestCol };
-            if (force >= 28 && nbAtouts >= 6 && aHonneurAtout) return { id: 'solo_8', nom: 'Solo 8', ...BAREME_IWW.solo_8, atout: bestCol };
-
-            if (peutMisere) {
-                if (forceMisere === 0) return { id: 'misere_ouverte', nom: 'Misère sur Table', ...BAREME_IWW.misere_ouverte, atout: null };
-                if (forceMisere <= 10) return { id: 'misere', nom: 'Grande Misère', ...BAREME_IWW.misere, atout: null };
-                if (forceMisere <= 20) return { id: 'petite_misere', nom: 'Petite Misère', ...BAREME_IWW.petite_misere, atout: null };
-            }
-
-            if (force >= 25 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_7', nom: 'Solo 7', ...BAREME_IWW.solo_7, atout: bestCol };
-            if (force >= 22 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_6', nom: 'Solo 6', ...BAREME_IWW.solo_6, atout: bestCol };
-            if (force >= 15 && nbAtouts >= 5) return { id: 'propose', nom: 'Je propose', ...BAREME_IWW.propose, atout: bestCol };
-
-            return null;
+        function deciderEnchere(hand, currentBid, playerId) {
+            const decision = chooseWhistBid(hand, currentBid, 'expert', playerId, WHIST_CONTRACTS);
+            if (decision.action === 'passe' || !decision.contratId) return null;
+            return {
+                ...BAREME_IWW[decision.contratId],
+                ...decision,
+                id: decision.contratId,
+            };
         }
 
         let stats = { success: 0, fail: 0, total: 0 };
@@ -321,6 +282,8 @@
                         varianteId: data.varianteId ?? null,
                         isAITest: data.isAITest === true,
                         isWebPlay: data.isWebPlay === true,
+                        sourcePlatform: data.sourcePlatform ?? null,
+                        aiVersion: data.aiVersion ?? null,
                         atout: data.atout ?? null,
                         contrat: data.contrat ?? null,
                         donne: reconstructed.donne,
@@ -524,46 +487,73 @@
             let contrat = null;
             let bidderId = -1;
             let partnerId = -1;
-
-            for(let i=0; i<4; i++) {
-                const decision = deciderEnchere(hands[i]);
-                if (decision) {
-                    contrat = decision;
-                    bidderId = i;
-                    if (decision.id === 'petite_misere') {
-                        hands[i].sort((a,b) => b.valeur - a.valeur);
-                        contrat.carteEcartee = hands[i].shift();
-                    }
-                    if (decision.id === 'propose') {
-                        for(let j=1; j<4; j++) {
-                            const pId = (i+j)%4;
-                            const h = hands[pId];
-                            if (h.filter(c => c.couleur === decision.atout).length >= 4) {
-                                partnerId = pId;
-                                break;
-                            }
+            let meilleureEnchere = null;
+            const historiqueEncheres = [];
+            let passesConsecutifs = 0;
+            let tourEnchere = 0;
+            while (tourEnchere < 32) {
+                const enchereTerminee = meilleureEnchere
+                    ? passesConsecutifs >= 3
+                    : passesConsecutifs >= 4;
+                if (enchereTerminee) {
+                    if (meilleureEnchere?.id === 'propose') {
+                        const proposantId = meilleureEnchere.joueurId;
+                        const reponse = deciderEnchere(hands[proposantId], meilleureEnchere, proposantId);
+                        if (!reponse) {
+                            historiqueEncheres.push({ joueurId: proposantId, action: 'passe' });
+                            meilleureEnchere = null;
+                            passesConsecutifs = 1;
+                        } else {
+                            meilleureEnchere = { ...reponse, joueurId: proposantId };
+                            historiqueEncheres.push({ joueurId: proposantId, action: 'enchere', contrat: { ...meilleureEnchere } });
+                            passesConsecutifs = 0;
                         }
-                        if (partnerId === -1) { contrat = null; bidderId = -1; continue; }
-                    } else if (decision.id === 'trou') {
-                        const asPossedes = hands[i].filter(c => c.valeur === 14).map(c => c.couleur);
-                        const asManquant = suits.find(s => !asPossedes.includes(s));
-                        for(let j=0; j<4; j++) if(j!==i && hands[j].some(c => c.valeur === 14 && c.couleur === asManquant)) { partnerId = j; break; }
-                        contrat.atout = asManquant;
+                        tourEnchere = proposantId + 1;
+                        continue;
                     }
                     break;
                 }
+                const joueurId = tourEnchere % 4;
+                const decision = deciderEnchere(hands[joueurId], meilleureEnchere, joueurId);
+                if (!decision) {
+                    historiqueEncheres.push({ joueurId, action: 'passe' });
+                    passesConsecutifs++;
+                } else {
+                    passesConsecutifs = 0;
+                    const partenaireEmballage = decision.id === 'emballe' ? meilleureEnchere.joueurId : undefined;
+                    if (partenaireEmballage !== undefined) partnerId = partenaireEmballage;
+                    meilleureEnchere = {
+                        ...decision,
+                        joueurId,
+                        ...(partenaireEmballage !== undefined ? { partenaireId: partenaireEmballage } : {}),
+                    };
+                    historiqueEncheres.push({ joueurId, action: 'enchere', contrat: { ...meilleureEnchere } });
+                }
+                tourEnchere++;
             }
 
+            contrat = meilleureEnchere;
+            bidderId = contrat?.joueurId ?? -1;
             if (!contrat) return { isPasse: true };
+
+            if (contrat.id === 'trou') {
+                const match = String(contrat.asPartenaire).match(/^14_(COEUR|CARREAU|TREFLE|PIQUE)$/);
+                if (match) partnerId = hands.findIndex((hand, playerId) =>
+                    playerId !== bidderId && hand.some(card => card.valeur === 14 && card.couleur === match[1])
+                );
+            } else if (contrat.id === 'trou_royal') {
+                partnerId = hands.findIndex((hand, playerId) =>
+                    playerId !== bidderId && hand.some(card => card.valeur === 13 && card.couleur === 'COEUR')
+                );
+            }
 
             if (contrat.id === 'petite_misere') {
                 const cartesEcartees = {};
-                for (let i = 0; i < 4; i++) {
-                    if (i !== bidderId) {
-                        hands[i].sort((a,b) => b.valeur - a.valeur);
-                        cartesEcartees[i] = hands[i].shift();
-                    } else {
-                        cartesEcartees[i] = contrat.carteEcartee;
+                for (let joueurId = 0; joueurId < 4; joueurId++) {
+                    const carte = chooseMisereDiscard(hands[joueurId]);
+                    if (carte) {
+                        cartesEcartees[joueurId] = carte;
+                        hands[joueurId].splice(hands[joueurId].findIndex(held => held.id === carte.id), 1);
                     }
                 }
                 contrat.cartesEcartees = cartesEcartees;
@@ -578,31 +568,37 @@
                 if (hands[0].length === 0 || hands[1].length === 0 || hands[2].length === 0 || hands[3].length === 0) {
                     break;
                 }
-                const pliCartes = [];
-                let couleurDemandee = null;
+                const pli = { numero: pNum, cartesJouees: [] };
                 for (let i = 0; i < 4; i++) {
                     const pid = (leaderId + i) % 4;
                     const hand = hands[pid];
-                    let cardToPlay;
-                    if (i === 0) { cardToPlay = hand.pop(); couleurDemandee = cardToPlay.couleur; }
-                    else {
-                        const indexInSuit = hand.findIndex(c => c.couleur === couleurDemandee);
-                        if (indexInSuit !== -1) cardToPlay = hand.splice(indexInSuit, 1)[0];
-                        else {
-                            const indexAtout = hand.findIndex(c => c.couleur === atout);
-                            cardToPlay = indexAtout !== -1 ? hand.splice(indexAtout, 1)[0] : hand.pop();
-                        }
+                    const cardToPlay = chooseWhistCard(
+                        hand,
+                        pid,
+                        pli,
+                        atout,
+                        { ...contrat, partenaireId: contrat.partenaireId },
+                        plis.flatMap(done => done.cartesJouees.map(play => play.carte)),
+                        plis,
+                    );
+                    if (!cardToPlay) throw new Error(`Aucune carte jouable pour le joueur ${pid}.`);
+                    hand.splice(hand.findIndex(card => card.id === cardToPlay.id), 1);
+                    pli.couleurDemandee ??= cardToPlay.couleur;
+                    pli.cartesJouees.push({ joueurId: pid, carte: cardToPlay });
+                    if (contrat.asPartenaire && pid !== bidderId && cardToPlay.valeur === Number(String(contrat.asPartenaire).split('_')[0]) &&
+                        cardToPlay.couleur === String(contrat.asPartenaire).split('_')[1]) {
+                        contrat.partenaireId = pid;
                     }
-                    pliCartes.push({ joueurId: pid, carte: cardToPlay });
                 }
-                let best = pliCartes[0];
+                let best = pli.cartesJouees[0];
                 for(let i=1; i<4; i++) {
-                    const c = pliCartes[i];
+                    const c = pli.cartesJouees[i];
                     const isAtout = atout && c.carte.couleur === atout;
                     const bestIsAtout = atout && best.carte.couleur === atout;
-                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === couleurDemandee && c.carte.valeur > best.carte.valeur)) best = c;
+                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === pli.couleurDemandee && c.carte.valeur > best.carte.valeur)) best = c;
                 }
-                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
+                pli.gagnantId = best.joueurId;
+                plis.push(pli);
                 plisGagnes[best.joueurId]++;
                 leaderId = best.joueurId;
             }
@@ -638,6 +634,8 @@
                 varianteId: 'whist-gand',
                 manche: 1,
                 isAITest: true,
+                sourcePlatform: 'web-lab',
+                aiVersion: WHIST_AI_VERSION,
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
                 createdAt: new Date().toISOString(),
@@ -646,6 +644,7 @@
                     ...contrat,
                     joueurId: bidderId,
                     plisObjectif: contrat.obj,
+                    ...(contrat.asPartenaire ? { asPartenaire: contrat.asPartenaire } : {}),
                     ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
                 },
                 donne: initialHands.map((mainInitiale, joueurId) => ({
@@ -654,7 +653,8 @@
                     mainInitiale
                 })),
                 plis: plis,
-                resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta }
+                resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta },
+                historiqueEncheres,
             };
 
             const docId = `AI_STRESS_${Date.now()}_${index}`;
