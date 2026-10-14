@@ -8,6 +8,7 @@ import json
 import zipfile
 import rarfile
 import hashlib
+import argparse
 import re
 from datetime import datetime
 from pathlib import Path
@@ -2714,7 +2715,7 @@ class MainWindow(QMainWindow):
             + (" | Glisser pour ajouter une case" if self.edit_mode else "")
         )
 
-if __name__ == "__main__":
+def run_gui():
     app = QApplication(sys.argv)
     # Définir l'icône pour toute l'application
     icon_path = r"C:\Users\miche\OneDrive\Documenten\Projects\BdSplit\Icon.jpg"
@@ -2740,3 +2741,41 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
+
+def run_batch(input_folder, output_folder):
+
+    print(f"Input  : {input_folder}")
+    print(f"Output : {output_folder}")
+
+    files = []
+
+    for ext in (".pdf", ".cbz", ".cbr", ".zip", ".rar"):
+        files.extend(Path(input_folder).glob(f"*{ext}"))
+
+    print(f"{len(files)} fichier(s) trouvé(s)")
+
+    answer = input("Continuer ? [o/N] ")
+
+    if answer.lower() not in ("o", "oui", "y", "yes"):
+        return
+
+    for file in files:
+        print(f"Traitement : {file.name}")
+
+        # ici réutiliser ton code open_file()
+        # detect_panels()
+        # save_cbz()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--input")
+    parser.add_argument("--output")
+    parser.add_argument("--batch", action="store_true")
+
+    args = parser.parse_args()
+
+    if args.batch:
+        run_batch(args.input, args.output)
+    else:
+        sys.exit(run_gui())
