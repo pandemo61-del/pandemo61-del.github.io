@@ -310,10 +310,6 @@
             loginBtn.style.display = 'none';
             logoutBtn.style.display = 'block';
 
-            if (!ADMIN_UIDS.includes(user.uid)) {
-                userInfo.innerHTML += `<br><span style="color: var(--error)">⚠️ Vous n'êtes pas administrateur. La suppression risque d'échouer.</span>`;
-            }
-
             loadData();
         } else {
             userInfo.innerText = "Veuillez vous connecter pour gérer les salons.";
