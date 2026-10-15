@@ -1,1027 +1,1476 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Événements musicaux - BlindBeat</title>
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="icon.png"
-    >
-
+    <link rel="icon" type="image/png" href="icon.png" />
     <style>
-        :root {
-            --bg: #0A0A1A;
-            --surface: #12122A;
-            --surface-light: #1E1E40;
-            --primary: #F5820D;
-            --primary-light: #FF9F43;
-            --error: #FF4444;
-            --success: #4CAF50;
-            --warning: #FF9800;
-            --info: #2196F3;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0A0C0;
-            --border: #2A2A50;
-            --overlay: rgba(0, 0, 0, 0.72);
+      :root {
+        --bg: #0a0a1a;
+        --surface: #12122a;
+        --surface-light: #1e1e40;
+        --primary: #f5820d;
+        --primary-light: #ff9f43;
+        --border: #2a2a50;
+        --text-primary: #fff;
+        --text-secondary: #a0a0c0;
+        --success: #4caf50;
+        --warning: #ff9800;
+        --error: #ff4444;
+        --info: #2196f3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg);
+        color: var(--text-primary);
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1250px;
+        margin: auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 26px;
+      }
+
+      .app-icon {
+        display: block;
+        width: 80px !important;
+        height: 80px !important;
+        max-width: 80px !important;
+        max-height: 80px !important;
+        object-fit: cover;
+        border-radius: 18px;
+        margin: 0 auto 15px;
+        box-shadow: 0 4px 15px #0007;
+      }
+
+      h1 {
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin: 0 0 8px;
+      }
+
+      header p {
+        color: var(--text-secondary);
+        margin: 0;
+      }
+
+      .nav {
+        display: flex;
+        gap: 15px;
+        margin: 0 0 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        transition: 0.2s;
+      }
+
+      .nav a:hover {
+        border-color: var(--primary-light);
+        color: #fff;
+      }
+
+      .nav a.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .panel-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+
+      .panel-title h2 {
+        color: var(--primary-light);
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      .stats-summary {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .stat-item {
+        background: var(--surface);
+        padding: 11px 18px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        min-width: 130px;
+        text-align: center;
+      }
+
+      .stat-value {
+        display: block;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--primary-light);
+      }
+
+      .stat-label {
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: 1.1fr 1.25fr 1.2fr 1.8fr;
+        gap: 12px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .field label {
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        background: var(--surface-light);
+        border: 1px solid var(--border);
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 8px;
+        outline: none;
+        font: inherit;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 2px #f5820d22;
+      }
+
+      input[type="date"] {
+        color-scheme: dark;
+      }
+
+      .source-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 42px;
+        flex-wrap: wrap;
+      }
+
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: #fff;
+        font-size: 0.85rem;
+      }
+
+      .check input {
+        width: auto;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .btn {
+        background: var(--surface-light);
+        border: 1px solid var(--border);
+        color: #fff;
+        padding: 9px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .btn:hover:not(:disabled) {
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-success {
+        border-color: var(--success);
+        color: #97e79b;
+        background: #4caf5022;
+      }
+
+      .btn-danger {
+        border-color: var(--error);
+        color: #ff8585;
+        background: transparent;
+      }
+
+      .btn-small {
+        padding: 6px 9px;
+        font-size: 0.8rem;
+      }
+
+      .help {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin: 13px 0 0;
+        line-height: 1.45;
+      }
+
+      .message {
+        display: none;
+        padding: 11px 14px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border);
+      }
+
+      .message.info,
+      .message.success,
+      .message.error,
+      .message.warning {
+        display: block;
+      }
+
+      .message.info {
+        color: #8dcef7;
+        border-color: var(--info);
+        background: #2196f318;
+      }
+
+      .message.success {
+        color: #97e79b;
+        border-color: var(--success);
+        background: #4caf5018;
+      }
+
+      .message.error {
+        color: #ff9090;
+        border-color: var(--error);
+        background: #ff444418;
+      }
+
+      .message.warning {
+        color: #ffc268;
+        border-color: var(--warning);
+        background: #ff980018;
+      }
+
+      .source-status {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+
+      .source-chip {
+        font-size: 0.78rem;
+        padding: 7px 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-light);
+        color: var(--text-secondary);
+      }
+
+      .source-chip.loading {
+        border-color: var(--info);
+        color: #8dcef7;
+      }
+
+      .source-chip.success {
+        border-color: var(--success);
+        color: #97e79b;
+      }
+
+      .source-chip.error {
+        border-color: var(--error);
+        color: #ff9090;
+      }
+
+      .source-chip.warning {
+        border-color: var(--warning);
+        color: #ffc268;
+      }
+
+      .progress {
+        height: 6px;
+        background: var(--surface-light);
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 14px;
+        display: none;
+      }
+
+      .progress.active {
+        display: block;
+      }
+
+      .progress span {
+        display: block;
+        height: 100%;
+        width: 35%;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        animation: progress 1.15s infinite ease-in-out;
+      }
+
+      @keyframes progress {
+        0% {
+          transform: translateX(-110%);
         }
 
-        * {
-            box-sizing: border-box;
+        100% {
+          transform: translateX(320%);
         }
+      }
 
+      .table-wrap {
+        overflow: auto;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      table {
+        width: 100%;
+        min-width: 1050px;
+        border-collapse: collapse;
+        background: var(--surface);
+      }
+
+      th {
+        background: #ffffff0d;
+        color: var(--text-secondary);
+        padding: 12px;
+        text-align: left;
+        font-size: 0.82rem;
+      }
+
+      td {
+        padding: 11px 12px;
+        border-top: 1px solid var(--border);
+        font-size: 0.88rem;
+        vertical-align: middle;
+      }
+
+      tbody tr:hover {
+        background: #ffffff06;
+      }
+
+      .artist {
+        font-weight: 650;
+      }
+
+      .secondary {
+        font-size: 0.74rem;
+        color: var(--text-secondary);
+      }
+
+      .date {
+        font-family: monospace;
+        color: var(--primary-light);
+        font-weight: 650;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 7px;
+        border-radius: 5px;
+        font-size: 0.7rem;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+
+      .birth {
+        background: #4caf5033;
+        color: #9be99f;
+      }
+
+      .death {
+        background: #9c27b033;
+        color: #e5a1ed;
+      }
+
+      .band_formation {
+        background: #2196f333;
+        color: #92d0f7;
+      }
+
+      .band_dissolution {
+        background: #607d8b55;
+        color: #c5d3d9;
+      }
+
+      .src-wikidata {
+        background: #3366cc44;
+        color: #9bb8ff;
+      }
+
+      .src-musicbrainz {
+        background: #ba477b44;
+        color: #f3a2c7;
+      }
+
+      .new {
+        background: #2196f333;
+        color: #8dcef7;
+      }
+
+      .duplicate {
+        background: #ff980033;
+        color: #ffc268;
+      }
+
+      .actions {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .empty,
+      .loading,
+      .error-cell {
+        text-align: center;
+        padding: 38px !important;
+        color: var(--text-secondary);
+      }
+
+      .error-cell {
+        color: #ff9090;
+      }
+
+      .auth {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .auth p {
+        margin: 0;
+        color: var(--text-secondary);
+        text-align: center;
+      }
+
+      .details {
+        display: none;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .detail {
+        padding: 12px;
+        background: var(--surface-light);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+
+      .detail-label {
+        display: block;
+        color: var(--text-secondary);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      .modal-bg {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #000b;
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .modal-bg.open {
+        display: flex;
+      }
+
+      .modal {
+        width: 100%;
+        max-width: 720px;
+        max-height: calc(100vh - 40px);
+        overflow: auto;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+
+      .modal-head,
+      .modal-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 16px 20px;
+      }
+
+      .modal-head {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .modal-foot {
+        border-top: 1px solid var(--border);
+        justify-content: flex-end;
+      }
+
+      .modal-head h2 {
+        margin: 0;
+        color: var(--primary-light);
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .full {
+        grid-column: 1/-1;
+      }
+
+      textarea {
+        min-height: 85px;
+        resize: vertical;
+      }
+
+      @media (max-width: 850px) {
+        .controls {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
         body {
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-            background-color: var(--bg);
-            color: var(--text-primary);
+          padding: 12px;
         }
 
-        button,
-        input,
-        select,
-        textarea {
-            font: inherit;
+        .controls,
+        .details-grid,
+        .form-grid {
+          grid-template-columns: 1fr;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .full {
+          grid-column: auto;
         }
 
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            margin-bottom: 30px;
-
-            text-align: center;
-        }
-
-        /*
-         * Les règles min/max empêchent l’image d’utiliser
-         * sa taille native si une autre règle CSS intervient.
-         */
         .app-icon {
-            display: block;
-
-            width: 80px !important;
-            height: 80px !important;
-            min-width: 80px;
-            min-height: 80px;
-            max-width: 80px !important;
-            max-height: 80px !important;
-
-            margin: 0 auto 15px;
-
-            border-radius: 18px;
-            object-fit: cover;
-
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+          width: 64px !important;
+          height: 64px !important;
+          max-width: 64px !important;
+          max-height: 64px !important;
         }
 
         h1 {
-            margin: 0 0 10px;
-
-            color: var(--primary);
-            font-size: 2.2rem;
+          font-size: 1.65rem;
         }
-
-        header p {
-            margin: 0;
-            color: var(--text-secondary);
-        }
-
-        .nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-
-            margin-bottom: 30px;
-        }
-
-        .nav a {
-            padding: 8px 16px;
-
-            border: 1px solid var(--border);
-            border-radius: 20px;
-
-            background: var(--surface);
-            color: var(--text-secondary);
-
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .nav a:hover {
-            border-color: var(--primary-light);
-            color: var(--text-primary);
-        }
-
-        .nav a.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: #FFFFFF;
-        }
-
-        .panel {
-            margin-bottom: 20px;
-            padding: 20px;
-
-            border: 1px solid var(--border);
-            border-radius: 12px;
-
-            background: var(--surface);
-        }
-
-        .panel-title {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-
-            margin-bottom: 18px;
-        }
-
-        .panel-title h2 {
-            margin: 0;
-            color: var(--primary-light);
-            font-size: 1.2rem;
-        }
-
-        .auth-section {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-
-            margin-bottom: 25px;
-        }
-
-        .auth-section p {
-            margin: 0;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .auth-section small {
-            word-break: break-all;
-        }
-
-        .stats-summary {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-
-            margin-bottom: 20px;
-        }
-
-        .stat-item {
-            min-width: 140px;
-            padding: 12px 20px;
-
-            border: 1px solid var(--border);
-            border-radius: 10px;
-
-            background: var(--surface);
-
-            text-align: center;
-        }
-
-        .stat-value {
-            display: block;
-
-            color: var(--primary-light);
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.72rem;
-            text-transform: uppercase;
-        }
-
-        .controls {
-            display: grid;
-            grid-template-columns:
-                minmax(150px, 1fr)
-                minmax(150px, 1fr)
-                minmax(150px, 1fr)
-                minmax(200px, 2fr);
-            gap: 12px;
-
-            margin-bottom: 15px;
-        }
-
-        .control-field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .control-field label {
-            color: var(--text-secondary);
-            font-size: 0.78rem;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px 12px;
-
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            outline: none;
-
-            background: var(--surface-light);
-            color: var(--text-primary);
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 2px rgba(245, 130, 13, 0.12);
-        }
-
-        input[type="date"] {
-            color-scheme: dark;
-        }
-
-        textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-
-        .button-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-
-            padding: 9px 15px;
-
-            border: 1px solid var(--border);
-            border-radius: 8px;
-
-            background: var(--surface-light);
-            color: var(--text-primary);
-
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn:hover:not(:disabled) {
-            border-color: var(--primary-light);
-            background: var(--primary);
-        }
-
-        .btn:disabled {
-            cursor: not-allowed;
-            opacity: 0.48;
-        }
-
-        .btn-primary {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: #FFFFFF;
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            background: var(--primary-light);
-        }
-
-        .btn-success {
-            border-color: var(--success);
-            background: rgba(76, 175, 80, 0.15);
-            color: #8BE18F;
-        }
-
-        .btn-success:hover:not(:disabled) {
-            background: var(--success);
-            color: #FFFFFF;
-        }
-
-        .btn-danger {
-            border-color: var(--error);
-            background: transparent;
-            color: var(--error);
-        }
-
-        .btn-danger:hover:not(:disabled) {
-            background: var(--error);
-            color: #FFFFFF;
-        }
-
-        .btn-small {
-            padding: 6px 9px;
-            font-size: 0.8rem;
-        }
-
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-
-            border: 1px solid var(--border);
-            border-radius: 12px;
-        }
-
-        table {
-            width: 100%;
-            min-width: 940px;
-
-            border-collapse: collapse;
-            background: var(--surface);
-        }
-
-        th {
-            padding: 12px;
-
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
-
-            font-size: 0.84rem;
-            text-align: left;
-            white-space: nowrap;
-        }
-
-        td {
-            padding: 11px 12px;
-
-            border-top: 1px solid var(--border);
-
-            font-size: 0.9rem;
-            vertical-align: middle;
-        }
-
-        tbody tr:hover {
-            background: rgba(255, 255, 255, 0.025);
-        }
-
-        .date {
-            color: var(--primary-light);
-            font-family: monospace;
-            font-weight: 600;
-        }
-
-        .artist-name {
-            font-weight: 600;
-        }
-
-        .secondary-text {
-            color: var(--text-secondary);
-            font-size: 0.76rem;
-        }
-
-        .status-badge {
-            display: inline-block;
-
-            padding: 3px 7px;
-
-            border-radius: 5px;
-
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .type-birth {
-            background: rgba(76, 175, 80, 0.22);
-            color: #8BE18F;
-        }
-
-        .type-death {
-            background: rgba(156, 39, 176, 0.25);
-            color: #E099ED;
-        }
-
-        .type-band_formation {
-            background: rgba(33, 150, 243, 0.22);
-            color: #7FC4F5;
-        }
-
-        .type-album_release {
-            background: rgba(255, 152, 0, 0.22);
-            color: #FFBE5C;
-        }
-
-        .type-career_event,
-        .type-special_event {
-            background: rgba(245, 130, 13, 0.22);
-            color: var(--primary-light);
-        }
-
-        .type-editor_choice {
-            background: rgba(96, 125, 139, 0.28);
-            color: #B9CBD3;
-        }
-
-        .status-active {
-            background: rgba(76, 175, 80, 0.2);
-            color: #8BE18F;
-        }
-
-        .status-inactive {
-            background: rgba(96, 125, 139, 0.3);
-            color: #C0CCD2;
-        }
-
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .loading,
-        .empty-state,
-        .error-message {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .loading,
-        .empty-state {
-            color: var(--text-secondary);
-        }
-
-        .error-message {
-            color: var(--error);
-        }
-
-        .message {
-            display: none;
-
-            margin-bottom: 20px;
-            padding: 12px 15px;
-
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .message.success {
-            display: block;
-            border-color: var(--success);
-            background: rgba(76, 175, 80, 0.1);
-            color: #8BE18F;
-        }
-
-        .message.error {
-            display: block;
-            border-color: var(--error);
-            background: rgba(255, 68, 68, 0.1);
-            color: #FF8D8D;
-        }
-
-        .message.info {
-            display: block;
-            border-color: var(--info);
-            background: rgba(33, 150, 243, 0.1);
-            color: #84C8F4;
-        }
-
-        .details-panel {
-            display: none;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        .detail-item {
-            padding: 12px;
-
-            border: 1px solid var(--border);
-            border-radius: 8px;
-
-            background: var(--surface-light);
-        }
-
-        .detail-label {
-            display: block;
-
-            margin-bottom: 4px;
-
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .detail-value {
-            word-break: break-word;
-        }
-
-        .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-
-            display: none;
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-
-            background: var(--overlay);
-        }
-
-        .modal-backdrop.open {
-            display: flex;
-        }
-
-        .modal {
-            width: 100%;
-            max-width: 720px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            background: var(--surface);
-
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-
-            padding: 18px 20px;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .modal-header h2 {
-            margin: 0;
-            color: var(--primary-light);
-        }
-
-        .modal-body {
-            padding: 20px;
-        }
-
-        .modal-footer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 10px;
-
-            padding: 15px 20px;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 15px;
-        }
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-field.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-field label {
-            color: var(--text-secondary);
-            font-size: 0.82rem;
-        }
-
-        .checkbox-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checkbox-row input {
-            width: auto;
-        }
-
-        @media (max-width: 850px) {
-            .controls {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 620px) {
-            body {
-                padding: 12px;
-            }
-
-            .app-icon {
-                width: 64px !important;
-                height: 64px !important;
-                min-width: 64px;
-                min-height: 64px;
-                max-width: 64px !important;
-                max-height: 64px !important;
-            }
-
-            h1 {
-                font-size: 1.65rem;
-            }
-
-            .controls,
-            .form-grid,
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-item {
-                flex: 1 1 130px;
-                min-width: 0;
-            }
-
-            .button-row .btn {
-                flex: 1 1 auto;
-            }
-
-            .form-field.full-width {
-                grid-column: auto;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <header>
-            icon.png
-
-            <h1>🎵 Événements musicaux</h1>
-
-            <p>
-                Recherche et préparation des événements des futurs défis quotidiens
-            </p>
-        </header>
-
-        <nav class="nav" aria-label="Navigation administration">
-            <a href="leaderboard.html">Top Joueurs</a>
-            <a href="songs.html">Top Chansons</a>
-            <a href="activity.html">Activité</a>
-            <a href="rooms.html">Salons</a>
-            events.htmlDéfis Quotidiens</a>
-        </nav>
-
-        <section
-            id="auth-section"
-            class="panel auth-section"
-            aria-live="polite"
+      <header>
+        <img src="icon.png" alt="BlindBeat" class="app-icon" />
+        <h1>🎵 Événements musicaux</h1>
+        <p>
+          Recherche Wikidata et MusicBrainz pour le catalogue des défis
+          quotidiens
+        </p>
+      </header>
+      <nav class="nav">
+        <a href="leaderboard.html">Top Joueurs</a
+        ><a href="songs.html">Top Chansons</a
+        ><a href="activity.html">Activité</a><a href="rooms.html">Salons</a
+        ><a href="events.html" class="active">Défis Quotidiens</a>
+      </nav>
+      <section id="authSection" class="panel auth">
+        <p id="userInfo"></p>
+        <button
+          id="loginBtn"
+          class="btn"
+          style="background: #4285f4; border-color: #4285f4"
         >
-            <p id="user-info"></p>
-
-            <button
-                id="loginBtn"
-                type="button"
-                class="btn"
-                style="
-                    background: #4285F4;
-                    border-color: #4285F4;
-                    color: #FFFFFF;
-                    font-weight: 700;
-                "
-            >
-                Se connecter avec Google
-            </button>
-
-            <button
-                id="logoutBtn"
-                type="button"
-                class="btn btn-danger"
-                style="display: none;"
-            >
-                Déconnexion
-            </button>
-        </section>
-
-        <div id="message" class="message" aria-live="polite"></div>
-
-        <section id="summary" class="stats-summary">
-            <div class="stat-item">
-                <span class="stat-value" id="todayCount">0</span>
-                <span class="stat-label">Aujourd'hui</span>
+          Se connecter avec Google</button
+        ><button id="logoutBtn" class="btn btn-danger" style="display: none">
+          Déconnexion
+        </button>
+      </section>
+      <div id="message" class="message" aria-live="polite"></div>
+      <section class="stats-summary">
+        <div class="stat-item">
+          <span class="stat-value" id="catalogueCount">0</span
+          ><span class="stat-label">Catalogue</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="resultStat">0</span
+          ><span class="stat-label">Résultats</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="newCount">0</span
+          ><span class="stat-label">Nouveaux</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="duplicateCount">0</span
+          ><span class="stat-label">Doublons</span>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="panel-title">
+          <h2>🔎 Recherche externe</h2>
+          <button id="addBtn" class="btn btn-primary" disabled>
+            ＋ Ajouter manuellement
+          </button>
+        </div>
+        <div class="controls">
+          <div class="field">
+            <label for="searchDate">Date recherchée *</label
+            ><input id="searchDate" type="date" />
+          </div>
+          <div class="field">
+            <label for="typeFilter">Type</label
+            ><select id="typeFilter">
+              <option value="">Tous les types</option>
+              <option value="birth">Naissance</option>
+              <option value="death">Décès</option>
+              <option value="band_formation">Création d’un groupe</option>
+              <option value="band_dissolution">Dissolution d’un groupe</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Sources</label>
+            <div class="source-row">
+              <label class="check"
+                ><input id="useWikidata" type="checkbox" checked />
+                Wikidata</label
+              ><label class="check"
+                ><input id="useMusicBrainz" type="checkbox" checked />
+                MusicBrainz</label
+              >
             </div>
-
-            <div class="stat-item">
-                <span class="stat-value" id="artistCount">0</span>
-                <span class="stat-label">Artistes</span>
-            </div>
-
-            <div class="stat-item">
-                <span class="stat-value" id="eventCount">0</span>
-                <span class="stat-label">Événements</span>
-            </div>
-
-            <div class="stat-item">
-                <span class="stat-value" id="activeCount">0</span>
-                <span class="stat-label">Actifs</span>
-            </div>
-        </section>
-
-        <section class="panel">
-            <div class="panel-title">
-                <h2>🔎 Recherche</h2>
-
-                <button
-                    id="addEventBtn"
-                    type="button"
-                    class="btn btn-primary"
-                    disabled
-                >
-                    ＋ Ajouter un événement
-                </button>
-            </div>
-
-            <div class="controls">
-                <div class="control-field">
-                    <label for="filterDate">Date</label>
-
-                    <input
-                        type="date"
-                        id="filterDate"
-                    >
-                </div>
-
-                <div class="control-field">
-                    <label for="filterType">Type</label>
-
-                    <select id="filterType">
-                        <option value="">Tous les types</option>
-                        <option value="birth">Naissance</option>
-                        <option value="death">Décès</option>
-                        <option value="band_formation">
-                            Création d'un groupe
-                        </option>
-                        <option value="album_release">
-                            Sortie d'album
-                        </option>
-                        <option value="career_event">
-                            Événement de carrière
-                        </option>
-                        <option value="special_event">
-                            Événement spécial
-                        </option>
-                        <option value="editor_choice">
-                            Choix éditorial
-                        </option>
-                    </select>
-                </div>
-
-                <div class="control-field">
-                    <label for="filterStatus">Statut</label>
-
-                    <select id="filterStatus">
-                        <option value="">Tous les statuts</option>
-                        <option value="active">Actifs</option>
-                        <option value="inactive">Inactifs</option>
-                    </select>
-                </div>
-
-                <div class="control-field">
-                    <label for="filterText">Artiste, groupe ou titre</label>
-
-                    <input
-                        type="search"
-                        id="filterText"
-                        placeholder="Ex. Queen, Freddie Mercury..."
-                        autocomplete="off"
-                    >
-                </div>
-            </div>
-
-            <div class="button-row">
-                <button
-                    id="searchBtn"
-                    type="button"
-                    class="btn btn-primary"
-                >
-                    🔎 Rechercher
-                </button>
-
-                <button
-                    id="resetBtn"
-                    type="button"
-                    class="btn"
-                >
-                    Réinitialiser
-                </button>
-
-                <button
-                    id="refreshBtn"
-                    type="button"
-                    class="btn"
-                    disabled
-                >
-                    ↻ Actualiser
-                </button>
-            </div>
-        </section>
-
-        <section class="panel">
-            <div class="panel-title">
-                <h2>Événements trouvés</h2>
-
-                <span
-                    id="resultCount"
-                    class="secondary-text"
-                >
-                    0 résultat
-                </span>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Événement</th>
-                            <th>Type</th>
-                            <th>Date</th>
-                            <th>Priorité</th>
-                            <th>Popularité</th>
-                            <th>Statut</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="eventsBody">
-                        <tr>
-                            <td colspan="7" class="loading">
-                                Connectez-vous pour charger les événements.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section
-            id="detailsPanel"
-            class="panel details-panel"
-        >
-            <div class="panel-title">
-                <h2>📋 Détail de l'événement</h2>
-
-                <button
-                    id="closeDetailsBtn"
-                    type="button"
-                    class="btn"
-                >
-                    Fermer
-                </button>
-            </div>
-
-            <div id="detailsContent"></div>
-        </section>
+          </div>
+          <div class="field">
+            <label for="textFilter">Filtre texte local</label
+            ><input
+              id="textFilter"
+              type="search"
+              placeholder="Artiste ou groupe…"
+            />
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="searchBtn" class="btn btn-primary">🌐 Rechercher</button
+          ><button id="resetBtn" class="btn">Réinitialiser</button
+          ><button id="catalogueBtn" class="btn" disabled>
+            📚 Catalogue Firebase
+          </button>
+        </div>
+        <p class="help">
+          La recherche couvre les naissances, décès, créations et dissolutions
+          de groupes. Les albums sont volontairement exclus. Les résultats sont
+          mis en cache localement pendant 24 heures. Une nouvelle recherche
+          identique peut être forcée après 10 secondes.
+        </p>
+      </section>
+      <section class="panel">
+        <div class="panel-title">
+          <h2>Événements trouvés</h2>
+          <span id="resultCount" class="secondary">0 résultat</span>
+        </div>
+        <div id="sourceStatus" class="source-status"></div>
+        <div id="progress" class="progress"><span></span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Événement</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Source</th>
+                <th>Informations</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="eventsBody">
+              <tr>
+                <td colspan="7" class="empty">
+                  Sélectionnez une date, puis lancez la recherche.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="detailsPanel" class="panel details">
+        <div class="panel-title">
+          <h2>📋 Détail</h2>
+          <button id="closeDetails" class="btn">Fermer</button>
+        </div>
+        <div id="detailsContent"></div>
+      </section>
     </div>
-
-    <div
-        id="eventModalBackdrop"
-        class="modal-backdrop"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="eventModalTitle"
-    >
-        <div class="modal">
-            <div class="modal-header">
-                <h2 id="eventModalTitle">Ajouter un événement</h2>
-
-                <button
-                    id="modalCloseBtn"
-                    type="button"
-                    class="btn btn-small"
-                    aria-label="Fermer"
+    <div id="modalBg" class="modal-bg">
+      <div class="modal">
+        <div class="modal-head">
+          <h2 id="modalTitle">Événement</h2>
+          <button id="closeModal" class="btn btn-small">✕</button>
+        </div>
+        <form id="eventForm">
+          <div class="modal-body">
+            <input id="editId" type="hidden" />
+            <div class="form-grid">
+              <div class="field">
+                <label>Artiste ou groupe *</label
+                ><input id="editArtist" required maxlength="150" />
+              </div>
+              <div class="field">
+                <label>Type *</label
+                ><select id="editType" required>
+                  <option value="birth">Naissance</option>
+                  <option value="death">Décès</option>
+                  <option value="band_formation">Création d’un groupe</option>
+                  <option value="band_dissolution">
+                    Dissolution d’un groupe
+                  </option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Date *</label
+                ><input id="editDate" type="date" required />
+              </div>
+              <div class="field">
+                <label>Priorité 0–100</label
+                ><input
+                  id="editPriority"
+                  type="number"
+                  min="0"
+                  max="100"
+                  value="50"
+                />
+              </div>
+              <div class="field full">
+                <label>Titre *</label
+                ><input id="editTitle" required maxlength="200" />
+              </div>
+              <div class="field full">
+                <label>Description</label
+                ><textarea id="editDescription"></textarea>
+              </div>
+              <div class="field full">
+                <label class="check"
+                  ><input id="editEnabled" type="checkbox" checked /> Événement
+                  actif</label
                 >
-                    ✕
-                </button>
+              </div>
             </div>
-
-            <form id="eventForm">
-                <div class="modal-body">
-                    <input
-                        type="hidden"
-                        id="eventId"
-                    >
-
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="artistName">
-                                Artiste ou groupe *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="artistName"
-                                maxlength="120"
-                                required
-                            >
-                        </div>
-
-                        <div class="form-field">
-                            <label for="eventType">
-                                Type *
-                            </label>
-
-                            <select id="eventType" required>
-                                <option value="">Choisir</option>
-                                <option value="birth">Naissance</option>
-                                <option value="death">Décès</option>
-                                <option value="band_formation">
-                                    Création d'un groupe
-                                </option>
-                                <option value="album_release">
-                                    Sortie d'album
-                                </option>
-                                <option value="career_event">
-                                    Événement de carrière
-                                </option>
-                                <option value="special_event">
-                                    Événement spécial
-                                </option>
-                                <option value="editor_choice">
-                                    Choix éditorial
-                                </option>
-                            </select>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="eventDate">
-                                Date *
-                            </label>
-
-                            <input
-                                type="date"
-                                id="eventDate"
-                                required
-                            >
-                        </div>
-
-                        <div class="form-field">
-                            <label for="eventYear">
-                                Année de l'événement
-                            </label>
-
-                            <input
-                                type="number"
-                                id="eventYear"
-                                min="1000"
-                                max="2200"
-                                placeholder="Ex. 1946"
-                            >
-                        </div>
-
-                        <div class="form-field full-width">
-                            <label for="eventTitle">
-                                Titre éditorial *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="eventTitle"
-                                maxlength="180"
-                                placeholder="Ex. Anniversaire de Freddie Mercury"
-                                required
-                            >
-                        </div>
-
-                        <div class="form-field">
-                            <label for="eventPriority">
-                                Priorité, de 0 à 100
-                            </label>
-
-                            <input
-                                type="number"
-                         
+          </div>
+          <div class="modal-foot">
+            <button id="cancelModal" type="button" class="btn">Annuler</button
+            ><button id="saveBtn" type="submit" class="btn btn-primary">
+              Enregistrer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+        set,
+        push,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+        authDomain: "blindbeat-a51d5.firebaseapp.com",
+        databaseURL:
+          "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+        projectId: "blindbeat-a51d5",
+        storageBucket: "blindbeat-a51d5.firebasestorage.app",
+        messagingSenderId: "1037778546860",
+        appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+      };
+      const app = initializeApp(firebaseConfig),
+        db = getDatabase(app),
+        auth = getAuth(app),
+        provider = new GoogleAuthProvider();
+      const ADMIN_UIDS = [
+          "HcEXtGa5OXdtjuBjFXF6Bcy9Ymq2",
+          "lwBz4lZ85ffc3TiJ5oEuwm4nz2Y2",
+        ],
+        CATALOGUE_PATH = "artistEvents";
+      const WD = "https://query.wikidata.org/sparql",
+        MB = "https://musicbrainz.org/ws/2/artist";
+      const CACHE_TTL = 24 * 60 * 60 * 1000,
+        SEARCH_COOLDOWN = 10000,
+        REQUEST_TIMEOUT = 25000,
+        MAX_RETRIES = 2,
+        MB_GAP = 1100,
+        MAX_RESULTS = 100;
+      const LABELS = {
+        birth: "Naissance",
+        death: "Décès",
+        band_formation: "Création groupe",
+        band_dissolution: "Dissolution groupe",
+      };
+      let user = null,
+        isAdmin = false,
+        catalogue = [],
+        external = [],
+        lastSearchAt = 0,
+        states = {};
+      const $ = (id) => document.getElementById(id),
+        body = $("eventsBody"),
+        msg = $("message"),
+        progress = $("progress");
+      function esc(v) {
+        return String(v ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+      function norm(v) {
+        return String(v ?? "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .trim();
+      }
+      function sleep(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+      function notice(text, type = "info") {
+        msg.className = `message ${type}`;
+        msg.textContent = text;
+      }
+      function clearNotice() {
+        msg.className = "message";
+        msg.textContent = "";
+      }
+      function dateParts() {
+        const v = $("searchDate").value;
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null;
+        const [y, m, d] = v.split("-").map(Number);
+        return {
+          date: v,
+          year: y,
+          month: m,
+          day: d,
+          monthDay: `${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`,
+        };
+      }
+      function parseDate(v) {
+        const m = String(v ?? "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+        return m
+          ? {
+              full: `${m[1]}-${m[2]}-${m[3]}`,
+              year: +m[1],
+              monthDay: `${m[2]}-${m[3]}`,
+            }
+          : null;
+      }
+      function fmt(e) {
+        if (!e.monthDay) return "?";
+        const [m, d] = e.monthDay.split("-");
+        return `${d}/${m}${e.year ? `/${e.year}` : ""}`;
+      }
+      function key(e) {
+        return `${norm(e.artistName)}|${e.eventType}|${e.monthDay}`;
+      }
+      function duplicate(e) {
+        return catalogue.find((x) => key(x) === key(e));
+      }
+      function cacheKey(parts) {
+        return `bb-events:${parts.monthDay}:${$("typeFilter").value || "all"}:${$("useWikidata").checked ? 1 : 0}:${$("useMusicBrainz").checked ? 1 : 0}`;
+      }
+      function getCache(k) {
+        try {
+          const x = JSON.parse(localStorage.getItem(k));
+          if (!x || Date.now() - x.savedAt > CACHE_TTL) {
+            localStorage.removeItem(k);
+            return null;
+          }
+          return x.events;
+        } catch {
+          return null;
+        }
+      }
+      function setCache(k, events) {
+        try {
+          localStorage.setItem(
+            k,
+            JSON.stringify({ savedAt: Date.now(), events }),
+          );
+        } catch (e) {
+          console.warn("Cache indisponible", e);
+        }
+      }
+      function retryAfterMs(res, attempt) {
+        const h = res.headers.get("Retry-After");
+        if (h) {
+          const n = Number(h);
+          if (Number.isFinite(n)) return n * 1000;
+          const d = Date.parse(h);
+          if (Number.isFinite(d)) return Math.max(0, d - Date.now());
+        }
+        return (
+          Math.min(8000, 1000 * 2 ** attempt) + Math.floor(Math.random() * 350)
+        );
+      }
+      async function fetchSafe(
+        url,
+        { name, timeout = REQUEST_TIMEOUT, retries = MAX_RETRIES } = {},
+      ) {
+        let last;
+        for (let attempt = 0; attempt <= retries; attempt++) {
+          const controller = new AbortController(),
+            timer = setTimeout(() => controller.abort(), timeout);
+          try {
+            const res = await fetch(url, {
+              headers: { Accept: "application/json" },
+              signal: controller.signal,
+            });
+            clearTimeout(timer);
+            if (res.ok) return res;
+            if (
+              [429, 500, 502, 503, 504].includes(res.status) &&
+              attempt < retries
+            ) {
+              await sleep(retryAfterMs(res, attempt));
+              continue;
+            }
+            const text = (await res.text()).slice(0, 220);
+            throw new Error(
+              `${name}: HTTP ${res.status}${text ? ` – ${text}` : ""}`,
+            );
+          } catch (e) {
+            clearTimeout(timer);
+            last = e;
+            if (e.name === "AbortError")
+              last = new Error(
+                `${name}: délai dépassé après ${Math.round(timeout / 1000)} s`,
+              );
+            if (attempt < retries) {
+              await sleep(
+                1000 * 2 ** attempt + Math.floor(Math.random() * 350),
+              );
+              continue;
+            }
+          }
+        }
+        throw last;
+      }
+      function wdQuery(p) {
+        return `SELECT DISTINCT ?entity ?entityLabel ?entityDescription ?eventDate ?eventType ?countryLabel WHERE { VALUES ?eventType { "birth" "death" "band_formation" "band_dissolution" } { ?entity wdt:P31 wd:Q5; wdt:P569 ?eventDate. BIND("birth" AS ?eventType) } UNION { ?entity wdt:P31 wd:Q5; wdt:P570 ?eventDate. BIND("death" AS ?eventType) } UNION { ?entity wdt:P31/wdt:P279* wd:Q215380; wdt:P571 ?eventDate. BIND("band_formation" AS ?eventType) } UNION { ?entity wdt:P31/wdt:P279* wd:Q215380; wdt:P576 ?eventDate. BIND("band_dissolution" AS ?eventType) } OPTIONAL { ?entity wdt:P27|wdt:P495 ?country. } FILTER(MONTH(?eventDate)=${p.month} && DAY(?eventDate)=${p.day}) SERVICE wikibase:label { bd:serviceParam wikibase:language "fr,en,nl". } } LIMIT ${MAX_RESULTS}`;
+      }
+      async function searchWD(p) {
+        const url = `${WD}?${new URLSearchParams({ query: wdQuery(p), format: "json" })}`;
+        const res = await fetchSafe(url, {
+          name: "Wikidata",
+          timeout: 30000,
+          retries: 1,
+        });
+        const data = await res.json();
+        return (data.results?.bindings || [])
+          .map((b) => {
+            const d = parseDate(b.eventDate?.value),
+              uri = b.entity?.value || "",
+              id = uri.split("/").pop(),
+              type = b.eventType?.value,
+              name = b.entityLabel?.value || id;
+            return d
+              ? {
+                  externalId: `wd-${id}-${type}`,
+                  artistName: name,
+                  eventType: type,
+                  monthDay: d.monthDay,
+                  year: d.year,
+                  title: `${LABELS[type] || type} : ${name}`,
+                  description: b.entityDescription?.value || "",
+                  country: b.countryLabel?.value || "",
+                  wikidataId: id,
+                  musicBrainzId: null,
+                  sources: [{ provider: "wikidata", id, uri }],
+                }
+              : null;
+          })
+          .filter(Boolean);
+      }
+      function mbEvent(a, field, p) {
+        const t = String(a.type || "").toLowerCase(),
+          d = parseDate(a["life-span"]?.[field]);
+        if (!d || d.monthDay !== p.monthDay) return null;
+        let type;
+        if (t === "person") type = field === "begin" ? "birth" : "death";
+        else if (["group", "orchestra", "choir"].includes(t))
+          type = field === "begin" ? "band_formation" : "band_dissolution";
+        else return null;
+        return {
+          externalId: `mb-${a.id}-${type}`,
+          artistName: a.name || "Sans nom",
+          eventType: type,
+          monthDay: d.monthDay,
+          year: d.year,
+          title: `${LABELS[type]} : ${a.name}`,
+          description: a.disambiguation || "",
+          country: a.country || "",
+          sourceScore: Number(a.score || 0),
+          wikidataId: null,
+          musicBrainzId: a.id,
+          sources: [
+            {
+              provider: "musicbrainz",
+              id: a.id,
+              uri: `https://musicbrainz.org/artist/${a.id}`,
+            },
+          ],
+        };
+      }
+      async function mbOne(field, p) {
+        const mm = String(p.month).padStart(2, "0"),
+          dd = String(p.day).padStart(2, "0");
+        const q = `${field}:*-${mm}-${dd}`;
+        const url = `${MB}?${new URLSearchParams({ query: q, fmt: "json", limit: String(MAX_RESULTS) })}`;
+        const res = await fetchSafe(url, {
+          name: "MusicBrainz",
+          timeout: 20000,
+          retries: 2,
+        });
+        const data = await res.json();
+        return (data.artists || [])
+          .map((a) => mbEvent(a, field, p))
+          .filter(Boolean);
+      }
+      async function searchMB(p) {
+        const begin = await mbOne("begin", p);
+        await sleep(MB_GAP);
+        const end = await mbOne("end", p);
+        return [...begin, ...end];
+      }
+      function merge(list) {
+        const m = new Map();
+        for (const e of list) {
+          const k = key(e);
+          if (!m.has(k)) {
+            m.set(k, { ...e, sources: [...e.sources] });
+            continue;
+          }
+          const x = m.get(k);
+          for (const s of e.sources)
+            if (
+              !x.sources.some((z) => z.provider === s.provider && z.id === s.id)
+            )
+              x.sources.push(s);
+          x.wikidataId ||= e.wikidataId;
+          x.musicBrainzId ||= e.musicBrainzId;
+          x.description ||= e.description;
+          x.country ||= e.country;
+          x.sourceScore = Math.max(x.sourceScore || 0, e.sourceScore || 0);
+        }
+        return [...m.values()];
+      }
+      function renderStates() {
+        const names = { wikidata: "Wikidata", musicbrainz: "MusicBrainz" };
+        $("sourceStatus").innerHTML = Object.entries(states)
+          .map(
+            ([k, s]) =>
+              `<span class="source-chip ${s.status}">${names[k]} : ${s.status === "loading" ? "recherche…" : s.status === "success" ? `${s.count} résultat(s)` : s.status === "warning" ? s.message : `erreur – ${esc(s.message || "")}`}</span>`,
+          )
+          .join("");
+      }
+      function stats() {
+        const n = external.filter((e) => !duplicate(e)).length,
+          d = external.length - n;
+        $("catalogueCount").textContent = catalogue.length;
+        $("resultStat").textContent = external.length;
+        $("newCount").textContent = n;
+        $("duplicateCount").textContent = d;
+      }
+      function render(list = external) {
+        const type = $("typeFilter").value,
+          text = norm($("textFilter").value);
+        const rows = list
+          .filter(
+            (e) =>
+              (!type || e.eventType === type) &&
+              (!text ||
+                norm(`${e.artistName} ${e.title} ${e.description}`).includes(
+                  text,
+                )),
+          )
+          .sort(
+            (a, b) =>
+              (b.sourceScore || 0) - (a.sourceScore || 0) ||
+              a.artistName.localeCompare(b.artistName, "fr"),
+          );
+        $("resultCount").textContent =
+          `${rows.length} résultat${rows.length === 1 ? "" : "s"}`;
+        if (!rows.length) {
+          body.innerHTML =
+            '<tr><td colspan="7" class="empty">Aucun événement trouvé.</td></tr>';
+          stats();
+          return;
+        }
+        body.innerHTML = rows
+          .map((e) => {
+            const i = external.indexOf(e),
+              dup = duplicate(e),
+              src = e.sources
+                .map(
+                  (s) =>
+                    `<span class="badge src-${s.provider}">${s.provider === "wikidata" ? "Wikidata" : "MusicBrainz"}</span>`,
+                )
+                .join(" ");
+            return `<tr><td><span class="artist">${esc(e.artistName)}</span><br><span class="secondary">${esc(e.title)}</span></td><td><span class="badge ${esc(e.eventType)}">${esc(LABELS[e.eventType] || e.eventType)}</span></td><td class="date">${esc(fmt(e))}</td><td>${src}</td><td class="secondary">${esc([e.country, e.description, e.sourceScore ? `Score source : ${e.sourceScore}` : ""].filter(Boolean).join(" · ") || "-")}</td><td><span class="badge ${dup ? "duplicate" : "new"}">${dup ? "Déjà catalogué" : "Nouveau"}</span></td><td><div class="actions"><button class="btn btn-small" onclick="window.showExternal(${i})">Voir</button><button class="btn btn-small btn-success" onclick="window.importExternal(${i})" ${!isAdmin || dup ? "disabled" : ""}>Importer</button></div></td></tr>`;
+          })
+          .join("");
+        stats();
+      }
+      async function loadCatalogue() {
+        try {
+          const snap = await get(ref(db, CATALOGUE_PATH));
+          catalogue = [];
+          if (snap.exists())
+            snap.forEach((c) => catalogue.push({ id: c.key, ...c.val() }));
+          stats();
+          if (external.length) render();
+        } catch (e) {
+          notice(`Catalogue Firebase indisponible : ${e.message}`, "warning");
+        }
+      }
+      async function runSearch(force = false) {
+        const p = dateParts();
+        if (!p) {
+          notice("Sélectionnez une date valide.", "error");
+          $("searchDate").focus();
+          return;
+        }
+        if (!$("useWikidata").checked && !$("useMusicBrainz").checked) {
+          notice("Sélectionnez au moins une source.", "error");
+          return;
+        }
+        const now = Date.now();
+        if (!force && now - lastSearchAt < SEARCH_COOLDOWN) {
+          notice(
+            `Nouvelle recherche autorisée dans ${Math.ceil((SEARCH_COOLDOWN - (now - lastSearchAt)) / 1000)} seconde(s).`,
+            "warning",
+          );
+          return;
+        }
+        const ck = cacheKey(p),
+          cached = !force ? getCache(ck) : null;
+        if (cached) {
+          external = cached;
+          states = { cache: { status: "success", count: cached.length } };
+          $("sourceStatus").innerHTML =
+            '<span class="source-chip success">Cache local : résultats de moins de 24 h</span>';
+          notice(
+            "Résultats chargés depuis le cache local. Utilisez Rechercher à nouveau après 10 secondes pour actualiser.",
+            "info",
+          );
+          render();
+          return;
+        }
+        lastSearchAt = now;
+        clearNotice();
+        external = [];
+        states = {};
+        if ($("useWikidata").checked)
+          states.wikidata = { status: "loading", count: 0 };
+        if ($("useMusicBrainz").checked)
+          states.musicbrainz = { status: "loading", count: 0 };
+        renderStates();
+        progress.classList.add("active");
+        $("searchBtn").disabled = true;
+        $("searchBtn").textContent = "Recherche…";
+        body.innerHTML =
+          '<tr><td colspan="7" class="loading">Interrogation des sources externes…</td></tr>';
+        const collected = [];
+        const tasks = [];
+        if ($("useWikidata").checked)
+          tasks.push(
+            searchWD(p)
+              .then((x) => {
+                collected.push(...x);
+                states.wikidata = { status: "success", count: x.length };
+              })
+              .catch((e) => {
+                states.wikidata = {
+                  status: "error",
+                  count: 0,
+                  message: e.message,
+                };
+              })
+              .finally(renderStates),
+          );
+        if ($("useMusicBrainz").checked)
+          tasks.push(
+            searchMB(p)
+              .then((x) => {
+                collected.push(...x);
+                states.musicbrainz = { status: "success", count: x.length };
+              })
+              .catch((e) => {
+                states.musicbrainz = {
+                  status: "error",
+                  count: 0,
+                  message: e.message,
+                };
+              })
+              .finally(renderStates),
+          );
+        await Promise.allSettled(tasks);
+        external = merge(collected);
+        setCache(ck, external);
+        render();
+        const ok = Object.values(states).filter(
+          (s) => s.status === "success",
+        ).length;
+        if (!ok)
+          notice(
+            "Toutes les sources ont échoué. Une limitation, un délai dépassé ou un blocage CORS peut être en cause.",
+            "error",
+          );
+        else if (Object.values(states).some((s) => s.status === "error"))
+          notice(
+            "Résultats partiels : au moins une source n’a pas répondu.",
+            "warning",
+          );
+        else
+          notice(
+            `${external.length} événement(s) consolidé(s) après dédoublonnage.`,
+            "success",
+          );
+        progress.classList.remove("active");
+        $("searchBtn").disabled = false;
+        $("searchBtn").textContent = "🌐 Rechercher";
+      }
+      window.showExternal = (i) => {
+        const e = external[i];
+        if (!e) return;
+        $("detailsContent").innerHTML =
+          `<div class="details-grid"><div class="detail"><span class="detail-label">Artiste ou groupe</span>${esc(e.artistName)}</div><div class="detail"><span class="detail-label">Type</span>${esc(LABELS[e.eventType])}</div><div class="detail"><span class="detail-label">Date</span>${esc(fmt(e))}</div><div class="detail"><span class="detail-label">Pays</span>${esc(e.country || "Non renseigné")}</div><div class="detail"><span class="detail-label">Wikidata</span>${esc(e.wikidataId || "-")}</div><div class="detail"><span class="detail-label">MusicBrainz</span>${esc(e.musicBrainzId || "-")}</div></div>${e.description ? `<div class="detail" style="margin-top:12px"><span class="detail-label">Description</span>${esc(e.description)}</div>` : ""}`;
+        $("detailsPanel").style.display = "block";
+        $("detailsPanel").scrollIntoView({ behavior: "smooth" });
+      };
+      window.importExternal = async (i) => {
+        const e = external[i];
+        if (!e || !isAdmin || duplicate(e)) return;
+        if (!confirm(`Importer « ${e.title} » ?`)) return;
+        try {
+          const r = push(ref(db, CATALOGUE_PATH));
+          await set(r, {
+            artistName: e.artistName,
+            eventType: e.eventType,
+            monthDay: e.monthDay,
+            year: e.year || null,
+            title: e.title,
+            description: e.description || "",
+            priority: 50,
+            popularity: null,
+            enabled: true,
+            identifiers: {
+              wikidata: e.wikidataId || null,
+              musicBrainz: e.musicBrainzId || null,
+            },
+            sources: e.sources,
+            createdAt: serverTimestamp(),
+            createdBy: user.uid,
+            updatedAt: serverTimestamp(),
+            updatedBy: user.uid,
+          });
+          notice("Événement importé.", "success");
+          await loadCatalogue();
+        } catch (err) {
+          notice(`Import impossible : ${err.message}`, "error");
+        }
+      };
+      function openModal(e = null) {
+        if (!isAdmin) return;
+        $("eventForm").reset();
+        $("editId").value = e?.id || "";
+        $("editArtist").value = e?.artistName || "";
+        $("editType").value = e?.eventType || "birth";
+        $("editDate").value = e?.monthDay ? `2000-${e.monthDay}` : "";
+        $("editPriority").value = e?.priority ?? 50;
+        $("editTitle").value = e?.title || "";
+        $("editDescription").value = e?.description || "";
+        $("editEnabled").checked = e?.enabled !== false;
+        $("modalBg").classList.add("open");
+      }
+      function closeModal() {
+        $("modalBg").classList.remove("open");
+      }
+      $("eventForm").addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+        if (!isAdmin) return;
+        const d = $("editDate").value,
+          p = d.split("-"),
+          payload = {
+            artistName: $("editArtist").value.trim(),
+            eventType: $("editType").value,
+            monthDay: `${p[1]}-${p[2]}`,
+            year: null,
+            title: $("editTitle").value.trim(),
+            description: $("editDescription").value.trim(),
+            priority: Math.max(
+              0,
+              Math.min(100, Number($("editPriority").value) || 50),
+            ),
+            popularity: null,
+            enabled: $("editEnabled").checked,
+            updatedAt: serverTimestamp(),
+            updatedBy: user.uid,
+          };
+        try {
+          const r = push(ref(db, CATALOGUE_PATH));
+          await set(r, {
+            ...payload,
+            createdAt: serverTimestamp(),
+            createdBy: user.uid,
+          });
+          closeModal();
+          notice("Événement ajouté.", "success");
+          await loadCatalogue();
+        } catch (e) {
+          notice(`Enregistrement impossible : ${e.message}`, "error");
+        }
+      });
+      $("searchBtn").onclick = () => runSearch(false);
+      $("resetBtn").onclick = () => {
+        $("searchDate").value = "";
+        $("typeFilter").value = "";
+        $("textFilter").value = "";
+        external = [];
+        states = {};
+        $("sourceStatus").innerHTML = "";
+        body.innerHTML =
+          '<tr><td colspan="7" class="empty">Sélectionnez une date, puis lancez la recherche.</td></tr>';
+        clearNotice();
+        stats();
+      };
+      $("typeFilter").onchange = () => render();
+      $("textFilter").oninput = () => render();
+      $("catalogueBtn").onclick = async () => {
+        await loadCatalogue();
+        external = catalogue.map((e) => ({
+          ...e,
+          externalId: e.id,
+          sources: e.sources || [{ provider: "firebase", id: e.id }],
+        }));
+        render();
+      };
+      $("addBtn").onclick = () => openModal();
+      $("closeDetails").onclick = () =>
+        ($("detailsPanel").style.display = "none");
+      $("closeModal").onclick = closeModal;
+      $("cancelModal").onclick = closeModal;
+      $("modalBg").onclick = (e) => {
+        if (e.target === $("modalBg")) closeModal();
+      };
+      $("loginBtn").onclick = () =>
+        signInWithPopup(auth, provider).catch((e) =>
+          notice(`Connexion impossible : ${e.message}`, "error"),
+        );
+      $("logoutBtn").onclick = () => signOut(auth);
+      onAuthStateChanged(auth, async (u) => {
+        user = u;
+        isAdmin = !!u && ADMIN_UIDS.includes(u.uid);
+        $("authSection").style.display = "flex";
+        if (u) {
+          $("userInfo").innerHTML =
+            `Connecté : <b>${esc(u.displayName || u.email)}</b><br><small>${isAdmin ? "Accès administrateur" : "Lecture seule"}</small>`;
+          $("loginBtn").style.display = "none";
+          $("logoutBtn").style.display = "inline-flex";
+          $("addBtn").disabled = !isAdmin;
+          $("catalogueBtn").disabled = false;
+          await loadCatalogue();
+        } else {
+          $("userInfo").textContent =
+            "Connectez-vous pour importer ou gérer le catalogue.";
+          $("loginBtn").style.display = "inline-flex";
+          $("logoutBtn").style.display = "none";
+          $("addBtn").disabled = true;
+          $("catalogueBtn").disabled = true;
+          catalogue = [];
+          stats();
+        }
+      });
+    </script>
+  </body>
+</html>
