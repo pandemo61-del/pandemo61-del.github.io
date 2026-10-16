@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 877
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 660
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 948
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 853
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 798
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 916
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 779
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 735
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 894
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 807
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1175
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 680
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 869
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 844
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 994
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 768
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 798
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 633
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 845
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 688
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 908
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 870
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 863
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 816
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 744
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1482
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 823
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 732
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 772
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 688
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 734
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 545
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 678
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 666
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 746
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 619
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1117
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5605
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1943
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 800
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 750
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1063
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 803
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 914
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 712
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 654
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 680
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 665
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 747
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 604
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 941
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1070
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 956
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1095
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1163
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1385
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1131
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1147
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 770
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 881
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 891
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 635
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 683
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Catherine_Deneuve",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 694
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2134
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1881
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1094
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 966
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 912
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 975
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1013
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 793
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 778
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 634
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 749
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 894
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 930
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 634
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 522
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 542
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 648
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 672
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 714
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 523
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 611
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1026
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4241
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10586
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10280
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5588
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2181
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1127
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1106
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 914
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 671
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1048
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1327
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 798
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 659
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 720
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 620
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 439
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 347
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 450
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 989
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 304
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 311
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 249
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 291
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 277
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 311
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 219
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 208
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 209
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 254
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 295
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 564
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 251
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 182
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 236
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 199
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 157
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 232
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 209
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_Tyler",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 205
+    }
+  ]
+}

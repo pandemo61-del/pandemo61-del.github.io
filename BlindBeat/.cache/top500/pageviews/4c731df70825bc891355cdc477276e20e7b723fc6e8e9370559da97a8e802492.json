@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 648
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 652
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 787
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 853
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 664
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 714
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 913
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 781
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1051
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1244
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1312
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1547
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1255
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1449
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1307
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1156
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1148
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1174
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1840
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1619
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1497
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1296
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1325
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1229
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1248
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1440
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1199
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1046
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1277
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2087
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 774
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 737
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 602
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 689
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 796
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1084
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 822
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 851
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 662
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 645
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 879
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1134
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 845
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1006
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2008
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1314
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1313
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1616
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1653
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1060
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 934
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 843
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 994
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1026
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 600
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 619
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 614
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 530
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 573
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 757
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 872
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 582
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 493
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Robert_Downey_Jr.",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 481
+    }
+  ]
+}

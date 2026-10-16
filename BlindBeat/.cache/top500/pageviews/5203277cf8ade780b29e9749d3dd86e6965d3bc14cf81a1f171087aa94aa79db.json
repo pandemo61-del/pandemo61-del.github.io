@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1230
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1078
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1020
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1054
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 968
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1222
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1716
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1075
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1051
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1388
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1269
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1316
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1393
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1181
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1117
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1060
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1212
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1212
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 958
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1090
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1442
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1001
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1447
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1876
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1370
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1136
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1120
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1295
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1012
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 907
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4336
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2360
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1465
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1644
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1482
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1099
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 963
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1126
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1167
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2170
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2035
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1265
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1071
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1104
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1046
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1058
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 976
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 888
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 916
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1087
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1244
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1217
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 906
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 960
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 883
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1094
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 748
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 836
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1025
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1092
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1301
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 926
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 809
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Keanu_Reeves",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 741
+    }
+  ]
+}

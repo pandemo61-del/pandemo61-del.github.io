@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 634
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 624
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 378
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 425
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 698
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 584
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 677
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1046
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 578
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 665
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 535
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 591
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 617
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 586
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 625
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 849
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 906
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 519
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 545
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 813
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 696
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 840
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 773
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 625
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 640
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 604
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 671
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1035
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 664
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 511
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 505
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 736
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 437
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 535
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 582
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 634
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 689
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 523
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 627
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 663
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 393
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 394
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 439
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 479
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 547
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 584
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 394
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 586
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 547
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 605
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 717
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 717
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1020
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 659
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 486
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 577
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 678
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 590
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 441
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 480
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 580
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 949
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "George_Michael",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 606
+    }
+  ]
+}

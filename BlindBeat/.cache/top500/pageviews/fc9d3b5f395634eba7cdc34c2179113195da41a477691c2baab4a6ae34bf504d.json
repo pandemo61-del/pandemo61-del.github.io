@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 580
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 333
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 380
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 424
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 528
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 471
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 507
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 448
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 474
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 591
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 426
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 449
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 472
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 514
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 953
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 531
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 437
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 377
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 423
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 515
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 336
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 336
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 366
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 783
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 667
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 404
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 360
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 460
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 467
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 584
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 354
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 383
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 390
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 394
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 306
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 370
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 350
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 456
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 442
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 544
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 501
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 481
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 303
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Queen",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 319
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3204
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3254
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4018
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4141
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4517
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3137
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2999
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3039
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2872
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3253
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3759
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3127
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3155
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2836
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2716
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2780
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3050
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2316
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2887
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3229
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3449
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4082
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3572
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3060
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3025
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3115
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3704
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3984
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4061
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3090
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2830
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5501
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4140
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2933
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2220
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2208
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3779
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3660
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3378
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2907
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2616
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3527
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2333
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2320
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2355
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2330
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3050
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2172
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2027
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2100
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1975
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2146
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2706
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2680
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1955
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1981
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2064
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1937
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2590
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2583
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1874
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1932
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1769
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2043
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2567
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1750
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1867
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Michael_Jackson",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1642
+    }
+  ]
+}

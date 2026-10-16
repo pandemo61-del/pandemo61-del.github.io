@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1818
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1019
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 945
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1004
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 801
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 931
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 980
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 600
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 581
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 528
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 805
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 660
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1029
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 749
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 647
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 608
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 578
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 563
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 470
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 579
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 655
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 620
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 848
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 530
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 764
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 768
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 573
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 575
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 612
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2738
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1027
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 617
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 545
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 610
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2057
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 578
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 625
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 532
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 622
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 459
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 568
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 465
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 746
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 588
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 522
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1059
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 924
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 538
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 595
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 499
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 402
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 449
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 647
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 618
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 494
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Colette",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    }
+  ]
+}

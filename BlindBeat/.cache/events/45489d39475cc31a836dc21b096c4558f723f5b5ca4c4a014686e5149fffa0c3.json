@@ -1,0 +1,2215 @@
+{
+  "head": {
+    "vars": [
+      "item",
+      "itemLabel",
+      "itemDescription",
+      "eventDate",
+      "article",
+      "popularity",
+      "country",
+      "countryLabel"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q371271"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Miloš Bojanić"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur serbe"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1950-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "8"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q403"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Serbie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4953322"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Inger Heinerborg"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse suédoise"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1951-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q34"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Suède"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12617143"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Jo Hang Jo"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur sud-coréen"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1952-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q884"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Corée du Sud"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q54811109"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kitty Winter"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1952-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q11384581"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ryūichi Satō"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "auteur-compositeur-interprète japonais"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1952-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q17"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Japon"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q5180181"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Coşkun Sabah"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur turc"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1952-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "5"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q43"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Turquie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q1351112"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Tony Carey"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "claviériste et chanteur"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1953-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "17"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q713750"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Allemagne de l'Ouest"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Tony_Carey"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q1351112"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Tony Carey"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "claviériste et chanteur"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1953-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "17"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Tony_Carey"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q122111"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Linard Bardill"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "auteur de livres pour enfants"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1956-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "7"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q39"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Suisse"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q537795"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Kelly Marie"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse britannique"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1957-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "6"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q145"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Royaume-Uni"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4938347"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Stina Berge"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "écrivaine suédoise"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1958-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q34"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Suède"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q107109544"
+        },
+        "itemLabel": {
+          "type": "literal",
+          "value": "Q107109544"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "South Korean trot singer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1959-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q884"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Corée du Sud"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q888152"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Bob Mould"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien américain"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1960-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "18"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Bob_Mould"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6519898"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Leila Pinheiro"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse de samba"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1960-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "10"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q155"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Brésil"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Leila_Pinheiro"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q125557909"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ahmed ibrahim"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur égyptien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1961-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q79"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Égypte"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4494464"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Yevgeny Khavtan"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1961-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15180"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Union soviétique"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4494464"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Yevgeny Khavtan"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1961-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q159"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Russie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4353064"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Bo Kasper Sundström"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien suédois"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1961-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "6"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q34"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Suède"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q333201"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Dmitri Khvorostovski"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "artiste lyrique"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "45"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15180"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Union soviétique"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Dmitri_Khvorostovski"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q333201"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Dmitri Khvorostovski"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "artiste lyrique"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "45"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q159"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Russie"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Dmitri_Khvorostovski"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q333201"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Dmitri Khvorostovski"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "artiste lyrique"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "45"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q145"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Royaume-Uni"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Dmitri_Khvorostovski"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q28604375"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Dorina"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q155"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Brésil"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6387444"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Ken Chinn"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien canadien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q16"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Canada"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q11566509"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Tsuyoshi Seto"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur japonais"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1963-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q17"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Japon"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q11965831"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Doddo"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien norvégien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1963-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "3"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q20"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Norvège"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q9025250"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Luis Miguélez"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Spanish guitarist, composer, singer and producer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1963-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "3"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q29"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Espagne"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q17098653"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Mona Julsrud Tornquist"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse norvégienne"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1963-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q20"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Norvège"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q28604375"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Dorina"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1964-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q155"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Brésil"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4309924"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Mat Sinner"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien allemand"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1964-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "8"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q183"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Allemagne"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q511364"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Rosemary Joshua"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "soprano britannique"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1964-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "7"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q145"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Royaume-Uni"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Rosemary_Joshua"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q125016854"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Im Ki Hoon"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "singer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1965-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6390749"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Kenneth Thordal"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien danois"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1965-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q756617"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Royaume de Danemark"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q9047490"
+        },
+        "itemLabel": {
+          "type": "literal",
+          "value": "Q9047490"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur américain"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1966-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q112022797"
+        },
+        "itemLabel": {
+          "type": "literal",
+          "value": "Q112022797"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "South Korean trot singer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1967-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q884"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Corée du Sud"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q3509713"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Albin Julius"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien autrichien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1967-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "5"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q40"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Autriche"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6166672"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Jay Hails"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur canadien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1967-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q16"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Canada"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q5885819"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Gringo el Original"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur panaméen"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1968-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q804"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Panama"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q20512457"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Arsen Hambaryan"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Armenian singer, architect, composer, writer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "3"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15180"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Union soviétique"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q20512457"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Arsen Hambaryan"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Armenian singer, architect, composer, writer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "3"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q399"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Arménie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q1560151"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Gültekin Kaan"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur turc"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q183"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Allemagne"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q1560151"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Gültekin Kaan"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur turc"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q43"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Turquie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q7982829"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Wendy Wilson"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse américaine"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "10"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12611440"
+        },
+        "itemLabel": {
+          "type": "literal",
+          "value": "Q12611440"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur sud-coréen"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q884"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Corée du Sud"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12681893"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Abdul Halim bin Bukhari"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q5699667"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Heine Totland"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien norvégien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "5"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q20"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Norvège"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q3187937"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Jude"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American singer and songwriter (born 1969) (age 50)"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Jude_(chanteur)"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q46829713"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Rakefet Amsalem"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse israélienne"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q801"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Israël"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12671600"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Rolandas Janavičius"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur lituanien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q37"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Lituanie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q644053"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Chad Gray"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur américain"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1971-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "17"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Chad_Gray"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q16214051"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Robyn Loau"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Australian singer-songwriter"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1972-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q408"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Australie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6117610"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Salva Dávila"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1972-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q29"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Espagne"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q2428246"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Thomas Wohlfahrt"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur allemand"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1972-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q183"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Allemagne"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q2711746"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Tomas Lindberg"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur suédois"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1972-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "17"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q34"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Suède"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q139218871"
+        },
+        "itemLabel": {
+          "type": "literal",
+          "value": "Q139218871"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q246929"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "DJ Khalil"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American record producer and DJ from Washington"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "12"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/DJ_Khalil"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q5873689"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Gabriela Bejerman"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "écrivaine argentine"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q414"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Argentine"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q3296439"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "María Eugenia Larraín"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "mannequin chilienne"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "7"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q298"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Chili"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Mar%C3%ADa_Eugenia_Larra%C3%ADn"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q7319803"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Reza Yazdani"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Iranian singer-songwriter"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "7"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q794"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Iran"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q113463781"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Torsten Meyer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q9095413"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Wagner Duarte"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur brésilien"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q155"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Brésil"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q229789"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Aurela Gaçe"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse albanaise"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1974-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "31"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q222"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Albanie"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Aurela_Ga%C3%A7e"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q1238988"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Imre Poniklo"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "musicien hongrois"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1974-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "3"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q28"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Hongrie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q16204222"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Jonathan Lamas"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "journaliste américain"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1974-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q30"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "États-Unis"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q9027376"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Manel Cruz"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Portuguese singer, composer and lyricist"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1974-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q45"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Portugal"
+        }
+      }
+    ]
+  }
+}

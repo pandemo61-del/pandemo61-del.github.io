@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 624
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 874
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 808
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 512
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1575
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5424
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 873
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 497
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 649
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 524
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 661
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 726
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 560
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 485
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 535
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 575
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 615
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2790
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1764
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 766
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1123
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 595
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 689
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1054
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 744
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 628
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 738
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 918
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 784
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 484
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3375
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1571
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1620
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 812
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 771
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 660
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 620
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 624
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2695
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1925
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1109
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 673
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 604
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 927
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 673
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 517
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 611
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 655
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 966
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 855
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 716
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 859
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 439
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 387
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 808
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 736
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 485
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 443
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 487
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1034
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 633
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 424
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 437
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Whitney_Houston",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    }
+  ]
+}

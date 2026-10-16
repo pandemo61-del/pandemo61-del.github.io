@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 517
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1498
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 473
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 437
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 430
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 793
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 442
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 622
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 456
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 688
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5771
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 867
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1061
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 612
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 619
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 844
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 692
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 826
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 655
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 657
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 581
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 657
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 698
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 618
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 571
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 524
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 698
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1288
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 735
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 559
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 495
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 751
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 732
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 622
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 511
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 647
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 506
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 475
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 459
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 535
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 709
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 714
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 736
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 673
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 509
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 577
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1118
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 642
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 810
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 711
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 622
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 430
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 473
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 494
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 678
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 627
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 612
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 593
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carla_Bruni",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    }
+  ]
+}

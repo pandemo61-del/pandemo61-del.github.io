@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 335
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 247
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 321
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 317
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 363
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 380
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 351
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 366
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 385
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 338
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 425
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 374
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 703
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 683
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 580
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 603
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 548
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 756
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 819
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 346
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 372
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 304
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 311
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 253
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 338
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 665
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 284
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 484
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 322
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 347
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 332
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 267
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 276
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 235
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 335
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 385
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 307
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 252
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 311
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 298
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 220
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 198
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 244
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Johnny_Cash",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 249
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 270
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 262
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 328
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 303
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 386
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 340
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 351
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 398
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 322
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 251
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 316
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 613
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 435
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 375
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 387
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1255
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 646
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 521
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 404
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 380
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 336
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 435
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 853
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 654
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 442
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 351
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 501
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 377
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 239
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 258
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 542
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 400
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 310
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 302
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 308
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 292
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 314
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 324
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 409
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 306
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1013
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 340
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 426
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 304
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 288
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 286
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 551
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 296
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 259
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 242
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 259
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Steven_Seagal",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    }
+  ]
+}

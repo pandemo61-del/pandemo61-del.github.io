@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 872
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 688
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 769
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 854
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 964
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1772
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1040
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 997
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1005
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1154
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1093
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1437
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1321
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1180
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1195
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1217
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1354
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1182
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1168
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1029
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1303
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1398
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1249
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1390
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1335
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1792
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1523
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1256
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1201
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1304
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1004
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 795
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 917
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 913
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1048
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1125
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 879
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 813
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1014
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1168
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 956
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 893
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 967
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 997
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1179
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2291
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 933
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1072
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 811
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1688
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1849
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1033
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1077
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 930
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1135
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2868
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1829
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1465
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1258
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1525
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2229
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2312
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1225
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1045
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Scarlett_Johansson",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1575
+    }
+  ]
+}

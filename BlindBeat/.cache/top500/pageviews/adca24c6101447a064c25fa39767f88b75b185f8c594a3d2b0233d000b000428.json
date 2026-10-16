@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1104
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5057
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1825
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1038
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 958
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 815
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 975
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1035
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4772
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1785
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1087
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1082
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 995
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1798
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5806
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2423
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1688
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1306
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1295
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1421
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2149
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1176
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1046
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 959
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1036
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1077
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1076
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1163
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1741
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1821
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1296
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1128
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1116
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1070
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1378
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1428
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1453
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1060
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1515
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2043
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1903
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3053
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2942
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1307
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1886
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1805
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1407
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1196
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1083
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1199
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1018
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1377
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1184
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 961
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1214
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1093
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 877
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1236
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1076
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1379
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1116
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1938
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1548
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1653
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1172
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1223
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1091
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1073
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Gérard_Depardieu",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 889
+    }
+  ]
+}

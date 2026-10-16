@@ -1,0 +1,373 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zeca_Sempre",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 0
+    }
+  ]
+}

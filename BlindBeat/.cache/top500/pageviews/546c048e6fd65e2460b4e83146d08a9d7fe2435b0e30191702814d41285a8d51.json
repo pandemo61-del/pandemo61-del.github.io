@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 473
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 459
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 481
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4045
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 951
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 910
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 921
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 578
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 579
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 581
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 569
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 650
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 535
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 480
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 498
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 624
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 614
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 564
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 656
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 661
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 523
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 529
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 614
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 784
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 610
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 531
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 698
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 478
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 435
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 531
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 527
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 485
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 706
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 529
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 435
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 580
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 520
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 628
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 495
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 520
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 486
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1083
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 732
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 468
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 487
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 485
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 680
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 590
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 557
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 705
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 573
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 395
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1063
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Paul_McCartney",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 750
+    }
+  ]
+}

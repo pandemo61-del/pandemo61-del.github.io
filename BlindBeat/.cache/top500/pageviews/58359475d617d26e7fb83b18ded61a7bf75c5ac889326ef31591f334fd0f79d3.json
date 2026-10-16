@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 400
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 211
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 208
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 254
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 304
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 327
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 256
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 239
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 259
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 262
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 207
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 191
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 230
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 239
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 227
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 163
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 206
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 212
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 172
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 201
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 194
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 219
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 255
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 239
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 154
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 166
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 280
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 234
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 170
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 208
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 238
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 332
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 291
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 244
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 338
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 265
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 168
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 874
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 285
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 204
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 171
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 148
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 145
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 145
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 135
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 209
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 160
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 130
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 137
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 130
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jon_Bon_Jovi",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 126
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4624
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 992
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1023
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1482
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1313
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1252
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1200
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1159
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1211
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1254
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1184
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1286
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1659
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1083
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1078
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1652
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1127
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1285
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1352
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2811
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1132
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1131
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1184
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1372
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 831
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 863
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1629
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2223
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5227
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1629
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1251
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1467
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1503
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1378
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 921
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 928
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1009
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 962
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1064
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1295
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 944
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1030
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 950
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 870
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1013
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1312
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1077
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 859
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 943
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 899
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1064
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1244
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 861
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 840
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1074
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1206
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1596
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1479
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 959
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1019
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Freddie_Mercury",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1138
+    }
+  ]
+}

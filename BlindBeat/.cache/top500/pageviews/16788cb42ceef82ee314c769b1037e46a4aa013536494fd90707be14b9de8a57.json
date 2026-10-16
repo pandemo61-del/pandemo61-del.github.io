@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 723
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 729
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 719
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 734
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 939
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2205
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 896
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 844
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 856
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1742
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2191
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1195
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1117
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1061
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1149
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 954
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 778
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 944
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 926
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1064
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1083
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1876
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1583
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4958
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1940
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1344
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 959
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1069
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 927
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 943
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1002
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 811
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 922
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 661
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 901
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 785
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 804
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 710
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 657
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 818
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 730
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1197
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 918
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 768
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 732
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 697
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 958
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1680
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1640
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1310
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 798
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1056
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 905
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 957
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 892
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1078
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 784
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 567
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 644
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 737
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 586
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 650
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 772
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 743
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 712
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 588
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 542
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Brigitte_Bardot",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 448
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 379
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 393
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 507
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 355
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 440
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 378
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 498
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 407
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 441
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 366
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 621
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 355
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 406
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 394
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 354
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 346
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 420
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 400
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 406
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 981
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 459
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 347
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 350
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 395
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 660
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 347
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 387
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 395
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 653
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 338
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 352
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 247
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 499
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 404
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 468
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 503
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 657
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 428
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 402
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Frank_Sinatra",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 338
+    }
+  ]
+}

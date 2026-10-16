@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 148
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 265
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 161
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 175
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 100
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 149
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 147
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 150
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 126
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 178
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 136
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 137
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 130
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 147
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 62
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 122
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 111
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 114
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 111
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 161
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 99
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 117
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 128
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 159
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 172
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 173
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 104
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 129
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 167
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 199
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 285
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 388
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 283
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 518
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 474
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 495
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 235
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 278
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 554
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 472
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 443
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 472
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 720
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 735
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 851
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 843
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 525
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 968
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 991
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 883
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 426
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 612
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1252
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1521
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 944
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1025
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1043
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 657
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1408
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1335
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1212
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Carlos_Gardel",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1354
+    }
+  ]
+}

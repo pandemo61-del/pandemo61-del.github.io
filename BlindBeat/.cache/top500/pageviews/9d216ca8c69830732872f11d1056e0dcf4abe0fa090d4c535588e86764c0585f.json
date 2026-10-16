@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 91
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 84
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 101
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 75
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 87
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 76
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 63
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 100
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 68
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 83
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 107
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 83
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 114
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 94
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 106
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 106
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 115
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 83
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 89
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 467
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 689
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 613
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 730
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 308
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 877
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 292
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 204
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 173
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 128
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 146
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 179
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 196
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 236
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 241
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 214
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 202
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 447
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 203
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 158
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 198
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 140
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 226
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 104
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 255
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 149
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 120
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 195
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 166
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 181
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 308
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 247
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 211
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 154
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 182
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 157
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 182
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "James_Blunt",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 206
+    }
+  ]
+}

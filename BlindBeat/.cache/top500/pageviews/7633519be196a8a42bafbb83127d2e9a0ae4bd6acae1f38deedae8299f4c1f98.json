@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1161
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 949
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 745
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 909
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 966
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 769
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 993
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 963
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 790
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 904
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 760
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 868
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 928
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 999
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1004
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 915
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 882
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 865
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1122
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 823
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1021
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 973
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 962
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 828
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 791
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 811
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 804
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1713
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1240
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1094
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4524
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1107
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1129
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 13630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10196
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3744
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2861
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4627
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6587
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5008
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 25246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7372
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 31038
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 15376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 18593
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 40670
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 61097
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 27699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 19205
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 13989
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 18553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 18823
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6692
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6388
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6166
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8847
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4717
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4740
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8309
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4478
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2994
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2957
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4881
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4631
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5551
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6679
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Céline_Dion",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3624
+    }
+  ]
+}

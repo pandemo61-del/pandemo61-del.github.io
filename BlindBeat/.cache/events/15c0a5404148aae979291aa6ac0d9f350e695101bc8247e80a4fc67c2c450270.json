@@ -1,0 +1,17 @@
+{
+  "head": {
+    "vars": [
+      "item",
+      "itemLabel",
+      "itemDescription",
+      "eventDate",
+      "article",
+      "popularity",
+      "country",
+      "countryLabel"
+    ]
+  },
+  "results": {
+    "bindings": []
+  }
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 957
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 904
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6659
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1898
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1002
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1035
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1306
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1166
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1284
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1229
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1386
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1128
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 933
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1676
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1090
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14470
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3968
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1341
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1014
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1188
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 800
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1372
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 846
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2000
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1226
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 942
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1132
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1877
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1058
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1081
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1084
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3067
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2015
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1933
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1781
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1309
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6474
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2666
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1360
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1806
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1878
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1179
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3683
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1040
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1059
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 966
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 808
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5937
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2515
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 994
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 791
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2081
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1063
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 935
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 712
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 780
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 735
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 724
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 785
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 750
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 802
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 583
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 521
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 527
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Isabelle_Adjani",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 503
+    }
+  ]
+}

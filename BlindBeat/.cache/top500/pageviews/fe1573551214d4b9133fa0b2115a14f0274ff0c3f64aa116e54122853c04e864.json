@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 21668
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2769
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2003
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1542
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1489
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1458
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1234
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1325
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1780
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10587
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1716
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5936
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 936
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1288
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1363
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2639
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1270
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1141
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1241
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1129
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1029
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1098
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 997
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 984
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1021
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 903
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 949
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1044
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1109
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1136
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1197
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1254
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 886
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 915
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 750
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1010
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1174
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1251
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1010
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1037
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 982
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1027
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1117
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1320
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 922
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 656
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 756
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 756
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 950
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1441
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1631
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1107
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1236
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1003
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4162
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 736
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 885
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1137
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 962
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 685
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 880
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Madonna",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1057
+    }
+  ]
+}

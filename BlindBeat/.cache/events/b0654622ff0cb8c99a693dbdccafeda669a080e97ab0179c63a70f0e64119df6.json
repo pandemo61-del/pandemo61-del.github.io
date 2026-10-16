@@ -1,0 +1,655 @@
+{
+  "head": {
+    "vars": [
+      "item",
+      "itemLabel",
+      "itemDescription",
+      "eventDate",
+      "article",
+      "popularity",
+      "country",
+      "countryLabel"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q138998364"
+        },
+        "itemLabel": {
+          "type": "literal",
+          "value": "Q138998364"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1976-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12208830"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Hamza al-Zighayir"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1976-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "musical artist"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q375610"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Adriano Correia de Oliveira"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1982-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "9"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur portugais"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Adriano_Correia_de_Oliveira"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q45"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Portugal"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q312984"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Mario Del Monaco"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1982-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "34"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur d'opéra italien"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Mario_Del_Monaco"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q172579"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "royaume d'Italie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q312984"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Mario Del Monaco"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1982-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "34"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur d'opéra italien"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Mario_Del_Monaco"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q38"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Italie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6203693"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Jiří Jelínek"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1984-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "4"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Czech jazz musician, painter and singer (1922-1984)"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q9070817"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Rosita Quiroga"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1984-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "9"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteuse argentine"
+        },
+        "article": {
+          "type": "uri",
+          "value": "https://fr.wikipedia.org/wiki/Rosita_Quiroga"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q414"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Argentine"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q95008156"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Walter Carnuth"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1984-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q94776995"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Emmi Senff-Thieß"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1986-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "0"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q24287782"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Manolo Álvarez Mera"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1986-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Cuban tenor and bel canto singer (1923 - 1986)"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q26706722"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Karl Baumgarten"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1989-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "German local historian (1910-1989)"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12027229"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Juraj Martvoň"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1991-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "chanteur tchécoslovaque"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q33946"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Tchécoslovaquie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4485203"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Lore Fischer"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1991-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "7"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "artiste lyrique"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q183"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Allemagne"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q113950726"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Vera Majdič"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1994-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Slovenian opera singer"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15102440"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "royaume des Serbes, Croates et Slovènes"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q113950726"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Vera Majdič"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1994-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Slovenian opera singer"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q533534"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Cisleithanie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q113950726"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Vera Majdič"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1994-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Slovenian opera singer"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q191077"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "royaume de Yougoslavie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q113950726"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Vera Majdič"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1994-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Slovenian opera singer"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q83286"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "république fédérative socialiste de Yougoslavie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q113950726"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Vera Majdič"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1994-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Slovenian opera singer"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q215"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Slovénie"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12321978"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Kirsten Schultz"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1998-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "2"
+        },
+        "itemDescription": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "artiste lyrique danoise"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q756617"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Royaume de Danemark"
+        }
+      },
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q3853388"
+        },
+        "itemLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Mc Giaime"
+        },
+        "eventDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1998-10-16T00:00:00Z"
+        },
+        "popularity": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+          "type": "literal",
+          "value": "1"
+        },
+        "itemDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Italian rapper (1974–1998)"
+        },
+        "country": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q38"
+        },
+        "countryLabel": {
+          "xml:lang": "fr",
+          "type": "literal",
+          "value": "Italie"
+        }
+      }
+    ]
+  }
+}

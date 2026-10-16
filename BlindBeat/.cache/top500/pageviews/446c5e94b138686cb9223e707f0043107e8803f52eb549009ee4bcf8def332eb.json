@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2015
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1093
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2877
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2039
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1015
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1073
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 848
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 748
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1017
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 901
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 928
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 887
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 700
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 692
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 915
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1176
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1093
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1020
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 992
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 916
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1006
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 848
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 849
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 721
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 741
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1008
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 982
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 899
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 808
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 783
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 670
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 743
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 725
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 625
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 704
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 692
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 771
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 685
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 501
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 535
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 670
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 584
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1360
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3534
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2421
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1481
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 925
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 784
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 633
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 695
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 861
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 966
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1480
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 892
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 645
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 570
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 611
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 511
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 581
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 673
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 741
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 505
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 514
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 415
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Zohran_Mamdani",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 472
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 751
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 739
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 628
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 670
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 726
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 767
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 927
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 646
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 816
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 939
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 781
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 881
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1282
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 763
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 887
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 776
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 847
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 822
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 831
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 894
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 768
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 855
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 884
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1029
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1155
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 914
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 813
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 874
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 824
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 779
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 677
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 986
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 919
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 626
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 648
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 723
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 952
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 932
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 981
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 796
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 969
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 890
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 811
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 865
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 791
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 956
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 902
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 970
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 862
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 850
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 713
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1627
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1011
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 729
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 760
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 836
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1132
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 945
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 852
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 771
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 723
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 815
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 783
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 629
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 834
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Beatles",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 635
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 865
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 755
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 598
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 635
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 713
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 743
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 796
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 983
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 655
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 700
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 722
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 803
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 938
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 864
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 779
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 697
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 808
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1136
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 972
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1047
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 978
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 988
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1097
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1015
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1020
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 917
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 928
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1048
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1004
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 811
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 774
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 990
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 956
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 939
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 959
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 804
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 931
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 770
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 953
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 964
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 732
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 720
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 697
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 670
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 912
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 611
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 735
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 881
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 790
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 734
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 658
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 590
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 812
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 879
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 529
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 521
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 533
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 544
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 740
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 863
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 703
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 541
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Elvis_Presley",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 515
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 726
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 631
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1256
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 984
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 805
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 777
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 852
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 878
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 680
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 672
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 644
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 737
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 658
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 945
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 709
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 777
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 679
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1145
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1028
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1191
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 995
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 806
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 789
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 825
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 751
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 711
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 695
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 720
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 627
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 750
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 695
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 823
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 878
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 610
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 563
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1034
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1776
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4158
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1853
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2139
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 16890
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4375
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3393
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2307
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4328
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1051
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1140
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 935
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 909
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 983
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 839
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 13662
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3614
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1166
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 993
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1564
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1489
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 869
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1016
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1854
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1423
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1148
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1730
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1055
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 923
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Sophie_Marceau",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1693
+    }
+  ]
+}

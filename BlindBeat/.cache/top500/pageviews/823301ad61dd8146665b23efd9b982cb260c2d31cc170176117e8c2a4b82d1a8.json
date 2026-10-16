@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 511
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 744
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 534
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 586
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 507
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 721
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 666
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 525
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 453
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 493
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 499
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 470
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 545
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 486
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 770
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 734
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 588
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 588
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 501
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 493
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 447
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 450
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 466
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 595
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 435
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 351
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 296
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 447
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 291
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 291
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 333
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 449
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 557
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 533
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 644
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 642
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 719
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 530
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 667
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 764
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 524
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 725
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 749
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 503
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 556
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Selena_Gomez",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    }
+  ]
+}

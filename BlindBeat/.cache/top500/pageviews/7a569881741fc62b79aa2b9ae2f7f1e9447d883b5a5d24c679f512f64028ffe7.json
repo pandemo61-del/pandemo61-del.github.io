@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 725
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 763
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 783
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 716
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 694
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 737
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 989
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 660
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 656
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 646
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 862
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1051
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7980
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1330
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 810
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 715
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 747
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1002
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 730
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 864
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 996
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 742
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 890
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 995
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 928
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 807
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 874
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 796
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 675
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 627
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 666
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 884
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 782
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 703
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 564
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 711
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 670
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1351
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 799
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 625
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 667
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 840
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3923
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1084
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 968
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 740
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 634
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 649
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 789
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 684
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1113
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 712
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 689
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 710
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 751
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 729
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 809
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 781
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 668
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 696
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 943
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 847
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1011
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 631
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2641
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2033
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2692
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1256
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 928
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1158
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jacques_Brel",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1249
+    }
+  ]
+}

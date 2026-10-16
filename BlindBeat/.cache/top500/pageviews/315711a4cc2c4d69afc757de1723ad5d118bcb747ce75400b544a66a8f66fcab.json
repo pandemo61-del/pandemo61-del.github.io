@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 571
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 587
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1317
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 663
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 501
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2596
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1059
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 995
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 679
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 621
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 605
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 687
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 656
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 567
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1633
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1134
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 773
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 760
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 724
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 767
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 628
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 568
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 602
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 759
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 595
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 557
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 452
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 524
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 739
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 641
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 602
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 511
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 505
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 759
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 479
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 647
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 453
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 612
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 677
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 572
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 465
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 485
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 541
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 409
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 408
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 489
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 450
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 409
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 360
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Daft_Punk",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 398
+    }
+  ]
+}

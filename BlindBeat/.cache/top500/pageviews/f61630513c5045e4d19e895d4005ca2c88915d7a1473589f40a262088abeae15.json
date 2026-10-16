@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 702
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 614
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 656
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 635
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 935
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 826
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 996
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 747
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 704
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 690
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 766
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1000
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 829
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 828
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 690
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 968
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 965
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 782
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 796
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 834
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4695
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 932
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2712
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2609
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2325
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3970
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1718
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1854
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1073
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1002
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 936
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1036
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1208
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 864
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 860
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1892
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1482
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1130
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1101
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1683
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1387
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1321
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1386
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 898
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2064
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1109
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1097
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1001
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 748
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 963
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 888
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 785
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 813
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2179
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1062
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1116
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1029
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1102
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 812
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2993
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1010
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 980
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 806
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 623
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1088
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 705
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 927
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 799
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 900
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 665
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Salma_Hayek",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 980
+    }
+  ]
+}

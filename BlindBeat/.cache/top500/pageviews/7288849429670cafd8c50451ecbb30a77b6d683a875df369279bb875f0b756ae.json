@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 123
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 154
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 115
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 111
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 106
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 118
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 125
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 115
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 116
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 131
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 97
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 122
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 131
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 128
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 156
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 103
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 128
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 134
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 137
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 201
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 207
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 214
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 149
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 141
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 155
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 118
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 139
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 141
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 115
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 132
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 141
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 106
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 86
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 83
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 120
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 157
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 111
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 125
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 90
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 204
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 317
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 170
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 211
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 131
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 150
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 115
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 119
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 136
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 114
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 125
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 127
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 73
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 102
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 92
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 140
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 118
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 100
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 87
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 116
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 125
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 86
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 87
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lily_Allen",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 86
+    }
+  ]
+}

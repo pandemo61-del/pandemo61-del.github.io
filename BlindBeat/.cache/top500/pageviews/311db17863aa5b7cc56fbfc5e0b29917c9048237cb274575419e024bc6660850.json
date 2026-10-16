@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1126
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1208
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1067
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 866
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 598
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 824
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1127
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1404
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1743
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 961
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1284
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1154
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 971
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 929
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1057
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 891
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 906
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 875
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 882
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1910
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2123
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1068
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 887
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1008
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 828
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 792
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 705
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 676
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1109
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1101
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1058
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 892
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 759
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 886
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 834
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 822
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 859
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 657
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 573
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6563
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5014
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4061
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2994
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1697
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2215
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 876
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 828
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 11428
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1544
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1994
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1313
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 948
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2783
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1379
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1723
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1298
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 901
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 632
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 639
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1519
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 959
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 527
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 990
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 783
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1854
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 579
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 502
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 578
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 639
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 605
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 533
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lio",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 426
+    }
+  ]
+}

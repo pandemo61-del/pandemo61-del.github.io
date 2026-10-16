@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1070
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1069
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 848
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 942
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 923
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 834
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 604
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 712
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 789
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 755
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 621
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 622
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 740
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 613
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 583
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 534
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 512
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 587
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 631
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 539
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 547
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 509
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 531
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 519
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 554
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 647
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 545
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 562
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 557
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 473
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 549
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 514
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 598
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 415
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 621
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 453
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 425
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 533
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 532
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 366
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 505
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 545
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 542
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 370
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 497
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 572
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 327
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 407
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 420
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 321
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 363
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 439
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 306
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 284
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 467
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 324
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 325
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 276
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 435
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "The_Rolling_Stones",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 353
+    }
+  ]
+}

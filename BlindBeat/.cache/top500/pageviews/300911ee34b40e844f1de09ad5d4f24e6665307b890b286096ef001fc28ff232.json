@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 340
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 353
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1482
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 425
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 800
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 601
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 370
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 440
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 406
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 352
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 355
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 333
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 336
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 400
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 312
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 341
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 617
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 939
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 914
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1068
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 750
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 314
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 232
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 270
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 394
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 363
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 314
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 231
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 390
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 276
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 205
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 240
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 227
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 275
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 206
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 219
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 231
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 236
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 276
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 227
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 251
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 269
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 311
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 327
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 232
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 198
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Joan_Baez",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 207
+    }
+  ]
+}

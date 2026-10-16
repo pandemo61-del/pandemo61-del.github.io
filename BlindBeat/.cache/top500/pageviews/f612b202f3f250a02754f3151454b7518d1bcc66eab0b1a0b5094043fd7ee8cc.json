@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 903
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 748
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 668
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 769
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 815
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 734
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 816
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 800
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1028
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 764
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 766
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 924
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1321
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1007
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1161
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1103
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 847
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1008
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 879
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1063
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1097
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1040
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 888
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 974
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1650
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1629
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2472
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1704
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1514
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1102
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 997
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 965
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1252
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2577
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1465
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1046
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 962
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1517
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1258
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1970
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 911
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 818
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 822
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 851
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 938
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 933
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 892
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 799
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1247
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1266
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1622
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 958
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 968
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 831
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 856
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 804
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 952
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 713
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 825
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 979
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1846
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1118
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 971
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1718
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14379
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5756
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2122
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Alain_Delon",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1558
+    }
+  ]
+}

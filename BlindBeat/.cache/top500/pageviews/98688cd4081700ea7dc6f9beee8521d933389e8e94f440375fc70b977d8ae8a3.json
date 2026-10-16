@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 297
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 288
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 262
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 204
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 216
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 227
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 156
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 168
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 204
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 194
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 160
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 198
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 171
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 203
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 205
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 206
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 234
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 219
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 250
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 272
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 194
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 197
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 214
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 196
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 440
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 211
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 173
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 167
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 163
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 249
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 140
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 171
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 171
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 180
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 471
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 212
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 188
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 163
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 173
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 219
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 223
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 210
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 156
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 687
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 223
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 157
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 180
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 180
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 161
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 150
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 140
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 173
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 141
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 149
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 146
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 175
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 157
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 118
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Roger_Waters",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 223
+    }
+  ]
+}

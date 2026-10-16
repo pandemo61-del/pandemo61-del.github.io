@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 344
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 406
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 288
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 518
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 430
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 386
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 415
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 406
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 393
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 390
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 659
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 570
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 529
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 575
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 850
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 612
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 518
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 515
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 522
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 488
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 513
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 390
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 296
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 303
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 301
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 377
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 747
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 639
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 466
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 519
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 450
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 374
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 514
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 472
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 474
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 387
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 353
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 416
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 486
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 383
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 301
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 262
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 236
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 476
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 340
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 235
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adam_Sandler",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 225
+    }
+  ]
+}

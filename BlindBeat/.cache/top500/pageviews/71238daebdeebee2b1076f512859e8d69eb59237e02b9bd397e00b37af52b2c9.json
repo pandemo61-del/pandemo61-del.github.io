@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 867
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 947
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 936
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 900
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 800
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 739
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 915
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1039
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1015
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 846
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1009
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 990
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 816
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 784
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 737
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 790
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 927
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 857
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 755
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 672
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 717
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 731
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 862
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 941
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 856
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 836
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 830
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 751
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 771
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 810
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 889
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 769
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 772
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 723
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 685
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 721
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 882
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 538
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 618
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 512
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 727
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 608
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 571
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 554
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 475
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 591
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 503
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 481
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 653
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 487
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 458
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 522
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 372
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 442
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 338
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Adan_Canto",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 325
+    }
+  ]
+}

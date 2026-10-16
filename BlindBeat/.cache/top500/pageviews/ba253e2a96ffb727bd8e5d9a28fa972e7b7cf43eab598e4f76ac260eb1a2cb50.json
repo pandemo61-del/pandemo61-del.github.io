@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 310
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 272
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 235
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 383
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 526
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 667
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 653
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 821
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 595
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 460
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 303
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 320
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 308
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 325
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 237
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 284
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 346
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 283
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 280
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 285
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 266
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 259
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 234
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 331
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 242
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 237
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 242
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 285
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 262
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 269
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 241
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 333
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 254
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 237
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 214
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 272
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 307
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 266
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 251
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 272
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 283
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 216
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1221
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 257
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 194
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1258
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 341
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 234
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Kate_Bush",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 223
+    }
+  ]
+}

@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 313
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 369
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 344
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 356
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 334
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 430
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 345
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 367
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 386
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 398
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 395
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 365
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 330
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 418
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 714
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 561
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 514
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 494
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 487
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 582
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 525
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 372
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 438
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 332
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 328
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 378
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 354
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 426
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 421
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 314
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 340
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 280
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 290
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 274
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 325
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 302
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 299
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 320
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 360
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 340
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 324
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 547
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 987
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 832
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 609
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 702
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 495
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 439
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 468
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 407
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 426
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 404
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 428
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 358
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 328
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 462
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Lana_Del_Rey",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 402
+    }
+  ]
+}

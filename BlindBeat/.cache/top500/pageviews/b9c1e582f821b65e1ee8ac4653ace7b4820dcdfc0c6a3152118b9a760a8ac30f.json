@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 600
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 777
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 578
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 543
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 509
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 569
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 632
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 819
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 833
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 982
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 818
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 711
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 859
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 808
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 806
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 778
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 749
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 667
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 720
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 862
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 735
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 700
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 658
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 943
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1567
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 923
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 852
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 909
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 786
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 761
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1046
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 902
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 881
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 878
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1080
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2301
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1151
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1096
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1126
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1839
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1430
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1234
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1354
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1575
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1972
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1150
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 971
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 961
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1279
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1034
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 918
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 894
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 904
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1586
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 841
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 834
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 805
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 764
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 803
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1012
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1058
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 974
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1573
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 973
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 891
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1158
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1784
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1114
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 997
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 826
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Nicole_Kidman",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 737
+    }
+  ]
+}

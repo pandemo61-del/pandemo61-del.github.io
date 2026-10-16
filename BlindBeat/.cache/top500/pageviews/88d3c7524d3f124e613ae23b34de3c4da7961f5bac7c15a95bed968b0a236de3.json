@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 487
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 437
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 461
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 522
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 467
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 421
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 520
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 377
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 408
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 371
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 450
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 407
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 392
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 584
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 408
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 383
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 375
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 402
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 385
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 565
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 554
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 490
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 403
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 917
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 789
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 593
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 424
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 361
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 363
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 394
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 504
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 375
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 468
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 419
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 414
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 366
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 383
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 473
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 362
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 440
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 357
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 404
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 480
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 412
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 433
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 373
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 446
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 300
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 366
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 310
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 330
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 350
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 390
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 286
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Bonnie_et_Clyde",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    }
+  ]
+}

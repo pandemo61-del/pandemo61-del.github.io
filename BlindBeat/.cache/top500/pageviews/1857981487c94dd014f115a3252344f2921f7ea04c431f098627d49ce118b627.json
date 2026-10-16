@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 520
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 583
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 496
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 432
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 410
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 441
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 557
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 512
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 587
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 595
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 630
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 651
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 544
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 448
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 449
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 431
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 497
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 434
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 555
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 456
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 481
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 483
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 516
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 560
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 537
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 458
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 464
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 497
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 527
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 570
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14069
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7655
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4094
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3072
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1759
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2004
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1863
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1684
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1349
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1324
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 922
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1041
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 830
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 697
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 753
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 824
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 658
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 690
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 671
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 664
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1778
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1120
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1988
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 978
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 817
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 819
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 787
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 986
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 671
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 637
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 639
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 668
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 461
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 389
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 391
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 475
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 442
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 541
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 485
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 459
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 512
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 384
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Miley_Cyrus",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    }
+  ]
+}

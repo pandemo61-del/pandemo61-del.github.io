@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 135
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 103
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 768
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 681
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 538
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 80
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 475
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 508
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 577
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1484
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 635
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 94
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 270
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 249
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 91
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 61
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 725
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 707
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 873
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 929
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1308
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 127
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 72
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 220
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 246
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 202
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 107
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 87
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 237
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 165
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 352
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 212
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 206
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 81
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 51
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 113
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 126
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 52
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 65
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 266
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 177
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 119
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 89
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 82
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 40
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 37
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 101
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 85
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 73
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 92
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 48
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 51
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 134
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 120
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 103
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 87
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 91
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 49
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 33
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 76
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 78
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 77
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 81
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 132
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 43
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 47
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 80
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 74
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 90
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 79
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 39
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 23
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 89
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 55
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 88
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Tobias_Moretti",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    }
+  ]
+}

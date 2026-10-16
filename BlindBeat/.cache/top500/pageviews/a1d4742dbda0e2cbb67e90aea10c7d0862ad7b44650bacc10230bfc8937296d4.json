@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 941
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 556
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 722
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 523
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 465
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 461
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 614
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 615
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 740
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 598
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 708
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 611
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 971
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 626
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 636
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 572
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 764
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 672
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1521
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 865
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 872
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 886
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 703
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 602
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 800
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 591
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 703
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 593
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1550
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1009
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 931
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 855
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 907
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 728
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 871
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 653
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 591
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 687
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 559
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 540
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 559
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 523
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 580
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 744
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 533
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 494
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 559
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 609
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 745
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 474
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 457
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 668
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 489
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1010
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 500
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 489
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 455
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 441
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 399
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 541
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 539
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 809
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 512
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 649
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 694
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 522
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 571
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 592
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Fernandel",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 430
+    }
+  ]
+}
