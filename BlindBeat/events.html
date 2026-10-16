@@ -1,801 +1,290 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Événements musicaux - BlindBeat</title>
-  <link rel="icon" type="image/png" href="icon.png">
-  <style>
-    :root {
-      --bg:#0a0a1a; --surface:#12122a; --surface-light:#1e1e40;
-      --primary:#f5820d; --primary-light:#ff9f43; --border:#2a2a50;
-      --text:#fff; --muted:#a0a0c0; --success:#4caf50;
-      --warning:#ff9800; --error:#ff4444; --info:#2196f3;
-    }
-    * { box-sizing:border-box; }
-    body { margin:0; padding:20px; font-family:"Segoe UI",Tahoma,sans-serif; background:var(--bg); color:var(--text); }
-    .container { width:100%; max-width:1250px; margin:auto; }
-    header { text-align:center; margin-bottom:26px; }
-    .app-icon { display:block; width:80px!important; height:80px!important; max-width:80px!important; max-height:80px!important; object-fit:cover; border-radius:18px; margin:0 auto 15px; box-shadow:0 4px 15px #0007; }
-    h1 { margin:0 0 8px; color:var(--primary); font-size:2.2rem; }
-    header p { margin:0; color:var(--muted); }
-    .nav { display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-bottom:25px; }
-    .nav a { padding:8px 16px; border:1px solid var(--border); border-radius:20px; background:var(--surface); color:var(--muted); text-decoration:none; }
-    .nav a:hover { border-color:var(--primary-light); color:#fff; }
-    .nav a.active { border-color:var(--primary); background:var(--primary); color:#fff; }
-    .panel { margin-bottom:20px; padding:20px; border:1px solid var(--border); border-radius:12px; background:var(--surface); }
-    .panel-title { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:15px; margin-bottom:16px; }
-    .panel-title h2 { margin:0; color:var(--primary-light); font-size:1.2rem; }
-    .auth { display:none; flex-direction:column; align-items:center; gap:10px; }
-    .auth p { margin:0; color:var(--muted); text-align:center; }
-    .stats { display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-bottom:20px; }
-    .stat { min-width:130px; padding:11px 18px; border:1px solid var(--border); border-radius:9px; background:var(--surface); text-align:center; }
-    .stat strong { display:block; color:var(--primary-light); font-size:1.35rem; }
-    .stat span { color:var(--muted); font-size:.7rem; text-transform:uppercase; }
-    .controls { display:grid; grid-template-columns:1.1fr 1.25fr 1.2fr 1.8fr; gap:12px; }
-    .field { display:flex; flex-direction:column; gap:6px; }
-    .field label { color:var(--muted); font-size:.78rem; }
-    input, select, textarea { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; outline:none; background:var(--surface-light); color:#fff; font:inherit; }
-    input:focus, select:focus, textarea:focus { border-color:var(--primary-light); box-shadow:0 0 0 2px #f5820d22; }
-    input[type="date"] { color-scheme:dark; }
-    .source-row, .buttons, .actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
-    .source-row { min-height:42px; }
-    .check { display:flex; align-items:center; gap:7px; font-size:.85rem; }
-    .check input { width:auto; }
-    .buttons { margin-top:15px; }
-    .btn { padding:9px 14px; border:1px solid var(--border); border-radius:8px; background:var(--surface-light); color:#fff; cursor:pointer; transition:.2s; }
-    .btn:hover:not(:disabled) { border-color:var(--primary); background:var(--primary); }
-    .btn:disabled { cursor:not-allowed; opacity:.5; }
-    .btn-primary { border-color:var(--primary); background:var(--primary); }
-    .btn-success { border-color:var(--success); background:#4caf5022; color:#9bea9f; }
-    .btn-danger { border-color:var(--error); background:transparent; color:#ff9292; }
-    .btn-small { padding:6px 9px; font-size:.8rem; }
-    .help { margin:13px 0 0; color:var(--muted); font-size:.8rem; line-height:1.45; }
-    .message { display:none; margin-bottom:20px; padding:11px 14px; border:1px solid var(--border); border-radius:8px; }
-    .message.info,.message.success,.message.warning,.message.error { display:block; }
-    .message.info { border-color:var(--info); background:#2196f318; color:#8dcef7; }
-    .message.success { border-color:var(--success); background:#4caf5018; color:#9bea9f; }
-    .message.warning { border-color:var(--warning); background:#ff980018; color:#ffc268; }
-    .message.error { border-color:var(--error); background:#ff444418; color:#ff9292; }
-    .source-status { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
-    .source-chip { padding:7px 10px; border:1px solid var(--border); border-radius:8px; background:var(--surface-light); color:var(--muted); font-size:.78rem; }
-    .source-chip.loading { border-color:var(--info); color:#8dcef7; }
-    .source-chip.success { border-color:var(--success); color:#9bea9f; }
-    .source-chip.error { border-color:var(--error); color:#ff9292; }
-    .source-chip.cached { border-color:var(--warning); color:#ffc268; }
-    .progress { display:none; height:6px; margin-bottom:14px; overflow:hidden; border-radius:20px; background:var(--surface-light); }
-    .progress.active { display:block; }
-    .progress span { display:block; width:35%; height:100%; background:linear-gradient(90deg,var(--primary),var(--primary-light)); animation:move 1.1s infinite ease-in-out; }
-    @keyframes move { from { transform:translateX(-110%); } to { transform:translateX(320%); } }
-    .table-wrap { overflow:auto; border:1px solid var(--border); border-radius:12px; }
-    table { width:100%; min-width:1050px; border-collapse:collapse; background:var(--surface); }
-    th { padding:12px; background:#ffffff0d; color:var(--muted); text-align:left; font-size:.82rem; }
-    td { padding:11px 12px; border-top:1px solid var(--border); vertical-align:middle; font-size:.88rem; }
-    tbody tr:hover { background:#ffffff06; }
-    .artist { font-weight:650; }
-    .secondary { color:var(--muted); font-size:.74rem; }
-    .date { color:var(--primary-light); font-family:monospace; font-weight:650; }
-    .badge { display:inline-block; padding:3px 7px; border-radius:5px; font-size:.7rem; font-weight:650; white-space:nowrap; }
-    .birth { background:#4caf5033; color:#9bea9f; }
-    .death { background:#9c27b033; color:#e5a1ed; }
-    .band_formation { background:#2196f333; color:#92d0f7; }
-    .band_dissolution { background:#607d8b55; color:#c5d3d9; }
-    .src-wikidata { background:#3366cc44; color:#9bb8ff; }
-    .src-musicbrainz { background:#ba477b44; color:#f3a2c7; }
-    .new { background:#2196f333; color:#8dcef7; }
-    .duplicate { background:#ff980033; color:#ffc268; }
-    .empty,.loading,.error-cell { padding:38px!important; color:var(--muted); text-align:center; }
-    .error-cell { color:#ff9292; }
-    .details { display:none; }
-    .details-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-    .detail { padding:12px; border:1px solid var(--border); border-radius:8px; background:var(--surface-light); }
-    .detail-label { display:block; margin-bottom:4px; color:var(--muted); font-size:.72rem; text-transform:uppercase; }
-    @media(max-width:850px) { .controls { grid-template-columns:1fr 1fr; } }
-    @media(max-width:620px) { body { padding:12px; } .controls,.details-grid { grid-template-columns:1fr; } .app-icon { width:64px!important; height:64px!important; max-width:64px!important; max-height:64px!important; } h1 { font-size:1.65rem; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlindBeat - Top 500 Artistes</title>
+icon.png
+
+<style>
+:root{
+    --bg:#0A0A1A;
+    --surface:#12122A;
+    --surface-light:#1E1E40;
+    --primary:#F5820D;
+    --primary-light:#FF9F43;
+    --accent-gold:#FFD700;
+    --text-primary:#FFFFFF;
+    --text-secondary:#A0A0C0;
+    --border:#2A2A50;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:var(--bg);
+    color:var(--text-primary);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+h1{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:var(--text-secondary);
+}
+
+.toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+input,select{
+    background:var(--surface);
+    color:white;
+    border:1px solid var(--border);
+    padding:12px;
+    border-radius:8px;
+}
+
+input{
+    flex:1;
+    min-width:250px;
+}
+
+.stats{
+    margin-bottom:20px;
+    color:var(--text-secondary);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:16px;
+}
+
+.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+    border-color:var(--primary);
+}
+
+.rank{
+    color:var(--accent-gold);
+    font-weight:bold;
+    font-size:18px;
+}
+
+.name{
+    font-size:22px;
+    font-weight:600;
+    margin:8px 0;
+}
+
+.badge{
+    display:inline-block;
+    background:var(--primary);
+    color:white;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.info{
+    color:var(--text-secondary);
+    line-height:1.8;
+}
+
+.popularity{
+    margin-top:12px;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    border-radius:20px;
+    background:#222;
+    overflow:hidden;
+}
+
+.bar-inner{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--primary-light)
+    );
+}
+</style>
 </head>
+
 <body>
+
 <div class="container">
-  <header>
-    <img src="icon.png" alt="BlindBeat" class="app-icon">
-    <h1>🎵 Événements musicaux</h1>
-    <p>Recherche Wikidata et MusicBrainz pour le catalogue des défis quotidiens</p>
-  </header>
 
-  <nav class="nav" aria-label="Navigation administration">
-    <a href="leaderboard.html">Top Joueurs</a>
-    <a href="songs.html">Top Chansons</a>
-    <a href="activity.html">Activité</a>
-    <a href="rooms.html">Salons</a>
-    <a href="events.html" class="active">Défis Quotidiens</a>
-  </nav>
-
-  <section id="authSection" class="panel auth">
-    <p id="userInfo"></p>
-    <button id="loginBtn" class="btn" style="background:#4285f4;border-color:#4285f4">Se connecter avec Google</button>
-    <button id="logoutBtn" class="btn btn-danger" style="display:none">Déconnexion</button>
-  </section>
-
-  <div id="message" class="message" aria-live="polite"></div>
-
-  <section class="stats">
-    <div class="stat"><strong id="catalogueCount">0</strong><span>Catalogue</span></div>
-    <div class="stat"><strong id="resultStat">0</strong><span>Résultats</span></div>
-    <div class="stat"><strong id="newCount">0</strong><span>Nouveaux</span></div>
-    <div class="stat"><strong id="duplicateCount">0</strong><span>Doublons</span></div>
-  </section>
-
-  <section class="panel">
-    <div class="panel-title">
-      <h2>🔎 Recherche externe</h2>
+<header>
+    <h1>🎵 Top 500 Artistes</h1>
+    <div class="subtitle">
+        Référentiel BlindBeat
     </div>
+</header>
 
-    <div class="controls">
-      <div class="field">
-        <label for="searchDate">Date recherchée *</label>
-        <input id="searchDate" type="date">
-      </div>
+<div class="toolbar">
+    <input
+        type="text"
+        id="search"
+        placeholder="Rechercher un artiste..."
+    >
 
-      <div class="field">
-        <label for="typeFilter">Type</label>
-        <select id="typeFilter">
-          <option value="">Tous les types</option>
-          <option value="birth">Naissance</option>
-          <option value="death">Décès</option>
-          <option value="band_formation">Création d’un groupe</option>
-          <option value="band_dissolution">Dissolution d’un groupe</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Sources</label>
-        <div class="source-row">
-          <label class="check"><input id="useWikidata" type="checkbox" checked> Wikidata</label>
-          <label class="check"><input id="useMusicBrainz" type="checkbox" checked> MusicBrainz</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="textFilter">Filtre texte local</label>
-        <input id="textFilter" type="search" placeholder="Artiste ou groupe…">
-      </div>
-    </div>
-
-    <div class="buttons">
-      <button id="searchBtn" class="btn btn-primary">🌐 Rechercher</button>
-      <button id="forceBtn" class="btn" style="display:none" disabled>Ignorer le cache</button>
-      <button id="resetBtn" class="btn">Réinitialiser</button>
-    </div>
-
-    <p id="cacheInfo" class="help">Les résultats sont conservés 24 heures. Après un chargement depuis le cache, un décompte de 10 secondes permet de forcer une recherche réseau.</p>
-  </section>
-
-  <section class="panel">
-    <div class="panel-title">
-      <h2>Événements trouvés</h2>
-      <span id="resultCount" class="secondary">0 résultat</span>
-    </div>
-    <div id="sourceStatus" class="source-status"></div>
-    <div id="progress" class="progress"><span></span></div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Événement</th><th>Type</th><th>Date</th><th>Source</th><th>Informations</th><th>Statut</th><th>Actions</th></tr>
-        </thead>
-        <tbody id="eventsBody">
-          <tr><td colspan="7" class="empty">Sélectionnez une date, puis lancez la recherche.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="detailsPanel" class="panel details">
-    <div class="panel-title"><h2>📋 Détail</h2><button id="closeDetails" class="btn">Fermer</button></div>
-    <div id="detailsContent"></div>
-  </section>
+    <select id="typeFilter">
+        <option value="">Tous</option>
+        <option value="artist">Chanteurs</option>
+        <option value="group">Groupes</option>
+    </select>
 </div>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-  import { getDatabase, ref, get, set, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
-    authDomain: "blindbeat-a51d5.firebaseapp.com",
-    databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
-    projectId: "blindbeat-a51d5",
-    storageBucket: "blindbeat-a51d5.firebasestorage.app",
-    messagingSenderId: "1037778546860",
-    appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-
-  const ADMIN_UIDS = ["HcEXtGa5OXdtjuBjFXF6Bcy9Ymq2", "lwBz4lZ85ffc3TiJ5oEuwm4nz2Y2"];
-  const CATALOGUE_PATH = "artistEvents";
-  const WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql";
-  const MUSICBRAINZ_ENDPOINT = "https://musicbrainz.org/ws/2/artist";
-
-  const CACHE_TTL = 24 * 60 * 60 * 1000;
-  const CACHE_BYPASS_DELAY = 10_000;
-  const REQUEST_TIMEOUT = 25_000;
-  const MUSICBRAINZ_GAP = 1_100;
-  const MAX_RESULTS = 100;
-  const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
-
-  const TYPE_LABELS = {
-    birth: "Naissance",
-    death: "Décès",
-    band_formation: "Création groupe",
-    band_dissolution: "Dissolution groupe"
-  };
-
-  let currentUser = null;
-  let isAdmin = false;
-  let catalogue = [];
-  let externalEvents = [];
-  let collectedEvents = [];
-  let sourceStates = {};
-  let countdownTimer = null;
-  let activeSearchId = 0;
-  let currentCacheKey = null;
-
-  const $ = id => document.getElementById(id);
-  const eventsBody = $("eventsBody");
-  const progress = $("progress");
-
-  function escapeHtml(value) {
-    return String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
-  function normalise(value) {
-    return String(value ?? "")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .trim();
-  }
-
-  function sleep(milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
-  }
-
-  function showMessage(text, type = "info") {
-    $("message").className = `message ${type}`;
-    $("message").textContent = text;
-  }
-
-  function clearMessage() {
-    $("message").className = "message";
-    $("message").textContent = "";
-  }
-
-  function selectedDateParts() {
-    const value = $("searchDate").value;
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
-    const [year, month, day] = value.split("-").map(Number);
-    return {
-      value, year, month, day,
-      monthDay: `${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`
-    };
-  }
-
-  function parseExternalDate(value) {
-    const match = String(value ?? "").match(/^(\d{4})-(\d{2})-(\d{2})/);
-    if (!match) return null;
-    return { year:Number(match[1]), monthDay:`${match[2]}-${match[3]}` };
-  }
-
-  function formatEventDate(event) {
-    if (!event.monthDay) return "?";
-    const [month, day] = event.monthDay.split("-");
-    return `${day}/${month}${event.year ? `/${event.year}` : ""}`;
-  }
-
-  function eventKey(event) {
-    return `${normalise(event.artistName)}|${event.eventType}|${event.monthDay}`;
-  }
-
-  function catalogueDuplicate(event) {
-    return catalogue.find(item => eventKey(item) === eventKey(event));
-  }
-
-  function buildCacheKey(parts) {
-    return [
-      "blindbeat-events-v3",
-      parts.monthDay,
-      $("useWikidata").checked ? "wd1" : "wd0",
-      $("useMusicBrainz").checked ? "mb1" : "mb0"
-    ].join(":");
-  }
-
-  function readCache(key) {
-    try {
-      const entry = JSON.parse(localStorage.getItem(key));
-      if (!entry || !Array.isArray(entry.events)) return null;
-      const age = Date.now() - entry.savedAt;
-      if (age >= CACHE_TTL) {
-        localStorage.removeItem(key);
-        return null;
-      }
-      return { ...entry, age };
-    } catch {
-      return null;
-    }
-  }
-
-  function writeCache(key, events) {
-    try {
-      localStorage.setItem(key, JSON.stringify({ savedAt:Date.now(), events }));
-    } catch (error) {
-      console.warn("Cache local indisponible", error);
-    }
-  }
-
-  function formatAge(milliseconds) {
-    const minutes = Math.floor(milliseconds / 60000);
-    if (minutes < 1) return "moins d’une minute";
-    if (minutes < 60) return `${minutes} min`;
-    const hours = Math.floor(minutes / 60);
-    const remaining = minutes % 60;
-    return `${hours} h${remaining ? ` ${remaining} min` : ""}`;
-  }
-
-  function stopCountdown() {
-    if (countdownTimer) clearInterval(countdownTimer);
-    countdownTimer = null;
-  }
-
-  function startCacheBypassCountdown() {
-    stopCountdown();
-    const forceButton = $("forceBtn");
-    const deadline = Date.now() + CACHE_BYPASS_DELAY;
-    forceButton.style.display = "inline-flex";
-
-    const update = () => {
-      const remaining = Math.max(0, deadline - Date.now());
-      const seconds = Math.ceil(remaining / 1000);
-      if (remaining > 0) {
-        forceButton.disabled = true;
-        forceButton.textContent = `Ignorer le cache dans ${seconds} s`;
-      } else {
-        stopCountdown();
-        forceButton.disabled = false;
-        forceButton.textContent = "↻ Ignorer le cache et actualiser";
-        $("cacheInfo").textContent = "Le cache peut maintenant être ignoré pour relancer les deux sources.";
-      }
-    };
-
-    update();
-    countdownTimer = setInterval(update, 250);
-  }
-
-  function mergeEvents(events) {
-    const merged = new Map();
-    for (const event of events) {
-      const key = eventKey(event);
-      if (!merged.has(key)) {
-        merged.set(key, { ...event, sources:[...event.sources] });
-        continue;
-      }
-      const existing = merged.get(key);
-      for (const source of event.sources) {
-        if (!existing.sources.some(item => item.provider === source.provider && item.id === source.id)) {
-          existing.sources.push(source);
-        }
-      }
-      existing.wikidataId ||= event.wikidataId;
-      existing.musicBrainzId ||= event.musicBrainzId;
-      existing.description ||= event.description;
-      existing.country ||= event.country;
-      existing.sourceScore = Math.max(existing.sourceScore || 0, event.sourceScore || 0);
-    }
-    return [...merged.values()];
-  }
-
-  function updateStats() {
-    const newItems = externalEvents.filter(event => !catalogueDuplicate(event)).length;
-    $("catalogueCount").textContent = catalogue.length;
-    $("resultStat").textContent = externalEvents.length;
-    $("newCount").textContent = newItems;
-    $("duplicateCount").textContent = externalEvents.length - newItems;
-  }
-
-  function renderSourceStates() {
-    const labels = { wikidata:"Wikidata", musicbrainz:"MusicBrainz", cache:"Cache local" };
-    $("sourceStatus").innerHTML = Object.entries(sourceStates).map(([key, state]) => {
-      let text = state.message || "";
-      if (state.status === "loading") text = "recherche en cours…";
-      if (state.status === "success") text = `${state.count} résultat(s)`;
-      if (state.status === "cached") text = `${state.count} résultat(s)`;
-      return `<span class="source-chip ${state.status}">${labels[key]} : ${escapeHtml(text)}</span>`;
-    }).join("");
-  }
-
-  function renderEvents() {
-    const type = $("typeFilter").value;
-    const text = normalise($("textFilter").value);
-    const rows = externalEvents
-      .filter(event => (!type || event.eventType === type))
-      .filter(event => !text || normalise(`${event.artistName} ${event.title} ${event.description}`).includes(text))
-      .sort((a,b) => (b.sourceScore || 0) - (a.sourceScore || 0) || a.artistName.localeCompare(b.artistName, "fr"));
-
-    $("resultCount").textContent = `${rows.length} résultat${rows.length === 1 ? "" : "s"}`;
-
-    if (!rows.length) {
-      eventsBody.innerHTML = '<tr><td colspan="7" class="empty">Aucun événement trouvé.</td></tr>';
-      updateStats();
-      return;
-    }
-
-    eventsBody.innerHTML = rows.map(event => {
-      const sourceIndex = externalEvents.indexOf(event);
-      const duplicate = catalogueDuplicate(event);
-      const sources = event.sources.map(source =>
-        `<span class="badge src-${escapeHtml(source.provider)}">${source.provider === "wikidata" ? "Wikidata" : "MusicBrainz"}</span>`
-      ).join(" ");
-      const info = [event.country, event.description, event.sourceScore ? `Score source : ${event.sourceScore}` : ""]
-        .filter(Boolean).join(" · ");
-
-      return `<tr>
-        <td><span class="artist">${escapeHtml(event.artistName)}</span><br><span class="secondary">${escapeHtml(event.title)}</span></td>
-        <td><span class="badge ${escapeHtml(event.eventType)}">${escapeHtml(TYPE_LABELS[event.eventType] || event.eventType)}</span></td>
-        <td class="date">${escapeHtml(formatEventDate(event))}</td>
-        <td>${sources}</td>
-        <td class="secondary">${escapeHtml(info || "-")}</td>
-        <td><span class="badge ${duplicate ? "duplicate" : "new"}">${duplicate ? "Déjà catalogué" : "Nouveau"}</span></td>
-        <td><div class="actions">
-          <button class="btn btn-small" onclick="window.showExternal(${sourceIndex})">Voir</button>
-          <button class="btn btn-small btn-success" onclick="window.importExternal(${sourceIndex})" ${!isAdmin || duplicate ? "disabled" : ""}>Importer</button>
-        </div></td>
-      </tr>`;
-    }).join("");
-
-    updateStats();
-  }
-
-  function publishIntermediate(sourceName, events, searchId) {
-    if (searchId !== activeSearchId) return;
-    collectedEvents.push(...events);
-    externalEvents = mergeEvents(collectedEvents);
-    renderEvents();
-    sourceStates[sourceName] = { status:"success", count:events.length };
-    renderSourceStates();
-  }
-
-  function retryDelay(response, attempt) {
-    const retryAfter = response.headers.get("Retry-After");
-    if (retryAfter) {
-      const seconds = Number(retryAfter);
-      if (Number.isFinite(seconds)) return seconds * 1000;
-      const date = Date.parse(retryAfter);
-      if (Number.isFinite(date)) return Math.max(0, date - Date.now());
-    }
-    return Math.min(8000, 1000 * (2 ** attempt)) + Math.floor(Math.random() * 300);
-  }
-
-  async function fetchWithRetry(url, sourceName, options = {}) {
-    const retries = options.retries ?? 2;
-    const timeout = options.timeout ?? REQUEST_TIMEOUT;
-    let lastError;
-
-    for (let attempt = 0; attempt <= retries; attempt++) {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeout);
-      try {
-        const response = await fetch(url, { headers:{ Accept:"application/json" }, signal:controller.signal });
-        clearTimeout(timer);
-        if (response.ok) return response;
-
-        if (RETRYABLE_STATUS.has(response.status) && attempt < retries) {
-          sourceStates[sourceName] = { status:"loading", message:`HTTP ${response.status}, nouvel essai…` };
-          renderSourceStates();
-          await sleep(retryDelay(response, attempt));
-          continue;
-        }
-
-        throw new Error(`HTTP ${response.status} ${response.statusText}`);
-      } catch (error) {
-        clearTimeout(timer);
-        lastError = error.name === "AbortError"
-          ? new Error(`délai dépassé après ${Math.round(timeout / 1000)} s`)
-          : error;
-        if (attempt < retries) {
-          sourceStates[sourceName] = { status:"loading", message:"nouvel essai…" };
-          renderSourceStates();
-          await sleep(1000 * (2 ** attempt));
-          continue;
-        }
-      }
-    }
-    throw lastError;
-  }
-
-  function wikidataQuery(parts) {
-    return `SELECT DISTINCT ?entity ?entityLabel ?entityDescription ?eventDate ?eventType ?countryLabel WHERE {
-      { ?entity wdt:P31 wd:Q5; wdt:P106/wdt:P279* wd:Q639669; wdt:P569 ?eventDate. BIND("birth" AS ?eventType) }
-      UNION { ?entity wdt:P31 wd:Q5; wdt:P106/wdt:P279* wd:Q639669; wdt:P570 ?eventDate. BIND("death" AS ?eventType) }
-      UNION { ?entity wdt:P31/wdt:P279* wd:Q215380; wdt:P571 ?eventDate. BIND("band_formation" AS ?eventType) }
-      UNION { ?entity wdt:P31/wdt:P279* wd:Q215380; wdt:P576 ?eventDate. BIND("band_dissolution" AS ?eventType) }
-      OPTIONAL { ?entity wdt:P27|wdt:P495 ?country. }
-      FILTER(MONTH(?eventDate) = ${parts.month} && DAY(?eventDate) = ${parts.day})
-      SERVICE wikibase:label { bd:serviceParam wikibase:language "fr,en,nl". }
-    } LIMIT ${MAX_RESULTS}`;
-  }
-
-  async function searchWikidata(parts) {
-    const url = `${WIKIDATA_ENDPOINT}?${new URLSearchParams({ query:wikidataQuery(parts), format:"json" })}`;
-    const response = await fetchWithRetry(url, "wikidata", { retries:1, timeout:30000 });
-    const data = await response.json();
-    return (data.results?.bindings || []).map(binding => {
-      const date = parseExternalDate(binding.eventDate?.value);
-      if (!date) return null;
-      const uri = binding.entity?.value || "";
-      const id = uri.split("/").pop();
-      const type = binding.eventType?.value;
-      const name = binding.entityLabel?.value || id;
-      return {
-        artistName:name, eventType:type, monthDay:date.monthDay, year:date.year,
-        title:`${TYPE_LABELS[type] || type} : ${name}`,
-        description:binding.entityDescription?.value || "",
-        country:binding.countryLabel?.value || "", sourceScore:0,
-        wikidataId:id, musicBrainzId:null,
-        sources:[{ provider:"wikidata", id, uri }]
-      };
-    }).filter(Boolean);
-  }
-
-  function mapMusicBrainzArtist(artist, field, parts) {
-    const date = parseExternalDate(artist["life-span"]?.[field]);
-    if (!date || date.monthDay !== parts.monthDay) return null;
-    const artistType = String(artist.type || "").toLowerCase();
-    let eventType;
-    if (artistType === "person") eventType = field === "begin" ? "birth" : "death";
-    else if (["group","orchestra","choir"].includes(artistType)) eventType = field === "begin" ? "band_formation" : "band_dissolution";
-    else return null;
-
-    return {
-      artistName:artist.name || "Sans nom", eventType, monthDay:date.monthDay, year:date.year,
-      title:`${TYPE_LABELS[eventType]} : ${artist.name}`,
-      description:artist.disambiguation || "", country:artist.country || "",
-      sourceScore:Number(artist.score || 0), wikidataId:null, musicBrainzId:artist.id,
-      sources:[{ provider:"musicbrainz", id:artist.id, uri:`https://musicbrainz.org/artist/${artist.id}` }]
-    };
-  }
-
-  async function searchMusicBrainzField(field, parts) {
-    const month = String(parts.month).padStart(2,"0");
-    const day = String(parts.day).padStart(2,"0");
-    const query = `${field}:*-${month}-${day}`;
-    const url = `${MUSICBRAINZ_ENDPOINT}?${new URLSearchParams({ query, fmt:"json", limit:String(MAX_RESULTS) })}`;
-    const response = await fetchWithRetry(url, "musicbrainz", { retries:2, timeout:20000 });
-    const data = await response.json();
-    return (data.artists || []).map(artist => mapMusicBrainzArtist(artist, field, parts)).filter(Boolean);
-  }
-
-  async function searchMusicBrainz(parts, searchId) {
-    const begin = await searchMusicBrainzField("begin", parts);
-    if (searchId !== activeSearchId) return [];
-    publishIntermediate("musicbrainz", begin, searchId);
-
-    sourceStates.musicbrainz = { status:"loading", message:"recherche des fins…" };
-    renderSourceStates();
-    await sleep(MUSICBRAINZ_GAP);
-
-    const end = await searchMusicBrainzField("end", parts);
-    return end;
-  }
-
-  async function loadCatalogue() {
-    try {
-      const snapshot = await get(ref(db, CATALOGUE_PATH));
-      catalogue = [];
-      if (snapshot.exists()) snapshot.forEach(child => catalogue.push({ id:child.key, ...child.val() }));
-      renderEvents();
-    } catch (error) {
-      showMessage(`Catalogue Firebase indisponible : ${error.message}`, "warning");
-    }
-  }
-
-  async function searchNetwork(parts) {
-    const searchId = ++activeSearchId;
-    stopCountdown();
-    $("forceBtn").style.display = "none";
-    currentCacheKey = buildCacheKey(parts);
-    collectedEvents = [];
-    externalEvents = [];
-    sourceStates = {};
-    clearMessage();
-
-    if ($("useWikidata").checked) sourceStates.wikidata = { status:"loading", message:"recherche en cours…" };
-    if ($("useMusicBrainz").checked) sourceStates.musicbrainz = { status:"loading", message:"recherche des débuts…" };
-
-    renderSourceStates();
-    renderEvents();
-    progress.classList.add("active");
-    $("searchBtn").disabled = true;
-    $("searchBtn").textContent = "Recherche en cours…";
-
-    const tasks = [];
-
-    if ($("useWikidata").checked) {
-      tasks.push(
-        searchWikidata(parts)
-          .then(events => publishIntermediate("wikidata", events, searchId))
-          .catch(error => {
-            if (searchId !== activeSearchId) return;
-            sourceStates.wikidata = { status:"error", message:error.message };
-            renderSourceStates();
-          })
-      );
-    }
-
-    if ($("useMusicBrainz").checked) {
-      tasks.push(
-        searchMusicBrainz(parts, searchId)
-          .then(events => publishIntermediate("musicbrainz", events, searchId))
-          .catch(error => {
-            if (searchId !== activeSearchId) return;
-            sourceStates.musicbrainz = { status:"error", message:error.message };
-            renderSourceStates();
-          })
-      );
-    }
-
-    await Promise.allSettled(tasks);
-    if (searchId !== activeSearchId) return;
-
-    externalEvents = mergeEvents(collectedEvents);
-    renderEvents();
-    writeCache(currentCacheKey, externalEvents);
-
-    const successCount = Object.values(sourceStates).filter(state => state.status === "success").length;
-    const errorCount = Object.values(sourceStates).filter(state => state.status === "error").length;
-
-    if (!successCount) showMessage("Toutes les sources ont échoué. Consultez le statut détaillé des sources.", "error");
-    else if (errorCount) showMessage(`Recherche partielle terminée : ${externalEvents.length} événement(s) consolidé(s).`, "warning");
-    else showMessage(`Recherche terminée : ${externalEvents.length} événement(s) consolidé(s).`, "success");
-
-    progress.classList.remove("active");
-    $("searchBtn").disabled = false;
-    $("searchBtn").textContent = "🌐 Rechercher";
-    $("cacheInfo").textContent = "La recherche réseau est terminée et le cache local a été actualisé.";
-  }
-
-  async function startSearch({ force = false } = {}) {
-    const parts = selectedDateParts();
-    if (!parts) {
-      showMessage("Sélectionnez une date valide.", "error");
-      $("searchDate").focus();
-      return;
-    }
-    if (!$("useWikidata").checked && !$("useMusicBrainz").checked) {
-      showMessage("Sélectionnez au moins une source.", "error");
-      return;
-    }
-
-    const key = buildCacheKey(parts);
-    const cached = force ? null : readCache(key);
-
-    if (cached) {
-      currentCacheKey = key;
-      externalEvents = cached.events;
-      collectedEvents = [...cached.events];
-      sourceStates = { cache:{ status:"cached", count:cached.events.length } };
-      renderSourceStates();
-      renderEvents();
-      showMessage(`Résultats chargés depuis le cache local (${formatAge(cached.age)}).`, "info");
-      $("cacheInfo").textContent = `Cache âgé de ${formatAge(cached.age)}. Patientez 10 secondes pour forcer une actualisation réseau.`;
-      startCacheBypassCountdown();
-      return;
-    }
-
-    await searchNetwork(parts);
-  }
-
-  window.showExternal = index => {
-    const event = externalEvents[index];
-    if (!event) return;
-    $("detailsContent").innerHTML = `<div class="details-grid">
-      <div class="detail"><span class="detail-label">Artiste ou groupe</span>${escapeHtml(event.artistName)}</div>
-      <div class="detail"><span class="detail-label">Type</span>${escapeHtml(TYPE_LABELS[event.eventType] || event.eventType)}</div>
-      <div class="detail"><span class="detail-label">Date</span>${escapeHtml(formatEventDate(event))}</div>
-      <div class="detail"><span class="detail-label">Pays</span>${escapeHtml(event.country || "Non renseigné")}</div>
-      <div class="detail"><span class="detail-label">Wikidata</span>${escapeHtml(event.wikidataId || "-")}</div>
-      <div class="detail"><span class="detail-label">MusicBrainz</span>${escapeHtml(event.musicBrainzId || "-")}</div>
-    </div>${event.description ? `<div class="detail" style="margin-top:12px"><span class="detail-label">Description</span>${escapeHtml(event.description)}</div>` : ""}`;
-    $("detailsPanel").style.display = "block";
-    $("detailsPanel").scrollIntoView({ behavior:"smooth" });
-  };
-
-  window.importExternal = async index => {
-    const event = externalEvents[index];
-    if (!event || !isAdmin || catalogueDuplicate(event)) return;
-    if (!confirm(`Importer « ${event.title} » ?`)) return;
-
-    try {
-      const itemRef = push(ref(db, CATALOGUE_PATH));
-      await set(itemRef, {
-        artistName:event.artistName,
-        eventType:event.eventType,
-        monthDay:event.monthDay,
-        year:event.year || null,
-        title:event.title,
-        description:event.description || "",
-        priority:50,
-        popularity:null,
-        enabled:true,
-        identifiers:{ wikidata:event.wikidataId || null, musicBrainz:event.musicBrainzId || null },
-        sources:event.sources,
-        createdAt:serverTimestamp(),
-        createdBy:currentUser.uid,
-        updatedAt:serverTimestamp(),
-        updatedBy:currentUser.uid
-      });
-      showMessage("Événement importé dans le catalogue.", "success");
-      await loadCatalogue();
-    } catch (error) {
-      showMessage(`Import impossible : ${error.message}`, "error");
-    }
-  };
-
-  $("searchBtn").addEventListener("click", () => startSearch({ force:false }));
-  $("forceBtn").addEventListener("click", () => startSearch({ force:true }));
-  $("typeFilter").addEventListener("change", renderEvents);
-  $("textFilter").addEventListener("input", renderEvents);
-  $("closeDetails").addEventListener("click", () => { $("detailsPanel").style.display = "none"; });
-
-  $("resetBtn").addEventListener("click", () => {
-    activeSearchId++;
-    stopCountdown();
-    $("searchDate").value = "";
-    $("typeFilter").value = "";
-    $("textFilter").value = "";
-    $("forceBtn").style.display = "none";
-    $("useWikidata").checked = true;
-    $("useMusicBrainz").checked = true;
-    externalEvents = [];
-    collectedEvents = [];
-    sourceStates = {};
-    $("sourceStatus").innerHTML = "";
-    progress.classList.remove("active");
-    clearMessage();
-    renderEvents();
-    $("cacheInfo").textContent = "Les résultats sont conservés 24 heures. Après un chargement depuis le cache, un décompte de 10 secondes permet de forcer une recherche réseau.";
-  });
-
-  $("loginBtn").addEventListener("click", () =>
-    signInWithPopup(auth, provider).catch(error => showMessage(`Connexion impossible : ${error.message}`, "error"))
-  );
-  $("logoutBtn").addEventListener("click", () => signOut(auth));
-
-  onAuthStateChanged(auth, async user => {
-    currentUser = user;
-    isAdmin = Boolean(user && ADMIN_UIDS.includes(user.uid));
-    $("authSection").style.display = "flex";
-
-    if (user) {
-      $("userInfo").innerHTML = `Connecté : <b>${escapeHtml(user.displayName || user.email)}</b><br><small>${isAdmin ? "Accès administrateur" : "Lecture seule"}</small>`;
-      $("loginBtn").style.display = "none";
-      $("logoutBtn").style.display = "inline-flex";
-      await loadCatalogue();
-    } else {
-      $("userInfo").textContent = "Connectez-vous pour importer les événements.";
-      $("loginBtn").style.display = "inline-flex";
-      $("logoutBtn").style.display = "none";
-      catalogue = [];
-      updateStats();
-    }
-  });
+<div class="stats" id="stats"></div>
+
+<div class="grid" id="cards"></div>
+
+</div>
+
+<script>
+
+let artists=[];
+
+async function loadData(){
+
+    const response =
+        await fetch("artists_top500.json");
+
+    artists = await response.json();
+
+    render();
+}
+
+function render(){
+
+    const search =
+        document.getElementById("search")
+            .value
+            .toLowerCase();
+
+    const type =
+        document.getElementById("typeFilter")
+            .value;
+
+    const filtered = artists.filter(a => {
+
+        const matchName =
+            (a.name || "")
+            .toLowerCase()
+            .includes(search);
+
+        const matchType =
+            !type || a.type === type;
+
+        return matchName && matchType;
+    });
+
+    document.getElementById("stats").innerHTML =
+        `${filtered.length} artiste(s) affiché(s)`;
+
+    document.getElementById("cards").innerHTML =
+        filtered.map((a,index)=>{
+
+            const popularity =
+                a.popularity || 0;
+
+            return `
+                <div class="card">
+
+                    <div class="rank">
+                        #${index + 1}
+                    </div>
+
+                    <div class="name">
+                        ${a.name || ""}
+                    </div>
+
+                    <div class="badge">
+                        ${
+                            a.type === "group"
+                            ? "Groupe"
+                            : "Artiste"
+                        }
+                    </div>
+
+                    <div class="info">
+
+                        ${
+                            a.country
+                            ? `🌍 ${a.country}<br>`
+                            : ""
+                        }
+
+                        ${
+                            a.start_year
+                            ? `📅 ${a.start_year}<br>`
+                            : ""
+                        }
+
+                        Popularité :
+                        <b>${popularity}</b>
+
+                    </div>
+
+                    <div class="popularity">
+                        <div class="bar">
+                            <div
+                               class="bar-inner"
+                               style="width:${popularity}%">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+        }).join("");
+}
+
+document
+.getElementById("search")
+.addEventListener("input",render);
+
+document
+.getElementById("typeFilter")
+.addEventListener("change",render);
+
+loadData();
+
 </script>
+
 </body>
 </html>
