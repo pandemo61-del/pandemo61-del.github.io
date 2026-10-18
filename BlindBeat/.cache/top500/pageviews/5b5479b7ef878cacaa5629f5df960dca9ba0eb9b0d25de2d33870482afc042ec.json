@@ -1,0 +1,148 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 16
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 6
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mystery_(groupe)",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    }
+  ]
+}

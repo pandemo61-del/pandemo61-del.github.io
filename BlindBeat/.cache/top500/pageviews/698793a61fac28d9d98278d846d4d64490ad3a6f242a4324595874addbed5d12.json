@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 292
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 130
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 124
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 138
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 156
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 231
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 150
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 132
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 170
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 190
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 206
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 240
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 185
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 150
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 188
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 158
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 281
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 248
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 427
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 184
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 168
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 218
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 289
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 147
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 170
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 175
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 167
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 175
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 107
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 122
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 113
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 129
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 202
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 152
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 85
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 91
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 139
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 176
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 142
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 169
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 82
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 101
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 111
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 122
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 147
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 179
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 147
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 121
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 223
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 103
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 158
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 164
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 202
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 102
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 131
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 170
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 98
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 129
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 175
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 213
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 74
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 69
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 96
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 108
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 112
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 153
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 156
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 125
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 95
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 102
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "K._Maro",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 90
+    }
+  ]
+}

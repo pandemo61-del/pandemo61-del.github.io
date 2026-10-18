@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2788
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 491
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 773
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 295
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 292
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 305
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 511
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 233
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 734
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 287
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 795
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 318
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 379
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 264
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 682
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 298
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 310
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 228
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 184
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 259
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 413
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 572
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 401
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 327
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 355
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 329
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 219
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 266
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 239
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 222
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 224
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 316
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1102
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 248
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 216
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 215
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 320
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1057
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 292
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3883
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 721
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 337
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 342
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 422
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 348
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1237
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 359
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 382
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 218
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 227
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 260
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 261
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 298
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 559
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 313
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 245
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 980
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 317
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 887
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9159
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 955
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1429
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 380
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 308
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 312
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 293
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 376
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 271
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 190
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 558
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 268
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Maurane",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 200
+    }
+  ]
+}

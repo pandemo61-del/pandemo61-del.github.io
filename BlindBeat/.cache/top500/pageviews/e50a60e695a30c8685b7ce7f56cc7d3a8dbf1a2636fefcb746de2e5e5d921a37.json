@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3339
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1335
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2312
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1656
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1745
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3355
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1723
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1284
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 864
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 981
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 904
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1011
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2048
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1553
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 996
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 929
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1030
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 975
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1617
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2231
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1859
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1966
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1825
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1117
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 980
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1585
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1589
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1536
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1143
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1072
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 775
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 812
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1930
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1189
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 902
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 672
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2123
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1521
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1201
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1782
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 710
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1116
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 733
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2016
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1557
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 24186
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 28577
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10532
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5806
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4244
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7024
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 25959
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10006
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5182
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5924
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3813
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2510
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3192
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7187
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 11375
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9977
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8354
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4739
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9456
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5492
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8025
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3035
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4974
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2584
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1920
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1730
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2105
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3909
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 12461
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 48814
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 23875
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 11929
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8036
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 8610
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Mosimann",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7637
+    }
+  ]
+}

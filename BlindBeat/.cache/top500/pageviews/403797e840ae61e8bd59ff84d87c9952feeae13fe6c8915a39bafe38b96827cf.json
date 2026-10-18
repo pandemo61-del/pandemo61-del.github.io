@@ -1,0 +1,130 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 12
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 17
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 13
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 14
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 15
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 15
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 21
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 21
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 11
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 18
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Milo_J",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7
+    }
+  ]
+}

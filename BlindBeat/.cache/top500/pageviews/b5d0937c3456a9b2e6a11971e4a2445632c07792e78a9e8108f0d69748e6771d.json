@@ -1,0 +1,229 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 26
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 16
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 10
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 22
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 51
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 16
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 9
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 5
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Good_Kid",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 4
+    }
+  ]
+}

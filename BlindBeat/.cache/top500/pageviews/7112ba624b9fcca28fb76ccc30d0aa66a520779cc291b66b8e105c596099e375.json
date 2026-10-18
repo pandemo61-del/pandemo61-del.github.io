@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 862
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 850
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 594
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 633
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 683
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 2225
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 863
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 766
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 696
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 718
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 693
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1031
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 895
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 3772
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1470
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 945
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 804
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 747
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 842
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 838
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1386
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1041
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 745
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 714
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 686
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 790
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 779
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 774
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 812
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 821
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1230
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1120
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1016
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1133
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 767
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 780
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 752
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 664
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 844
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 822
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 815
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 599
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 538
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 566
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 618
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 718
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 954
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 754
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 568
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 576
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 597
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 611
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 677
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 919
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 762
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 642
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 991
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 713
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 927
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 776
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 820
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 779
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 638
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 864
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 950
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 824
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 893
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 897
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 7042
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1231
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 620
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 796
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1674
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1098
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1110
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1263
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 650
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 714
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 699
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 749
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 878
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 795
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 628
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 552
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 691
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Stromae",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 810
+    }
+  ]
+}

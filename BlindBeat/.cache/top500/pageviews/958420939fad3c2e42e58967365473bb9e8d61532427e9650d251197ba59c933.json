@@ -1,0 +1,814 @@
+{
+  "items": [
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026071800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 27
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026071900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 31
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 34
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 242
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 60
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 51
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 44
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 40
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 39
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 37
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 183
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026072900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 59
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026073000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 47
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026073100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 46
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 43
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 270
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 53
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 72
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 48
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 47
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 57
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 62
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026080900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 243
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 49
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 58
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 50
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 58
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 50
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 45
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 79
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 86
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 350
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026081900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 408
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 415
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 469
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 573
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 458
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 456
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 451
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 396
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026082900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 417
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026083000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 477
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026083100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 397
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 326
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 302
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 323
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 294
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 315
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 405
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 343
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 273
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026090900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 285
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 655
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 826
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1144
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1445
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1223
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1180
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 1160
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 960
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 938
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026091900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 922
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 964
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 721
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 605
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 643
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 587
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 495
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 546
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 672
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 527
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026092900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 436
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026093000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 393
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 411
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 444
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 454
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 388
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100600",
+      "access": "all-access",
+      "agent": "user",
+      "views": 368
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100700",
+      "access": "all-access",
+      "agent": "user",
+      "views": 364
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100800",
+      "access": "all-access",
+      "agent": "user",
+      "views": 309
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026100900",
+      "access": "all-access",
+      "agent": "user",
+      "views": 311
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026101000",
+      "access": "all-access",
+      "agent": "user",
+      "views": 319
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026101100",
+      "access": "all-access",
+      "agent": "user",
+      "views": 463
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026101200",
+      "access": "all-access",
+      "agent": "user",
+      "views": 379
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026101300",
+      "access": "all-access",
+      "agent": "user",
+      "views": 330
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026101400",
+      "access": "all-access",
+      "agent": "user",
+      "views": 316
+    },
+    {
+      "project": "fr.wikipedia",
+      "article": "Jessica_Paré",
+      "granularity": "daily",
+      "timestamp": "2026101500",
+      "access": "all-access",
+      "agent": "user",
+      "views": 298
+    }
+  ]
+}

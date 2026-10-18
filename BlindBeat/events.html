@@ -1,289 +1,911 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlindBeat - Top 500 Artistes</title>
-icon.png
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journées Mondiales & Thèmes Musicaux - BlindBeat Admin</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        :root {
+            --bg: #0A0A1A;
+            --surface: #12122A;
+            --surface-light: #1E1E40;
+            --primary: #F5820D;
+            --primary-light: #FF9F43;
+            --accent-gold: #FFD700;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0C0;
+            --border: #2A2A50;
+            --success: #4CAF50;
+            --danger: #FF4D4D;
+            --info: #2196F3;
+            --purple: #9C27B0;
+        }
 
-<style>
-:root{
-    --bg:#0A0A1A;
-    --surface:#12122A;
-    --surface-light:#1E1E40;
-    --primary:#F5820D;
-    --primary-light:#FF9F43;
-    --accent-gold:#FFD700;
-    --text-primary:#FFFFFF;
-    --text-secondary:#A0A0C0;
-    --border:#2A2A50;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-*{
-    box-sizing:border-box;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    background:var(--bg);
-    color:var(--text-primary);
-    margin:0;
-    padding:20px;
-}
+        .container {
+            width: 100%;
+            max-width: 1100px;
+        }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-}
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-header{
-    text-align:center;
-    margin-bottom:30px;
-}
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
-h1{
-    color:var(--primary);
-    margin-bottom:10px;
-}
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin: 0 0 8px 0;
+        }
 
-.subtitle{
-    color:var(--text-secondary);
-}
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
 
-.toolbar{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:20px;
-}
+        .nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-input,select{
-    background:var(--surface);
-    color:white;
-    border:1px solid var(--border);
-    padding:12px;
-    border-radius:8px;
-}
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
 
-input{
-    flex:1;
-    min-width:250px;
-}
+        .nav a.active, .nav a:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
 
-.stats{
-    margin-bottom:20px;
-    color:var(--text-secondary);
-}
+        /* Metadata Banner */
+        .meta-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-    gap:16px;
-}
+        .meta-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            text-align: center;
+        }
 
-.card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:18px;
-    transition:.2s;
-}
+        .meta-value {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+        }
 
-.card:hover{
-    transform:translateY(-2px);
-    border-color:var(--primary);
-}
+        .meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-.rank{
-    color:var(--accent-gold);
-    font-weight:bold;
-    font-size:18px;
-}
+        /* View Mode Switcher */
+        .view-mode-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
 
-.name{
-    font-size:22px;
-    font-weight:600;
-    margin:8px 0;
-}
+        .mode-btn {
+            background: var(--surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
-.badge{
-    display:inline-block;
-    background:var(--primary);
-    color:white;
-    padding:4px 10px;
-    border-radius:20px;
-    font-size:12px;
-    margin-bottom:10px;
-}
+        .mode-btn:hover {
+            background: var(--surface-light);
+            color: white;
+        }
 
-.info{
-    color:var(--text-secondary);
-    line-height:1.8;
-}
+        .mode-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(245, 130, 13, 0.3);
+        }
 
-.popularity{
-    margin-top:12px;
-}
+        .tab-content {
+            display: none;
+        }
 
-.bar{
-    width:100%;
-    height:10px;
-    border-radius:20px;
-    background:#222;
-    overflow:hidden;
-}
+        .tab-content.active {
+            display: block;
+        }
 
-.bar-inner{
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--primary-light)
-    );
-}
-</style>
+        /* Controls & Toolbars */
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center;
+            background: var(--surface);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .field-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field-group.flex-grow {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        input, select {
+            background: var(--bg);
+            color: white;
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"] {
+            width: 100%;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+        }
+
+        .nav-day-btn {
+            background: var(--surface-light);
+            color: var(--primary-light);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .nav-day-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--surface-light);
+            color: white;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* World Day Banner */
+        .day-banner {
+            background: linear-gradient(135deg, var(--surface), var(--surface-light));
+            border: 1px solid var(--primary);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .day-banner-info h2 {
+            margin: 0 0 6px 0;
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .day-banner-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .theme-pill {
+            background: rgba(245, 130, 13, 0.2);
+            color: var(--primary-light);
+            border: 1px solid var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Songs List / Cards */
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 14px;
+        }
+
+        .song-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .song-cover {
+            width: 52px;
+            height: 52px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+            background: var(--surface-light);
+        }
+
+        .quiz-decoys {
+            margin-top: 8px;
+            padding-top: 6px;
+            border-top: 1px dashed var(--border);
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .decoy-tag {
+            color: #FF8A8A;
+            background: rgba(255, 77, 77, 0.1);
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 77, 77, 0.2);
+            margin-right: 3px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        .song-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .song-rank {
+            background: var(--surface-light);
+            color: var(--accent-gold);
+            font-weight: 800;
+            font-size: 1.1rem;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .song-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .song-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 3px;
+        }
+
+        .song-artist {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .song-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 6px;
+        }
+
+        .year-pill {
+            background: var(--surface-light);
+            color: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: monospace;
+        }
+
+        .lang-pill {
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .play-btn {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 6px;
+            border-radius: 50%;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .play-btn:hover {
+            color: white;
+            background: var(--primary);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px dashed var(--border);
+            color: var(--text-secondary);
+            grid-column: 1 / -1;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+            font-style: italic;
+            grid-column: 1 / -1;
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<header>
-    <h1>🎵 Top 500 Artistes</h1>
-    <div class="subtitle">
-        Référentiel BlindBeat
+    <header>
+        <img src="icon.png" alt="BlindBeat Icon" class="app-icon">
+        <h1>🌍 Journées Mondiales & Thèmes Musicaux</h1>
+        <p class="subtitle">Référentiel musical de 365 jours avec 20 chansons thématiques par jour (généré par Gen_Events.py)</p>
+    </header>
+
+    <div class="nav">
+        <a href="leaderboard.html">Top Joueurs</a>
+        <a href="songs.html">Top Chansons</a>
+        <a href="activity.html">Activité</a>
+        <a href="rooms.html">Salons</a>
+        <a href="events.html" class="active">Événements</a>
     </div>
-</header>
 
-<div class="toolbar">
-    <input
-        type="text"
-        id="search"
-        placeholder="Rechercher un artiste..."
-    >
+    <!-- Metadata Banner -->
+    <div id="meta-summary" class="meta-container">
+        <div class="meta-card">
+            <div class="meta-value" id="meta-date">-</div>
+            <div class="meta-label">Dernière Génération</div>
+        </div>
+        <div class="meta-card">
+            <div class="meta-value" id="meta-days">365 / 365 (100%)</div>
+            <div class="meta-label">Jours Couverts</div>
+        </div>
+        <div class="meta-card">
+            <div class="meta-value" id="meta-songs-per-day">20 / jour</div>
+            <div class="meta-label">Chansons par Thème</div>
+        </div>
+        <div class="meta-card">
+            <div class="meta-value" id="meta-total-songs">-</div>
+            <div class="meta-label">Chansons Uniques</div>
+        </div>
+    </div>
 
-    <select id="typeFilter">
-        <option value="">Tous</option>
-        <option value="artist">Chanteurs</option>
-        <option value="group">Groupes</option>
-    </select>
-</div>
+    <!-- View Mode Switcher -->
+    <div class="view-mode-bar">
+        <button id="btnCalendar" class="mode-btn active" onclick="switchTab('calendar')">📅 Calendrier des Journées Mondiales</button>
+        <button id="btnRanking" class="mode-btn" onclick="switchTab('ranking')">🏆 Répertoire de Chansons</button>
+    </div>
 
-<div class="stats" id="stats"></div>
+    <!-- TAB 1: Calendrier des Journées Mondiales -->
+    <div id="tab-calendar" class="tab-content active">
+        <div class="toolbar">
+            <div class="field-group">
+                <label for="eventDatePicker">Date :</label>
+                <button class="nav-day-btn" onclick="navigateDay(-1)" title="Jour précédent">◀</button>
+                <input type="date" id="eventDatePicker">
+                <button class="nav-day-btn" onclick="navigateDay(1)" title="Jour suivant">▶</button>
+            </div>
 
-<div class="grid" id="cards"></div>
+            <div class="field-group">
+                <label for="eventMonthFilter">Mois :</label>
+                <select id="eventMonthFilter">
+                    <option value="">Tous les mois</option>
+                    <option value="01">Janvier</option>
+                    <option value="02">Février</option>
+                    <option value="03">Mars</option>
+                    <option value="04">Avril</option>
+                    <option value="05">Mai</option>
+                    <option value="06">Juin</option>
+                    <option value="07">Juillet</option>
+                    <option value="08">Août</option>
+                    <option value="09">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="eventLangFilter">Langue :</label>
+                <select id="eventLangFilter">
+                    <option value="">Toutes les langues</option>
+                    <option value="FR">🇫🇷 FR</option>
+                    <option value="EN">🇬🇧 EN</option>
+                    <option value="ES">🇪🇸 ES</option>
+                </select>
+            </div>
+
+            <div class="field-group flex-grow">
+                <label for="eventSearch">Recherche :</label>
+                <input type="text" id="eventSearch" placeholder="Rechercher une chanson, un artiste ou un thème...">
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="btn" onclick="navigateDay(-1)">◀ Jour précédent</button>
+            <button class="btn" onclick="setCalendarToday()">📍 Aujourd'hui</button>
+            <button class="btn" onclick="navigateDay(1)">Jour suivant ▶</button>
+            <button class="btn" onclick="resetCalendarFilters()">🔄 Réinitialiser les filtres</button>
+            <button class="btn" style="background: #4285F4; border-color: #4285F4; margin-left: auto;" onclick="syncToFirebase()">💾 Synchroniser dans Firebase (Daily_Themes)</button>
+        </div>
+
+        <!-- Banner de la Journée Sélectionnée -->
+        <div id="dayBanner" class="day-banner" style="display: none;">
+            <div class="day-banner-info">
+                <h2 id="worldDayTitle"><span>🕊️</span> Journée Mondiale</h2>
+                <div class="day-banner-date" id="worldDayDate">21 septembre</div>
+            </div>
+            <div class="theme-pill" id="worldDayTheme">☮️ PAIX & HARMONIE</div>
+        </div>
+
+        <div class="songs-grid" id="calendarContent">
+            <div class="loading">Chargement du calendrier des Journées Mondiales...</div>
+        </div>
+    </div>
+
+    <!-- TAB 2: Répertoire des Chansons -->
+    <div id="tab-ranking" class="tab-content">
+        <div class="toolbar">
+            <div class="field-group flex-grow">
+                <input type="text" id="rankingSearch" placeholder="Rechercher par titre de chanson ou artiste...">
+            </div>
+
+            <div class="field-group">
+                <select id="rankingLangFilter">
+                    <option value="">Toutes les langues</option>
+                    <option value="FR">🇫🇷 FR</option>
+                    <option value="EN">🇬🇧 EN</option>
+                    <option value="ES">🇪🇸 ES</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="songs-grid" id="rankingCards">
+            <div class="loading">Chargement du répertoire de chansons...</div>
+        </div>
+    </div>
 
 </div>
 
 <script>
+const LANG_FLAGS = {
+    "FR": "🇫🇷 FR", "EN": "🇬🇧 EN", "ES": "🇪🇸 ES"
+};
 
-let artists=[];
+let rawData = null;
+let calendarData = {};
+let uniqueSongsList = [];
 
-async function loadData(){
+async function loadData() {
+    const candidatePaths = [
+        "../artists_top500.json",
+        "artists_top500.json",
+        "/artists_top500.json"
+    ];
 
-    const response =
-        await fetch("artists_top500.json");
+    let response = null;
+    for (const path of candidatePaths) {
+        try {
+            const res = await fetch(path);
+            if (res.ok) {
+                response = await res.json();
+                break;
+            }
+        } catch (e) {
+            // essayer chemin suivant
+        }
+    }
 
-    artists = await response.json();
+    if (!response) {
+        document.getElementById("meta-summary").style.display = "none";
+        document.getElementById("calendarContent").innerHTML = `
+            <div class="empty-state">
+                ⚠️ Impossible de charger <code>artists_top500.json</code>.<br>
+                Assurez-vous d'avoir exécuté <code>python admin/Gen_Events.py</code>.
+            </div>`;
+        return;
+    }
 
-    render();
+    rawData = response;
+    calendarData = rawData.calendar || {};
+    uniqueSongsList = rawData.ranking || [];
+
+    renderMetadata();
+    setCalendarToday(false);
+    renderCalendar();
+    renderRanking();
 }
 
-function render(){
+function renderMetadata() {
+    if (!rawData) return;
 
-    const search =
-        document.getElementById("search")
-            .value
-            .toLowerCase();
+    if (rawData.generated_at) {
+        const genDate = new Date(rawData.generated_at);
+        document.getElementById("meta-date").innerText = genDate.toLocaleDateString("fr-FR", {
+            day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"
+        });
+    }
 
-    const type =
-        document.getElementById("typeFilter")
-            .value;
+    const totalDays = rawData.total_days || Object.keys(calendarData).length;
+    document.getElementById("meta-days").innerText = `${totalDays} / 365 (100%)`;
+    document.getElementById("meta-total-songs").innerText = `${rawData.total_unique_songs || uniqueSongsList.length} chansons`;
+}
 
-    const filtered = artists.filter(a => {
+function switchTab(tabName) {
+    document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-        const matchName =
-            (a.name || "")
-            .toLowerCase()
-            .includes(search);
+    if (tabName === 'calendar') {
+        document.getElementById('btnCalendar').classList.add('active');
+        document.getElementById('tab-calendar').classList.add('active');
+    } else {
+        document.getElementById('btnRanking').classList.add('active');
+        document.getElementById('tab-ranking').classList.add('active');
+    }
+}
 
-        const matchType =
-            !type || a.type === type;
+/* ==========================================================================
+   CALENDRIER DES JOURNÉES MONDIALES
+   ========================================================================== */
 
-        return matchName && matchType;
+function navigateDay(delta) {
+    let dateVal = document.getElementById('eventDatePicker').value;
+    let curDate;
+    if (dateVal) {
+        const parts = dateVal.split('-');
+        if (parts.length === 3) {
+            curDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        } else {
+            curDate = new Date();
+        }
+    } else {
+        curDate = new Date();
+    }
+
+    curDate.setDate(curDate.getDate() + delta);
+    const yyyy = curDate.getFullYear();
+    const mm = String(curDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(curDate.getDate()).padStart(2, '0');
+
+    document.getElementById('eventDatePicker').value = `${yyyy}-${mm}-${dd}`;
+    document.getElementById('eventMonthFilter').value = "";
+    renderCalendar();
+}
+
+function setCalendarToday(shouldRender = true) {
+    const now = new Date();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    document.getElementById('eventDatePicker').value = `${now.getFullYear()}-${mm}-${dd}`;
+    document.getElementById('eventMonthFilter').value = "";
+    document.getElementById('eventSearch').value = "";
+    document.getElementById('eventLangFilter').value = "";
+    if (shouldRender) renderCalendar();
+}
+
+function resetCalendarFilters() {
+    document.getElementById('eventDatePicker').value = "";
+    document.getElementById('eventMonthFilter').value = "";
+    document.getElementById('eventLangFilter').value = "";
+    document.getElementById('eventSearch').value = "";
+    renderCalendar();
+}
+
+function renderCalendar() {
+    const dateVal = document.getElementById('eventDatePicker').value;
+    const monthVal = document.getElementById('eventMonthFilter').value;
+    const langVal = document.getElementById('eventLangFilter').value;
+    const searchVal = document.getElementById('eventSearch').value.toLowerCase().trim();
+
+    const bannerEl = document.getElementById('dayBanner');
+    const container = document.getElementById('calendarContent');
+
+    let currentDayObj = null;
+
+    if (dateVal) {
+        const parts = dateVal.split('-');
+        if (parts.length === 3) {
+            const mmdd = `${parts[1]}-${parts[2]}`;
+            currentDayObj = calendarData[mmdd];
+        }
+    }
+
+    if (currentDayObj && !monthVal && !searchVal) {
+        // Afficher la bannière spécifique du jour
+        bannerEl.style.display = "flex";
+        document.getElementById('worldDayTitle').innerHTML = `<span>${currentDayObj.icon || '🌍'}</span> ${escapeHtml(currentDayObj.world_day)}`;
+        document.getElementById('worldDayDate').innerText = `${currentDayObj.day_number} ${currentDayObj.month_name}`;
+        document.getElementById('worldDayTheme').innerText = `Thème: ${currentDayObj.theme_key}`;
+
+        let songs = currentDayObj.songs || [];
+        if (langVal) {
+            songs = songs.filter(s => s.language === langVal);
+        }
+
+        if (songs.length === 0) {
+            container.innerHTML = `<div class="empty-state">Aucune chanson ne correspond aux filtres pour cette journée.</div>`;
+            return;
+        }
+
+        container.innerHTML = songs.map(s => renderSongCard(s)).join("");
+    } else {
+        // Vue multi-jours ou filtrée par mois / recherche
+        bannerEl.style.display = "none";
+
+        let allMatchingSongs = [];
+        for (const [mmdd, dayObj] of Object.entries(calendarData)) {
+            if (monthVal && !mmdd.startsWith(monthVal + '-')) continue;
+
+            let daySongs = dayObj.songs || [];
+            if (langVal) daySongs = daySongs.filter(s => s.language === langVal);
+            if (searchVal) {
+                daySongs = daySongs.filter(s =>
+                    s.title.toLowerCase().includes(searchVal) ||
+                    s.artist.toLowerCase().includes(searchVal) ||
+                    dayObj.world_day.toLowerCase().includes(searchVal)
+                );
+            }
+
+            daySongs.forEach(s => {
+                allMatchingSongs.push({
+                    ...s,
+                    world_day: dayObj.world_day,
+                    icon: dayObj.icon
+                });
+            });
+        }
+
+        if (allMatchingSongs.length === 0) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    🔍 Aucun résultat trouvé pour vos critères de recherche.<br>
+                    <button class="btn" style="margin-top:12px;" onclick="resetCalendarFilters()">Réinitialiser les filtres</button>
+                </div>`;
+            return;
+        }
+
+        container.innerHTML = allMatchingSongs.map(s => renderSongCard(s)).join("");
+    }
+}
+
+function renderSongCard(s) {
+    const ytUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(s.title + ' ' + s.artist)}`;
+    const flag = LANG_FLAGS[s.language] || s.language;
+    const coverUrl = s.cover || "icon.png";
+
+    const wrongArtistsHtml = s.wrong_artists ? s.wrong_artists.map(a => `<span class="decoy-tag">❌ ${escapeHtml(a)}</span>`).join(' ') : '';
+    const wrongTitlesHtml = s.wrong_titles ? s.wrong_titles.map(t => `<span class="decoy-tag">❌ ${escapeHtml(t)}</span>`).join(' ') : '';
+    const wrongYearsHtml = s.wrong_years ? s.wrong_years.map(y => `<span class="decoy-tag">❌ ${y}</span>`).join(' ') : '';
+
+    return `
+        <div class="song-card">
+            <div class="song-rank">#${s.rank}</div>
+            <img src="${coverUrl}" alt="${escapeHtml(s.title)}" class="song-cover" onerror="this.src='icon.png'">
+            <div class="song-details">
+                <div class="song-title">${escapeHtml(s.title)}</div>
+                <div class="song-artist">${escapeHtml(s.artist)}</div>
+                <div class="song-meta">
+                    <span class="year-pill">${s.year}</span>
+                    <span class="lang-pill">${flag}</span>
+                    ${s.world_day ? `<span style="font-size:0.75rem; color:var(--text-secondary);">${s.icon || ''} ${escapeHtml(s.world_day)}</span>` : ''}
+                </div>
+
+                ${s.preview ? `
+                <div style="margin-top: 6px;">
+                    <audio controls src="${s.preview}" preload="none" style="width: 100%; height: 28px; outline: none; border-radius: 4px;"></audio>
+                </div>
+                ` : ''}
+
+                ${wrongArtistsHtml ? `
+                <div class="quiz-decoys">
+                    <div><b>Pièges Artistes:</b> ${wrongArtistsHtml}</div>
+                    ${wrongTitlesHtml ? `<div><b>Pièges Titres:</b> ${wrongTitlesHtml}</div>` : ''}
+                    ${wrongYearsHtml ? `<div><b>Pièges Années:</b> ${wrongYearsHtml}</div>` : ''}
+                </div>
+                ` : ''}
+            </div>
+            <a href="${ytUrl}" target="_blank" rel="noopener" class="play-btn" title="Rechercher sur YouTube">🔍</a>
+        </div>
+    `;
+}
+
+function renderRanking() {
+    const searchVal = document.getElementById('rankingSearch').value.toLowerCase().trim();
+    const langVal = document.getElementById('rankingLangFilter').value;
+    const container = document.getElementById('rankingCards');
+
+    let filtered = uniqueSongsList.filter(s => {
+        const matchSearch = (s.title || "").toLowerCase().includes(searchVal) || (s.artist || "").toLowerCase().includes(searchVal);
+        const matchLang = !langVal || s.language === langVal;
+        return matchSearch && matchLang;
     });
 
-    document.getElementById("stats").innerHTML =
-        `${filtered.length} artiste(s) affiché(s)`;
+    if (filtered.length === 0) {
+        container.innerHTML = `<div class="empty-state">🔍 Aucune chanson trouvée.</div>`;
+        return;
+    }
 
-    document.getElementById("cards").innerHTML =
-        filtered.map((a,index)=>{
-
-            const popularity =
-                a.popularity || 0;
-
-            return `
-                <div class="card">
-
-                    <div class="rank">
-                        #${index + 1}
-                    </div>
-
-                    <div class="name">
-                        ${a.name || ""}
-                    </div>
-
-                    <div class="badge">
-                        ${
-                            a.type === "group"
-                            ? "Groupe"
-                            : "Artiste"
-                        }
-                    </div>
-
-                    <div class="info">
-
-                        ${
-                            a.country
-                            ? `🌍 ${a.country}<br>`
-                            : ""
-                        }
-
-                        ${
-                            a.start_year
-                            ? `📅 ${a.start_year}<br>`
-                            : ""
-                        }
-
-                        Popularité :
-                        <b>${popularity}</b>
-
-                    </div>
-
-                    <div class="popularity">
-                        <div class="bar">
-                            <div
-                               class="bar-inner"
-                               style="width:${popularity}%">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            `;
-        }).join("");
+    container.innerHTML = filtered.map(s => renderSongCard(s)).join("");
 }
 
-document
-.getElementById("search")
-.addEventListener("input",render);
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
 
-document
-.getElementById("typeFilter")
-.addEventListener("change",render);
+// Écouteurs
+document.getElementById('eventDatePicker').addEventListener('change', () => {
+    document.getElementById('eventMonthFilter').value = "";
+    renderCalendar();
+});
+document.getElementById('eventMonthFilter').addEventListener('change', () => {
+    document.getElementById('eventDatePicker').value = "";
+    renderCalendar();
+});
+document.getElementById('eventLangFilter').addEventListener('change', renderCalendar);
+document.getElementById('eventSearch').addEventListener('input', renderCalendar);
+
+document.getElementById('rankingSearch').addEventListener('input', renderRanking);
+document.getElementById('rankingLangFilter').addEventListener('change', renderRanking);
 
 loadData();
+</script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+import { getAuth, signInAnonymously, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC6H0bm0KdUO_4K_pgZBv7aaB29JMUNvik",
+    authDomain: "blindbeat-a51d5.firebaseapp.com",
+    databaseURL: "https://blindbeat-a51d5-default-rtdb.europe-west1.firebasedatabase.app/",
+    projectId: "blindbeat-a51d5",
+    storageBucket: "blindbeat-a51d5.firebasestorage.app",
+    messagingSenderId: "1037778546860",
+    appId: "1:1037778546860:android:003d51beb7c44ce3d5ef09",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
+
+window.syncToFirebase = async () => {
+    if (!calendarData || Object.keys(calendarData).length === 0) {
+        alert("Aucune donnée de calendrier disponible.");
+        return;
+    }
+    try {
+        if (!auth.currentUser) {
+            try {
+                await signInWithPopup(auth, new GoogleAuthProvider());
+            } catch (e) {
+                await signInAnonymously(auth);
+            }
+        }
+        await set(ref(db, 'Daily_Themes'), calendarData);
+        alert("✅ 365 Journées Mondiales synchronisées avec succès sous /Daily_Themes dans Firebase Realtime Database !");
+    } catch (err) {
+        alert("Erreur de synchronisation Firebase : " + err.message);
+    }
+};
 </script>
 
 </body>
