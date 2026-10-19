@@ -471,7 +471,7 @@
         });
 
         async function loadExistingGames() {
-            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(200));
+            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(500));
             try {
                 const snapshot = await getDocs(q);
                 resultsBody.innerHTML = '';
