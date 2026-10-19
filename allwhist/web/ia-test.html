@@ -98,9 +98,9 @@
                 </div>
 
                 <div class="flex gap-2">
-                    <button id="exportFailuresBtn" class="text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
+                    <button id="exportGamesBtn" class="text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
                         <i class="fas fa-download"></i>
-                        <span>Exporter les échecs DB</span>
+                        <span>Exporter les parties DB</span>
                     </button>
                     <button id="deleteSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
                         <i class="fas fa-check"></i>
@@ -257,7 +257,7 @@
         const runBtn = document.getElementById('runBtn');
         const deleteBtn = document.getElementById('deleteBtn');
         const deleteSuccessBtn = document.getElementById('deleteSuccessBtn');
-        const exportFailuresBtn = document.getElementById('exportFailuresBtn');
+        const exportGamesBtn = document.getElementById('exportGamesBtn');
         const btnLogin = document.getElementById('btn-login');
         const btnLogout = document.getElementById('btn-logout');
         const authStatus = document.getElementById('auth-status');
@@ -289,10 +289,10 @@
             auth.signOut().then(() => window.location.reload());
         };
 
-        exportFailuresBtn.addEventListener('click', async () => {
+        exportGamesBtn.addEventListener('click', async () => {
             if (!auth.currentUser) return alert("Connectez-vous d'abord.");
 
-            exportFailuresBtn.disabled = true;
+            exportGamesBtn.disabled = true;
             try {
                 const failedGames = await getDocs(query(
                     collection(db, "games"),
@@ -313,6 +313,7 @@
                         reconstitution: reconstructed.meta,
                         plis: data.plis ?? null,
                         resultat: data.resultat ?? null,
+                        reussite: data.reussite ?? null,
                         erreurs: data.erreurs ?? null,
                         historiqueEncheres: data.historiqueEncheres ?? null,
                     };
@@ -330,15 +331,15 @@
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = `allwhist-echecs-${new Date().toISOString().slice(0, 10)}.json`;
+                link.download = `allwhist-games-${new Date().toISOString().slice(0, 10)}.json`;
                 link.click();
                 URL.revokeObjectURL(url);
-                alert(`${games.length} échec(s) exporté(s). ${completeDeals} donne(s) ont des mains initiales exactes ; les autres sont marquées comme partielles ou reconstituées après écart.`);
+                alert(`${games.length} partie(s) exporté(s). ${completeDeals} donne(s) ont des mains initiales exactes ; les autres sont marquées comme partielles ou reconstituées après écart.`);
             } catch (error) {
                 console.error("Échec de l'export des parties:", error);
                 alert(`Impossible d'exporter les échecs : ${error.message}`);
             } finally {
-                exportFailuresBtn.disabled = false;
+                exportGamesBtn.disabled = false;
             }
         });
 
@@ -471,7 +472,7 @@
         });
 
         async function loadExistingGames() {
-            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(500));
+            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(1000));
             try {
                 const snapshot = await getDocs(q);
                 resultsBody.innerHTML = '';
