@@ -295,8 +295,7 @@
             exportGamesBtn.disabled = true;
             try {
                 const failedGames = await getDocs(query(
-                    collection(db, "games"),
-                    where("resultat.reussite", "==", false)
+                    collection(db, "games")
                 ));
                 const games = failedGames.docs.map(docSnap => {
                     const data = docSnap.data();
