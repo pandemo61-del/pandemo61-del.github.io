@@ -15,10 +15,11 @@ from pathlib import Path
 from dataclasses import dataclass
 from typing import List, Tuple
 from pdf2image import convert_from_path
+from PIL import Image
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton,
     QFileDialog, QScrollArea, QProgressDialog, QGraphicsScene, QGraphicsView,
-    QGraphicsPixmapItem, QMessageBox, QStatusBar, QSpinBox
+    QGraphicsPixmapItem, QMessageBox, QStatusBar, QSpinBox, QDoubleSpinBox
 )
 from PyQt6.QtCore import Qt, QSize, QRectF, pyqtSignal
 from PyQt6.QtGui import QAction, QActionGroup, QImage, QPixmap, QPainter, QColor, QPen, QPalette, QFont
@@ -305,9 +306,12 @@ class PanelLearningModel:
 
 
 class PanelDetector:
-    def __init__(self, min_panel_size=100, brightness_threshold=127):
+    def __init__(self, min_panel_size=100, brightness_threshold=127,
+                 adjacent_merge_ratio=0.55):
         self.min_panel_size = min_panel_size
         self.brightness_threshold = brightness_threshold  # Seuil pour fond noir/blanc
+        # Ratio maximal petite/grande case. 0 désactive la fusion.
+        self.adjacent_merge_ratio = adjacent_merge_ratio
         self.min_panel_dimension_ratio = 0.06
         self.min_panel_area_ratio = 0.01
         self._contour_cache = None  # {image, gap: (hiérarchie, boîtes)}
@@ -369,8 +373,9 @@ class PanelDetector:
                 )
             ]
             unique_panels = self._remove_duplicates(gutter_panels + extras)
-            final_panels = self._sort_panels(unique_panels)
-            return self._filter_unreasonably_small_panels(final_panels, image)
+            final_panels = self._filter_unreasonably_small_panels(
+                self._sort_panels(unique_panels), image)
+            return self._sort_panels(self._merge_adjacent_panels_by_ratio(final_panels, image))
 
         # Combine candidates and discard page-sized boxes that merge separate panels.
         all_panels = self._merge_fragmented_panels(gutter_panels + legacy_panels, image)
@@ -383,7 +388,8 @@ class PanelDetector:
         final_panels = self._filter_overlapping_panels(sorted_panels)
         self._extend_truncated_panels(final_panels, image)
         self._repair_bottom_left_panel(final_panels, image)
-        return self._filter_unreasonably_small_panels(final_panels, image)
+        final_panels = self._filter_unreasonably_small_panels(final_panels, image)
+        return self._sort_panels(self._merge_adjacent_panels_by_ratio(final_panels, image))
 
     def detect_panels_for_count(
         self,
@@ -819,6 +825,52 @@ class PanelDetector:
                     break
 
         return merged_panels
+
+    def _merge_adjacent_panels_by_ratio(self, panels: List[Panel], image: np.ndarray) -> List[Panel]:
+        """Fusionne au plus une fois des cases proches, alignées et de tailles asymétriques."""
+        threshold = float(self.adjacent_merge_ratio)
+        if threshold <= 0 or len(panels) < 2:
+            return panels
+        page_height, page_width = image.shape[:2]
+        max_x_gap = max(4, int(page_width * 0.012))
+        max_y_gap = max(4, int(page_height * 0.012))
+        candidates = []
+        for i, first in enumerate(panels):
+            for j in range(i + 1, len(panels)):
+                second = panels[j]
+                area1, area2 = first.width * first.height, second.width * second.height
+                ratio = min(area1, area2) / max(area1, area2)
+                if ratio > threshold:
+                    continue
+                overlap_w = max(0, min(first.x + first.width, second.x + second.width) - max(first.x, second.x))
+                overlap_h = max(0, min(first.y + first.height, second.y + second.height) - max(first.y, second.y))
+                x_gap = max(0, max(first.x, second.x) - min(first.x + first.width, second.x + second.width))
+                y_gap = max(0, max(first.y, second.y) - min(first.y + first.height, second.y + second.height))
+                vertical_alignment = overlap_h / max(1, min(first.height, second.height))
+                horizontal_alignment = overlap_w / max(1, min(first.width, second.width))
+                side_by_side = x_gap <= max_x_gap and vertical_alignment >= 0.75
+                stacked = y_gap <= max_y_gap and horizontal_alignment >= 0.75
+                if side_by_side or stacked:
+                    gap = x_gap / max(1, page_width) if side_by_side else y_gap / max(1, page_height)
+                    candidates.append((gap, abs(threshold - ratio), i, j))
+        used, pair_for = set(), {}
+        for _, _, i, j in sorted(candidates):
+            if i in used or j in used:
+                continue
+            used.update((i, j)); pair_for[i] = j
+        merged = []
+        for i, first in enumerate(panels):
+            if i in used and i not in pair_for:
+                continue
+            if i not in pair_for:
+                merged.append(first); continue
+            second = panels[pair_for[i]]
+            x1, y1 = min(first.x, second.x), min(first.y, second.y)
+            x2 = max(first.x + first.width, second.x + second.width)
+            y2 = max(first.y + first.height, second.y + second.height)
+            merged.append(Panel(x1, y1, x2-x1, y2-y1, image[y1:y2, x1:x2],
+                                max(first.confidence, second.confidence)))
+        return merged
 
     def _calculate_confidence(self, roi: np.ndarray, is_dark_background: bool) -> float:
         """Calcul de confiance amélioré selon le type de fond"""
@@ -1284,6 +1336,41 @@ class FileHandler:
                     if progress_callback:
                         progress_callback()
 
+    def save_pdf(self, output_path, panels_by_page, e_reader_resolution=None, progress_callback=None):
+        """Exporte page complète puis cases détectées dans un PDF multipage."""
+        if not output_path.lower().endswith(".pdf"):
+            output_path += ".pdf"
+        images = []
+        try:
+            for page_idx, rows in enumerate(panels_by_page):
+                page = self.get_page(page_idx)
+                if page is None:
+                    continue
+                rgb = cv2.cvtColor(page, cv2.COLOR_GRAY2RGB) if page.ndim == 2 else cv2.cvtColor(page, cv2.COLOR_BGR2RGB)
+                images.append(Image.fromarray(rgb).convert("RGB"))
+                if progress_callback: progress_callback()
+                panels = PanelDetector.sort_panels_for_reading_order([panel for row in rows for panel in row])
+                for panel in panels:
+                    img = panel.image
+                    if img.ndim == 2:
+                        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+                    if e_reader_resolution:
+                        tw, th = e_reader_resolution; h, w = img.shape[:2]
+                        scale = min(tw / w, th / h)
+                        nw, nh = max(1, int(w * scale)), max(1, int(h * scale))
+                        img = cv2.resize(img, (nw, nh), interpolation=cv2.INTER_AREA)
+                        canvas = np.full((th, tw, 3), 255, dtype=np.uint8)
+                        x, y = (tw - nw) // 2, (th - nh) // 2
+                        canvas[y:y+nh, x:x+nw] = img
+                        img = canvas
+                    images.append(Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)).convert("RGB"))
+                    if progress_callback: progress_callback()
+            if not images:
+                raise ValueError("Aucune image à exporter")
+            images[0].save(output_path, "PDF", save_all=True, append_images=images[1:], resolution=150.0)
+        finally:
+            for img in images: img.close()
+
     def cleanup(self):
         if self.temp_dir and os.path.exists(self.temp_dir):
             shutil.rmtree(self.temp_dir)
@@ -1307,8 +1394,9 @@ class MainWindow(QMainWindow):
         self.input_dir = os.path.expanduser("~")
         self.output_dir = os.path.expanduser("~")
         self.color_mode = "système"
+        self.adjacent_merge_ratio = 0.55
         self.file_handler = FileHandler()
-        self.panel_detector = PanelDetector()
+        self.panel_detector = PanelDetector(adjacent_merge_ratio=self.adjacent_merge_ratio)
         self.current_page = 0
         self.total_pages = 0
         self.panels_by_page = []
@@ -1341,6 +1429,8 @@ class MainWindow(QMainWindow):
                 self.recent_files = config.get("recent_files", [])
                 self.e_reader_model = config.get("e_reader_model")
                 self.e_reader_resolution = tuple(config.get("e_reader_resolution")) if config.get("e_reader_resolution") else None
+                self.adjacent_merge_ratio = float(config.get("adjacent_merge_ratio", 0.55))
+                self.panel_detector.adjacent_merge_ratio = self.adjacent_merge_ratio
             except Exception:
                 pass
 
@@ -1352,6 +1442,7 @@ class MainWindow(QMainWindow):
             "recent_files": getattr(self, "recent_files", []),
             "e_reader_model": self.e_reader_model,
             "e_reader_resolution": self.e_reader_resolution,
+            "adjacent_merge_ratio": self.adjacent_merge_ratio,
         }
         try:
             with open(self.CONFIG_PATH, "w", encoding="utf-8") as f:
@@ -1410,6 +1501,20 @@ class MainWindow(QMainWindow):
         left_layout.addLayout(count_layout)
         self.expected_panel_count_spin.valueChanged.connect(self.adjust_panel_count)
 
+        merge_layout = QHBoxLayout()
+        merge_layout.addWidget(QLabel("Ratio fusion petite/grande :"))
+        self.adjacent_merge_ratio_spin = QDoubleSpinBox()
+        self.adjacent_merge_ratio_spin.setRange(0.0, 1.0)
+        self.adjacent_merge_ratio_spin.setSingleStep(0.05)
+        self.adjacent_merge_ratio_spin.setDecimals(2)
+        self.adjacent_merge_ratio_spin.setValue(self.adjacent_merge_ratio)
+        self.adjacent_merge_ratio_spin.setToolTip(
+            "0 désactive la fusion. 0,55 fusionne si la petite case représente au plus 55 % de la grande.")
+        self.adjacent_merge_ratio_spin.valueChanged.connect(self.set_adjacent_merge_ratio)
+        merge_layout.addWidget(self.adjacent_merge_ratio_spin)
+        merge_layout.addStretch()
+        left_layout.addLayout(merge_layout)
+
         edit_layout = QHBoxLayout()
         self.update_btn = QPushButton("Update")
         self.save_panels_btn = QPushButton("Save")
@@ -1446,7 +1551,7 @@ class MainWindow(QMainWindow):
         open_action = QAction('Ouvrir...', self)
         open_action.setShortcut('Ctrl+O')
         open_action.triggered.connect(self.open_file)
-        save_action = QAction('Sauvegarder CBZ...', self)
+        save_action = QAction('Sauvegarder...', self)
         save_action.setShortcut('Ctrl+S')
         save_action.triggered.connect(self.save_cbz)
         file_menu.addAction(open_action)
@@ -1487,6 +1592,20 @@ class MainWindow(QMainWindow):
             # Coche si déjà sélectionné
             if self.e_reader_model == model:
                 action.setChecked(True)
+
+    def set_adjacent_merge_ratio(self, value):
+        self.adjacent_merge_ratio = float(value)
+        self.panel_detector.adjacent_merge_ratio = self.adjacent_merge_ratio
+        self.save_config()
+        if not self.panels_by_page or self.current_page >= self.total_pages:
+            return
+        page_image = self.file_handler.get_page(self.current_page)
+        panels = self.panel_detector.detect_panels(page_image)
+        panels = self.panel_learning_model.filter_panels(page_image, panels)
+        self._set_detected_boxes(self.current_page, self._panel_boxes(panels))
+        self._set_current_panels(panels)
+        self.expected_panel_counts[self.current_page] = len(panels)
+        self.load_current_page()
 
     def set_input_dir(self):
         dir_ = QFileDialog.getExistingDirectory(self, "Choisir le dossier d'input", self.input_dir)
@@ -2505,39 +2624,34 @@ class MainWindow(QMainWindow):
         return page_x, page_y
 
     def save_cbz(self):
+        """Sauvegarde en CBZ (défaut), PDF ou dans les deux formats."""
         if not self.panels_by_page:
             QMessageBox.warning(self, "Attention", "Aucune page à sauvegarder")
             return
-        file_name, _ = QFileDialog.getSaveFileName(
-            self,
-            "Sauvegarder CBZ",
-            self.output_dir,
-            "Comics (*.cbz)"
-        )
-        if file_name:
-            try:
-                # Jauge de progression pour la sauvegarde
-                total = sum(len(row) for rows in self.panels_by_page for row in rows) + self.total_pages
-                progress = QProgressDialog("Sauvegarde en cours...", "Annuler", 0, total, self)
-                progress.setWindowTitle("Sauvegarde")
-                progress.setWindowModality(Qt.WindowModality.ApplicationModal)
-                progress.setMinimumDuration(0)
-                progress.setValue(0)
-                count = 0
-
-                def progress_callback():
-                    nonlocal count
-                    count += 1
-                    progress.setValue(count)
-                    QApplication.processEvents()
-                    if progress.wasCanceled():
-                        raise Exception("Sauvegarde annulée")
-
-                self.file_handler.save_cbz(file_name, self.panels_by_page, self.e_reader_resolution, progress_callback)
-                progress.close()
-                QMessageBox.information(self, "Succès", "Fichier CBZ sauvegardé avec succès!")
-            except Exception as e:
-                QMessageBox.critical(self, "Erreur", f"Erreur lors de la sauvegarde: {str(e)}")
+        file_name, selected_filter = QFileDialog.getSaveFileName(
+            self, "Sauvegarder", self.output_dir,
+            "CBZ (*.cbz);;PDF (*.pdf);;CBZ et PDF (*.cbz)")
+        if not file_name:
+            return
+        output_format = "pdf" if selected_filter.startswith("PDF") else ("both" if selected_filter.startswith("CBZ et PDF") else "cbz")
+        base = str(Path(file_name).with_suffix(""))
+        try:
+            unit = self.total_pages + sum(len(row) for rows in self.panels_by_page for row in rows)
+            progress = QProgressDialog("Sauvegarde en cours...", "Annuler", 0, unit * (2 if output_format == "both" else 1), self)
+            progress.setWindowModality(Qt.WindowModality.ApplicationModal)
+            progress.setMinimumDuration(0); count = 0
+            def callback():
+                nonlocal count
+                count += 1; progress.setValue(count); QApplication.processEvents()
+                if progress.wasCanceled(): raise Exception("Sauvegarde annulée")
+            if output_format in ("cbz", "both"):
+                self.file_handler.save_cbz(base + ".cbz", self.panels_by_page, self.e_reader_resolution, callback)
+            if output_format in ("pdf", "both"):
+                self.file_handler.save_pdf(base + ".pdf", self.panels_by_page, self.e_reader_resolution, callback)
+            progress.close()
+            QMessageBox.information(self, "Succès", "Export terminé")
+        except Exception as error:
+            QMessageBox.critical(self, "Erreur", f"Erreur lors de la sauvegarde : {error}")
 
     def closeEvent(self, event):
         self.file_handler.cleanup()
@@ -2742,40 +2856,111 @@ def run_gui():
     window.show()
     sys.exit(app.exec())
 
-def run_batch(input_folder, output_folder):
+def run_batch(input_folder, output_folder, output_format="cbz", merge_ratio=0.55):
 
-    print(f"Input  : {input_folder}")
-    print(f"Output : {output_folder}")
+    input_path = Path(input_folder).resolve()
+    output_path = Path(output_folder).resolve()
+
+    if not input_path.is_dir():
+        print(f"Erreur : dossier input absent ou invalide : {input_path}")
+        return
+
+    output_path.mkdir(parents=True, exist_ok=True)
 
     files = []
 
     for ext in (".pdf", ".cbz", ".cbr", ".zip", ".rar"):
-        files.extend(Path(input_folder).glob(f"*{ext}"))
+        files.extend(input_path.glob(f"*{ext}"))
+
+    files = sorted(files)
 
     print(f"{len(files)} fichier(s) trouvé(s)")
+
+    if not files:
+        return
 
     answer = input("Continuer ? [o/N] ")
 
     if answer.lower() not in ("o", "oui", "y", "yes"):
         return
 
-    for file in files:
-        print(f"Traitement : {file.name}")
+    detector = PanelDetector(adjacent_merge_ratio=merge_ratio)
 
-        # ici réutiliser ton code open_file()
-        # detect_panels()
-        # save_cbz()
+    for index, file in enumerate(files, start=1):
+
+        print(f"\n[{index}/{len(files)}] {file.name}")
+
+        file_handler = FileHandler()
+
+        try:
+            total_pages = file_handler.open_file(str(file))
+
+            panels_by_page = []
+
+            for page_idx in range(total_pages):
+
+                print(
+                    f"\r  Page {page_idx + 1}/{total_pages}",
+                    end="",
+                    flush=True,
+                )
+
+                page_img = file_handler.get_page(page_idx)
+
+                if page_idx < 2:
+                    panels = []
+                else:
+                    panels = detector.detect_panels(page_img)
+
+                rows = detector._group_panels_into_rows(panels)
+
+                panels_by_page.append(rows)
+
+            print()
+
+            generated = []
+            if output_format in ("cbz", "both"):
+                output_file = output_path / f"{file.stem}.cbz"
+                file_handler.save_cbz(str(output_file), panels_by_page, None, None)
+                generated.append(output_file.name)
+            if output_format in ("pdf", "both"):
+                output_file = output_path / f"{file.stem}.pdf"
+                file_handler.save_pdf(str(output_file), panels_by_page, None, None)
+                generated.append(output_file.name)
+            print(f"  OK -> {', '.join(generated)}")
+
+        except Exception as e:
+            print(f"  ERREUR : {e}")
+
+        finally:
+            file_handler.cleanup()
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--input")
     parser.add_argument("--output")
     parser.add_argument("--batch", action="store_true")
+    parser.add_argument("--merge-ratio", type=float, default=0.55,
+                        help="Ratio maximal petite/grande; 0 désactive la fusion")
+    parser.add_argument("--format", type=str.lower, choices=("cbz", "pdf", "both"),
+                        default="cbz", help="Format de sortie (défaut : cbz)")
 
     args = parser.parse_args()
 
     if args.batch:
-        run_batch(args.input, args.output)
+
+        if not args.input or not args.output:
+            print("Utilisation :")
+            print(
+                "python Main.py --batch "
+                "--input ./Sample "
+                "--output ./Sample/Output"
+            )
+            sys.exit(1)
+
+        run_batch(args.input, args.output, args.format, args.merge_ratio)
+
     else:
-        sys.exit(run_gui())
+        run_gui()

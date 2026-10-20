@@ -1,4 +1,5 @@
 node_modules/
 uploads/
+Sample/Output/
 .DS_Store
 npm-debug.log*
