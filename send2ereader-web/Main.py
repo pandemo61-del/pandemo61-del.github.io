@@ -2856,81 +2856,1083 @@ def run_gui():
     window.show()
     sys.exit(app.exec())
 
-def run_batch(input_folder, output_folder, output_format="cbz", merge_ratio=0.55):
+def parse_page_selection(page_selection):
+    """
+    Convertit une sélection de pages en ensemble d'entiers.
 
+    Exemples :
+        None         -> None
+        "8"          -> {8}
+        "8-12"       -> {8, 9, 10, 11, 12}
+        "1,5,8-10"   -> {1, 5, 8, 9, 10}
+        8            -> {8}
+        [1, 5, 8]    -> {1, 5, 8}
+    """
+    if page_selection is None:
+        return None
+
+    if isinstance(page_selection, int):
+        if page_selection < 1:
+            raise ValueError(
+                "Les numéros de page doivent commencer à 1."
+            )
+
+        return {page_selection}
+
+    if isinstance(page_selection, (list, tuple, set)):
+        selected_pages = {
+            int(page_number)
+            for page_number in page_selection
+        }
+
+        if any(
+            page_number < 1
+            for page_number in selected_pages
+        ):
+            raise ValueError(
+                "Les numéros de page doivent commencer à 1."
+            )
+
+        return selected_pages or None
+
+    if not isinstance(page_selection, str):
+        raise ValueError(
+            "Le paramètre pages doit être une chaîne, "
+            "un entier ou une collection d'entiers."
+        )
+
+    page_selection = page_selection.strip()
+
+    if not page_selection:
+        return None
+
+    selected_pages = set()
+
+    for raw_part in page_selection.split(","):
+        part = raw_part.strip()
+
+        if not part:
+            continue
+
+        if "-" in part:
+            start_text, end_text = part.split("-", 1)
+
+            start_text = start_text.strip()
+            end_text = end_text.strip()
+
+            if not start_text or not end_text:
+                raise ValueError(
+                    f"Plage de pages invalide : {part}"
+                )
+
+            start_page = int(start_text)
+            end_page = int(end_text)
+
+            if start_page < 1 or end_page < 1:
+                raise ValueError(
+                    "Les numéros de page doivent commencer à 1."
+                )
+
+            if start_page > end_page:
+                raise ValueError(
+                    f"Plage inversée interdite : {part}"
+                )
+
+            selected_pages.update(
+                range(start_page, end_page + 1)
+            )
+
+        else:
+            page_number = int(part)
+
+            if page_number < 1:
+                raise ValueError(
+                    "Les numéros de page doivent commencer à 1."
+                )
+
+            selected_pages.add(page_number)
+
+    return selected_pages or None
+
+
+def find_input_files(input_path):
+    """
+    Recherche les fichiers BD pris en charge dans le dossier d'entrée.
+    """
+    supported_extensions = {
+        ".pdf",
+        ".cbz",
+        ".cbr",
+        ".zip",
+        ".rar",
+    }
+
+    return sorted(
+        [
+            path
+            for path in input_path.iterdir()
+            if path.is_file()
+            and path.suffix.lower() in supported_extensions
+        ],
+        key=lambda path: path.name.casefold(),
+    )
+
+
+def load_existing_panel_json(json_file):
+    """
+    Charge le JSON existant.
+
+    Retourne :
+        existing_json
+        existing_pages, indexé par numéro de page
+    """
+    if not json_file.exists():
+        return None, {}
+
+    try:
+        with open(
+            json_file,
+            "r",
+            encoding="utf-8",
+        ) as input_json:
+            existing_json = json.load(input_json)
+
+    except (
+        OSError,
+        json.JSONDecodeError,
+    ) as error:
+        raise ValueError(
+            f"Impossible de charger le JSON existant "
+            f"{json_file} : {error}"
+        ) from error
+
+    if not isinstance(existing_json, dict):
+        raise ValueError(
+            "La racine du JSON existant doit être un objet."
+        )
+
+    raw_pages = existing_json.get("pages", [])
+
+    if not isinstance(raw_pages, list):
+        raise ValueError(
+            "Le champ pages du JSON existant doit être une liste."
+        )
+
+    existing_pages = {}
+
+    for page_info in raw_pages:
+        if not isinstance(page_info, dict):
+            continue
+
+        page_number = page_info.get("page")
+
+        if not isinstance(page_number, int):
+            continue
+
+        existing_pages[page_number] = page_info
+
+    return existing_json, existing_pages
+
+
+def select_pages_to_process(
+    total_pages,
+    selected_pages,
+):
+    """
+    Retourne les pages valides et les pages hors limites.
+    """
+    if selected_pages is None:
+        return list(range(1, total_pages + 1)), []
+
+    valid_pages = sorted(
+        page_number
+        for page_number in selected_pages
+        if 1 <= page_number <= total_pages
+    )
+
+    invalid_pages = sorted(
+        page_number
+        for page_number in selected_pages
+        if page_number < 1
+        or page_number > total_pages
+    )
+
+    return valid_pages, invalid_pages
+
+
+def build_detected_panels(
+    ordered_panels,
+    page_number,
+):
+    """
+    Construit la liste detected au format JSON.
+    """
+    detected_panels = []
+
+    for panel_number, panel in enumerate(
+        ordered_panels,
+        start=1,
+    ):
+        detected_panels.append(
+            {
+                "id": panel_number,
+                "image": (
+                    f"page_{page_number:04d}_"
+                    f"{panel_number:03d}_panel.jpg"
+                ),
+                "size": [
+                    int(panel.x),
+                    int(panel.y),
+                    int(panel.width),
+                    int(panel.height),
+                ],
+                "confidence": float(panel.confidence),
+            }
+        )
+
+    return detected_panels
+
+
+def build_expected_from_detected(detected_panels):
+    """
+    Initialise expected depuis detected pour une nouvelle page.
+
+    Le champ image n'est volontairement pas repris.
+    """
+    return [
+        {
+            "id": panel_info["id"],
+            "size": panel_info["size"].copy(),
+            "confidence": panel_info["confidence"],
+        }
+        for panel_info in detected_panels
+    ]
+
+
+def get_preserved_expected(
+    existing_page,
+    detected_panels,
+):
+    """
+    Conserve expected, panels_expected et validated lorsque
+    la page existe déjà.
+
+    Initialise expected depuis detected uniquement pour une
+    nouvelle page ou lorsque expected est absent/invalide.
+    """
+    if existing_page is None:
+        expected_panels = build_expected_from_detected(
+            detected_panels
+        )
+
+        return (
+            expected_panels,
+            len(expected_panels),
+            False,
+        )
+
+    existing_expected = existing_page.get("expected")
+
+    if isinstance(existing_expected, list):
+        expected_panels = existing_expected
+    else:
+        expected_panels = build_expected_from_detected(
+            detected_panels
+        )
+
+    existing_expected_count = existing_page.get(
+        "panels_expected"
+    )
+
+    if isinstance(existing_expected_count, int):
+        panels_expected = existing_expected_count
+    else:
+        panels_expected = len(expected_panels)
+
+    validated = bool(
+        existing_page.get(
+            "validated",
+            False,
+        )
+    )
+
+    return (
+        expected_panels,
+        panels_expected,
+        validated,
+    )
+
+
+def extract_panel_size(panel_info):
+    """
+    Lit size au format [x, y, width, height].
+
+    Retourne None pour un panel JSON invalide.
+    """
+    if not isinstance(panel_info, dict):
+        return None
+
+    size = panel_info.get("size")
+
+    if (
+        not isinstance(size, list)
+        or len(size) != 4
+        or not all(
+            isinstance(value, (int, float))
+            for value in size
+        )
+    ):
+        return None
+
+    x, y, width, height = (
+        int(value)
+        for value in size
+    )
+
+    if width <= 0 or height <= 0:
+        return None
+
+    return x, y, width, height
+
+
+def draw_panel_annotation(
+    image,
+    panel_id,
+    size,
+    color,
+    prefix,
+    rectangle_thickness,
+    label_offset_y,
+):
+    """
+    Dessine un cadre et son étiquette sur l'image.
+
+    color utilise le format OpenCV BGR.
+    """
+    x, y, width, height = size
+
+    image_height, image_width = image.shape[:2]
+
+    left = max(0, min(x, image_width - 1))
+    top = max(0, min(y, image_height - 1))
+    right = max(
+        left,
+        min(x + width, image_width - 1),
+    )
+    bottom = max(
+        top,
+        min(y + height, image_height - 1),
+    )
+
+    cv2.rectangle(
+        image,
+        (left, top),
+        (right, bottom),
+        color,
+        rectangle_thickness,
+    )
+
+    label = f"{prefix}{panel_id}"
+
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    font_scale = max(
+        0.6,
+        min(image_width, image_height) / 1200,
+    )
+    font_thickness = max(
+        2,
+        int(round(font_scale * 2)),
+    )
+
+    (
+        label_width,
+        label_height,
+    ), baseline = cv2.getTextSize(
+        label,
+        font,
+        font_scale,
+        font_thickness,
+    )
+
+    label_x = min(
+        max(left + 6, 0),
+        max(0, image_width - label_width - 8),
+    )
+
+    requested_label_y = (
+        top
+        + label_height
+        + 8
+        + label_offset_y
+    )
+
+    label_y = min(
+        max(
+            requested_label_y,
+            label_height + 6,
+        ),
+        image_height - baseline - 6,
+    )
+
+    background_left = max(
+        label_x - 4,
+        0,
+    )
+
+    background_top = max(
+        label_y - label_height - 4,
+        0,
+    )
+
+    background_right = min(
+        label_x + label_width + 4,
+        image_width - 1,
+    )
+
+    background_bottom = min(
+        label_y + baseline + 4,
+        image_height - 1,
+    )
+
+    cv2.rectangle(
+        image,
+        (
+            background_left,
+            background_top,
+        ),
+        (
+            background_right,
+            background_bottom,
+        ),
+        color,
+        -1,
+    )
+
+    cv2.putText(
+        image,
+        label,
+        (label_x, label_y),
+        font,
+        font_scale,
+        (255, 255, 255),
+        font_thickness,
+        cv2.LINE_AA,
+    )
+
+
+def create_annotated_page(
+    page_img,
+    detected_panels,
+    expected_panels,
+):
+    """
+    Crée une image de contrôle.
+
+    Rouge :
+        panels détectés automatiquement.
+
+    Vert :
+        panels attendus.
+
+    Les cadres détectés sont plus épais. Lorsqu'un expected
+    correspond exactement à un detected, une bordure rouge
+    reste visible autour de la ligne verte.
+    """
+    annotated_image = page_img.copy()
+
+    # Detected en rouge, dessinés en premier.
+    for panel_info in detected_panels:
+        size = extract_panel_size(panel_info)
+
+        if size is None:
+            continue
+
+        draw_panel_annotation(
+            image=annotated_image,
+            panel_id=panel_info.get("id", "?"),
+            size=size,
+            color=(0, 0, 255),
+            prefix="D",
+            rectangle_thickness=6,
+            label_offset_y=0,
+        )
+
+    # Expected en vert, dessinés ensuite avec un trait plus fin.
+    for panel_info in expected_panels:
+        size = extract_panel_size(panel_info)
+
+        if size is None:
+            continue
+
+        draw_panel_annotation(
+            image=annotated_image,
+            panel_id=panel_info.get("id", "?"),
+            size=size,
+            color=(0, 200, 0),
+            prefix="E",
+            rectangle_thickness=3,
+            label_offset_y=35,
+        )
+
+    return annotated_image
+
+
+def save_annotated_page(
+    image_output_path,
+    file_stem,
+    page_number,
+    annotated_image,
+):
+    """
+    Enregistre le JPG annoté et retourne son nom.
+    """
+    page_name = (
+        f"{file_stem}_"
+        f"page_{page_number:04d}_"
+        f"000_page.jpg"
+    )
+
+    page_file = image_output_path / page_name
+
+    if not cv2.imwrite(
+        str(page_file),
+        annotated_image,
+    ):
+        raise OSError(
+            f"Impossible d'enregistrer la page : {page_file}"
+        )
+
+    return page_name
+
+
+def build_page_info(
+    page_number,
+    page_name,
+    page_img,
+    detected_panels,
+    expected_panels,
+    panels_expected,
+    validated,
+):
+    """
+    Construit le bloc JSON correspondant à une page.
+    """
+    return {
+        "_comment": (
+            "detected est recalculé lors du traitement. "
+            "expected, panels_expected et validated sont "
+            "conservés lorsqu'ils existent. "
+            "size = [x, y, width, height]."
+        ),
+        "page": page_number,
+        "image": page_name,
+        "width": int(page_img.shape[1]),
+        "height": int(page_img.shape[0]),
+        "validated": validated,
+        "panels_detected": len(detected_panels),
+        "panels_expected": panels_expected,
+        "detected": detected_panels,
+        "expected": expected_panels,
+    }
+
+
+def build_panel_json(
+    source_file,
+    total_pages,
+    pages_to_process,
+    merged_pages,
+):
+    """
+    Construit le JSON général.
+    """
+    return {
+        "_comment": (
+            "detected est recalculé pour les pages traitées. "
+            "expected est conservé lorsqu'il existe. "
+            "size contient [x, y, width, height]."
+        ),
+        "version": 1,
+        "source": source_file.name,
+        "source_page_count": total_pages,
+        "processed_page_count": len(
+            pages_to_process
+        ),
+        "processed_pages": pages_to_process,
+        "coordinate_system": {
+            "origin": "top-left",
+            "x_direction": "right",
+            "y_direction": "down",
+            "unit": "pixel",
+            "size_format": [
+                "x",
+                "y",
+                "width",
+                "height",
+            ],
+        },
+        "annotation": {
+            "detected": {
+                "color": "red",
+                "label_prefix": "D",
+            },
+            "expected": {
+                "color": "green",
+                "label_prefix": "E",
+            },
+        },
+        "pages": [
+            merged_pages[page_number]
+            for page_number in sorted(merged_pages)
+        ],
+    }
+
+
+def save_json_atomically(
+    json_file,
+    json_data,
+):
+    """
+    Écrit le JSON dans un fichier temporaire puis le remplace.
+    """
+    temporary_json_file = (
+        json_file.with_suffix(".json.tmp")
+    )
+
+    try:
+        with open(
+            temporary_json_file,
+            "w",
+            encoding="utf-8",
+        ) as output_json:
+            json.dump(
+                json_data,
+                output_json,
+                indent=2,
+                ensure_ascii=False,
+            )
+
+        os.replace(
+            temporary_json_file,
+            json_file,
+        )
+
+    finally:
+        if temporary_json_file.exists():
+            try:
+                temporary_json_file.unlink()
+            except OSError:
+                pass
+
+
+def export_processed_pages(
+    file_handler,
+    output_path,
+    source_file,
+    output_format,
+    processed_page_paths,
+    processed_panels_by_page,
+):
+    """
+    Exporte les pages traitées en CBZ et/ou PDF.
+    """
+    generated = []
+
+    export_handler = FileHandler()
+    export_handler.pages = list(
+        processed_page_paths
+    )
+    export_handler.current_file = (
+        file_handler.current_file
+    )
+
+    try:
+        if output_format in (
+            "cbz",
+            "both",
+        ):
+            cbz_file = (
+                output_path
+                / f"{source_file.stem}.cbz"
+            )
+
+            export_handler.save_cbz(
+                str(cbz_file),
+                processed_panels_by_page,
+                None,
+                None,
+            )
+
+            generated.append(
+                cbz_file.name
+            )
+
+        if output_format in (
+            "pdf",
+            "both",
+        ):
+            pdf_file = (
+                output_path
+                / f"{source_file.stem}.pdf"
+            )
+
+            export_handler.save_pdf(
+                str(pdf_file),
+                processed_panels_by_page,
+                None,
+                None,
+            )
+
+            generated.append(
+                pdf_file.name
+            )
+
+    finally:
+        # Ces chemins temporaires appartiennent au FileHandler
+        # principal. Ne pas appeler cleanup() ici.
+        export_handler.pages = []
+        export_handler.current_file = None
+
+    return generated
+
+
+def run_batch(
+    input_folder,
+    output_folder,
+    output_format="cbz",
+    merge_ratio=0.55,
+    pages=None,
+):
     input_path = Path(input_folder).resolve()
     output_path = Path(output_folder).resolve()
 
     if not input_path.is_dir():
-        print(f"Erreur : dossier input absent ou invalide : {input_path}")
+        print(
+            "Erreur : dossier input absent ou invalide : "
+            f"{input_path}"
+        )
         return
 
-    output_path.mkdir(parents=True, exist_ok=True)
+    if output_format not in (
+        "cbz",
+        "pdf",
+        "both",
+    ):
+        print(
+            "Erreur : format de sortie invalide. "
+            "Valeurs acceptées : cbz, pdf, both."
+        )
+        return
 
-    files = []
+    if not 0.0 <= merge_ratio <= 1.0:
+        print(
+            "Erreur : --merge-ratio doit être compris "
+            "entre 0 et 1."
+        )
+        return
 
-    for ext in (".pdf", ".cbz", ".cbr", ".zip", ".rar"):
-        files.extend(input_path.glob(f"*{ext}"))
+    try:
+        selected_pages = parse_page_selection(
+            pages
+        )
+    except (TypeError, ValueError) as error:
+        print(
+            "Erreur dans la sélection des pages : "
+            f"{error}"
+        )
+        return
 
-    files = sorted(files)
+    output_path.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
-    print(f"{len(files)} fichier(s) trouvé(s)")
+    image_output_path = (
+        output_path / "Output"
+    )
+
+    image_output_path.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    files = find_input_files(input_path)
+
+    print(
+        f"{len(files)} fichier(s) trouvé(s)"
+    )
 
     if not files:
         return
 
+    if selected_pages is None:
+        print(
+            "Pages sélectionnées : toutes"
+        )
+    else:
+        print(
+            "Pages sélectionnées : "
+            + ", ".join(
+                str(page_number)
+                for page_number
+                in sorted(selected_pages)
+            )
+        )
+
     answer = input("Continuer ? [o/N] ")
 
-    if answer.lower() not in ("o", "oui", "y", "yes"):
+    if answer.lower() not in (
+        "o",
+        "oui",
+        "y",
+        "yes",
+    ):
         return
 
-    detector = PanelDetector(adjacent_merge_ratio=merge_ratio)
+    detector = PanelDetector(
+        adjacent_merge_ratio=merge_ratio,
+    )
 
-    for index, file in enumerate(files, start=1):
-
-        print(f"\n[{index}/{len(files)}] {file.name}")
+    for file_index, source_file in enumerate(
+        files,
+        start=1,
+    ):
+        print(
+            f"\n[{file_index}/{len(files)}] "
+            f"{source_file.name}"
+        )
 
         file_handler = FileHandler()
 
         try:
-            total_pages = file_handler.open_file(str(file))
+            total_pages = (
+                file_handler.open_file(
+                    str(source_file)
+                )
+            )
 
-            panels_by_page = []
+            json_file = (
+                image_output_path
+                / f"{source_file.stem}_panels.json"
+            )
 
-            for page_idx in range(total_pages):
+            (
+                existing_json,
+                existing_pages,
+            ) = load_existing_panel_json(
+                json_file
+            )
+
+            if existing_json is not None:
+                print(
+                    "  JSON existant chargé : "
+                    "expected, panels_expected et "
+                    "validated seront conservés."
+                )
+
+            (
+                pages_to_process,
+                invalid_pages,
+            ) = select_pages_to_process(
+                total_pages,
+                selected_pages,
+            )
+
+            if invalid_pages:
+                print(
+                    "  Attention : pages hors limites "
+                    "ignorées : "
+                    + ", ".join(
+                        str(page_number)
+                        for page_number
+                        in invalid_pages
+                    )
+                )
+
+            if not pages_to_process:
+                print(
+                    "  Aucune page valide à traiter."
+                )
+                continue
+
+            # Copie superficielle suffisante :
+            # seules les pages traitées sont remplacées.
+            merged_pages = dict(
+                existing_pages
+            )
+
+            processed_page_paths = []
+            processed_panels_by_page = []
+
+            for processing_index, page_number in enumerate(
+                pages_to_process,
+                start=1,
+            ):
+                page_idx = page_number - 1
 
                 print(
-                    f"\r  Page {page_idx + 1}/{total_pages}",
+                    "\r  Traitement page "
+                    f"{page_number} "
+                    f"({processing_index}/"
+                    f"{len(pages_to_process)})",
                     end="",
                     flush=True,
                 )
 
-                page_img = file_handler.get_page(page_idx)
+                # 1. Charger l'image source.
+                page_img = (
+                    file_handler.get_page(
+                        page_idx
+                    )
+                )
 
+                if page_img is None:
+                    raise ValueError(
+                        "Impossible de lire la page "
+                        f"{page_number}"
+                    )
+
+                # 2. Recalculer la détection.
                 if page_idx < 2:
                     panels = []
                 else:
-                    panels = detector.detect_panels(page_img)
+                    panels = (
+                        detector.detect_panels(
+                            page_img
+                        )
+                    )
 
-                rows = detector._group_panels_into_rows(panels)
+                # 3. Regrouper et trier les panels.
+                rows = (
+                    detector
+                    ._group_panels_into_rows(
+                        panels
+                    )
+                )
 
-                panels_by_page.append(rows)
+                ordered_panels = (
+                    PanelDetector
+                    .sort_panels_for_reading_order(
+                        [
+                            panel
+                            for row in rows
+                            for panel in row
+                        ]
+                    )
+                )
+
+                # 4. Construire detected.
+                detected_panels = (
+                    build_detected_panels(
+                        ordered_panels,
+                        page_number,
+                    )
+                )
+
+                # 5. Conserver expected existant.
+                existing_page = (
+                    existing_pages.get(
+                        page_number
+                    )
+                )
+
+                (
+                    expected_panels,
+                    panels_expected,
+                    validated,
+                ) = get_preserved_expected(
+                    existing_page,
+                    detected_panels,
+                )
+
+                # 6. Annoter detected en rouge
+                # et expected en vert.
+                annotated_page = (
+                    create_annotated_page(
+                        page_img,
+                        detected_panels,
+                        expected_panels,
+                    )
+                )
+
+                # 7. Enregistrer le JPG annoté.
+                page_name = save_annotated_page(
+                    image_output_path,
+                    source_file.stem,
+                    page_number,
+                    annotated_page,
+                )
+
+                # 8. Reconstruire uniquement la page traitée.
+                page_info = build_page_info(
+                    page_number=page_number,
+                    page_name=page_name,
+                    page_img=page_img,
+                    detected_panels=detected_panels,
+                    expected_panels=expected_panels,
+                    panels_expected=panels_expected,
+                    validated=validated,
+                )
+
+                merged_pages[page_number] = (
+                    page_info
+                )
+
+                processed_page_paths.append(
+                    file_handler.pages[page_idx]
+                )
+
+                processed_panels_by_page.append(
+                    rows
+                )
 
             print()
 
-            generated = []
-            if output_format in ("cbz", "both"):
-                output_file = output_path / f"{file.stem}.cbz"
-                file_handler.save_cbz(str(output_file), panels_by_page, None, None)
-                generated.append(output_file.name)
-            if output_format in ("pdf", "both"):
-                output_file = output_path / f"{file.stem}.pdf"
-                file_handler.save_pdf(str(output_file), panels_by_page, None, None)
-                generated.append(output_file.name)
-            print(f"  OK -> {', '.join(generated)}")
+            # 9. Reconstruire et sauvegarder le JSON.
+            json_data = build_panel_json(
+                source_file=source_file,
+                total_pages=total_pages,
+                pages_to_process=pages_to_process,
+                merged_pages=merged_pages,
+            )
 
-        except Exception as e:
-            print(f"  ERREUR : {e}")
+            save_json_atomically(
+                json_file,
+                json_data,
+            )
+
+            generated = [
+                json_file.name
+            ]
+
+            # 10. Exporter les pages traitées.
+            generated.extend(
+                export_processed_pages(
+                    file_handler=file_handler,
+                    output_path=output_path,
+                    source_file=source_file,
+                    output_format=output_format,
+                    processed_page_paths=(
+                        processed_page_paths
+                    ),
+                    processed_panels_by_page=(
+                        processed_panels_by_page
+                    ),
+                )
+            )
+
+            print(
+                f"  OK -> {', '.join(generated)}"
+            )
+
+            print(
+                "  Pages annotées et JSON -> "
+                f"{image_output_path}"
+            )
+
+        except Exception as error:
+            print(
+                f"  ERREUR : {error}"
+            )
 
         finally:
             file_handler.cleanup()
@@ -2946,6 +3948,7 @@ if __name__ == "__main__":
                         help="Ratio maximal petite/grande; 0 désactive la fusion")
     parser.add_argument("--format", type=str.lower, choices=("cbz", "pdf", "both"),
                         default="cbz", help="Format de sortie (défaut : cbz)")
+    parser.add_argument("--pages", type=str, default="all", help="Pages à traiter. Exemples : 8 | 8-12 | 1,5,8-10")
 
     args = parser.parse_args()
 
@@ -2960,7 +3963,10 @@ if __name__ == "__main__":
             )
             sys.exit(1)
 
-        run_batch(args.input, args.output, args.format, args.merge_ratio)
+        run_batch(args.input, args.output, args.format, args.merge_ratio,args.pages)
 
     else:
         run_gui()
+
+
+#      python Main.py --batch --input ./Sample --output ./Sample/Output --format pdf --pages 1-8
