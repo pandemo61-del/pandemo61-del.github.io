@@ -885,11 +885,62 @@ class PanelDetector:
         
         return confidence
 
+    def _remove_container_panels(self, panels: List[Panel]) -> List[Panel]:
+        """Retire un faux panel qui englobe plusieurs cases indépendantes.
+
+        Cette décision utilise uniquement la géométrie des candidats détectés,
+        jamais le contenu de ``expected`` ni un nombre de cases imposé.
+        """
+        if len(panels) < 3:
+            return panels
+
+        kept = []
+        for container in panels:
+            container_area = container.width * container.height
+            children = []
+            for candidate in panels:
+                if candidate is container:
+                    continue
+                candidate_area = candidate.width * candidate.height
+                if candidate_area >= container_area * 0.90:
+                    continue
+                if self._overlap_over_smaller(candidate, container) >= 0.92:
+                    children.append(candidate)
+
+            independent = []
+            for candidate in sorted(
+                children,
+                key=lambda panel: panel.width * panel.height,
+                reverse=True,
+            ):
+                if any(
+                    self._intersection_over_union(candidate, other) >= 0.35
+                    or self._overlap_over_smaller(candidate, other) >= 0.80
+                    for other in independent
+                ):
+                    continue
+                independent.append(candidate)
+
+            covered_area = sum(
+                child.width * child.height
+                for child in independent
+            )
+            coverage = covered_area / max(container_area, 1)
+
+            if len(independent) >= 2 and coverage >= 0.72:
+                continue
+            kept.append(container)
+
+        return kept
+
     def _remove_duplicates(self, panels: List[Panel]) -> List[Panel]:
         """Supprime les panels en double basé sur le chevauchement"""
         if not panels:
             return []
-        
+
+        # Élimine d'abord les grands rectangles qui réunissent plusieurs cases.
+        panels = self._remove_container_panels(panels)
+
         # Trie par confiance décroissante
         sorted_panels = sorted(panels, key=lambda p: p.confidence, reverse=True)
         unique_panels = []

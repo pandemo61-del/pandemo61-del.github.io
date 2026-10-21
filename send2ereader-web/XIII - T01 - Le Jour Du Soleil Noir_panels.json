@@ -1,0 +1,788 @@
+{
+  "_comment": "detected est recalculé pour les pages traitées. expected est conservé lorsqu'il existe. size contient [x, y, width, height].",
+  "version": 1,
+  "source": "XIII - T01 - Le Jour Du Soleil Noir.cbz",
+  "source_page_count": 56,
+  "processed_page_count": 8,
+  "processed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "coordinate_system": {
+    "origin": "top-left",
+    "x_direction": "right",
+    "y_direction": "down",
+    "unit": "pixel",
+    "size_format": [
+      "x",
+      "y",
+      "width",
+      "height"
+    ]
+  },
+  "annotation": {
+    "detected": {
+      "color": "red",
+      "label_prefix": "D"
+    },
+    "expected": {
+      "color": "green",
+      "label_prefix": "E"
+    }
+  },
+  "pages": [
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 1,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0001_000_page.jpg",
+      "width": 1250,
+      "height": 1717,
+      "validated": false,
+      "panels_detected": 0,
+      "panels_expected": 0,
+      "detected": [],
+      "expected": []
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 2,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0002_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 0,
+      "panels_expected": 0,
+      "detected": [],
+      "expected": []
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 3,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0003_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 1,
+      "panels_expected": 1,
+      "detected": [
+        {
+          "id": 1,
+          "image": "page_0003_001_panel.jpg",
+          "size": [
+            332,
+            1409,
+            523,
+            128
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "size": [
+            332,
+            1409,
+            523,
+            128
+          ],
+          "confidence": 1.0
+        }
+      ]
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 4,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0004_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 4,
+      "panels_expected": 4,
+      "detected": [
+        {
+          "id": 1,
+          "image": "page_0004_001_panel.jpg",
+          "size": [
+            36,
+            50,
+            1135,
+            999
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "image": "page_0004_002_panel.jpg",
+          "size": [
+            424,
+            558,
+            459,
+            493
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "image": "page_0004_003_panel.jpg",
+          "size": [
+            457,
+            558,
+            717,
+            997
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "image": "page_0004_004_panel.jpg",
+          "size": [
+            36,
+            1061,
+            408,
+            492
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "size": [
+            36,
+            50,
+            1135,
+            490
+          ],
+          "confidence": 1
+        },
+        {
+          "id": 2,
+          "size": [
+            36,
+            555,
+            375,
+            500
+          ],
+          "confidence": 1
+        },
+        {
+          "id": 3,
+          "size": [
+            420,
+            558,
+            750,
+            500
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "size": [
+            36,
+            1061,
+            408,
+            492
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "size": [
+            450,
+            1061,
+            730,
+            492
+          ],
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 5,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0005_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 6,
+      "panels_expected": 7,
+      "detected": [
+        {
+          "id": 1,
+          "image": "page_0005_001_panel.jpg",
+          "size": [
+            34,
+            49,
+            643,
+            496
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "image": "page_0005_002_panel.jpg",
+          "size": [
+            688,
+            49,
+            480,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "image": "page_0005_003_panel.jpg",
+          "size": [
+            34,
+            555,
+            442,
+            497
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "image": "page_0005_004_panel.jpg",
+          "size": [
+            488,
+            554,
+            678,
+            999
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "image": "page_0005_005_panel.jpg",
+          "size": [
+            32,
+            1061,
+            546,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "image": "page_0005_006_panel.jpg",
+          "size": [
+            906,
+            1061,
+            269,
+            492
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "size": [
+            34,
+            49,
+            643,
+            496
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "size": [
+            688,
+            49,
+            480,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "size": [
+            34,
+            555,
+            442,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "size": [
+            488,
+            555,
+            678,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "size": [
+            32,
+            1061,
+            546,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "size": [
+            595,
+            1061,
+            295,
+            492
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 7,
+          "size": [
+            906,
+            1061,
+            260,
+            492
+          ],
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 6,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0006_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 6,
+      "panels_expected": 7,
+      "detected": [
+        {
+          "id": 1,
+          "image": "page_0006_001_panel.jpg",
+          "size": [
+            44,
+            59,
+            644,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "image": "page_0006_002_panel.jpg",
+          "size": [
+            701,
+            59,
+            480,
+            496
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "image": "page_0006_003_panel.jpg",
+          "size": [
+            43,
+            559,
+            444,
+            500
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "image": "page_0006_004_panel.jpg",
+          "size": [
+            497,
+            566,
+            688,
+            999
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "image": "page_0006_005_panel.jpg",
+          "size": [
+            45,
+            1070,
+            373,
+            492
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "image": "page_0006_006_panel.jpg",
+          "size": [
+            430,
+            1071,
+            375,
+            492
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "size": [
+            44,
+            59,
+            644,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "size": [
+            701,
+            59,
+            480,
+            496
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "size": [
+            43,
+            560,
+            444,
+            500
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "size": [
+            497,
+            560,
+            688,
+            500
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "size": [
+            45,
+            1070,
+            373,
+            492
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "size": [
+            430,
+            1071,
+            375,
+            492
+          ],
+          "confidence": 1
+        },
+        {
+          "id": 7,
+          "size": [
+            820,
+            1071,
+            360,
+            492
+          ],
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 7,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0007_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 6,
+      "panels_expected": 6,
+      "detected": [
+        {
+          "id": 1,
+          "image": "page_0007_001_panel.jpg",
+          "size": [
+            25,
+            49,
+            391,
+            498
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "image": "page_0007_002_panel.jpg",
+          "size": [
+            428,
+            49,
+            375,
+            498
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "image": "page_0007_003_panel.jpg",
+          "size": [
+            815,
+            46,
+            342,
+            499
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "image": "page_0007_004_panel.jpg",
+          "size": [
+            25,
+            556,
+            815,
+            997
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "image": "page_0007_005_panel.jpg",
+          "size": [
+            278,
+            554,
+            880,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "image": "page_0007_006_panel.jpg",
+          "size": [
+            853,
+            1059,
+            316,
+            491
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "size": [
+            25,
+            49,
+            391,
+            498
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "size": [
+            428,
+            49,
+            375,
+            498
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "size": [
+            815,
+            46,
+            342,
+            499
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "size": [
+            25,
+            556,
+            815,
+            997
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "size": [
+            278,
+            554,
+            880,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "size": [
+            853,
+            1059,
+            316,
+            491
+          ],
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "_comment": "detected est recalculé lors du traitement. expected, panels_expected et validated sont conservés lorsqu'ils existent. size = [x, y, width, height].",
+      "page": 8,
+      "image": "XIII - T01 - Le Jour Du Soleil Noir_page_0008_000_page.jpg",
+      "width": 1200,
+      "height": 1657,
+      "validated": false,
+      "panels_detected": 6,
+      "panels_expected": 6,
+      "detected": [
+        {
+          "id": 1,
+          "image": "page_0008_001_panel.jpg",
+          "size": [
+            35,
+            46,
+            359,
+            497
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "image": "page_0008_002_panel.jpg",
+          "size": [
+            406,
+            48,
+            423,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "image": "page_0008_003_panel.jpg",
+          "size": [
+            842,
+            46,
+            326,
+            497
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "image": "page_0008_004_panel.jpg",
+          "size": [
+            35,
+            554,
+            711,
+            997
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "image": "page_0008_005_panel.jpg",
+          "size": [
+            407,
+            555,
+            761,
+            493
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "image": "page_0008_006_panel.jpg",
+          "size": [
+            758,
+            1059,
+            418,
+            494
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "size": [
+            35,
+            46,
+            359,
+            497
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 2,
+          "size": [
+            406,
+            48,
+            423,
+            495
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 3,
+          "size": [
+            842,
+            46,
+            326,
+            497
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 4,
+          "size": [
+            35,
+            554,
+            711,
+            997
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 5,
+          "size": [
+            407,
+            555,
+            761,
+            493
+          ],
+          "confidence": 0.9
+        },
+        {
+          "id": 6,
+          "size": [
+            758,
+            1059,
+            418,
+            494
+          ],
+          "confidence": 0.9
+        }
+      ]
+    }
+  ]
+}
