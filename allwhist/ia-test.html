@@ -110,7 +110,7 @@
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Réussites</h3>
@@ -131,6 +131,14 @@
                         <i class="fas fa-percentage text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
                     </div>
                     <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Passes</h3>
+                        <i class="fas fa-forward text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statPass" class="text-4xl font-bold text-gray-800">0</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
@@ -172,6 +180,7 @@
             db, auth, collection, getDocs, query, where, orderBy, limit,
             doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
+        import { chooseWhistBid, chooseMisereDiscard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const BOT_UID = "AI-TEST-BOT";
@@ -181,34 +190,7 @@
             document.getElementById('file-warning')?.classList.remove('hidden');
         }
 
-        // --- Logic IA Simulation (Whist Belge) ---
-        function evaluerForce(hand) {
-            const forceBrute = hand.reduce((acc, c) => {
-                if (c.valeur === 14) return acc + 4; // As
-                if (c.valeur === 13) return acc + 3; // Roi
-                if (c.valeur === 12) return acc + 2; // Dame
-                if (c.valeur === 11) return acc + 1; // Valet
-                return acc;
-            }, 0);
-
-            const repart = { COEUR: 0, CARREAU: 0, TREFLE: 0, PIQUE: 0 };
-            hand.forEach(c => repart[c.couleur]++);
-
-            let bestCol = 'PIQUE'; let max = 0;
-            Object.entries(repart).forEach(([col, nb]) => {
-                if (nb > max) { max = nb; bestCol = col; }
-            });
-
-            let bonusVides = 0;
-            Object.values(repart).forEach(nb => {
-                if (nb === 0) bonusVides += 3;
-                if (nb === 1) bonusVides += 1;
-            });
-            const bonusDistrib = Math.max(0, max - 4) * 2;
-
-            return { force: forceBrute + bonusDistrib + bonusVides, bestCol, nbAtouts: max };
-        }
-
+        // --- Barème de contrats fourni à l'IA partagée ---
         const BAREME_IWW = {
             propose: { pts: 10, prio: 1, obj: 8, seul: false },
             emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
@@ -264,7 +246,7 @@
             return null;
         }
 
-        let stats = { success: 0, fail: 0, total: 0 };
+        let stats = { success: 0, fail: 0, pass: 0, total: 0 };
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
         const deleteBtn = document.getElementById('deleteBtn');
@@ -305,16 +287,14 @@
             runBtn.disabled = true;
             document.getElementById('btnText').innerText = 'Simulation en cours...';
 
-            let simCount = 0;
             const target = 50;
 
-            while (simCount < target) {
+            for (let simCount = 0; simCount < target; simCount++) {
                 const game = await simulateAndSave(simCount + 1);
-                if (game.isPasse) continue;
-
-                simCount++;
                 addTableRow(game, true);
-                if (game.resultat.reussite) stats.success++; else stats.fail++;
+                if (game.isPasse) stats.pass++;
+                else if (game.resultat?.reussite) stats.success++;
+                else stats.fail++;
                 stats.total++;
                 updateStatsUI();
                 await new Promise(r => setTimeout(r, 50));
@@ -354,10 +334,10 @@
                 }
                 const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                 docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                stats = { success: 0, fail: 0, total: 0 };
+                stats = { success: 0, fail: 0, pass: 0, total: 0 };
                 docs.forEach(data => {
                     addTableRow(data);
-                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    if (data.isPasse || data.contrat?.id === 'passe') stats.pass++; else if (data.resultat?.reussite) stats.success++; else stats.fail++;
                     stats.total++;
                 });
                 updateStatsUI();
@@ -370,8 +350,10 @@
         function updateStatsUI() {
             document.getElementById('statSuccess').innerText = stats.success;
             document.getElementById('statFail').innerText = stats.fail;
+            document.getElementById('statPass').innerText = stats.pass;
             document.getElementById('statTotal').innerText = `${stats.total}`;
-            const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
+            const played = stats.success + stats.fail;
+            const rate = played > 0 ? Math.round((stats.success / played) * 100) : 0;
             document.getElementById('statRate').innerText = `${rate}%`;
         }
 
@@ -391,13 +373,15 @@
             let partnerId = -1;
 
             for(let i=0; i<4; i++) {
-                const decision = deciderEnchere(hands[i]);
+                const aiDecision = chooseWhistBid(hands[i], null, 'expert', i, WHIST_CONTRACTS);
+                const decision = contractFromDecision(aiDecision);
                 if (decision) {
                     contrat = decision;
                     bidderId = i;
                     if (decision.id === 'petite_misere') {
-                        hands[i].sort((a,b) => b.valeur - a.valeur);
-                        contrat.carteEcartee = hands[i].shift();
+                        const carteEcartee = chooseMisereDiscard(hands[i]);
+                        contrat.carteEcartee = carteEcartee;
+                        hands[i] = hands[i].filter(card => card.id !== carteEcartee?.id);
                     }
                     if (decision.id === 'propose') {
                         for(let j=1; j<4; j++) {
@@ -419,7 +403,19 @@
                 }
             }
 
-            if (!contrat) return { isPasse: true };
+            if (!contrat) {
+                const docId = `AI_STRESS_${Date.now()}_${index}`;
+                const gameData = {
+                    varianteId: 'whist-gand', manche: 1, isAITest: true, isPasse: true,
+                    aiVersion: WHIST_AI_VERSION, userId: BOT_UID, userPseudo: 'IA Expert',
+                    createdAt: new Date().toISOString(), atout: null,
+                    contrat: { id: 'passe', nom: 'Passe', joueurId: -1, plisObjectif: null },
+                    mainsInitiales: hands.map(hand => hand.map(card => ({ ...card }))),
+                    plis: [], resultat: { reussite: null, plisFaits: null, deltaScores: [0, 0, 0, 0] }
+                };
+                await setDoc(doc(db, 'games', docId), gameData);
+                return { id: docId, ...gameData };
+            }
 
             if (contrat.id === 'petite_misere') {
                 const cartesEcartees = {};
@@ -503,6 +499,8 @@
                 varianteId: 'whist-gand',
                 manche: 1,
                 isAITest: true,
+                isPasse: false,
+                aiVersion: WHIST_AI_VERSION,
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
                 createdAt: new Date().toISOString(),
@@ -524,7 +522,8 @@
 
         function addTableRow(game, prepend = false) {
             const row = document.createElement('tr');
-            const isSuccess = game.resultat?.reussite;
+            const isPass = game.isPasse || game.contrat?.id === 'passe';
+            const isSuccess = !isPass && game.resultat?.reussite === true;
             const date = new Date(game.createdAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
             row.className = 'hover:bg-gray-50 transition';
@@ -537,19 +536,17 @@
                     ${game.contrat?.carteEcartee ? `<span class="ml-2 text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border font-mono" title="Carte écartée">🗂️ ${game.contrat.carteEcartee.valeur === 14 ? 'A' : game.contrat.carteEcartee.valeur === 13 ? 'K' : game.contrat.carteEcartee.valeur === 12 ? 'Q' : game.contrat.carteEcartee.valeur === 11 ? 'J' : game.contrat.carteEcartee.valeur}-${SYM[game.contrat.carteEcartee.couleur]}</span>` : ''}
                 </td>
                 <td class="p-4 text-xs text-slate-400 font-medium">${game.userPseudo || 'Inconnu'}</td>
-                <td class="p-4 text-center font-bold text-gray-400">${game.contrat?.plisObjectif}</td>
-                <td class="p-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
-                    ${game.resultat?.plisFaits}
+                <td class="p-4 text-center font-bold text-gray-400">${isPass ? '—' : game.contrat?.plisObjectif}</td>
+                <td class="p-4 text-center font-black ${isPass ? 'text-amber-600' : isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
+                    ${isPass ? '—' : game.resultat?.plisFaits}
                 </td>
                 <td class="p-4">
-                    <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
-                        ${isSuccess ? 'Succès' : 'Échec'}
+                    <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider ${isPass ? 'bg-amber-100 text-amber-700' : isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
+                        ${isPass ? 'Passe' : isSuccess ? 'Succès' : 'Échec'}
                     </span>
                 </td>
                 <td class="p-4 text-right flex justify-end gap-2">
-                    <a href="../admin/game-detail.html#id=${game.id}" class="text-emerald-600 hover:bg-emerald-50 transition p-2 rounded-lg" title="Voir l'analyse">
-                        <i class="fas fa-chart-bar"></i>
-                    </a>
+                    ${isPass ? '' : `<a href="../admin/game-detail.html#id=${game.id}" class="text-emerald-600 hover:bg-emerald-50 transition p-2 rounded-lg" title="Voir l'analyse"><i class="fas fa-chart-bar"></i></a>`}
                     <button onclick="window.deleteSingleGame('${game.id}')" class="text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition p-2 rounded-lg" title="Supprimer">
                         <i class="fas fa-trash"></i>
                     </button>
