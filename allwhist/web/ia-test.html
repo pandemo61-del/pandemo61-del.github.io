@@ -549,7 +549,7 @@
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
                 createdAt: new Date().toISOString(),
-                atout: atout,
+                atout: atout !== undefined ? atout : null,
                 contrat: {
                     ...contrat,
                     joueurId: bidderId,
@@ -560,8 +560,18 @@
                 resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta }
             };
 
+            const cleanUndefined = (obj) => {
+                if (obj === null || typeof obj !== 'object') return obj;
+                if (Array.isArray(obj)) return obj.map(cleanUndefined);
+                const cleaned = {};
+                for (const [key, val] of Object.entries(obj)) {
+                    if (val !== undefined) cleaned[key] = cleanUndefined(val);
+                }
+                return cleaned;
+            };
+
             const docId = `AI_STRESS_${Date.now()}_${index}`;
-            await setDoc(doc(db, "games", docId), gameData);
+            await setDoc(doc(db, "games", docId), cleanUndefined(gameData));
             return { id: docId, ...gameData };
         }
 

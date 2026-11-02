@@ -253,6 +253,10 @@
         60% { opacity: 1; transform: translateY(-8px) scale(1.03) rotate(2deg); }
         100% { opacity: 1; transform: translateY(-4px) scale(1) rotate(0deg); }
       }
+      @keyframes flyTo0 { to { transform: translateY(140px) scale(0.3); opacity: 0; } }
+      @keyframes flyTo1 { to { transform: translateX(-140px) scale(0.3); opacity: 0; } }
+      @keyframes flyTo2 { to { transform: translateY(-140px) scale(0.3); opacity: 0; } }
+      @keyframes flyTo3 { to { transform: translateX(140px) scale(0.3); opacity: 0; } }
 
       /* Premium, consistent overlays. */
       [id^="modal-"] { backdrop-filter: blur(10px); }
@@ -1157,8 +1161,23 @@
             }
             plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI();
             plisHistory.push({ numero: plisHistory.length + 1, gagnantId: best.joueurId, cartesJouees: pliCourant.map(p => ({ joueurId: p.joueurId, carte: p.carte })) });
-            const b = document.getElementById('pli-winner-banner'); document.getElementById('pli-winner-name').innerText = best.joueurId === 0 ? 'Vous remportez le pli !' : `Joueur ${best.joueurId + 1} remporte le pli !`;
-            b.classList.remove('hidden'); await new Promise(r => setTimeout(r, 1400)); b.classList.add('hidden');
+
+            // Entourer la carte gagnante avec un halo doré éclatant (au lieu d'un texte de bannière)
+            const winnerTableCard = document.querySelector(`#table-j${best.joueurId} .playing-card`);
+            if (winnerTableCard) {
+                winnerTableCard.classList.add('ring-4', 'ring-amber-400', 'scale-105', 'shadow-[0_0_35px_rgba(251,191,36,0.9)]', 'z-30');
+            }
+            await new Promise(r => setTimeout(r, 900));
+
+            // Regrouper et faire voler les cartes vers la main/position du gagnant
+            for (let i = 0; i < 4; i++) {
+                const el = document.querySelector(`#table-j${i} .playing-card`);
+                if (el) {
+                    el.style.animation = `flyTo${best.joueurId} 0.55s ease-in-out forwards`;
+                }
+            }
+            await new Promise(r => setTimeout(r, 550));
+            clearTableUI();
 
             if (hands[0].length === 0) {
                 jeuActif = false;
@@ -1170,7 +1189,7 @@
                 return;
             }
 
-            setTimeout(() => startTrick(), 600);
+            setTimeout(() => startTrick(), 300);
         }
 
         function afficherResumeManche(resultat) {
