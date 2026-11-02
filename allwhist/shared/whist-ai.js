@@ -1,49 +1,108 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.1.0';
+export const WHIST_AI_VERSION = '1.2.0';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
 }
 
-function estimateTricks(hand, trump) {
-  if (trump && hand.length && hand.every(card => card.couleur === trump)) return hand.length;
-
+function cardsBySuit(hand) {
   const bySuit = Object.fromEntries(SUITS.map(suit => [suit, []]));
   for (const card of hand) {
     if (bySuit[card.couleur]) bySuit[card.couleur].push(card.valeur);
   }
+  for (const values of Object.values(bySuit)) values.sort((a, b) => b - a);
+  return bySuit;
+}
 
-  let estimate = 0;
-  for (const [suit, values] of Object.entries(bySuit)) {
-    values.sort((a, b) => b - a);
-    const length = values.length;
-    if (values.includes(14)) estimate += 0.98;
-    if (values.includes(13)) estimate += length >= 2 ? 0.72 : 0.38;
-    if (values.includes(12)) estimate += length >= 3 ? 0.48 : 0.18;
-    if (values.includes(11)) estimate += length >= 4 ? 0.3 : 0.08;
-    if (values.includes(10)) estimate += length >= 5 ? 0.18 : 0.04;
-    estimate += Math.max(0, length - 4) * (suit === trump ? 0.7 : 0.2);
+function has(values, value) {
+  return values.includes(value);
+}
+
+function honorTricks(values) {
+  const length = values.length;
+  let tricks = 0;
+  if (has(values, 14)) tricks += 1.0;
+  if (has(values, 13)) tricks += length >= 2 ? 0.7 : 0.3;
+  if (has(values, 12)) tricks += length >= 3 ? 0.42 : 0.12;
+  if (has(values, 11)) tricks += length >= 4 ? 0.24 : 0.06;
+  if (has(values, 10)) tricks += length >= 5 ? 0.12 : 0.02;
+  if (has(values, 14) && has(values, 13) && has(values, 12)) tricks += 0.35;
+  else if (has(values, 13) && has(values, 12) && has(values, 11)) tricks += 0.2;
+  return tricks;
+}
+
+function evaluateTrump(hand, trump) {
+  const bySuit = cardsBySuit(hand);
+  const trumps = bySuit[trump];
+  const lengthBonus = [0, 0, 0, 0, 0.2, 0.65, 1.2, 1.9][trumps.length] ?? 2.6;
+  let expected = honorTricks(trumps) + lengthBonus;
+  let controls = has(trumps, 14) ? 1 : 0;
+  let shortness = 0;
+
+  for (const suit of SUITS) {
+    if (suit === trump) continue;
+    const values = bySuit[suit];
+    expected += honorTricks(values);
+    if (has(values, 14)) controls += 1;
+    if (values.length === 0) shortness += 0.75;
+    else if (values.length === 1) shortness += 0.45;
+    else if (values.length === 2) shortness += 0.15;
   }
-  return estimate;
-}
 
-function misereRisk(hand) {
-  return hand.reduce((risk, card) => risk + (HONOR_RISK[card.valeur] ?? 0), 0);
-}
-
-export function chooseMisereDiscard(hand) {
-  return [...hand].sort((a, b) =>
-    (HONOR_RISK[b.valeur] ?? 0) - (HONOR_RISK[a.valeur] ?? 0) ||
-    b.valeur - a.valeur
-  )[0];
+  // Les coupes ne valent pleinement que si la main possède assez d'atouts.
+  expected += shortness * Math.min(1, trumps.length / 5);
+  expected = Math.min(hand.length, expected);
+  const uncertainty = Math.max(0.15, 0.55 - trumps.length * 0.05 - controls * 0.04);
+  return {
+    suit: trump,
+    length: trumps.length,
+    controls,
+    expectedTricks: expected,
+    safeTricks: Math.max(0, expected - uncertainty),
+    ceilingTricks: Math.min(hand.length, expected + 0.75),
+  };
 }
 
 function bestTrump(hand) {
   return SUITS
-    .map(suit => ({ suit, estimate: estimateTricks(hand, suit), length: hand.filter(card => card.couleur === suit).length }))
-    .sort((a, b) => b.estimate - a.estimate || b.length - a.length)[0];
+    .map(suit => evaluateTrump(hand, suit))
+    .sort((a, b) =>
+      b.safeTricks - a.safeTricks ||
+      b.controls - a.controls ||
+      b.length - a.length
+    )[0];
+}
+
+function cardMisereRisk(card, bySuit) {
+  const values = bySuit[card.couleur];
+  const lowerCards = values.filter(value => value < card.valeur).length;
+  const length = values.length;
+  const base = HONOR_RISK[card.valeur] ?? 0;
+  if (!base) return 0;
+  const coverFactor = Math.max(0.28, 1 - lowerCards * 0.13 - Math.max(0, length - 4) * 0.06);
+  const shortPenalty = length === 1 ? 1.25 : length === 2 ? 1.08 : 1;
+  return base * coverFactor * shortPenalty;
+}
+
+function misereRisk(hand) {
+  const bySuit = cardsBySuit(hand);
+  let risk = hand.reduce((sum, card) => sum + cardMisereRisk(card, bySuit), 0);
+  for (const values of Object.values(bySuit)) {
+    if (values.length === 0) risk -= 2.0;
+    else if (values.length === 1 && values[0] <= 9) risk -= 1.2;
+    else if (values.length === 2 && values[0] <= 10) risk -= 0.6;
+    else if (values.length >= 5 && values[0] <= 11) risk -= 0.8;
+  }
+  return Math.max(0, risk);
+}
+
+export function chooseMisereDiscard(hand) {
+  if (!hand.length) return undefined;
+  return [...hand]
+    .map(card => ({ card, remainingRisk: misereRisk(hand.filter(candidate => candidate !== card)) }))
+    .sort((a, b) => a.remainingRisk - b.remainingRisk || b.card.valeur - a.card.valeur)[0].card;
 }
 
 function availableContract(contracts, id, hand, currentBid, playerId) {
@@ -62,10 +121,56 @@ function decisionFor(contract, trump, calledCard) {
   };
 }
 
+function difficultyMargin(level) {
+  return { facile: 0.4, moyen: 0.15, expert: 0 }[level] ?? 0.15;
+}
+
+function partnerContribution(best, hand) {
+  const bySuit = cardsBySuit(hand);
+  const voids = Object.values(bySuit).filter(values => values.length === 0).length;
+  const unsupportedHonors = Object.values(bySuit).reduce((count, values) =>
+    count + (has(values, 13) && values.length === 1 ? 1 : 0) +
+    (has(values, 12) && values.length <= 2 && !has(values, 14) && !has(values, 13) ? 1 : 0), 0);
+  return Math.max(2.7, Math.min(3.8,
+    3.0 + voids * 0.15 + best.length * 0.1 - unsupportedHonors * 0.2
+  ));
+}
+
+function canSupportProposal(hand, trump, level) {
+  const bySuit = cardsBySuit(hand);
+  const values = bySuit[trump] ?? [];
+  const length = values.length;
+  const topHonors = values.filter(value => value >= 13).length;
+  const outsideAces = SUITS
+    .filter(suit => suit !== trump)
+    .reduce((count, suit) => count + (has(bySuit[suit], 14) ? 1 : 0), 0);
+  const evaluation = evaluateTrump(hand, trump);
+  const margin = difficultyMargin(level);
+
+  if (length >= 5) return evaluation.safeTricks + outsideAces * 0.25 >= 3.0 + margin;
+  if (length >= 4 && (topHonors >= 1 || outsideAces >= 1)) return evaluation.safeTricks >= 2.7 + margin;
+  if (length >= 3 && topHonors >= 2) return true;
+  if (length >= 3 && topHonors >= 1 && outsideAces >= 2) return true;
+  return false;
+}
+
+function successUtility(safeTricks, target, reward, margin) {
+  const surplus = safeTricks - target - margin;
+  return surplus * 3 + reward - Math.max(0, -surplus) * 5;
+}
+
 export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
   const currentPriority = contractPriority(currentBid);
+  const margin = difficultyMargin(level);
   const aces = hand.filter(card => card.valeur === 14);
 
+  // Les contrats déterministes les plus spécifiques sont testés d'abord.
+  if (aces.length === 4 && currentPriority < 7.5) {
+    const contract = availableContract(contracts, 'trou_royal', hand, currentBid, playerId);
+    if (contract && contractPriority(contract) > currentPriority) {
+      return decisionFor(contract, 'COEUR', '13_COEUR');
+    }
+  }
   if (aces.length === 3 && currentPriority < 7) {
     const calledSuit = SUITS.find(suit => !aces.some(card => card.couleur === suit));
     const contract = availableContract(contracts, 'trou', hand, currentBid, playerId);
@@ -74,78 +179,70 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
     }
   }
 
-  if (aces.length === 4 && currentPriority < 7.5) {
-    const contract = availableContract(contracts, 'trou_royal', hand, currentBid, playerId);
-    if (contract && contractPriority(contract) > currentPriority) {
-      return decisionFor(contract, 'COEUR', '13_COEUR');
+  // Une réponse à Propose est évaluée avant une nouvelle enchère autonome.
+  if (currentBid?.id === 'propose' && currentBid.joueurId !== playerId) {
+    const contract = availableContract(contracts, 'emballe', hand, currentBid, playerId);
+    if (contract && contractPriority(contract) > currentPriority && canSupportProposal(hand, currentBid.atout, level)) {
+      return decisionFor(contract, currentBid.atout);
     }
   }
 
   const best = bestTrump(hand);
-  const strength = best.estimate;
-  const thresholds = {
-    facile: { solo6: 6.5, solo7: 7.5, solo8: 8.6, abundance9: 9.7, abundance10: 10.7, abundance11: 11.6, abundance12: 12.4, chelem: 13 },
-    moyen: { solo6: 6.1, solo7: 7.1, solo8: 8.2, abundance9: 9.3, abundance10: 10.3, abundance11: 11.2, abundance12: 12.1, chelem: 12.8 },
-    expert: { solo6: 5.8, solo7: 6.8, solo8: 7.9, abundance9: 9, abundance10: 10, abundance11: 11, abundance12: 12, chelem: 12.7 },
-  }[level] ?? { solo6: 5.8, solo7: 6.8, solo8: 7.9, abundance9: 9, abundance10: 10, abundance11: 11, abundance12: 12, chelem: 12.7 };
+  const candidates = [];
   const soloContracts = [
-    ['chelem', thresholds.chelem],
-    ['abondance_12', thresholds.abundance12],
-    ['abondance_11', thresholds.abundance11],
-    ['abondance_10', thresholds.abundance10],
-    ['abondance_9', thresholds.abundance9],
-    ['solo_8', thresholds.solo8],
-    ['solo_7', thresholds.solo7],
-    ['solo_6', thresholds.solo6],
+    ['solo_6', 5.75, 1, 4, 0],
+    ['solo_7', 6.75, 2, 5, 0],
+    ['solo_8', 7.75, 3, 5, 2],
+    ['abondance_9', 8.8, 4, 6, 2],
+    ['abondance_10', 9.75, 5, 6, 3],
+    ['abondance_11', 10.75, 6, 6, 3],
+    ['abondance_12', 11.7, 7, 7, 3],
+    ['chelem', 12.6, 9, 7, 4],
   ];
 
-  for (const [id, target] of soloContracts) {
+  for (const [id, target, reward, minLength, minControls] of soloContracts) {
     const contract = availableContract(contracts, id, hand, currentBid, playerId);
-    if (contract && contractPriority(contract) > currentPriority && strength >= target) {
-      return decisionFor(contract, best.suit);
-    }
+    if (!contract || contractPriority(contract) <= currentPriority) continue;
+    if (best.length < minLength || best.controls < minControls) continue;
+    const utility = successUtility(best.safeTricks, target, reward, margin);
+    if (utility > 0) candidates.push({ contract, trump: best.suit, utility });
   }
 
-  const rawMisereRisk = misereRisk(hand);
-  const discardRisk = hand.length
-    ? Math.min(...hand.map(card => rawMisereRisk - (HONOR_RISK[card.valeur] ?? 0)))
-    : rawMisereRisk;
-  const misereCandidates = [
-    rawMisereRisk <= 0.05 ? 'misere_ouverte' : null,
-    rawMisereRisk <= 1.5 ? 'misere' : null,
-    discardRisk <= 3.5 ? 'petite_misere' : null,
-  ].filter(Boolean);
-  for (const id of misereCandidates) {
+  const rawRisk = misereRisk(hand);
+  const discard = chooseMisereDiscard(hand);
+  const discardRisk = discard ? misereRisk(hand.filter(card => card !== discard)) : rawRisk;
+  const misereOptions = [
+    ['petite_misere', discardRisk, 8.5, 2.0],
+    ['misere', rawRisk, 5.5, 3.0],
+    ['misere_ouverte', rawRisk, 0.75, 5.0],
+  ];
+  for (const [id, risk, maxRisk, reward] of misereOptions) {
     const contract = availableContract(contracts, id, hand, currentBid, playerId);
-    if (contract && contractPriority(contract) > currentPriority) {
-      return decisionFor(contract, null);
-    }
-  }
-
-  if (currentBid?.id === 'propose' && currentBid.joueurId !== playerId) {
-    const trump = currentBid.atout;
-    const suitCards = hand.filter(card => card.couleur === trump);
-    const topHonors = suitCards.filter(card => card.valeur >= 13).length;
-    const supported = suitCards.length >= 6 ||
-      (suitCards.length >= 3 && topHonors >= 2);
-    const contract = availableContract(contracts, 'emballe', hand, currentBid, playerId);
-    if (supported && contract && contractPriority(contract) > currentPriority) {
-      return decisionFor(contract, trump);
-    }
+    if (!contract || contractPriority(contract) <= currentPriority) continue;
+    const utility = (maxRisk - risk) * 0.8 + reward - margin * 2;
+    if (risk <= maxRisk && utility > 0) candidates.push({ contract, trump: null, utility });
   }
 
   const proposal = availableContract(contracts, 'propose', hand, currentBid, playerId);
-  const teamEstimate = strength + 3.5;
-  if (
-    proposal &&
-    contractPriority(proposal) > currentPriority &&
-    best.length >= 4 &&
-    teamEstimate >= 8.3
-  ) {
-    return decisionFor(proposal, best.suit);
+  if (proposal && contractPriority(proposal) > currentPriority && best.length >= 4) {
+    const bySuit = cardsBySuit(hand);
+    const trumpValues = bySuit[best.suit];
+    const conditions = [
+      has(trumpValues, 14),
+      has(trumpValues, 13) && trumpValues.length >= 2,
+      trumpValues.length >= 5,
+      SUITS.some(suit => suit !== best.suit && has(bySuit[suit], 14)),
+    ].filter(Boolean).length;
+    const teamEstimate = best.safeTricks + partnerContribution(best, hand);
+    const utility = (teamEstimate - 7.6 - margin) * 2.4 + 1.5;
+    if (conditions >= 2 && best.safeTricks >= 4.2 - margin && utility > 0) {
+      candidates.push({ contract: proposal, trump: best.suit, utility });
+    }
   }
 
-  return { action: 'passe' };
+  candidates.sort((a, b) => b.utility - a.utility || contractPriority(b.contract) - contractPriority(a.contract));
+  const selected = candidates[0];
+  return selected ? decisionFor(selected.contract, selected.trump) : { action: 'passe' };
 }
 
 function beats(challenger, current, ledSuit, trump) {
