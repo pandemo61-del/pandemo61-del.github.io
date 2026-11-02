@@ -98,10 +98,6 @@
                 </div>
 
                 <div class="flex gap-2">
-                    <button id="exportGamesBtn" class="text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
-                        <i class="fas fa-download"></i>
-                        <span>Exporter les parties DB</span>
-                    </button>
                     <button id="deleteSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
                         <i class="fas fa-check"></i>
                         <span>Supprimer Succès</span>
@@ -114,7 +110,7 @@
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Réussites</h3>
@@ -135,6 +131,14 @@
                         <i class="fas fa-percentage text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
                     </div>
                     <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Passes</h3>
+                        <i class="fas fa-forward text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statPass" class="text-4xl font-bold text-gray-800">0</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
@@ -168,9 +172,6 @@
                     </tbody>
                 </table>
             </div>
-            <footer class="mt-3 text-right text-xs text-slate-400">
-                Page mise à jour le <time id="page-last-modified"></time>
-            </footer>
         </main>
     </div>
 
@@ -179,36 +180,17 @@
             db, auth, collection, getDocs, query, where, orderBy, limit,
             doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
-        import { getWhistContractName } from '../shared/whist-contracts.js';
-        import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
-
-        const pageLastModified = new Date(document.lastModified);
-        document.getElementById('page-last-modified').textContent =
-            new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(pageLastModified);
+        import { chooseWhistBid, chooseMisereDiscard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const BOT_UID = "AI-TEST-BOT";
-
-        function cleanFirestoreData(value) {
-            if (Array.isArray(value)) {
-                return value.map(item => item === undefined ? null : cleanFirestoreData(item));
-            }
-            if (value !== null && typeof value === 'object') {
-                return Object.fromEntries(
-                    Object.entries(value)
-                        .filter(([, item]) => item !== undefined)
-                        .map(([key, item]) => [key, cleanFirestoreData(item)])
-                );
-            }
-            return value;
-        }
 
         // --- Check for local file protocol ---
         if (window.location.protocol === 'file:') {
             document.getElementById('file-warning')?.classList.remove('hidden');
         }
 
-        // --- Shared Whist de Gand AI ---
+        // --- Barème de contrats fourni à l'IA partagée ---
         const BAREME_IWW = {
             propose: { pts: 10, prio: 1, obj: 8, seul: false },
             emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
@@ -227,37 +209,48 @@
             misere_ouverte: { pts: 120, prio: 11, obj: 0, seul: true, sa: true },
             chelem: { pts: 250, prio: 12, obj: 13, seul: true }
         };
-        const WHIST_CONTRACTS = Object.entries(BAREME_IWW).map(([id, contract]) => ({
-            id,
-            priorite: contract.prio,
-            plisMin: contract.obj,
-            seul: contract.seul,
-            sanAtout: contract.sa === true,
-            disponibleSi: (hand, currentBid, playerId) => {
-                if (id === 'trou') return hand.filter(card => card.valeur === 14).length === 3;
-                if (id === 'trou_royal') return hand.filter(card => card.valeur === 14).length === 4;
-                if (id === 'emballe') return currentBid?.id === 'propose' && currentBid.joueurId !== playerId;
-                return true;
-            },
-        }));
 
-        function deciderEnchere(hand, currentBid, playerId) {
-            const decision = chooseWhistBid(hand, currentBid, 'expert', playerId, WHIST_CONTRACTS);
-            if (decision.action === 'passe' || !decision.contratId) return null;
-            return {
-                ...BAREME_IWW[decision.contratId],
-                ...decision,
-                id: decision.contratId,
-                nom: getWhistContractName({ id: decision.contratId }),
-            };
+        function deciderEnchere(hand) {
+            const { force, bestCol, nbAtouts } = evaluerForce(hand);
+            const nbAs = hand.filter(c => c.valeur === 14).length;
+            const forceMisere = hand.reduce((acc, c) => {
+                if (c.valeur >= 11) return acc + 10;
+                if (c.valeur >= 8) return acc + 2;
+                return acc;
+            }, 0);
+
+            const aHonneurAtout = hand.some(c => c.couleur === bestCol && c.valeur >= 13);
+
+            if (nbAs === 3) return { id: 'trou', nom: 'Trou', ...BAREME_IWW.trou, atout: null };
+            if (nbAs === 4) return { id: 'trou_royal', nom: 'Trou Royal', ...BAREME_IWW.trou_royal, atout: 'COEUR' };
+
+            if (force >= 45 && aHonneurAtout) return { id: 'chelem', nom: 'Chelem', ...BAREME_IWW.chelem, atout: bestCol };
+            if (force >= 40 && aHonneurAtout) return { id: 'abondance_11', nom: 'Abondance 11', ...BAREME_IWW.abondance_11, atout: bestCol };
+
+            const peutMisere = forceMisere <= 25 && nbAs === 0;
+
+            if (force >= 35 && aHonneurAtout) return { id: 'abondance_10', nom: 'Abondance 10', ...BAREME_IWW.abondance_10, atout: bestCol };
+            if (force >= 30 && nbAtouts >= 6 && aHonneurAtout) return { id: 'abondance_9', nom: 'Abondance 9', ...BAREME_IWW.abondance_9, atout: bestCol };
+            if (force >= 28 && nbAtouts >= 6 && aHonneurAtout) return { id: 'solo_8', nom: 'Solo 8', ...BAREME_IWW.solo_8, atout: bestCol };
+
+            if (peutMisere) {
+                if (forceMisere === 0) return { id: 'misere_ouverte', nom: 'Misère sur Table', ...BAREME_IWW.misere_ouverte, atout: null };
+                if (forceMisere <= 10) return { id: 'misere', nom: 'Grande Misère', ...BAREME_IWW.misere, atout: null };
+                if (forceMisere <= 20) return { id: 'petite_misere', nom: 'Petite Misère', ...BAREME_IWW.petite_misere, atout: null };
+            }
+
+            if (force >= 25 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_7', nom: 'Solo 7', ...BAREME_IWW.solo_7, atout: bestCol };
+            if (force >= 22 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_6', nom: 'Solo 6', ...BAREME_IWW.solo_6, atout: bestCol };
+            if (force >= 15 && nbAtouts >= 5) return { id: 'propose', nom: 'Je propose', ...BAREME_IWW.propose, atout: bestCol };
+
+            return null;
         }
 
-        let stats = { success: 0, fail: 0, total: 0 };
+        let stats = { success: 0, fail: 0, pass: 0, total: 0 };
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
         const deleteBtn = document.getElementById('deleteBtn');
         const deleteSuccessBtn = document.getElementById('deleteSuccessBtn');
-        const exportGamesBtn = document.getElementById('exportGamesBtn');
         const btnLogin = document.getElementById('btn-login');
         const btnLogout = document.getElementById('btn-logout');
         const authStatus = document.getElementById('auth-status');
@@ -289,165 +282,25 @@
             auth.signOut().then(() => window.location.reload());
         };
 
-        exportGamesBtn.addEventListener('click', async () => {
-            if (!auth.currentUser) return alert("Connectez-vous d'abord.");
-
-            exportGamesBtn.disabled = true;
-            try {
-                const failedGames = await getDocs(query(
-                    collection(db, "games")
-                ));
-                const games = failedGames.docs.map(docSnap => {
-                    const data = docSnap.data();
-                    const reconstructed = reconstituerDonne(data);
-                    return {
-                        varianteId: data.varianteId ?? null,
-                        isAITest: data.isAITest === true,
-                        isWebPlay: data.isWebPlay === true,
-                        sourcePlatform: data.sourcePlatform ?? null,
-                        aiVersion: data.aiVersion ?? null,
-                        atout: data.atout ?? null,
-                        contrat: data.contrat ?? null,
-                        donne: reconstructed.donne,
-                        reconstitution: reconstructed.meta,
-                        plis: data.plis ?? null,
-                        resultat: data.resultat ?? null,
-                        reussite: data.reussite ?? null,
-                        erreurs: data.erreurs ?? null,
-                        historiqueEncheres: data.historiqueEncheres ?? null,
-                    };
-                });
-                const completeDeals = games.filter(game =>
-                    game.reconstitution.exacte
-                ).length;
-                const payload = {
-                    exportedAt: new Date().toISOString(),
-                    totalEchecs: games.length,
-                    mainsExactes: completeDeals,
-                    games,
-                };
-                const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = `allwhist-games-${new Date().toISOString().slice(0, 10)}.json`;
-                link.click();
-                URL.revokeObjectURL(url);
-                alert(`${games.length} partie(s) exporté(s). ${completeDeals} donne(s) ont des mains initiales exactes ; les autres sont marquées comme partielles ou reconstituées après écart.`);
-            } catch (error) {
-                console.error("Échec de l'export des parties:", error);
-                alert(`Impossible d'exporter les échecs : ${error.message}`);
-            } finally {
-                exportGamesBtn.disabled = false;
-            }
-        });
-
-        function reconstituerDonne(game) {
-            const donneEnregistree = Array.isArray(game.donne) &&
-                game.donne.length === 4 &&
-                game.donne.every(player => Array.isArray(player.mainInitiale));
-            if (donneEnregistree) {
-                const mains = game.donne.map(player => ({
-                    joueurId: player.joueurId,
-                    mainInitiale: player.mainInitiale
-                }));
-                const counts = mains.map(player => player.mainInitiale.length);
-                return {
-                    donne: mains,
-                    meta: {
-                        source: 'donne-enregistree',
-                        exacte: counts.every(count => count === 13),
-                        apresEcart: counts.every(count => count === 12),
-                        cartesParJoueur: counts,
-                        doublons: 0,
-                        plisEnregistres: game.plis?.length ?? 0,
-                    }
-                };
-            }
-
-            const joueurs = Array.from({ length: 4 }, (_, joueurId) => ({
-                joueurId,
-                mainInitiale: []
-            }));
-            const cartesVues = new Set();
-            let doublons = 0;
-
-            const ajouterCarte = (joueurId, carte) => {
-                if (!Number.isInteger(joueurId) || joueurId < 0 || joueurId > 3 || !carte?.id) return;
-                if (cartesVues.has(carte.id)) {
-                    doublons++;
-                    return;
-                }
-                cartesVues.add(carte.id);
-                joueurs[joueurId].mainInitiale.push(carte);
-            };
-
-            for (const pli of game.plis ?? []) {
-                for (const action of pli.cartesJouees ?? []) {
-                    ajouterCarte(action.joueurId, action.carte);
-                }
-            }
-
-            const contrat = game.contrat ?? {};
-            const cartesEcartees = contrat.cartesEcartees;
-            if (cartesEcartees && typeof cartesEcartees === 'object') {
-                for (const [joueurId, carte] of Object.entries(cartesEcartees)) {
-                    ajouterCarte(Number(joueurId), carte);
-                }
-            } else if (contrat.carteEcartee) {
-                ajouterCarte(contrat.joueurId, contrat.carteEcartee);
-            }
-
-            const counts = joueurs.map(joueur => joueur.mainInitiale.length);
-            const exacte = doublons === 0 && counts.every(count => count === 13);
-            const apresEcart = doublons === 0 && counts.every(count => count === 12);
-
-            return {
-                donne: joueurs.map(joueur => ({
-                    ...joueur,
-                    mainInitiale: joueur.mainInitiale.sort((a, b) =>
-                        a.couleur.localeCompare(b.couleur) || a.valeur - b.valeur
-                    )
-                })),
-                meta: {
-                    source: 'cartes-jouees-et-ecarts-enregistres',
-                    exacte,
-                    apresEcart,
-                    cartesParJoueur: counts,
-                    doublons,
-                    plisEnregistres: game.plis?.length ?? 0,
-                }
-            };
-        }
-
         runBtn.addEventListener('click', async () => {
             if (!auth.currentUser) return alert("Connectez-vous d'abord.");
             runBtn.disabled = true;
             document.getElementById('btnText').innerText = 'Simulation en cours...';
 
-            let simCount = 0;
             const target = 50;
 
-            try {
-                while (simCount < target) {
-                    const game = await simulateAndSave(simCount + 1);
-                    if (game.isPasse) continue;
-
-                    simCount++;
-                    addTableRow(game, true);
-                    if (game.resultat.reussite) stats.success++; else stats.fail++;
-                    stats.total++;
-                    updateStatsUI();
-                    await new Promise(r => setTimeout(r, 50));
-                }
-            } catch (error) {
-                console.error("AI simulation failed", error);
-                const message = error instanceof Error ? error.message : String(error);
-                alert("Erreur pendant la simulation : " + message);
-            } finally {
-                runBtn.disabled = false;
-                document.getElementById('btnText').innerText = 'Relancer la simulation (50)';
+            for (let simCount = 0; simCount < target; simCount++) {
+                const game = await simulateAndSave(simCount + 1);
+                addTableRow(game, true);
+                if (game.isPasse) stats.pass++;
+                else if (game.resultat?.reussite) stats.success++;
+                else stats.fail++;
+                stats.total++;
+                updateStatsUI();
+                await new Promise(r => setTimeout(r, 50));
             }
+            runBtn.disabled = false;
+            document.getElementById('btnText').innerText = 'Relancer la simulation (50)';
         });
 
         deleteBtn.addEventListener('click', async () => {
@@ -471,7 +324,7 @@
         });
 
         async function loadExistingGames() {
-            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(1000));
+            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(200));
             try {
                 const snapshot = await getDocs(q);
                 resultsBody.innerHTML = '';
@@ -481,10 +334,10 @@
                 }
                 const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                 docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                stats = { success: 0, fail: 0, total: 0 };
+                stats = { success: 0, fail: 0, pass: 0, total: 0 };
                 docs.forEach(data => {
                     addTableRow(data);
-                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    if (data.isPasse || data.contrat?.id === 'passe') stats.pass++; else if (data.resultat?.reussite) stats.success++; else stats.fail++;
                     stats.total++;
                 });
                 updateStatsUI();
@@ -497,8 +350,10 @@
         function updateStatsUI() {
             document.getElementById('statSuccess').innerText = stats.success;
             document.getElementById('statFail').innerText = stats.fail;
+            document.getElementById('statPass').innerText = stats.pass;
             document.getElementById('statTotal').innerText = `${stats.total}`;
-            const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
+            const played = stats.success + stats.fail;
+            const rate = played > 0 ? Math.round((stats.success / played) * 100) : 0;
             document.getElementById('statRate').innerText = `${rate}%`;
         }
 
@@ -512,78 +367,64 @@
 
             const hands = [[], [], [], []];
             for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
-            const initialHands = hands.map(hand => hand.map(card => ({ ...card })));
 
             let contrat = null;
             let bidderId = -1;
             let partnerId = -1;
-            let meilleureEnchere = null;
-            const historiqueEncheres = [];
-            let passesConsecutifs = 0;
-            let tourEnchere = 0;
-            while (tourEnchere < 32) {
-                const enchereTerminee = meilleureEnchere
-                    ? passesConsecutifs >= 3
-                    : passesConsecutifs >= 4;
-                if (enchereTerminee) {
-                    if (meilleureEnchere?.id === 'propose') {
-                        const proposantId = meilleureEnchere.joueurId;
-                        const reponse = deciderEnchere(hands[proposantId], meilleureEnchere, proposantId);
-                        if (!reponse) {
-                            historiqueEncheres.push({ joueurId: proposantId, action: 'passe' });
-                            meilleureEnchere = null;
-                            passesConsecutifs = 1;
-                        } else {
-                            meilleureEnchere = { ...reponse, joueurId: proposantId };
-                            historiqueEncheres.push({ joueurId: proposantId, action: 'enchere', contrat: { ...meilleureEnchere } });
-                            passesConsecutifs = 0;
+
+            for(let i=0; i<4; i++) {
+                const aiDecision = chooseWhistBid(hands[i], null, 'expert', i, WHIST_CONTRACTS);
+                const decision = contractFromDecision(aiDecision);
+                if (decision) {
+                    contrat = decision;
+                    bidderId = i;
+                    if (decision.id === 'petite_misere') {
+                        const carteEcartee = chooseMisereDiscard(hands[i]);
+                        contrat.carteEcartee = carteEcartee;
+                        hands[i] = hands[i].filter(card => card.id !== carteEcartee?.id);
+                    }
+                    if (decision.id === 'propose') {
+                        for(let j=1; j<4; j++) {
+                            const pId = (i+j)%4;
+                            const h = hands[pId];
+                            if (h.filter(c => c.couleur === decision.atout).length >= 4) {
+                                partnerId = pId;
+                                break;
+                            }
                         }
-                        tourEnchere = proposantId + 1;
-                        continue;
+                        if (partnerId === -1) { contrat = null; bidderId = -1; continue; }
+                    } else if (decision.id === 'trou') {
+                        const asPossedes = hands[i].filter(c => c.valeur === 14).map(c => c.couleur);
+                        const asManquant = suits.find(s => !asPossedes.includes(s));
+                        for(let j=0; j<4; j++) if(j!==i && hands[j].some(c => c.valeur === 14 && c.couleur === asManquant)) { partnerId = j; break; }
+                        contrat.atout = asManquant;
                     }
                     break;
                 }
-                const joueurId = tourEnchere % 4;
-                const decision = deciderEnchere(hands[joueurId], meilleureEnchere, joueurId);
-                if (!decision) {
-                    historiqueEncheres.push({ joueurId, action: 'passe' });
-                    passesConsecutifs++;
-                } else {
-                    passesConsecutifs = 0;
-                    const partenaireEmballage = decision.id === 'emballe' ? meilleureEnchere.joueurId : undefined;
-                    if (partenaireEmballage !== undefined) partnerId = partenaireEmballage;
-                    meilleureEnchere = {
-                        ...decision,
-                        joueurId,
-                        ...(partenaireEmballage !== undefined ? { partenaireId: partenaireEmballage } : {}),
-                    };
-                    historiqueEncheres.push({ joueurId, action: 'enchere', contrat: { ...meilleureEnchere } });
-                }
-                tourEnchere++;
             }
 
-            contrat = meilleureEnchere;
-            bidderId = contrat?.joueurId ?? -1;
-            if (!contrat) return { isPasse: true };
-
-            if (contrat.id === 'trou') {
-                const match = String(contrat.asPartenaire).match(/^14_(COEUR|CARREAU|TREFLE|PIQUE)$/);
-                if (match) partnerId = hands.findIndex((hand, playerId) =>
-                    playerId !== bidderId && hand.some(card => card.valeur === 14 && card.couleur === match[1])
-                );
-            } else if (contrat.id === 'trou_royal') {
-                partnerId = hands.findIndex((hand, playerId) =>
-                    playerId !== bidderId && hand.some(card => card.valeur === 13 && card.couleur === 'COEUR')
-                );
+            if (!contrat) {
+                const docId = `AI_STRESS_${Date.now()}_${index}`;
+                const gameData = {
+                    varianteId: 'whist-gand', manche: 1, isAITest: true, isPasse: true,
+                    aiVersion: WHIST_AI_VERSION, userId: BOT_UID, userPseudo: 'IA Expert',
+                    createdAt: new Date().toISOString(), atout: null,
+                    contrat: { id: 'passe', nom: 'Passe', joueurId: -1, plisObjectif: null },
+                    mainsInitiales: hands.map(hand => hand.map(card => ({ ...card }))),
+                    plis: [], resultat: { reussite: null, plisFaits: null, deltaScores: [0, 0, 0, 0] }
+                };
+                await setDoc(doc(db, 'games', docId), gameData);
+                return { id: docId, ...gameData };
             }
 
             if (contrat.id === 'petite_misere') {
                 const cartesEcartees = {};
-                for (let joueurId = 0; joueurId < 4; joueurId++) {
-                    const carte = chooseMisereDiscard(hands[joueurId]);
-                    if (carte) {
-                        cartesEcartees[joueurId] = carte;
-                        hands[joueurId].splice(hands[joueurId].findIndex(held => held.id === carte.id), 1);
+                for (let i = 0; i < 4; i++) {
+                    if (i !== bidderId) {
+                        hands[i].sort((a,b) => b.valeur - a.valeur);
+                        cartesEcartees[i] = hands[i].shift();
+                    } else {
+                        cartesEcartees[i] = contrat.carteEcartee;
                     }
                 }
                 contrat.cartesEcartees = cartesEcartees;
@@ -598,37 +439,31 @@
                 if (hands[0].length === 0 || hands[1].length === 0 || hands[2].length === 0 || hands[3].length === 0) {
                     break;
                 }
-                const pli = { numero: pNum, cartesJouees: [] };
+                const pliCartes = [];
+                let couleurDemandee = null;
                 for (let i = 0; i < 4; i++) {
                     const pid = (leaderId + i) % 4;
                     const hand = hands[pid];
-                    const cardToPlay = chooseWhistCard(
-                        hand,
-                        pid,
-                        pli,
-                        atout,
-                        { ...contrat, partenaireId: contrat.partenaireId },
-                        plis.flatMap(done => done.cartesJouees.map(play => play.carte)),
-                        plis,
-                    );
-                    if (!cardToPlay) throw new Error(`Aucune carte jouable pour le joueur ${pid}.`);
-                    hand.splice(hand.findIndex(card => card.id === cardToPlay.id), 1);
-                    pli.couleurDemandee ??= cardToPlay.couleur;
-                    pli.cartesJouees.push({ joueurId: pid, carte: cardToPlay });
-                    if (contrat.asPartenaire && pid !== bidderId && cardToPlay.valeur === Number(String(contrat.asPartenaire).split('_')[0]) &&
-                        cardToPlay.couleur === String(contrat.asPartenaire).split('_')[1]) {
-                        contrat.partenaireId = pid;
+                    let cardToPlay;
+                    if (i === 0) { cardToPlay = hand.pop(); couleurDemandee = cardToPlay.couleur; }
+                    else {
+                        const indexInSuit = hand.findIndex(c => c.couleur === couleurDemandee);
+                        if (indexInSuit !== -1) cardToPlay = hand.splice(indexInSuit, 1)[0];
+                        else {
+                            const indexAtout = hand.findIndex(c => c.couleur === atout);
+                            cardToPlay = indexAtout !== -1 ? hand.splice(indexAtout, 1)[0] : hand.pop();
+                        }
                     }
+                    pliCartes.push({ joueurId: pid, carte: cardToPlay });
                 }
-                let best = pli.cartesJouees[0];
+                let best = pliCartes[0];
                 for(let i=1; i<4; i++) {
-                    const c = pli.cartesJouees[i];
+                    const c = pliCartes[i];
                     const isAtout = atout && c.carte.couleur === atout;
                     const bestIsAtout = atout && best.carte.couleur === atout;
-                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === pli.couleurDemandee && c.carte.valeur > best.carte.valeur)) best = c;
+                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === couleurDemandee && c.carte.valeur > best.carte.valeur)) best = c;
                 }
-                pli.gagnantId = best.joueurId;
-                plis.push(pli);
+                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
                 plisGagnes[best.joueurId]++;
                 leaderId = best.joueurId;
             }
@@ -664,7 +499,7 @@
                 varianteId: 'whist-gand',
                 manche: 1,
                 isAITest: true,
-                sourcePlatform: 'web-lab',
+                isPasse: false,
                 aiVersion: WHIST_AI_VERSION,
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
@@ -674,27 +509,21 @@
                     ...contrat,
                     joueurId: bidderId,
                     plisObjectif: contrat.obj,
-                    ...(contrat.asPartenaire ? { asPartenaire: contrat.asPartenaire } : {}),
                     ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
                 },
-                donne: initialHands.map((mainInitiale, joueurId) => ({
-                    joueurId,
-                    nom: `IA-${joueurId}`,
-                    mainInitiale
-                })),
                 plis: plis,
-                resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta },
-                historiqueEncheres,
+                resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta }
             };
 
             const docId = `AI_STRESS_${Date.now()}_${index}`;
-            await setDoc(doc(db, "games", docId), cleanFirestoreData(gameData));
+            await setDoc(doc(db, "games", docId), gameData);
             return { id: docId, ...gameData };
         }
 
         function addTableRow(game, prepend = false) {
             const row = document.createElement('tr');
-            const isSuccess = game.resultat?.reussite;
+            const isPass = game.isPasse || game.contrat?.id === 'passe';
+            const isSuccess = !isPass && game.resultat?.reussite === true;
             const date = new Date(game.createdAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
             row.className = 'hover:bg-gray-50 transition';
@@ -702,24 +531,22 @@
             row.innerHTML = `
                 <td class="p-4 text-xs text-gray-500">${date}</td>
                 <td class="p-4">
-                    <span class="font-bold text-gray-700">${getWhistContractName(game.contrat)}</span>
+                    <span class="font-bold text-gray-700">${game.contrat?.nom}</span>
                     <span class="ml-1 text-rose-500 font-bold">${SYM[game.atout] || 'SA'}</span>
                     ${game.contrat?.carteEcartee ? `<span class="ml-2 text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border font-mono" title="Carte écartée">🗂️ ${game.contrat.carteEcartee.valeur === 14 ? 'A' : game.contrat.carteEcartee.valeur === 13 ? 'K' : game.contrat.carteEcartee.valeur === 12 ? 'Q' : game.contrat.carteEcartee.valeur === 11 ? 'J' : game.contrat.carteEcartee.valeur}-${SYM[game.contrat.carteEcartee.couleur]}</span>` : ''}
                 </td>
                 <td class="p-4 text-xs text-slate-400 font-medium">${game.userPseudo || 'Inconnu'}</td>
-                <td class="p-4 text-center font-bold text-gray-400">${game.contrat?.plisObjectif}</td>
-                <td class="p-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
-                    ${game.resultat?.plisFaits}
+                <td class="p-4 text-center font-bold text-gray-400">${isPass ? '—' : game.contrat?.plisObjectif}</td>
+                <td class="p-4 text-center font-black ${isPass ? 'text-amber-600' : isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
+                    ${isPass ? '—' : game.resultat?.plisFaits}
                 </td>
                 <td class="p-4">
-                    <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
-                        ${isSuccess ? 'Succès' : 'Échec'}
+                    <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider ${isPass ? 'bg-amber-100 text-amber-700' : isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
+                        ${isPass ? 'Passe' : isSuccess ? 'Succès' : 'Échec'}
                     </span>
                 </td>
                 <td class="p-4 text-right flex justify-end gap-2">
-                    <a href="../admin/game-detail.html#id=${game.id}" class="text-emerald-600 hover:bg-emerald-50 transition p-2 rounded-lg" title="Voir l'analyse">
-                        <i class="fas fa-chart-bar"></i>
-                    </a>
+                    ${isPass ? '' : `<a href="../admin/game-detail.html#id=${game.id}" class="text-emerald-600 hover:bg-emerald-50 transition p-2 rounded-lg" title="Voir l'analyse"><i class="fas fa-chart-bar"></i></a>`}
                     <button onclick="window.deleteSingleGame('${game.id}')" class="text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition p-2 rounded-lg" title="Supprimer">
                         <i class="fas fa-trash"></i>
                     </button>
