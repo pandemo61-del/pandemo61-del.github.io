@@ -585,6 +585,7 @@
         let plisGagnes = [0, 0, 0, 0];
         let totalScores = [0, 0, 0, 0];
         let contratFinal = null;
+        let resolutionPliEnCours = false;
         let currentManche = 0;
 
         const SAVED_SETTINGS = localStorage.getItem('allwhist_play_settings');
@@ -1070,6 +1071,7 @@
         }
 
         function startTrick() {
+            resolutionPliEnCours = false;
             pliCourant = []; clearTableUI();
             if (leaderId !== 0) playAIUntilHuman();
             else {
@@ -1135,6 +1137,12 @@
         function updateTurnIndicator(pid) { const ind = document.getElementById('turn-indicator'), t = document.getElementById(`table-j${pid}`); ind.classList.remove('hidden'); ind.style.left = t ? `${t.offsetLeft + 35}px` : '50%'; ind.style.top = t ? `${t.offsetTop + 20}px` : '50%'; }
 
         async function evaluateTrickEnd() {
+            if (resolutionPliEnCours || pliCourant.length !== 4) return;
+            resolutionPliEnCours = true;
+
+            // Laisser le navigateur afficher clairement la quatrième carte avant le résultat du pli.
+            await new Promise(r => setTimeout(r, 500));
+
             const cd = pliCourant[0].carte.couleur, at = contratFinal?.sa ? null : contratFinal.atout;
             let best = pliCourant[0];
             for (let i = 1; i < 4; i++) {
@@ -1150,6 +1158,7 @@
                 jeuActif = false;
                 const resume = calculerPointsFinaux();
                 afficherResumeManche(resume);
+                sauvegarderPartie(resume);
                 if (currentManche >= settings.maxGames) showMessage('Partie terminée ! Scores finaux affichés.');
                 else showMessage('Manche terminée ! Résumé ci-dessous.');
                 return;
@@ -1159,7 +1168,12 @@
         }
 
         function afficherResumeManche(resultat) {
-            const data = resultat || calculerPointsFinaux();
+            if (!resultat) {
+                console.error('Résumé de manche indisponible.');
+                showMessage('Impossible d’afficher le résumé de la manche.', 5000);
+                return;
+            }
+            const data = resultat;
             const scoreEquipeA = data.delta[0] + (data.partnerId >= 0 ? data.delta[data.partnerId] : 0);
             const scoreEquipeB = totalScores.filter((_, index) => index !== 0 && index !== data.partnerId).reduce((a, x) => a + x, 0);
             const contratLabel = contratFinal ? `${contratFinal.nom}${contratFinal.atout ? ` • Atout ${SYM[contratFinal.atout]}` : ''}` : 'Contrat';
@@ -1225,42 +1239,54 @@
             for (let i = 0; i < 4; i++) totalScores[i] += delta[i];
             updatePlisUI();
 
-            const userId = currentUser ? currentUser.uid : 'ANONYMOUS_WEB';
-            const userPseudo = currentUser ? currentUser.email.split('@')[0] : 'Invité Web';
-
-            const gameData = {
-                varianteId: 'whist-gand',
-                manche: currentManche,
-                isWebPlay: true,
-                sourcePlatform: 'web',
-                aiVersion: WHIST_AI_VERSION,
-                userId: userId,
-                userPseudo: userPseudo,
-                createdAt: new Date().toISOString(),
-                atout: contratFinal.atout || null,
-                contrat: {
-                    id: contratFinal.id,
-                    nom: contratFinal.nom,
-                    joueurId: bidderId,
-                    plisObjectif: obj,
-                    ...(contratFinal.asPartenaire ? { asPartenaire: contratFinal.asPartenaire } : {}),
-                    ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
-                },
-                donne: mainsInitiales.map((mainInitiale, joueurId) => ({ joueurId, nom: joueurId === 0 ? userPseudo : `IA-${joueurId}`, mainInitiale })),
-                plis: plisHistory,
-                resultat: { reussite: reussite, plisFaits: plisTeam, deltaScores: delta },
-                historiqueEncheres,
-            };
-
-            const docId = `WEB_PLAY_${Date.now()}`;
-            setDoc(doc(db, 'games', docId), gameData)
-                .then(() => console.log('Game saved successfully!'))
-                .catch(err => {
-                    console.error('DB Save Error:', err);
-                    showMessage('Erreur de sauvegarde: ' + err.message, 5000);
-                });
-
             return { bidderId, partnerId, obj, pts, plisTeam, reussite, delta, defenseIds, totalScores: totalScores.slice() };
+        }
+
+        function sauvegarderPartie(resultat) {
+            try {
+                const { bidderId, partnerId, obj, plisTeam, reussite, delta } = resultat;
+                const userId = currentUser?.uid || 'ANONYMOUS_WEB';
+                const userPseudo = currentUser?.email?.split('@')[0] || 'Invité Web';
+
+                const gameData = {
+                    varianteId: 'whist-gand',
+                    manche: currentManche,
+                    isWebPlay: true,
+                    sourcePlatform: 'web',
+                    aiVersion: WHIST_AI_VERSION,
+                    userId,
+                    userPseudo,
+                    createdAt: new Date().toISOString(),
+                    atout: contratFinal?.atout || null,
+                    contrat: {
+                        id: contratFinal.id,
+                        nom: contratFinal.nom,
+                        joueurId: bidderId,
+                        plisObjectif: obj,
+                        ...(contratFinal.asPartenaire ? { asPartenaire: contratFinal.asPartenaire } : {}),
+                        ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
+                    },
+                    donne: mainsInitiales.map((mainInitiale, joueurId) => ({
+                        joueurId,
+                        nom: joueurId === 0 ? userPseudo : `IA-${joueurId}`,
+                        mainInitiale
+                    })),
+                    plis: plisHistory,
+                    resultat: { reussite, plisFaits: plisTeam, deltaScores: delta },
+                    historiqueEncheres,
+                };
+
+                const docId = `WEB_PLAY_${Date.now()}`;
+                Promise.resolve(setDoc(doc(db, 'games', docId), gameData))
+                    .then(() => console.log('Game saved successfully!'))
+                    .catch(err => {
+                        console.error('DB Save Error:', err);
+                        showMessage('Erreur de sauvegarde: ' + err.message, 5000);
+                    });
+            } catch (err) {
+                console.error('DB Save Preparation Error:', err);
+                showMessage('Résultats affichés, mais sauvegarde impossible: ' + err.message, 5000);
+            }
         }
 
         function showMessage(msg, dur = 4000) { const bar = document.getElementById('game-message-bar'), txt = document.getElementById('game-message-text'); txt.innerText = msg; bar.classList.remove('hidden'); setTimeout(() => bar.classList.add('hidden'), dur); }
