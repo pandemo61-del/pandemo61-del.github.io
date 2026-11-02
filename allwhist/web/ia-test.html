@@ -132,7 +132,6 @@
                     </div>
                     <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
                 </div>
-
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Passes</h3>
@@ -190,7 +189,7 @@
             document.getElementById('file-warning')?.classList.remove('hidden');
         }
 
-        // --- Barème de contrats fourni à l'IA partagée ---
+        // --- Barème de contrats transmis à whist-ai.js ---
         const BAREME_IWW = {
             propose: { pts: 10, prio: 1, obj: 8, seul: false },
             emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
@@ -210,40 +209,20 @@
             chelem: { pts: 250, prio: 12, obj: 13, seul: true }
         };
 
-        function deciderEnchere(hand) {
-            const { force, bestCol, nbAtouts } = evaluerForce(hand);
-            const nbAs = hand.filter(c => c.valeur === 14).length;
-            const forceMisere = hand.reduce((acc, c) => {
-                if (c.valeur >= 11) return acc + 10;
-                if (c.valeur >= 8) return acc + 2;
-                return acc;
-            }, 0);
-
-            const aHonneurAtout = hand.some(c => c.couleur === bestCol && c.valeur >= 13);
-
-            if (nbAs === 3) return { id: 'trou', nom: 'Trou', ...BAREME_IWW.trou, atout: null };
-            if (nbAs === 4) return { id: 'trou_royal', nom: 'Trou Royal', ...BAREME_IWW.trou_royal, atout: 'COEUR' };
-
-            if (force >= 45 && aHonneurAtout) return { id: 'chelem', nom: 'Chelem', ...BAREME_IWW.chelem, atout: bestCol };
-            if (force >= 40 && aHonneurAtout) return { id: 'abondance_11', nom: 'Abondance 11', ...BAREME_IWW.abondance_11, atout: bestCol };
-
-            const peutMisere = forceMisere <= 25 && nbAs === 0;
-
-            if (force >= 35 && aHonneurAtout) return { id: 'abondance_10', nom: 'Abondance 10', ...BAREME_IWW.abondance_10, atout: bestCol };
-            if (force >= 30 && nbAtouts >= 6 && aHonneurAtout) return { id: 'abondance_9', nom: 'Abondance 9', ...BAREME_IWW.abondance_9, atout: bestCol };
-            if (force >= 28 && nbAtouts >= 6 && aHonneurAtout) return { id: 'solo_8', nom: 'Solo 8', ...BAREME_IWW.solo_8, atout: bestCol };
-
-            if (peutMisere) {
-                if (forceMisere === 0) return { id: 'misere_ouverte', nom: 'Misère sur Table', ...BAREME_IWW.misere_ouverte, atout: null };
-                if (forceMisere <= 10) return { id: 'misere', nom: 'Grande Misère', ...BAREME_IWW.misere, atout: null };
-                if (forceMisere <= 20) return { id: 'petite_misere', nom: 'Petite Misère', ...BAREME_IWW.petite_misere, atout: null };
-            }
-
-            if (force >= 25 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_7', nom: 'Solo 7', ...BAREME_IWW.solo_7, atout: bestCol };
-            if (force >= 22 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_6', nom: 'Solo 6', ...BAREME_IWW.solo_6, atout: bestCol };
-            if (force >= 15 && nbAtouts >= 5) return { id: 'propose', nom: 'Je propose', ...BAREME_IWW.propose, atout: bestCol };
-
-            return null;
+        const CONTRACT_NAMES = {
+            propose: 'Propose', emballe: 'Emballe', demande: 'Demande', solo_6: 'Solo 6',
+            solo_7: 'Solo 7', petite_misere: 'Petite Misère', solo_8: 'Solo 8',
+            abondance_9: 'Abondance 9', trou: 'Trou', trou_royal: 'Trou Royal',
+            abondance_10: 'Abondance 10', misere: 'Misère', abondance_11: 'Abondance 11',
+            abondance_12: 'Abondance 12', misere_ouverte: 'Misère ouverte', chelem: 'Chelem'
+        };
+        const WHIST_CONTRACTS = Object.entries(BAREME_IWW).map(([id, data]) => ({
+            id, nom: CONTRACT_NAMES[id] || id, priorite: data.prio, ...data, sanAtout: !!data.sa
+        }));
+        function contractFromDecision(decision) {
+            if (!decision || decision.action === 'passe' || !decision.contratId) return null;
+            const base = WHIST_CONTRACTS.find(contract => contract.id === decision.contratId);
+            return base ? { ...base, atout: decision.atout ?? null, asPartenaire: decision.asPartenaire } : null;
         }
 
         let stats = { success: 0, fail: 0, pass: 0, total: 0 };
@@ -288,7 +267,6 @@
             document.getElementById('btnText').innerText = 'Simulation en cours...';
 
             const target = 50;
-
             for (let simCount = 0; simCount < target; simCount++) {
                 const game = await simulateAndSave(simCount + 1);
                 addTableRow(game, true);
@@ -546,7 +524,9 @@
                     </span>
                 </td>
                 <td class="p-4 text-right flex justify-end gap-2">
-                    ${isPass ? '' : `<a href="../admin/game-detail.html#id=${game.id}" class="text-emerald-600 hover:bg-emerald-50 transition p-2 rounded-lg" title="Voir l'analyse"><i class="fas fa-chart-bar"></i></a>`}
+                    <a href="../admin/game-detail.html#id=${game.id}" class="text-emerald-600 hover:bg-emerald-50 transition p-2 rounded-lg" title="Voir l'analyse">
+                        <i class="fas fa-chart-bar"></i>
+                    </a>
                     <button onclick="window.deleteSingleGame('${game.id}')" class="text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition p-2 rounded-lg" title="Supprimer">
                         <i class="fas fa-trash"></i>
                     </button>
