@@ -901,7 +901,25 @@
             if (pliCourant.length === 4) evaluateTrickEnd(); else playAIUntilHuman();
         };
 
-        function renderTableCard(pid, card) { document.getElementById(`table-j${pid}`).innerHTML = `<div class="playing-card ${COULEUR_CSS[card.couleur]} shadow-xl border-2 border-white transform" style="transform: translateY(-4px)">${card.valeur}${SYM[card.couleur]}</div>`; }
+        function renderTableCard(pid, card) {
+            const value = getLabel(card.valeur);
+            const suit = ASSET_IMG[card.couleur];
+            document.getElementById(`table-j${pid}`).innerHTML = `
+                <div class="playing-card ${COULEUR_CSS[card.couleur]} shadow-xl border-2 border-white transform" style="width:70px;height:105px;transform:translateY(-4px)">
+                    <div class="card-top">
+                        <span class="card-value">${value}</span>
+                        <img class="card-suit-img" src="${suit}" alt="${card.couleur}">
+                    </div>
+                    <div class="card-suit-main">
+                        <img src="${suit}" alt="${card.couleur}">
+                    </div>
+                    <div class="card-bottom">
+                        <span class="card-value">${value}</span>
+                        <img class="card-suit-img" src="${suit}" alt="${card.couleur}">
+                    </div>
+                </div>
+            `;
+        }
         function updateTurnIndicator(pid) { const ind = document.getElementById('turn-indicator'), t = document.getElementById(`table-j${pid}`); ind.classList.remove('hidden'); ind.style.left = t ? `${t.offsetLeft + 35}px` : '50%'; ind.style.top = t ? `${t.offsetTop + 20}px` : '50%'; }
 
         async function evaluateTrickEnd() {
