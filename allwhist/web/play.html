@@ -247,8 +247,12 @@
         border: 1px solid rgba(255,255,255,.35) !important;
         box-shadow: 0 4px 8px rgba(0,0,0,.25);
       }
-      #table-j0 .playing-card, #table-j1 .playing-card, #table-j2 .playing-card, #table-j3 .playing-card { animation: cardArrival .28s cubic-bezier(.2,.8,.2,1) both; }
-      @keyframes cardArrival { from { opacity: 0; transform: translateY(16px) scale(.75) rotate(-5deg); } to { opacity: 1; transform: translateY(-4px) scale(1) rotate(0); } }
+      #table-j0 .playing-card, #table-j1 .playing-card, #table-j2 .playing-card, #table-j3 .playing-card { animation: cardArrival .32s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+      @keyframes cardArrival {
+        0% { opacity: 0; transform: translateY(45px) scale(0.65) rotate(-14deg); }
+        60% { opacity: 1; transform: translateY(-8px) scale(1.03) rotate(2deg); }
+        100% { opacity: 1; transform: translateY(-4px) scale(1) rotate(0deg); }
+      }
 
       /* Premium, consistent overlays. */
       [id^="modal-"] { backdrop-filter: blur(10px); }
@@ -1072,7 +1076,7 @@
 
         function startTrick() {
             resolutionPliEnCours = false;
-            pliCourant = []; clearTableUI();
+            pliCourant = [];
             if (leaderId !== 0) playAIUntilHuman();
             else {
                 updateTurnIndicator(0); renderHandsUI();
@@ -1085,6 +1089,7 @@
 
         async function playAIUntilHuman() {
             while (pliCourant.length < 4) {
+                if (pliCourant.length === 0) clearTableUI();
                 const pid = (leaderId + pliCourant.length) % 4;
                 if (pid === 0) {
                     updateTurnIndicator(0); renderHandsUI();
@@ -1111,6 +1116,7 @@
             const idx = hands[0].findIndex(c => c.id === cardId); if (idx === -1) return;
             const tid = (leaderId + pliCourant.length) % 4; if (tid !== 0) return;
             const card = hands[0][idx]; if (!isCardPlayable(card)) return;
+            if (pliCourant.length === 0) clearTableUI();
             hands[0].splice(idx, 1); revealWebPartner(0, card); pliCourant.push({ joueurId: 0, carte: card }); renderHandsUI(); renderTableCard(0, card);
             if (pliCourant.length === 4) evaluateTrickEnd(); else playAIUntilHuman();
         };
