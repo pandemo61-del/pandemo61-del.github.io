@@ -66,7 +66,7 @@
             <header class="flex justify-between items-center mb-8">
                 <div>
                     <h2 class="text-3xl font-bold text-gray-800">IA Stress Test (Whist Belge)</h2>
-                    <p class="text-gray-500 text-sm mt-1">Simulation automatique & Banchmark des algorithmes d'IA</p>
+                    <p class="text-gray-500 text-sm mt-1">Simulation automatique & Benchmark des algorithmes d'IA · Fichier sauvegardé le 02/11/2026 11:00:00</p>
                 </div>
 
                 <div class="flex items-center gap-3">
@@ -110,7 +110,7 @@
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Réussites</h3>
@@ -131,13 +131,6 @@
                         <i class="fas fa-percentage text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
                     </div>
                     <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Passes</h3>
-                        <i class="fas fa-forward text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
-                    </div>
-                    <p id="statPass" class="text-4xl font-bold text-gray-800">0</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
@@ -189,7 +182,34 @@
             document.getElementById('file-warning')?.classList.remove('hidden');
         }
 
-        // --- Barème de contrats transmis à whist-ai.js ---
+        // --- Logic IA Simulation (Whist Belge) ---
+        function evaluerForce(hand) {
+            const forceBrute = hand.reduce((acc, c) => {
+                if (c.valeur === 14) return acc + 4; // As
+                if (c.valeur === 13) return acc + 3; // Roi
+                if (c.valeur === 12) return acc + 2; // Dame
+                if (c.valeur === 11) return acc + 1; // Valet
+                return acc;
+            }, 0);
+
+            const repart = { COEUR: 0, CARREAU: 0, TREFLE: 0, PIQUE: 0 };
+            hand.forEach(c => repart[c.couleur]++);
+
+            let bestCol = 'PIQUE'; let max = 0;
+            Object.entries(repart).forEach(([col, nb]) => {
+                if (nb > max) { max = nb; bestCol = col; }
+            });
+
+            let bonusVides = 0;
+            Object.values(repart).forEach(nb => {
+                if (nb === 0) bonusVides += 3;
+                if (nb === 1) bonusVides += 1;
+            });
+            const bonusDistrib = Math.max(0, max - 4) * 2;
+
+            return { force: forceBrute + bonusDistrib + bonusVides, bestCol, nbAtouts: max };
+        }
+
         const BAREME_IWW = {
             propose: { pts: 10, prio: 1, obj: 8, seul: false },
             emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
@@ -209,6 +229,42 @@
             chelem: { pts: 250, prio: 12, obj: 13, seul: true }
         };
 
+        function deciderEnchere(hand) {
+            const { force, bestCol, nbAtouts } = evaluerForce(hand);
+            const nbAs = hand.filter(c => c.valeur === 14).length;
+            const forceMisere = hand.reduce((acc, c) => {
+                if (c.valeur >= 11) return acc + 10;
+                if (c.valeur >= 8) return acc + 2;
+                return acc;
+            }, 0);
+
+            const aHonneurAtout = hand.some(c => c.couleur === bestCol && c.valeur >= 13);
+
+            if (nbAs === 3) return { id: 'trou', nom: 'Trou', ...BAREME_IWW.trou, atout: null };
+            if (nbAs === 4) return { id: 'trou_royal', nom: 'Trou Royal', ...BAREME_IWW.trou_royal, atout: 'COEUR' };
+
+            if (force >= 45 && aHonneurAtout) return { id: 'chelem', nom: 'Chelem', ...BAREME_IWW.chelem, atout: bestCol };
+            if (force >= 40 && aHonneurAtout) return { id: 'abondance_11', nom: 'Abondance 11', ...BAREME_IWW.abondance_11, atout: bestCol };
+
+            const peutMisere = forceMisere <= 25 && nbAs === 0;
+
+            if (force >= 35 && aHonneurAtout) return { id: 'abondance_10', nom: 'Abondance 10', ...BAREME_IWW.abondance_10, atout: bestCol };
+            if (force >= 30 && nbAtouts >= 6 && aHonneurAtout) return { id: 'abondance_9', nom: 'Abondance 9', ...BAREME_IWW.abondance_9, atout: bestCol };
+            if (force >= 28 && nbAtouts >= 6 && aHonneurAtout) return { id: 'solo_8', nom: 'Solo 8', ...BAREME_IWW.solo_8, atout: bestCol };
+
+            if (peutMisere) {
+                if (forceMisere === 0) return { id: 'misere_ouverte', nom: 'Misère sur Table', ...BAREME_IWW.misere_ouverte, atout: null };
+                if (forceMisere <= 10) return { id: 'misere', nom: 'Grande Misère', ...BAREME_IWW.misere, atout: null };
+                if (forceMisere <= 20) return { id: 'petite_misere', nom: 'Petite Misère', ...BAREME_IWW.petite_misere, atout: null };
+            }
+
+            if (force >= 25 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_7', nom: 'Solo 7', ...BAREME_IWW.solo_7, atout: bestCol };
+            if (force >= 22 && nbAtouts >= 5 && aHonneurAtout) return { id: 'solo_6', nom: 'Solo 6', ...BAREME_IWW.solo_6, atout: bestCol };
+            if (force >= 15 && nbAtouts >= 5) return { id: 'propose', nom: 'Je propose', ...BAREME_IWW.propose, atout: bestCol };
+
+            return null;
+        }
+
         const CONTRACT_NAMES = {
             propose: 'Propose', emballe: 'Emballe', demande: 'Demande', solo_6: 'Solo 6',
             solo_7: 'Solo 7', petite_misere: 'Petite Misère', solo_8: 'Solo 8',
@@ -222,10 +278,13 @@
         function contractFromDecision(decision) {
             if (!decision || decision.action === 'passe' || !decision.contratId) return null;
             const base = WHIST_CONTRACTS.find(contract => contract.id === decision.contratId);
-            return base ? { ...base, atout: decision.atout ?? null, asPartenaire: decision.asPartenaire } : null;
+            if (!base) return null;
+            const contract = { ...base, atout: decision.atout ?? null };
+            if (decision.asPartenaire !== undefined) contract.asPartenaire = decision.asPartenaire;
+            return contract;
         }
 
-        let stats = { success: 0, fail: 0, pass: 0, total: 0 };
+        let stats = { success: 0, fail: 0, total: 0 };
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
         const deleteBtn = document.getElementById('deleteBtn');
@@ -266,13 +325,16 @@
             runBtn.disabled = true;
             document.getElementById('btnText').innerText = 'Simulation en cours...';
 
+            let simCount = 0;
             const target = 50;
-            for (let simCount = 0; simCount < target; simCount++) {
+
+            while (simCount < target) {
                 const game = await simulateAndSave(simCount + 1);
+                if (game.isPasse) continue;
+
+                simCount++;
                 addTableRow(game, true);
-                if (game.isPasse) stats.pass++;
-                else if (game.resultat?.reussite) stats.success++;
-                else stats.fail++;
+                if (game.resultat.reussite) stats.success++; else stats.fail++;
                 stats.total++;
                 updateStatsUI();
                 await new Promise(r => setTimeout(r, 50));
@@ -312,10 +374,10 @@
                 }
                 const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                 docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                stats = { success: 0, fail: 0, pass: 0, total: 0 };
+                stats = { success: 0, fail: 0, total: 0 };
                 docs.forEach(data => {
                     addTableRow(data);
-                    if (data.isPasse || data.contrat?.id === 'passe') stats.pass++; else if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
                     stats.total++;
                 });
                 updateStatsUI();
@@ -328,11 +390,22 @@
         function updateStatsUI() {
             document.getElementById('statSuccess').innerText = stats.success;
             document.getElementById('statFail').innerText = stats.fail;
-            document.getElementById('statPass').innerText = stats.pass;
             document.getElementById('statTotal').innerText = `${stats.total}`;
-            const played = stats.success + stats.fail;
-            const rate = played > 0 ? Math.round((stats.success / played) * 100) : 0;
+            const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
             document.getElementById('statRate').innerText = `${rate}%`;
+        }
+
+
+        function removeUndefined(value) {
+            if (Array.isArray(value)) return value.map(removeUndefined);
+            if (value && typeof value === 'object') {
+                return Object.fromEntries(
+                    Object.entries(value)
+                        .filter(([, v]) => v !== undefined)
+                        .map(([k, v]) => [k, removeUndefined(v)])
+                );
+            }
+            return value;
         }
 
         async function simulateAndSave(index) {
@@ -351,15 +424,13 @@
             let partnerId = -1;
 
             for(let i=0; i<4; i++) {
-                const aiDecision = chooseWhistBid(hands[i], null, 'expert', i, WHIST_CONTRACTS);
-                const decision = contractFromDecision(aiDecision);
+                const decision = deciderEnchere(hands[i]);
                 if (decision) {
                     contrat = decision;
                     bidderId = i;
                     if (decision.id === 'petite_misere') {
-                        const carteEcartee = chooseMisereDiscard(hands[i]);
-                        contrat.carteEcartee = carteEcartee;
-                        hands[i] = hands[i].filter(card => card.id !== carteEcartee?.id);
+                        hands[i].sort((a,b) => b.valeur - a.valeur);
+                        contrat.carteEcartee = hands[i].shift();
                     }
                     if (decision.id === 'propose') {
                         for(let j=1; j<4; j++) {
@@ -381,19 +452,7 @@
                 }
             }
 
-            if (!contrat) {
-                const docId = `AI_STRESS_${Date.now()}_${index}`;
-                const gameData = {
-                    varianteId: 'whist-gand', manche: 1, isAITest: true, isPasse: true,
-                    aiVersion: WHIST_AI_VERSION, userId: BOT_UID, userPseudo: 'IA Expert',
-                    createdAt: new Date().toISOString(), atout: null,
-                    contrat: { id: 'passe', nom: 'Passe', joueurId: -1, plisObjectif: null },
-                    mainsInitiales: hands.map(hand => hand.map(card => ({ ...card }))),
-                    plis: [], resultat: { reussite: null, plisFaits: null, deltaScores: [0, 0, 0, 0] }
-                };
-                await setDoc(doc(db, 'games', docId), gameData);
-                return { id: docId, ...gameData };
-            }
+            if (!contrat) return { isPasse: true };
 
             if (contrat.id === 'petite_misere') {
                 const cartesEcartees = {};
@@ -477,8 +536,6 @@
                 varianteId: 'whist-gand',
                 manche: 1,
                 isAITest: true,
-                isPasse: false,
-                aiVersion: WHIST_AI_VERSION,
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
                 createdAt: new Date().toISOString(),
@@ -494,14 +551,13 @@
             };
 
             const docId = `AI_STRESS_${Date.now()}_${index}`;
-            await setDoc(doc(db, "games", docId), gameData);
+            await setDoc(doc(db, "games", docId), removeUndefined(gameData));
             return { id: docId, ...gameData };
         }
 
         function addTableRow(game, prepend = false) {
             const row = document.createElement('tr');
-            const isPass = game.isPasse || game.contrat?.id === 'passe';
-            const isSuccess = !isPass && game.resultat?.reussite === true;
+            const isSuccess = game.resultat?.reussite;
             const date = new Date(game.createdAt).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
             row.className = 'hover:bg-gray-50 transition';
@@ -514,13 +570,13 @@
                     ${game.contrat?.carteEcartee ? `<span class="ml-2 text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border font-mono" title="Carte écartée">🗂️ ${game.contrat.carteEcartee.valeur === 14 ? 'A' : game.contrat.carteEcartee.valeur === 13 ? 'K' : game.contrat.carteEcartee.valeur === 12 ? 'Q' : game.contrat.carteEcartee.valeur === 11 ? 'J' : game.contrat.carteEcartee.valeur}-${SYM[game.contrat.carteEcartee.couleur]}</span>` : ''}
                 </td>
                 <td class="p-4 text-xs text-slate-400 font-medium">${game.userPseudo || 'Inconnu'}</td>
-                <td class="p-4 text-center font-bold text-gray-400">${isPass ? '—' : game.contrat?.plisObjectif}</td>
-                <td class="p-4 text-center font-black ${isPass ? 'text-amber-600' : isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
-                    ${isPass ? '—' : game.resultat?.plisFaits}
+                <td class="p-4 text-center font-bold text-gray-400">${game.contrat?.plisObjectif}</td>
+                <td class="p-4 text-center font-black ${isSuccess ? 'text-emerald-600' : 'text-rose-600'}">
+                    ${game.resultat?.plisFaits}
                 </td>
                 <td class="p-4">
-                    <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider ${isPass ? 'bg-amber-100 text-amber-700' : isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
-                        ${isPass ? 'Passe' : isSuccess ? 'Succès' : 'Échec'}
+                    <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider ${isSuccess ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">
+                        ${isSuccess ? 'Succès' : 'Échec'}
                     </span>
                 </td>
                 <td class="p-4 text-right flex justify-end gap-2">
