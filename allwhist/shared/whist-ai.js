@@ -36,7 +36,17 @@ function honorTricks(values) {
 function evaluateTrump(hand, trump) {
   const bySuit = cardsBySuit(hand);
   const trumps = bySuit[trump];
-  const lengthBonus = [0, 0, 0, 0, 0.2, 0.65, 1.2, 1.9][trumps.length] ?? 2.6;
+  if (trumps.length === 13) {
+    return {
+      suit: trump,
+      length: 13,
+      controls: 4,
+      expectedTricks: 13,
+      safeTricks: 13,
+      ceilingTricks: 13,
+    };
+  }
+  const lengthBonus = [0, 0, 0, 0, 0.2, 0.65, 1.2, 1.9, 2.8, 3.8, 4.9, 6.1, 7.4, 8.8][trumps.length] ?? (trumps.length * 0.7);
   let expected = honorTricks(trumps) + lengthBonus;
   let controls = has(trumps, 14) ? 1 : 0;
   let shortness = 0;
@@ -155,7 +165,7 @@ function canSupportProposal(hand, trump, level) {
 
 function successUtility(safeTricks, target, reward, margin) {
   const surplus = safeTricks - target - margin;
-  return surplus * 3 + reward - Math.max(0, -surplus) * 5;
+  return Math.max(0, surplus) * 1.5 + reward * 4.0 - Math.max(0, -surplus) * 5;
 }
 
 export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
@@ -221,7 +231,7 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
   }
 
   const proposal = availableContract(contracts, 'propose', hand, currentBid, playerId);
-  if (proposal && contractPriority(proposal) > currentPriority && best.length >= 4) {
+  if (proposal && contractPriority(proposal) > currentPriority && best.length >= 4 && best.safeTricks < 10) {
     const bySuit = cardsBySuit(hand);
     const trumpValues = bySuit[best.suit];
     const conditions = [
