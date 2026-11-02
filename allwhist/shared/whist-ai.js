@@ -218,14 +218,19 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
   const rawRisk = misereRisk(hand);
   const discard = chooseMisereDiscard(hand);
   const discardRisk = discard ? misereRisk(hand.filter(card => card !== discard)) : rawRisk;
+  const honorsCount = hand.filter(card => card.valeur >= 11).length;
+  const acesCount = hand.filter(card => card.valeur === 14).length;
+  const kingsCount = hand.filter(card => card.valeur === 13).length;
+
   const misereOptions = [
-    ['petite_misere', discardRisk, 8.5, 2.0],
-    ['misere', rawRisk, 5.5, 3.0],
-    ['misere_ouverte', rawRisk, 0.75, 5.0],
+    ['petite_misere', discardRisk, 5.2, 2.0, acesCount === 0 && honorsCount <= 2],
+    ['misere', rawRisk, 3.2, 3.0, acesCount === 0 && kingsCount <= 1 && honorsCount <= 1],
+    ['misere_ouverte', rawRisk, 0.5, 5.0, acesCount === 0 && kingsCount === 0 && honorsCount === 0],
   ];
-  for (const [id, risk, maxRisk, reward] of misereOptions) {
+  for (const [id, risk, maxRisk, reward, allowed] of misereOptions) {
     const contract = availableContract(contracts, id, hand, currentBid, playerId);
     if (!contract || contractPriority(contract) <= currentPriority) continue;
+    if (!allowed) continue;
     const utility = (maxRisk - risk) * 0.8 + reward - margin * 2;
     if (risk <= maxRisk && utility > 0) candidates.push({ contract, trump: null, utility });
   }
