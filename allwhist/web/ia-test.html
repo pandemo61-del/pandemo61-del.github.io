@@ -88,12 +88,25 @@
             <!-- Actions Bar -->
             <div class="mb-8 flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                 <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <label for="simulationCount" class="text-sm font-bold text-gray-600">
+                            Simulations
+                        </label>
+                        <input
+                            id="simulationCount"
+                            type="number"
+                            min="1"
+                            max="1000"
+                            value="50"
+                            class="w-24 px-3 py-2.5 border border-gray-300 rounded-lg text-center font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        >
+                    </div>
                     <button id="runBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg font-bold shadow-sm transition-all flex items-center gap-2">
                         <i class="fas fa-play"></i>
-                        <span id="btnText">Lancer la simulation (50)</span>
+                        <span id="btnText">Lancer la simulation</span>
                     </button>
                     <p class="text-xs text-gray-400 max-w-xs italic">
-                        17 Annonces du Whist Belge (www.whist-belgique.be). Scoring à somme nulle.
+                        17 Annonces du Whist Belge (www.whist-belgique.be). Maximum 1000 simulations.
                     </p>
                 </div>
 
@@ -119,7 +132,14 @@
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Simulations</h3>
+                        <i class="fas fa-database text-slate-500 bg-slate-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statTotal" class="text-4xl font-bold text-gray-800">0</p>
+                </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Réussites</h3>
@@ -136,17 +156,17 @@
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">4 passes</h3>
+                        <i class="fas fa-forward text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statPass" class="text-4xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Taux de succès</h3>
                         <i class="fas fa-percentage text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
                     </div>
                     <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Total Simulation</h3>
-                        <i class="fas fa-database text-slate-500 bg-slate-50 p-2 rounded-lg"></i>
-                    </div>
-                    <p id="statTotal" class="text-4xl font-bold text-gray-800">0</p>
                 </div>
             </div>
 
@@ -225,7 +245,12 @@
             },
         }));
 
-        let stats = { success: 0, fail: 0, total: 0 };
+        let stats = {
+            success: 0,
+            fail: 0,
+            pass: 0,
+            total: 0
+        };
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
         const exportAllBtn = document.getElementById('exportAllBtn');
@@ -266,40 +291,98 @@
 
         runBtn.addEventListener('click', async () => {
             if (!auth.currentUser) return alert("Connectez-vous d'abord.");
+
+            const simulationCountInput = document.getElementById('simulationCount');
+
+            let target = parseInt(
+                simulationCountInput.value,
+                10
+            );
+
+            if (Number.isNaN(target)) {
+                target = 50;
+            }
+
+            target = Math.max(
+                1,
+                Math.min(1000, target)
+            );
+
+            simulationCountInput.value = target;
+
             runBtn.disabled = true;
-            document.getElementById('btnText').innerText = 'Simulation en cours...';
+            simulationCountInput.disabled = true;
 
             let simCount = 0;
-            const target = 50;
 
-            while (simCount < target) {
-                const game = await simulateAndSave(simCount + 1);
-            
-                /*
-                 * Chaque distribution compte désormais comme une simulation,
-                 * y compris lorsque les quatre joueurs passent.
-                 */
-                simCount++;
-            
-                addTableRow(game, true);
-            
-                if (!game.isPasse) {
-                    if (game.resultat.reussite === true) {
+            try {
+                while (simCount < target) {
+                    document.getElementById('btnText').innerText =
+                        `Simulation ${simCount + 1} / ${target}`;
+
+                    const game = await simulateAndSave(
+                        simCount + 1
+                    );
+
+                    simCount++;
+
+                    /*
+                     * Toutes les distributions sont comptées,
+                     * y compris les donnes avec 4 passes.
+                     */
+                    stats.total++;
+
+                    if (
+                        game.isPasse === true ||
+                        game.contrat?.id === 'passe'
+                    ) {
+                        stats.pass++;
+                    } else if (
+                        game.resultat?.reussite === true
+                    ) {
                         stats.success++;
-                    } else {
+                    } else if (
+                        game.resultat?.reussite === false
+                    ) {
                         stats.fail++;
                     }
-            
-                    stats.total++;
-                    updateStatsUI();
-                }
-            
-                await new Promise(resolve => setTimeout(resolve, 50));
-            }
-            runBtn.disabled = false;
-            document.getElementById('btnText').innerText = 'Relancer la simulation (50)';
-        });
 
+                    /*
+                     * Les 4 passes ne sont plus éliminées.
+                     * Elles restent visibles dans le tableau.
+                     */
+                    addTableRow(
+                        game,
+                        true
+                    );
+
+                    updateStatsUI();
+
+                    await new Promise(
+                        resolve => setTimeout(
+                            resolve,
+                            50
+                        )
+                    );
+                }
+            } catch (error) {
+                console.error(
+                    'Erreur pendant la simulation',
+                    error
+                );
+
+                alert(
+                    'Erreur pendant la simulation : ' +
+                    error.message
+                );
+            } finally {
+                runBtn.disabled = false;
+                simulationCountInput.disabled = false;
+
+                document.getElementById('btnText').innerText =
+                    `Relancer ${target} simulation${target > 1 ? 's' : ''}`;
+            }
+        });
         function downloadJson(data, filename) {
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
             const url = URL.createObjectURL(blob);
@@ -370,44 +453,117 @@
         });
 
         async function loadExistingGames() {
-            const q = query(collection(db, "games"), where("isAITest", "==", true), limit(200));
+            const q = query(
+                collection(db, "games"),
+                where("isAITest", "==", true),
+                limit(200)
+            );
+
             try {
                 const snapshot = await getDocs(q);
+
                 resultsBody.innerHTML = '';
+
                 if (snapshot.empty) {
-                    resultsBody.innerHTML = '<tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune partie sauvegardée</td></tr>';
+                    resultsBody.innerHTML =
+                        '<tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune partie sauvegardée</td></tr>';
+
+                    stats = {
+                        success: 0,
+                        fail: 0,
+                        pass: 0,
+                        total: 0
+                    };
+
+                    updateStatsUI();
+
                     return;
                 }
-                const docs = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-                stats = { success: 0, fail: 0, total: 0 };
+
+                const docs = snapshot.docs.map(
+                    d => ({
+                        id: d.id,
+                        ...d.data()
+                    })
+                );
+
+                docs.sort(
+                    (a, b) =>
+                        new Date(b.createdAt) -
+                        new Date(a.createdAt)
+                );
+
+                stats = {
+                    success: 0,
+                    fail: 0,
+                    pass: 0,
+                    total: 0
+                };
+
                 docs.forEach(data => {
-                    if (data.isPasse || data.contrat?.id === 'passe') {
-                        return;
-                    }
-                    addTableRow(data);
-                    if (data.resultat?.reussite === true) {
+                    stats.total++;
+
+                    if (
+                        data.isPasse === true ||
+                        data.contrat?.id === 'passe'
+                    ) {
+                        stats.pass++;
+                    } else if (
+                        data.resultat?.reussite === true
+                    ) {
                         stats.success++;
-                    } else if (data.resultat?.reussite === false) {
+                    } else if (
+                        data.resultat?.reussite === false
+                    ) {
                         stats.fail++;
                     }
-                    stats.total++;
+
+                    /*
+                     * Toutes les simulations restent affichées,
+                     * y compris les 4 passes.
+                     */
+                    addTableRow(data);
                 });
+
                 updateStatsUI();
             } catch (e) {
                 console.error(e);
-                resultsBody.innerHTML = `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
+
+                resultsBody.innerHTML =
+                    `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
             }
         }
         
         function updateStatsUI() {
-            document.getElementById('statSuccess').innerText = stats.success;
-            document.getElementById('statFail').innerText = stats.fail;
-            document.getElementById('statTotal').innerText = `${stats.total}`;
-            const rate = stats.total > 0 ? Math.round((stats.success / stats.total) * 100) : 0;
-            document.getElementById('statRate').innerText = `${rate}%`;
-        }
+            document.getElementById('statSuccess').innerText =
+                stats.success;
 
+            document.getElementById('statFail').innerText =
+                stats.fail;
+
+            document.getElementById('statPass').innerText =
+                stats.pass;
+
+            document.getElementById('statTotal').innerText =
+                stats.total;
+
+            const played =
+                stats.success +
+                stats.fail;
+
+            const rate =
+                played > 0
+                    ? Math.round(
+                        (
+                            stats.success /
+                            played
+                        ) * 100
+                    )
+                    : 0;
+
+            document.getElementById('statRate').innerText =
+                `${rate}%`;
+        }
         async function saveGameToDb(gameData, index) {
             const cleanUndefined = (obj) => {
                 if (obj === null || typeof obj !== 'object') return obj;
