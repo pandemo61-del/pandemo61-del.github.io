@@ -229,6 +229,59 @@
             `).join('');
         }
 
+        function renderPasseHands(data) {
+            const list = document.getElementById('tricks-list');
+            if (!list) return;
+
+            const hands = data.mainsInitiales || data.mains || data.hands;
+            if (!hands || !Array.isArray(hands) || hands.length === 0) {
+                list.innerHTML = `
+                    <div class="p-12 text-center text-slate-500">
+                        <i class="fas fa-hand-paper text-4xl text-amber-500 mb-3"></i>
+                        <p class="font-bold text-lg text-gray-700">Partie avec 4 Passes (Redistribution)</p>
+                        <p class="text-xs text-gray-400 mt-1">Aucun pli n'a été joué et aucune main n'a été enregistrée pour cette donne.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const suitOrder = { 'COEUR': 1, 'CARREAU': 2, 'TREFLE': 3, 'PIQUE': 4 };
+
+            list.innerHTML = `
+                <div class="p-6 bg-amber-50 border-b border-amber-200 text-amber-900 flex items-center gap-3">
+                    <i class="fas fa-info-circle text-xl text-amber-600"></i>
+                    <div>
+                        <p class="font-bold">Tous les joueurs ont passé (4 passes consécutives)</p>
+                        <p class="text-xs text-amber-700">La donne a été annulée. Voici les mains initiales des 4 joueurs :</p>
+                    </div>
+                </div>
+                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    ${hands.map((hand, pid) => {
+                        const sortedHand = [...(hand.cartes || hand)].sort((a, b) => {
+                            if (suitOrder[a.couleur] !== suitOrder[b.couleur]) return suitOrder[a.couleur] - suitOrder[b.couleur];
+                            return b.valeur - a.valeur;
+                        });
+                        return `
+                            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 shadow-sm">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="font-bold text-gray-800 text-sm">Joueur ${pid + 1} ${pid === 0 ? '(Vous)' : ''}</span>
+                                    <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-medium">${sortedHand.length} cartes</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${sortedHand.map(c => `
+                                        <div class="card-mini shadow-sm">
+                                            <span class="text-[10px] font-black leading-none ${CARD_COLOR[c.couleur]}">${getLabel(c.valeur)}</span>
+                                            <span class="text-xs ${CARD_COLOR[c.couleur]}">${SYMBOLE[c.couleur]}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
         function renderTricks(data) {
             const list = document.getElementById('tricks-list');
             if (!list) return;
@@ -250,7 +303,7 @@
             });
 
             if (!data.plis || data.plis.length === 0) {
-                list.innerHTML = '<div class="p-10 text-center text-slate-400 italic">Aucun pli enregistré</div>';
+                renderPasseHands(data);
                 return;
             }
 
