@@ -170,6 +170,24 @@
                 </div>
             </div>
 
+            <!-- Pagination Controls -->
+            <div id="paginationControls" class="flex items-center justify-between gap-4 p-4 border-t border-gray-200">
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <span>Afficher</span>
+                    <select id="pageSize" class="border border-gray-300 rounded-lg px-2 py-1">
+                        <option value="20">20</option>
+                        <option value="50" selected>50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span>par page</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span id="paginationInfo" class="text-sm text-gray-500"></span>
+                    <button id="prevPage" class="px-3 py-1.5 border rounded-lg disabled:opacity-30">Précédent</button>
+                    <button id="nextPage" class="px-3 py-1.5 border rounded-lg disabled:opacity-30">Suivant</button>
+                </div>
+            </div>
+            
             <!-- Results Table -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                 <table class="w-full text-left border-collapse">
@@ -245,12 +263,11 @@
             },
         }));
 
-        let stats = {
-            success: 0,
-            fail: 0,
-            pass: 0,
-            total: 0
-        };
+        let stats = {success: 0, fail: 0, pass: 0, total: 0};
+        let allGames = [];
+        let currentPage = 1;
+        let pageSize = 50;
+
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
         const exportAllBtn = document.getElementById('exportAllBtn');
@@ -351,10 +368,9 @@
                      * Les 4 passes ne sont plus éliminées.
                      * Elles restent visibles dans le tableau.
                      */
-                    addTableRow(
-                        game,
-                        true
-                    );
+                    allGames.unshift(game);
+                    currentPage = 1;
+                    renderCurrentPage();
 
                     updateStatsUI();
 
@@ -453,87 +469,77 @@
         });
 
         async function loadExistingGames() {
-            const q = query(
-                collection(db, "games"),
-                where("isAITest", "==", true),
-                limit(200)
-            );
+            const q = query(collection(db, "games"), where("isAITest", "==", true));
 
             try {
                 const snapshot = await getDocs(q);
 
-                resultsBody.innerHTML = '';
+                allGames = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                allGames.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-                if (snapshot.empty) {
-                    resultsBody.innerHTML =
-                        '<tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune partie sauvegardée</td></tr>';
+                stats = { success: 0, fail: 0, pass: 0, total: allGames.length };
 
-                    stats = {
-                        success: 0,
-                        fail: 0,
-                        pass: 0,
-                        total: 0
-                    };
-
-                    updateStatsUI();
-
-                    return;
-                }
-
-                const docs = snapshot.docs.map(
-                    d => ({
-                        id: d.id,
-                        ...d.data()
-                    })
-                );
-
-                docs.sort(
-                    (a, b) =>
-                        new Date(b.createdAt) -
-                        new Date(a.createdAt)
-                );
-
-                stats = {
-                    success: 0,
-                    fail: 0,
-                    pass: 0,
-                    total: 0
-                };
-
-                docs.forEach(data => {
-                    stats.total++;
-
-                    if (
-                        data.isPasse === true ||
-                        data.contrat?.id === 'passe'
-                    ) {
-                        stats.pass++;
-                    } else if (
-                        data.resultat?.reussite === true
-                    ) {
-                        stats.success++;
-                    } else if (
-                        data.resultat?.reussite === false
-                    ) {
-                        stats.fail++;
-                    }
-
-                    /*
-                     * Toutes les simulations restent affichées,
-                     * y compris les 4 passes.
-                     */
-                    addTableRow(data);
+                allGames.forEach(game => {
+                    if (game.isPasse === true || game.contrat?.id === 'passe') stats.pass++;
+                    else if (game.resultat?.reussite === true) stats.success++;
+                    else if (game.resultat?.reussite === false) stats.fail++;
                 });
 
+                currentPage = 1;
                 updateStatsUI();
+                renderCurrentPage();
             } catch (e) {
                 console.error(e);
-
-                resultsBody.innerHTML =
-                    `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
+                resultsBody.innerHTML = `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
             }
         }
-        
+
+                function renderCurrentPage() {
+            resultsBody.innerHTML = '';
+
+            if (!allGames.length) {
+                resultsBody.innerHTML = '<tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune simulation sauvegardée</td></tr>';
+                updatePagination();
+                return;
+            }
+
+            const start = (currentPage - 1) * pageSize;
+            const pageGames = allGames.slice(start, start + pageSize);
+
+            pageGames.forEach(game => addTableRow(game));
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const totalPages = Math.max(1, Math.ceil(allGames.length / pageSize));
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            const start = allGames.length ? (currentPage - 1) * pageSize + 1 : 0;
+            const end = Math.min(currentPage * pageSize, allGames.length);
+
+            document.getElementById('paginationInfo').innerText = `${start}-${end} sur ${allGames.length} • Page ${currentPage}/${totalPages}`;
+            document.getElementById('prevPage').disabled = currentPage <= 1;
+            document.getElementById('nextPage').disabled = currentPage >= totalPages;
+        }
+
+        document.getElementById('pageSize').addEventListener('change', e => {
+            pageSize = Number(e.target.value);
+            currentPage = 1;
+            renderCurrentPage();
+        });
+
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage <= 1) return;
+            currentPage--;
+            renderCurrentPage();
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            if (currentPage * pageSize >= allGames.length) return;
+            currentPage++;
+            renderCurrentPage();
+        });
+                    
         function updateStatsUI() {
             document.getElementById('statSuccess').innerText =
                 stats.success;
