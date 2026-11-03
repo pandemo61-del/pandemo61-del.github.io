@@ -87,8 +87,19 @@ import {
             box.innerHTML = historiqueEncheres.length ? historiqueEncheres.map((e, i) => `<div><strong>${i + 1}. ${PLAYER_LABELS[e.joueurId]}</strong> : ${formatAuctionAction(e)}</div>`).join('') : '<span class="text-slate-400">Aucune enchère précédente</span>';
             box.scrollTop = box.scrollHeight;
         }
+        function renderPlayerBidLabels() {
+            for (let pid = 0; pid < 4; pid++) {
+                const el = document.getElementById(`bid-j${pid}`);
+                if (!el) continue;
+                const last = [...historiqueEncheres].reverse().find(e => e.joueurId === pid);
+                el.textContent = last ? formatAuctionAction(last) : '—';
+                el.classList.toggle('is-pass', last?.action === 'passe');
+                el.classList.toggle('is-bid', last?.action === 'enchere');
+            }
+        }
         function announceAuctionAction(entry) {
             renderLiveAuctionHistory();
+            renderPlayerBidLabels();
             showMessage(`${PLAYER_LABELS[entry.joueurId]} : ${formatAuctionAction(entry)}`, Math.max(1200, settings.aiSpeed + 500));
         }
         function closeAuctionHistory() {
@@ -219,6 +230,7 @@ import {
             }
             plisHistory = [];
             historiqueEncheres = [];
+            renderPlayerBidLabels();
             updateMancheBadge();
             const scenarioId = new URLSearchParams(window.location.search).get('scenario');
             if (scenarioId) {
@@ -495,8 +507,11 @@ import {
                 const isTarget = targetBidId === p.id;
                 const btnClass = isTarget ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-400 font-black ring-2 ring-amber-400' : (dis ? 'bg-slate-50 text-slate-300 border-slate-200' : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-200');
                 const badge = isTarget ? '<span class="block text-[10px] text-amber-800 uppercase font-black mt-0.5">⭐ Annonce du Scénario</span>' : '';
-                return `<button ${dis?'disabled':''} onclick="window.choisirContratWeb('${p.id}','${p.nom}')" class="p-3 ${btnClass} font-bold text-xs rounded-xl border transition flex flex-col items-center justify-center text-center" type="button">${p.nom}${badge}</button>`;
+                return `<button ${dis?'disabled':''} data-bid-id="${p.id}" data-bid-name="${p.nom.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="bid-option p-3 ${btnClass} font-bold text-xs rounded-xl border transition flex flex-col items-center justify-center text-center" type="button">${p.nom}${badge}</button>`;
             }).join('');
+            opts.querySelectorAll('.bid-option').forEach(button => {
+                button.addEventListener('click', () => window.choisirContratWeb(button.dataset.bidId, button.dataset.bidName));
+            });
             renderLiveAuctionHistory();
             modalEnchere.classList.add('flex'); modalEnchere.classList.remove('hidden');
         }

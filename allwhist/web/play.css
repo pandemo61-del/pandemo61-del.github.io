@@ -297,3 +297,7 @@
 .auction-history-row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 11px; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0; color:#334155; }
 #atout-badge .atout-symbol { display:inline-flex; align-items:center; justify-content:center; min-width:18px; font-size:18px; line-height:1; font-weight:900; text-shadow:0 1px 2px rgba(0,0,0,.55); }
 @media (max-width:700px) { #modal-enchere.auction-panel { right:8px; bottom:8px; width:min(360px,calc(100vw - 16px)); } #modal-enchere .auction-panel-card { padding:14px; max-height:55vh; } }
+
+.player-bid-label { min-width:72px; min-height:22px; padding:3px 8px; border-radius:999px; background:rgba(2,15,11,.7); border:1px solid rgba(255,255,255,.14); color:#f6ecd2; font-size:10px; line-height:14px; font-weight:800; text-align:center; white-space:nowrap; box-shadow:0 4px 12px rgba(0,0,0,.2); }
+.player-bid-label.is-pass { color:#94a3b8; border-color:rgba(148,163,184,.25); }
+.player-bid-label.is-bid { color:#fde68a; border-color:rgba(216,181,106,.5); background:rgba(73,50,12,.62); }
