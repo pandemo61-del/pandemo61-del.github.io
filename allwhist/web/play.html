@@ -8,9 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="play.css">
-
-    
-
 </head>
 <body class="bg-gray-100 min-h-screen">
     <div class="flex">
@@ -137,8 +134,8 @@
         </main>
     </div>
 
-    <div id="modal-enchere" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-50 transition">
-        <div class="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl">
+    <div id="modal-enchere" class="auction-panel hidden transition" role="dialog" aria-label="Vos Enchères">
+        <div class="auction-panel-card bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-gavel text-amber-500 mr-2"></i>Vos Enchères</h3>
                 <div id="current-bid-info" class="text-[10px] font-bold text-slate-400 uppercase">Aucune enchère</div>
