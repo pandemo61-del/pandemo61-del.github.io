@@ -382,8 +382,15 @@
                 docs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                 stats = { success: 0, fail: 0, total: 0 };
                 docs.forEach(data => {
+                    if (data.isPasse || data.contrat?.id === 'passe') {
+                        return;
+                    }
                     addTableRow(data);
-                    if (data.resultat?.reussite) stats.success++; else stats.fail++;
+                    if (data.resultat?.reussite === true) {
+                        stats.success++;
+                    } else if (data.resultat?.reussite === false) {
+                        stats.fail++;
+                    }
                     stats.total++;
                 });
                 updateStatsUI();
@@ -392,7 +399,7 @@
                 resultsBody.innerHTML = `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
             }
         }
-
+        
         function updateStatsUI() {
             document.getElementById('statSuccess').innerText = stats.success;
             document.getElementById('statFail').innerText = stats.fail;
@@ -401,137 +408,67 @@
             document.getElementById('statRate').innerText = `${rate}%`;
         }
 
+        async function saveGameToDb(gameData, index) {
+            const cleanUndefined = (obj) => {
+                if (obj === null || typeof obj !== 'object') return obj;
+                if (Array.isArray(obj)) return obj.map(cleanUndefined);
+                const cleaned = {};
+                for (const [key, val] of Object.entries(obj)) {
+                    if (val !== undefined) cleaned[key] = cleanUndefined(val);
+                }
+                return cleaned;
+            };
+            const docId = `AI_STRESS_${Date.now()}_${index}`;
+            await setDoc(doc(db, "games", docId), cleanUndefined(gameData));
+            return { id: docId, ...gameData };
+        }
+        
         async function simulateAndSave(index) {
             const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
             const deck = [];
-        
-            suits.forEach(suit => {
-                for (let value = 2; value <= 14; value++) {
-                    deck.push({
-                        valeur: value,
-                        couleur: suit,
-                        id: `${value}-${suit}`
-                    });
-                }
+            suits.forEach(s => {
+                for (let v = 2; v <= 14; v++) deck.push({ valeur: v, couleur: s, id: `${v}-${s}` });
             });
-        
             deck.sort(() => Math.random() - 0.5);
-        
             const hands = [[], [], [], []];
-        
-            for (let i = 0; i < 52; i++) {
-                hands[i % 4].push(deck[i]);
-            }
-        
-            /*
-             * Copie profonde des quatre mains immédiatement après la distribution.
-             * Cette copie ne sera pas modifiée par les défausses ou le jeu.
-             */
-            const mainsInitiales = JSON.parse(JSON.stringify(hands));
-        
-            /*
-             * Historique complet des décisions prises pendant les enchères.
-             */
-            const historiqueEncheres = [];
-        
+            for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
+
+            const initialHands = hands.map(hand => hand.map(card => ({ ...card })));
+
             let meilleureEnchere = null;
             let tour = 0;
             let passes = 0;
-        
+            const historiqueEncheres = [];
+
             while (passes < 4 && tour < 16) {
                 const pid = tour % 4;
-        
-                const decision = chooseWhistBid(
-                    hands[pid],
-                    meilleureEnchere,
-                    'expert',
-                    pid,
-                    WHIST_CONTRACTS
-                );
-        
-                const enchereHistorique = {
+                const decision = chooseWhistBid(hands[pid], meilleureEnchere, 'expert', pid, WHIST_CONTRACTS);
+
+                historiqueEncheres.push({
                     tour: tour + 1,
                     joueurId: pid,
-                    action:
-                        decision.action === 'enchere' && decision.contratId
-                            ? 'enchere'
-                            : 'passe',
-                    decision: JSON.parse(JSON.stringify(decision))
-                };
-        
-                if (
-                    decision.action === 'enchere' &&
-                    decision.contratId
-                ) {
+                    action: decision.action || 'passe',
+                    contratId: decision.contratId || null,
+                    atout: decision.atout || null
+                });
+
+                if (decision.action === 'enchere' && decision.contratId) {
                     const base = BAREME_IWW[decision.contratId];
-        
                     meilleureEnchere = {
                         ...base,
                         ...decision,
                         id: decision.contratId,
-                        nom: getWhistContractName({
-                            id: decision.contratId
-                        }),
+                        nom: getWhistContractName({ id: decision.contratId }),
                         joueurId: pid,
-                        sa: base.sa === true
+                        sa: base.sa === true,
                     };
-        
-                    enchereHistorique.meilleureEnchereApresDecision =
-                        JSON.parse(JSON.stringify(meilleureEnchere));
-        
                     passes = 0;
                 } else {
                     passes++;
                 }
-        
-                historiqueEncheres.push(enchereHistorique);
                 tour++;
             }
-        
-            /*
-             * Nettoyage récursif des valeurs undefined.
-             * Firestore refuse les propriétés contenant undefined.
-             */
-            const cleanUndefined = obj => {
-                if (obj === null || typeof obj !== 'object') {
-                    return obj;
-                }
-        
-                if (Array.isArray(obj)) {
-                    return obj.map(cleanUndefined);
-                }
-        
-                const cleaned = {};
-        
-                for (const [key, value] of Object.entries(obj)) {
-                    if (value !== undefined) {
-                        cleaned[key] = cleanUndefined(value);
-                    }
-                }
-        
-                return cleaned;
-            };
-        
-            /*
-             * Identifiant unique pour la donne.
-             */
-            const randomPart =
-                typeof crypto !== 'undefined' && crypto.randomUUID
-                    ? crypto.randomUUID()
-                    : Math.random().toString(36).substring(2);
-        
-            const docId =
-                `AI_STRESS_${Date.now()}_${index}_${randomPart}`;
-        
-            /*
-             * Cas où les quatre joueurs passent.
-             *
-             * La donne est enregistrée dans Firestore avec :
-             * - les quatre mains initiales ;
-             * - les quatre passes ;
-             * - aucun pli joué ;
-             * - aucun résultat de réussite ou d'échec.
-             */
+
             if (!meilleureEnchere) {
                 const gameData = {
                     varianteId: 'whist-gand',
@@ -539,31 +476,19 @@
                     isAITest: true,
                     isPasse: true,
                     aiVersion: WHIST_AI_VERSION,
-        
                     userId: BOT_UID,
                     userPseudo: 'IA Expert',
-        
                     createdAt: new Date().toISOString(),
-        
-                    mainsInitiales:
-                        JSON.parse(JSON.stringify(mainsInitiales)),
-        
-                    historiqueEncheres:
-                        JSON.parse(JSON.stringify(historiqueEncheres)),
-        
                     atout: null,
-        
                     contrat: {
                         id: 'passe',
-                        contratId: 'passe',
-                        nom: 'Tous passent',
+                        nom: 'Passe',
                         joueurId: null,
-                        partenaireId: null,
                         plisObjectif: null
                     },
-        
+                    mainsInitiales: initialHands,
+                    historiqueEncheres: historiqueEncheres,
                     plis: [],
-        
                     resultat: {
                         reussite: null,
                         plisFaits: null,
@@ -575,141 +500,64 @@
                         }
                     }
                 };
-        
-                await setDoc(
-                    doc(db, 'games', docId),
-                    cleanUndefined(gameData)
-                );
-        
-                return {
-                    id: docId,
-                    ...gameData
-                };
+
+                return await saveGameToDb(gameData, index);
             }
-        
+
             const contrat = meilleureEnchere;
             const bidderId = contrat.joueurId;
-        
             let partnerId = contrat.partenaireId;
-        
-            /*
-             * Recherche du partenaire d'une proposition.
-             */
-            if (
-                contrat.id === 'propose' &&
-                partnerId === undefined
-            ) {
+            if (contrat.id === 'propose' && partnerId === undefined) {
                 for (let j = 1; j < 4; j++) {
                     const pId = (bidderId + j) % 4;
-        
-                    const numberOfTrumpCards = hands[pId].filter(
-                        card => card.couleur === contrat.atout
-                    ).length;
-        
-                    if (numberOfTrumpCards >= 4) {
+                    if (hands[pId].filter(c => c.couleur === contrat.atout).length >= 4) {
                         partnerId = pId;
                         break;
                     }
                 }
-        
-                if (partnerId === undefined) {
-                    partnerId = -1;
-                }
-            } else if (
-                contrat.id === 'trou' &&
-                partnerId === undefined
-            ) {
-                const asPossedes = hands[bidderId]
-                    .filter(card => card.valeur === 14)
-                    .map(card => card.couleur);
-        
-                const asManquant = suits.find(
-                    suit => !asPossedes.includes(suit)
-                );
-        
+                if (partnerId === undefined) partnerId = -1;
+            } else if (contrat.id === 'trou' && partnerId === undefined) {
+                const asPossedes = hands[bidderId].filter(c => c.valeur === 14).map(c => c.couleur);
+                const asManquant = suits.find(s => !asPossedes.includes(s));
                 for (let j = 0; j < 4; j++) {
-                    if (
-                        j !== bidderId &&
-                        hands[j].some(
-                            card =>
-                                card.valeur === 14 &&
-                                card.couleur === asManquant
-                        )
-                    ) {
+                    if (j !== bidderId && hands[j].some(c => c.valeur === 14 && c.couleur === asManquant)) {
                         partnerId = j;
                         break;
                     }
                 }
-        
-                if (partnerId === undefined) {
-                    partnerId = -1;
-                }
+                if (partnerId === undefined) partnerId = -1;
             } else if (partnerId === undefined) {
                 partnerId = -1;
             }
-        
-            /*
-             * Défausse des petites misères.
-             *
-             * mainsInitiales n'est pas touché, car il s'agit d'une copie
-             * effectuée avant cette étape.
-             */
+
             if (contrat.id === 'petite_misere') {
                 const cartesEcartees = {};
-        
                 for (let i = 0; i < 4; i++) {
                     const discarded = chooseMisereDiscard(hands[i]);
-        
                     if (discarded) {
-                        const discardedIndex = hands[i].findIndex(
-                            card => card.id === discarded.id
-                        );
-        
-                        if (discardedIndex !== -1) {
-                            hands[i].splice(discardedIndex, 1);
-                        }
-        
+                        hands[i].splice(hands[i].findIndex(c => c.id === discarded.id), 1);
                         cartesEcartees[i] = discarded;
                     }
                 }
-        
                 contrat.cartesEcartees = cartesEcartees;
             }
-        
-            const atout =
-                contrat.atout !== undefined
-                    ? contrat.atout
-                    : null;
-        
+
+            const atout = contrat.atout;
             const plis = [];
+            let leaderId = (bidderId + 1) % 4;
             const plisGagnes = [0, 0, 0, 0];
             const playedCardsAll = [];
             const completedTricks = [];
-        
-            let leaderId = (bidderId + 1) % 4;
-        
+
             for (let pNum = 1; pNum <= 13; pNum++) {
-                if (
-                    hands[0].length === 0 ||
-                    hands[1].length === 0 ||
-                    hands[2].length === 0 ||
-                    hands[3].length === 0
-                ) {
+                if (hands[0].length === 0 || hands[1].length === 0 || hands[2].length === 0 || hands[3].length === 0) {
                     break;
                 }
-        
                 const pliCartes = [];
-        
-                const currentTrick = {
-                    numero: pNum,
-                    cartesJouees: pliCartes,
-                    couleurDemandee: undefined
-                };
-        
+                let currentTrick = { numero: pNum, cartesJouees: pliCartes, couleurDemandee: undefined };
                 for (let i = 0; i < 4; i++) {
                     const pid = (leaderId + i) % 4;
                     const hand = hands[pid];
-        
                     const chosen = chooseWhistCard(
                         hand,
                         pid,
@@ -720,233 +568,79 @@
                         completedTricks,
                         { level: 'expert' }
                     );
-        
-                    const cardIndex = hand.findIndex(
-                        card => card.id === chosen.id
-                    );
-        
-                    const cardToPlay =
-                        cardIndex !== -1
-                            ? hand.splice(cardIndex, 1)[0]
-                            : hand.pop();
-        
-                    if (i === 0) {
-                        currentTrick.couleurDemandee =
-                            cardToPlay.couleur;
-                    }
-        
-                    pliCartes.push({
-                        joueurId: pid,
-                        carte: cardToPlay
-                    });
-        
+                    const cardIndex = hand.findIndex(c => c.id === chosen.id);
+                    const cardToPlay = cardIndex !== -1 ? hand.splice(cardIndex, 1)[0] : hand.pop();
+                    if (i === 0) currentTrick.couleurDemandee = cardToPlay.couleur;
+                    pliCartes.push({ joueurId: pid, carte: cardToPlay });
                     playedCardsAll.push(cardToPlay);
                 }
-        
+
                 let best = pliCartes[0];
                 const ledSuit = currentTrick.couleurDemandee;
-        
                 for (let i = 1; i < 4; i++) {
-                    const current = pliCartes[i];
-        
-                    const currentIsTrump =
-                        atout &&
-                        current.carte.couleur === atout;
-        
-                    const bestIsTrump =
-                        atout &&
-                        best.carte.couleur === atout;
-        
-                    const currentWinsWithTrump =
-                        currentIsTrump &&
-                        !bestIsTrump;
-        
-                    const currentWinsHigherTrump =
-                        currentIsTrump &&
-                        bestIsTrump &&
-                        current.carte.valeur >
-                            best.carte.valeur;
-        
-                    const currentWinsLedSuit =
-                        !currentIsTrump &&
-                        !bestIsTrump &&
-                        current.carte.couleur === ledSuit &&
-                        current.carte.valeur >
-                            best.carte.valeur;
-        
-                    if (
-                        currentWinsWithTrump ||
-                        currentWinsHigherTrump ||
-                        currentWinsLedSuit
-                    ) {
-                        best = current;
+                    const c = pliCartes[i];
+                    const isAtout = atout && c.carte.couleur === atout;
+                    const bestIsAtout = atout && best.carte.couleur === atout;
+                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === ledSuit && c.carte.valeur > best.carte.valeur)) {
+                        best = c;
                     }
                 }
-        
+
                 completedTricks.push(currentTrick);
-        
-                plis.push({
-                    numero: pNum,
-                    gagnantId: best.joueurId,
-                    cartesJouees: pliCartes
-                });
-        
+                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
                 plisGagnes[best.joueurId]++;
                 leaderId = best.joueurId;
             }
-        
-            const plisTeam =
-                plisGagnes[bidderId] +
-                (
-                    partnerId !== -1
-                        ? plisGagnes[partnerId]
-                        : 0
-                );
-        
-            const isSuccess =
-                contrat.obj === 0
-                    ? plisGagnes[bidderId] === 0
-                    : plisTeam >= (contrat.obj || 8);
-        
-            const delta = {
-                0: 0,
-                1: 0,
-                2: 0,
-                3: 0
-            };
-        
-            const defenseIds = [0, 1, 2, 3].filter(
-                id =>
-                    id !== bidderId &&
-                    id !== partnerId
-            );
-        
-            let gainParAdv =
-                isSuccess
-                    ? contrat.pts
-                    : -contrat.pts;
-        
-            if (
-                isSuccess &&
-                (
-                    contrat.id.includes('solo') ||
-                    contrat.id === 'propose'
-                )
-            ) {
-                gainParAdv +=
-                    plisTeam -
-                    (contrat.obj || 8);
+
+            const plisTeam = plisGagnes[bidderId] + (partnerId !== -1 ? plisGagnes[partnerId] : 0);
+            const isSuccess = (contrat.obj === 0) ? (plisGagnes[bidderId] === 0) : (plisTeam >= (contrat.obj || 8));
+            const delta = { 0:0, 1:0, 2:0, 3:0 };
+            const defenseIds = [0,1,2,3].filter(id => id !== bidderId && id !== partnerId);
+            let gainParAdv = isSuccess ? contrat.pts : -contrat.pts;
+
+            if (isSuccess && (contrat.id.includes('solo') || contrat.id === 'propose')) {
+                gainParAdv += (plisTeam - (contrat.obj || 8));
             }
-        
+
             if (isSuccess) {
-                const totalGagne =
-                    gainParAdv *
-                    defenseIds.length;
-        
+                const totalGagne = gainParAdv * defenseIds.length;
                 if (partnerId !== -1) {
-                    delta[bidderId] =
-                        Math.floor(totalGagne / 2);
-        
-                    delta[partnerId] =
-                        totalGagne -
-                        delta[bidderId];
-                } else {
-                    delta[bidderId] =
-                        totalGagne;
-                }
-        
-                defenseIds.forEach(id => {
-                    delta[id] = -gainParAdv;
-                });
+                    delta[bidderId] = Math.floor(totalGagne / 2);
+                    delta[partnerId] = totalGagne - delta[bidderId];
+                } else delta[bidderId] = totalGagne;
+                defenseIds.forEach(id => delta[id] = -gainParAdv);
             } else {
-                const totalPerdu =
-                    Math.abs(gainParAdv) *
-                    defenseIds.length;
-        
+                const totalPerdu = Math.abs(gainParAdv) * defenseIds.length;
                 if (partnerId !== -1) {
-                    delta[bidderId] =
-                        -Math.floor(totalPerdu / 2);
-        
-                    delta[partnerId] =
-                        -(
-                            totalPerdu -
-                            Math.abs(delta[bidderId])
-                        );
-                } else {
-                    delta[bidderId] =
-                        -totalPerdu;
-                }
-        
-                defenseIds.forEach(id => {
-                    delta[id] =
-                        Math.abs(gainParAdv);
-                });
+                    delta[bidderId] = -Math.floor(totalPerdu / 2);
+                    delta[partnerId] = -(totalPerdu - Math.abs(delta[bidderId]));
+                } else delta[bidderId] = -totalPerdu;
+                defenseIds.forEach(id => delta[id] = Math.abs(gainParAdv));
             }
-        
-            /*
-             * Données complètes de la partie.
-             *
-             * mainsInitiales et historiqueEncheres sont maintenant
-             * présents pour toutes les parties jouées.
-             */
+
             const gameData = {
                 varianteId: 'whist-gand',
                 manche: 1,
-        
                 isAITest: true,
                 isPasse: false,
-        
                 aiVersion: WHIST_AI_VERSION,
-        
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
-        
                 createdAt: new Date().toISOString(),
-        
-                mainsInitiales:
-                    JSON.parse(JSON.stringify(mainsInitiales)),
-        
-                historiqueEncheres:
-                    JSON.parse(JSON.stringify(historiqueEncheres)),
-        
-                atout,
-        
+                atout: atout !== undefined ? atout : null,
+                mainsInitiales: initialHands,
+                historiqueEncheres: historiqueEncheres,
                 contrat: {
                     ...contrat,
                     joueurId: bidderId,
                     plisObjectif: contrat.obj,
-        
-                    ...(
-                        partnerId !== -1
-                            ? { partenaireId: partnerId }
-                            : {}
-                    )
+                    ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
                 },
-        
-                plis,
-        
-                resultat: {
-                    reussite: isSuccess,
-                    plisFaits: plisTeam,
-                    plisParJoueur: {
-                        0: plisGagnes[0],
-                        1: plisGagnes[1],
-                        2: plisGagnes[2],
-                        3: plisGagnes[3]
-                    },
-                    deltaScores: delta
-                }
+                plis: plis,
+                resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta }
             };
-        
-            await setDoc(
-                doc(db, 'games', docId),
-                cleanUndefined(gameData)
-            );
-        
-            return {
-                id: docId,
-                ...gameData
-            };
+
+            return await saveGameToDb(gameData, index);
         }
         
 
