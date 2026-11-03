@@ -1050,12 +1050,7 @@ function preferredLegacyDecision(
     };
   }
 
-  if (
-    teammateAhead &&
-    calledCard &&
-    partnerId === playerId &&
- ainingOpponents
-  ) {
+  if (teammateAhead && calledCard && partnerId === playerId && remainingOpponents) {
     return {
       card: calledCard,
       reasonCode: 'REVEAL_PARTNER',
