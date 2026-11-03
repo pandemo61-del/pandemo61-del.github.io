@@ -68,6 +68,50 @@ import {
         const modalAtout = document.getElementById('modal-atout');
         const modalScoreboard = document.getElementById('modal-scoreboard');
         const modalResume = document.getElementById('modal-resume');
+        const modalAuctionHistory = document.getElementById('modal-auction-history');
+        const PLAYER_LABELS = ['Vous (J1)', 'J2 / Ouest', 'J3 / Nord', 'J4 / Est'];
+        let auctionHistoryResolver = null;
+        let auctionHistoryTimer = null;
+        function hideBiddingPanel() {
+            modalEnchere.classList.add('hidden');
+            modalEnchere.classList.remove('flex');
+        }
+        function formatAuctionAction(entry) {
+            if (entry.action === 'passe') return 'Passe';
+            const c = entry.contrat || {};
+            return `${c.nom || c.id || 'Enchère'}${c.atout ? ` ${SYM[c.atout] || ''}` : ''}`;
+        }
+        function renderLiveAuctionHistory() {
+            const box = document.getElementById('auction-live-history');
+            if (!box) return;
+            box.innerHTML = historiqueEncheres.length ? historiqueEncheres.map((e, i) => `<div><strong>${i + 1}. ${PLAYER_LABELS[e.joueurId]}</strong> : ${formatAuctionAction(e)}</div>`).join('') : '<span class="text-slate-400">Aucune enchère précédente</span>';
+            box.scrollTop = box.scrollHeight;
+        }
+        function announceAuctionAction(entry) {
+            renderLiveAuctionHistory();
+            showMessage(`${PLAYER_LABELS[entry.joueurId]} : ${formatAuctionAction(entry)}`, Math.max(1200, settings.aiSpeed + 500));
+        }
+        function closeAuctionHistory() {
+            if (auctionHistoryTimer) clearTimeout(auctionHistoryTimer);
+            auctionHistoryTimer = null;
+            modalAuctionHistory.classList.add('hidden');
+            modalAuctionHistory.classList.remove('flex');
+            if (auctionHistoryResolver) { const resolve = auctionHistoryResolver; auctionHistoryResolver = null; resolve(); }
+        }
+        function showAuctionHistory() {
+            hideBiddingPanel();
+            document.getElementById('auction-history-list').innerHTML = historiqueEncheres.map((e, i) => `<div class="auction-history-row"><span class="font-bold">${i + 1}. ${PLAYER_LABELS[e.joueurId]}</span><span class="font-black">${formatAuctionAction(e)}</span></div>`).join('') || '<div class="text-slate-500 text-center py-4">Aucune enchère enregistrée</div>';
+            const auto = settings.autoBidding;
+            document.getElementById('auction-history-mode').innerText = auto ? 'Fermeture automatique' : 'Validation manuelle';
+            document.getElementById('btn-auction-history-ok').classList.toggle('hidden', auto);
+            modalAuctionHistory.classList.remove('hidden');
+            modalAuctionHistory.classList.add('flex');
+            return new Promise(resolve => {
+                auctionHistoryResolver = resolve;
+                if (auto) auctionHistoryTimer = setTimeout(closeAuctionHistory, Math.max(3000, settings.aiSpeed * 3));
+            });
+        }
+        document.getElementById('btn-auction-history-ok').onclick = closeAuctionHistory;
 
         function hideSummary() {
             modalResume.classList.add('hidden');
@@ -285,7 +329,7 @@ import {
                     return;
                 }
             }
-            if (passesConsecutifs >= 4 && !meilleureEnchere) { showMessage("Tout le monde a passé. Redistribution..."); setTimeout(() => startNewGame(true), 2000); return; }
+            if (passesConsecutifs >= 4 && !meilleureEnchere) { hideBiddingPanel(); await showAuctionHistory(); showMessage("Tout le monde a passé. Redistribution..."); setTimeout(() => startNewGame(true), 1200); return; }
             const id = tourEnchere % 4;
             updateTurnIndicator(id);
             if (id === 0) {
@@ -306,7 +350,9 @@ import {
                 else {
                     let pId = (decision.id === 'emballe') ? meilleureEnchere.joueurId : -1;
                     meilleureEnchere = { ...decision, joueurId: id, partenaireId: pId };
-                    historiqueEncheres.push({ joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } });
+                    const actionEnchere = { joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } };
+                    historiqueEncheres.push(actionEnchere);
+                    announceAuctionAction(actionEnchere);
                     passesConsecutifs = 0;
                     propositionRelancee = false;
                     const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout ? ` — Atout ${SYM[meilleureEnchere.atout]}` : '';
@@ -317,7 +363,10 @@ import {
         }
 
         function passerEnchereWeb(playerId) {
-            historiqueEncheres.push({ joueurId: playerId, action: 'passe' });
+            hideBiddingPanel();
+            const actionPasse = { joueurId: playerId, action: 'passe' };
+            historiqueEncheres.push(actionPasse);
+            announceAuctionAction(actionPasse);
             const proposerRefuse = propositionRelancee && meilleureEnchere?.id === 'propose' && meilleureEnchere.joueurId === playerId;
             if (proposerRefuse) {
                 meilleureEnchere = null;
@@ -342,7 +391,9 @@ import {
             };
         }
 
-        function finaliserEnchere() {
+        async function finaliserEnchere() {
+            hideBiddingPanel();
+            await showAuctionHistory();
             contratFinal = meilleureEnchere; jeuActif = true;
             document.getElementById('turn-indicator').classList.add('hidden');
 
@@ -446,11 +497,12 @@ import {
                 const badge = isTarget ? '<span class="block text-[10px] text-amber-800 uppercase font-black mt-0.5">⭐ Annonce du Scénario</span>' : '';
                 return `<button ${dis?'disabled':''} onclick="window.choisirContratWeb('${p.id}','${p.nom}')" class="p-3 ${btnClass} font-bold text-xs rounded-xl border transition flex flex-col items-center justify-center text-center" type="button">${p.nom}${badge}</button>`;
             }).join('');
+            renderLiveAuctionHistory();
             modalEnchere.classList.add('flex'); modalEnchere.classList.remove('hidden');
         }
 
         window.choisirContratWeb = (id, nom) => {
-            modalEnchere.classList.add('hidden');
+            hideBiddingPanel();
             if (id === 'emballe') validerEnchereHumain(id, nom, meilleureEnchere.atout);
             else if (BAREME_IWW[id].sa) validerEnchereHumain(id, nom, null);
             else { window.tmpContrat = { id, nom }; modalAtout.classList.remove('hidden'); modalAtout.classList.add('flex'); }
@@ -471,13 +523,15 @@ import {
             }
             let pId = (id === 'emballe' && meilleureEnchere) ? meilleureEnchere.joueurId : -1;
             meilleureEnchere = { id, nom, atout, asPartenaire, sa: !atout, joueurId: 0, partenaireId: pId };
-            historiqueEncheres.push({ joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } });
+            const actionEnchere = { joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } };
+            historiqueEncheres.push(actionEnchere);
+            announceAuctionAction(actionEnchere);
             propositionRelancee = false;
             const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout ? ` — Atout ${SYM[atout]}` : '';
             passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (VOUS)`; prochainTourEnchere();
         }
 
-        document.getElementById('btn-passe').onclick = () => { modalEnchere.classList.add('hidden'); passerEnchereWeb(tourEnchere % 4); };
+        document.getElementById('btn-passe').onclick = () => { hideBiddingPanel(); passerEnchereWeb(tourEnchere % 4); };
 
         function choixCarteWeb(playerId) {
             const hand = hands[playerId];
