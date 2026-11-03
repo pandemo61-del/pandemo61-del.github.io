@@ -1,0 +1,40 @@
+.bid-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  max-width: 140px;
+  margin: 4px 0;
+  padding: 4px 9px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.bid-pill.neutral {
+  color: rgba(255,255,255,.75);
+  background: rgba(15,23,42,.28);
+  border-color: rgba(255,255,255,.08);
+}
+.bid-pill.bid {
+  color: #d1fae5;
+  background: rgba(16,185,129,.15);
+  border-color: rgba(52,211,153,.45);
+}
+.bid-pill.pass {
+  color: #fecaca;
+  background: rgba(248,113,113,.12);
+  border-color: rgba(248,113,113,.4);
+}
+.bid-pill.winning {
+  color: #fef3c7;
+  background: rgba(245,158,11,.18);
+  border-color: rgba(250,204,21,.6);
+  box-shadow: 0 0 0 1px rgba(251,191,36,.4), 0 0 18px rgba(251,191,36,.2);
+}
