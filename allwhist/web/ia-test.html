@@ -433,7 +433,10 @@
             const hands = [[], [], [], []];
             for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
 
-            const initialHands = hands.map(hand => hand.map(card => ({ ...card })));
+            const initialHands = hands.map((hand, joueurId) => ({
+                joueurId: joueurId,
+                cartes: hand.map(card => ({ ...card }))
+            }));
 
             let meilleureEnchere = null;
             let tour = 0;
