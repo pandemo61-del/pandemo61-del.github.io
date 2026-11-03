@@ -8,6 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="play.css">
+
+    
+
 </head>
 <body class="bg-gray-100 min-h-screen">
     <div class="flex">
@@ -140,10 +143,22 @@
                 <h3 class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-gavel text-amber-500 mr-2"></i>Vos Enchères</h3>
                 <div id="current-bid-info" class="text-[10px] font-bold text-slate-400 uppercase">Aucune enchère</div>
             </div>
+            <div id="auction-live-history" class="auction-live-history mb-4" aria-live="polite"></div>
             <div id="enchere-options" class="grid grid-cols-2 gap-3 mb-6"></div>
             <button id="btn-passe" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition">
                 Passer
             </button>
+        </div>
+    </div>
+
+    <div id="modal-auction-history" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-[75] transition" role="dialog" aria-modal="true" aria-labelledby="auction-history-title">
+        <div class="bg-white rounded-3xl w-full max-w-lg p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="auction-history-title" class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-list text-amber-500 mr-2"></i>Historique des enchères</h3>
+                <span id="auction-history-mode" class="text-[10px] font-black uppercase text-slate-400"></span>
+            </div>
+            <div id="auction-history-list" class="space-y-2 max-h-[55vh] overflow-y-auto"></div>
+            <button id="btn-auction-history-ok" type="button" class="w-full mt-6 py-3 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 transition">OK</button>
         </div>
     </div>
 
