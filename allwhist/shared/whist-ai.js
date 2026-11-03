@@ -1,7 +1,7 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.3.0';
+export const WHIST_AI_VERSION = '1.3.1';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
@@ -331,6 +331,306 @@ function exhaustedSuits(solisteId, completedTricks, currentTrick) {
   }
   return exhausted;
 }
+function isMisereContract(contract) {
+  return [
+    'petite_misere',
+    'misere',
+    'misere_ouverte',
+  ].includes(contract?.id);
+}
+
+function cardRelativeRank(card, cards) {
+  if (!cards.length) return 0.5;
+
+  const sorted = [...cards].sort((a, b) => a.valeur - b.valeur);
+  const index = sorted.findIndex(candidate => sameCard(candidate, card));
+
+  if (index < 0) return 0.5;
+  if (sorted.length === 1) return 0.5;
+
+  return index / (sorted.length - 1);
+}
+
+function declarerSuitKnowledge(solisteId, completedTricks, currentTrick) {
+  const knowledge = Object.fromEntries(
+    SUITS.map(suit => [
+      suit,
+      {
+        exhausted: false,
+        playedValues: [],
+        highestPlayed: undefined,
+        lowestPlayed: undefined,
+      },
+    ])
+  );
+
+  const tricks = [
+    ...(completedTricks ?? []),
+    ...(currentTrick?.cartesJouees?.length ? [currentTrick] : []),
+  ];
+
+  for (const trick of tricks) {
+    const ledSuit =
+      trick.couleurDemandee ??
+      trick.cartesJouees?.[0]?.carte?.couleur;
+
+    if (!ledSuit) continue;
+
+    const solistPlay = trick.cartesJouees?.find(
+      play => play.joueurId === solisteId
+    );
+
+    if (!solistPlay?.carte) continue;
+
+    if (solistPlay.carte.couleur !== ledSuit) {
+      knowledge[ledSuit].exhausted = true;
+      continue;
+    }
+
+    const suitKnowledge = knowledge[ledSuit];
+
+    suitKnowledge.playedValues.push(
+      solistPlay.carte.valeur
+    );
+
+    suitKnowledge.highestPlayed =
+      suitKnowledge.highestPlayed === undefined
+        ? solistPlay.carte.valeur
+        : Math.max(
+          suitKnowledge.highestPlayed,
+          solistPlay.carte.valeur
+        );
+
+    suitKnowledge.lowestPlayed =
+      suitKnowledge.lowestPlayed === undefined
+        ? solistPlay.carte.valeur
+        : Math.min(
+          suitKnowledge.lowestPlayed,
+          solistPlay.carte.valeur
+        );
+  }
+
+  return knowledge;
+}
+
+function evaluateMisereDefenseLead(
+  card,
+  hand,
+  contract,
+  completedTricks,
+  currentTrick
+) {
+  const cardsInSuit = hand
+    .filter(candidate => candidate.couleur === card.couleur)
+    .sort((a, b) => a.valeur - b.valeur);
+
+  const relativeRank = cardRelativeRank(
+    card,
+    cardsInSuit
+  );
+
+  const lowerCards = cardsInSuit.filter(
+    candidate => candidate.valeur < card.valeur
+  );
+
+  const higherCards = cardsInSuit.filter(
+    candidate => candidate.valeur > card.valeur
+  );
+
+  const knowledge = declarerSuitKnowledge(
+    contract?.joueurId,
+    completedTricks,
+    currentTrick
+  );
+
+  const suitKnowledge =
+    knowledge[card.couleur] ?? {
+      exhausted: false,
+      playedValues: [],
+      highestPlayed: undefined,
+      lowestPlayed: undefined,
+    };
+
+  let score = 0;
+
+  /*
+   * Correction principale issue des simulations.
+   *
+   * Une carte située dans le haut de la couleur est fortement
+   * pénalisée. Auparavant, les défenseurs choisissaient directement
+   * la carte la plus haute à l'entame.
+   */
+  score -= relativeRank * 32;
+
+  /*
+   * Une couleur longue permet de continuer la pression sans
+   * consommer immédiatement toutes les reprises de main.
+   */
+  score += Math.min(6, cardsInSuit.length) * 2.4;
+
+  /*
+   * Favoriser clairement une petite carte d'une couleur longue.
+   */
+  if (
+    cardsInSuit.length >= 4 &&
+    relativeRank <= 0.25
+  ) {
+    score += 14;
+  }
+
+  if (
+    cardsInSuit.length >= 3 &&
+    relativeRank <= 0.5
+  ) {
+    score += 5;
+  }
+
+  /*
+   * Ne pas entamer un honneur lorsqu'une carte inférieure de la
+   * même couleur est disponible.
+   */
+  if (
+    card.valeur >= 11 &&
+    lowerCards.length > 0
+  ) {
+    score -= 20;
+  }
+
+  /*
+   * Les As, Rois et Dames courts sont particulièrement dangereux.
+   * Ils donnent inutilement la main au défenseur et libèrent les
+   * petites cartes du déclarant.
+   */
+  if (
+    card.valeur === 14 &&
+    cardsInSuit.length <= 3
+  ) {
+    score -= 22;
+  }
+
+  if (
+    card.valeur === 13 &&
+    cardsInSuit.length <= 2
+  ) {
+    score -= 17;
+  }
+
+  if (
+    card.valeur === 12 &&
+    cardsInSuit.length === 1
+  ) {
+    score -= 12;
+  }
+
+  /*
+   * Conserver une reprise reste utile. Une carte haute n'est donc
+   * pas interdite, mais elle ne doit pas être jouée tant qu'une
+   * carte basse de la même couleur permet de poursuivre la pression.
+   */
+  if (
+    card.valeur >= 12 &&
+    higherCards.length === 0 &&
+    lowerCards.length >= 2
+  ) {
+    score -= 8;
+  }
+
+  /*
+   * Ne pas rejouer une couleur dans laquelle le déclarant a déjà
+   * montré qu'il était vide. Il pourrait alors se défaire librement
+   * d'une carte dangereuse.
+   */
+  if (suitKnowledge.exhausted) {
+    score -= 40;
+  }
+
+  /*
+   * Si le déclarant a déjà joué une carte relativement haute dans
+   * cette couleur, continuer avec une petite carte peut l'obliger
+   * à conserver ou à jouer une autre carte dangereuse.
+   */
+  if (
+    suitKnowledge.highestPlayed !== undefined &&
+    suitKnowledge.highestPlayed >= 10 &&
+    relativeRank <= 0.25
+  ) {
+    score += 10;
+  }
+
+  /*
+   * En Misère Ouverte, la main du déclarant peut être fournie dans
+   * le contrat. On favorise alors les couleurs contenant encore un
+   * honneur dangereux chez le déclarant.
+   */
+  const visibleHand =
+    contract?.mainVisible ??
+    contract?.mainSolisteVisible ??
+    contract?.cartesVisibles;
+
+  if (
+    contract?.id === 'misere_ouverte' &&
+    Array.isArray(visibleHand)
+  ) {
+    const declarerCardsInSuit = visibleHand.filter(
+      candidate => candidate.couleur === card.couleur
+    );
+
+    const declarerHighest = declarerCardsInSuit.reduce(
+      (highest, candidate) =>
+        Math.max(highest, candidate.valeur),
+      0
+    );
+
+    if (declarerCardsInSuit.length === 0) {
+      score -= 45;
+    } else if (declarerHighest >= 12) {
+      score += 18;
+    } else if (declarerHighest >= 10) {
+      score += 10;
+    }
+
+    if (
+      declarerCardsInSuit.length >= 3 &&
+      relativeRank <= 0.25
+    ) {
+      score += 8;
+    }
+  }
+
+  return score;
+}
+
+function chooseMisereDefenseLead(
+  legal,
+  hand,
+  contract,
+  completedTricks,
+  currentTrick
+) {
+  if (!legal.length) return undefined;
+
+  return [...legal]
+    .map(card => ({
+      card,
+      score: evaluateMisereDefenseLead(
+        card,
+        hand,
+        contract,
+        completedTricks,
+        currentTrick
+      ),
+    }))
+    .sort((a, b) =>
+      b.score - a.score ||
+      a.card.valeur - b.card.valeur ||
+      SUITS.indexOf(a.card.couleur) -
+        SUITS.indexOf(b.card.couleur) ||
+      cardKey(a.card).localeCompare(
+        cardKey(b.card)
+      )
+    )[0].card;
+}
+
 
 const DEFAULT_PLAY_OPTIONS = Object.freeze({
   level: 'moyen',
@@ -452,158 +752,712 @@ function playersRemainingAfterCurrent(playerId, trick) {
   return Array.from({ length: remainingCount }, (_, index) => (playerId + index + 1) % 4);
 }
 
-function preferredLegacyDecision(hand, playerId, trick, trump, contract, playedCards, completedTricks) {
+function preferredLegacyDecision(
+  hand,
+  playerId,
+  trick,
+  trump,
+  contract,
+  playedCards,
+  completedTricks
+) {
   const legal = legalWhistCards(hand, trick);
-  if (!legal.length) return { card: undefined, reasonCode: 'NO_LEGAL_CARD' };
-  if (legal.length === 1) return { card: legal[0], reasonCode: 'ONLY_LEGAL_CARD' };
 
-  const ledSuit = trick.couleurDemandee ?? trick.cartesJouees?.[0]?.carte?.couleur;
+  if (!legal.length) {
+    return {
+      card: undefined,
+      reasonCode: 'NO_LEGAL_CARD',
+    };
+  }
+
+  if (legal.length === 1) {
+    return {
+      card: legal[0],
+      reasonCode: 'ONLY_LEGAL_CARD',
+    };
+  }
+
+  const ledSuit =
+    trick.couleurDemandee ??
+    trick.cartesJouees?.[0]?.carte?.couleur;
+
   if (!trick.cartesJouees?.length) {
-    if (contract?.id?.includes('misere') && contract.joueurId === playerId) {
-      return { card: [...legal].sort((a, b) => a.valeur - b.valeur)[0], reasonCode: 'LOW_MISERE_LEAD' };
+    if (
+      isMisereContract(contract) &&
+      contract.joueurId === playerId
+    ) {
+      return {
+        card: [...legal].sort(
+          (a, b) =>
+            a.valeur - b.valeur ||
+            SUITS.indexOf(a.couleur) -
+              SUITS.indexOf(b.couleur)
+        )[0],
+        reasonCode: 'LOW_MISERE_LEAD',
+      };
     }
-    if (contract?.id?.includes('misere')) {
-      const exhausted = exhaustedSuits(contract.joueurId, completedTricks, trick);
-      const unexhausted = legal.filter(card => !exhausted.has(card.couleur));
-      const candidates = unexhausted.length ? unexhausted : legal;
-      return { card: [...candidates].sort((a, b) => b.valeur - a.valeur)[0], reasonCode: 'PRESSURE_MISERE' };
+
+    /*
+     * Correction de la défense contre une misère.
+     *
+     * L'ancienne version utilisait :
+     *
+     * [...candidates].sort((a, b) => b.valeur - a.valeur)[0]
+     *
+     * Cela sélectionnait systématiquement la carte la plus haute.
+     */
+    if (
+      isMisereContract(contract) &&
+      contract.joueurId !== playerId
+    ) {
+      const card = chooseMisereDefenseLead(
+        legal,
+        hand,
+        contract,
+        completedTricks,
+        trick
+      );
+
+      return {
+        card,
+        reasonCode: 'PRESSURE_MISERE',
+      };
     }
-    if (['demande', 'trou', 'trou_royal'].includes(contract?.id) && contract.joueurId === playerId) {
-      const calledSuit = typeof contract.asPartenaire === 'object'
-        ? contract.asPartenaire.couleur
-        : String(contract.asPartenaire ?? '').match(/^\d+[_-](COEUR|CARREAU|TREFLE|PIQUE)$/)?.[1];
+
+    if (
+      ['demande', 'trou', 'trou_royal'].includes(
+        contract?.id
+      ) &&
+      contract.joueurId === playerId
+    ) {
+      const calledSuit =
+        typeof contract.asPartenaire === 'object'
+          ? contract.asPartenaire.couleur
+          : String(
+            contract.asPartenaire ?? ''
+          ).match(
+            /^\d+[_-](COEUR|CARREAU|TREFLE|PIQUE)$/
+          )?.[1];
+
       const calledCardPlayed = [
-        ...completedTricks.flatMap(done => done.cartesJouees ?? []),
+        ...completedTricks.flatMap(
+          done => done.cartesJouees ?? []
+        ),
         ...(trick.cartesJouees ?? []),
-      ].some(play => calledCardMatches(play.carte, contract.asPartenaire));
-      const calledSuitCards = legal.filter(card => card.couleur === calledSuit);
-      if (calledSuit && !calledCardPlayed && calledSuitCards.length) {
-        return { card: [...calledSuitCards].sort((a, b) => a.valeur - b.valeur)[0], reasonCode: 'CALL_PARTNER' };
+      ].some(
+        play =>
+          calledCardMatches(
+            play.carte,
+            contract.asPartenaire
+          )
+      );
+
+      const calledSuitCards = legal.filter(
+        card => card.couleur === calledSuit
+      );
+
+      if (
+        calledSuit &&
+        !calledCardPlayed &&
+        calledSuitCards.length
+      ) {
+        return {
+          card: [...calledSuitCards].sort(
+            (a, b) => a.valeur - b.valeur
+          )[0],
+          reasonCode: 'CALL_PARTNER',
+        };
       }
     }
+
     const unseenHigher = card =>
-      Math.max(0, 14 - card.valeur -
-        hand.filter(own => own.couleur === card.couleur && own.valeur > card.valeur).length -
-        playedCards.filter(played => played.couleur === card.couleur && played.valeur > card.valeur).length) +
-      (contract?.atout && card.couleur !== contract.atout
-        ? 13 - playedCards.filter(played => played.couleur === contract.atout).length -
-          hand.filter(own => own.couleur === contract.atout).length
-        : 0);
+      Math.max(
+        0,
+        14 -
+          card.valeur -
+          hand.filter(
+            own =>
+              own.couleur === card.couleur &&
+              own.valeur > card.valeur
+          ).length -
+          playedCards.filter(
+            played =>
+              played.couleur === card.couleur &&
+              played.valeur > card.valeur
+          ).length
+      ) +
+      (
+        contract?.atout &&
+        card.couleur !== contract.atout
+          ? 13 -
+            playedCards.filter(
+              played =>
+                played.couleur === contract.atout
+            ).length -
+            hand.filter(
+              own =>
+                own.couleur === contract.atout
+            ).length
+          : 0
+      );
+
     const card = [...legal].sort((a, b) =>
       unseenHigher(a) - unseenHigher(b) ||
-      (a.couleur === contract?.atout ? 1 : 0) - (b.couleur === contract?.atout ? 1 : 0) ||
+      (
+        a.couleur === contract?.atout
+          ? 1
+          : 0
+      ) -
+        (
+          b.couleur === contract?.atout
+            ? 1
+            : 0
+        ) ||
       b.valeur - a.valeur
     )[0];
-    return { card, reasonCode: card.couleur === contract?.atout ? 'BALANCED_PLAY' : 'SAFE_OPENING_LEAD' };
+
+    return {
+      card,
+      reasonCode:
+        card.couleur === contract?.atout
+          ? 'BALANCED_PLAY'
+          : 'SAFE_OPENING_LEAD',
+    };
   }
 
-  const activeTrump = contract?.sanAtout || contract?.id?.includes('misere') ? null : (trump ?? contract?.atout ?? null);
-  const currentWinner = winningPlay(trick, activeTrump);
-  const partnerId = revealedPartner(contract ?? {}, completedTricks, trick, hand, playerId);
-  const teammateAhead = teamFor(contract, partnerId, playerId, currentWinner.joueurId);
-  const isMisereSolist = contract?.id?.includes('misere') && contract.joueurId === playerId;
-  const calledCard = contract?.asPartenaire && hand.find(card => calledCardMatches(card, contract.asPartenaire));
-  const remainingOpponents = playersRemainingAfterCurrent(playerId, trick)
-    .some(opponentId => !teamFor(contract, partnerId, playerId, opponentId));
+  const activeTrump =
+    contract?.sanAtout ||
+    isMisereContract(contract)
+      ? null
+      : (
+        trump ??
+        contract?.atout ??
+        null
+      );
+
+  const currentWinner = winningPlay(
+    trick,
+    activeTrump
+  );
+
+  const partnerId = revealedPartner(
+    contract ?? {},
+    completedTricks,
+    trick,
+    hand,
+    playerId
+  );
+
+  const teammateAhead = teamFor(
+    contract,
+    partnerId,
+    playerId,
+    currentWinner.joueurId
+  );
+
+  const isMisereSolist =
+    isMisereContract(contract) &&
+    contract.joueurId === playerId;
+
+  const calledCard =
+    contract?.asPartenaire &&
+    hand.find(
+      card =>
+        calledCardMatches(
+          card,
+          contract.asPartenaire
+        )
+    );
+
+  const remainingOpponents =
+    playersRemainingAfterCurrent(
+      playerId,
+      trick
+    ).some(
+      opponentId =>
+        !teamFor(
+          contract,
+          partnerId,
+          playerId,
+          opponentId
+        )
+    );
 
   if (isMisereSolist) {
-    const safe = legal.filter(card => !beats(card, currentWinner.carte, ledSuit, activeTrump));
-    if (!safe.length) return { card: [...legal].sort((a, b) => a.valeur - b.valeur)[0], reasonCode: 'CANNOT_WIN' };
-    return { card: discardCard(safe, activeTrump, true), reasonCode: 'SHED_DANGEROUS_HONOR' };
-  }
-  if (contract?.id?.includes('misere') && contract.joueurId !== playerId) {
-    if (currentWinner.joueurId === contract.joueurId) {
-      const winning = legal.filter(card => beats(card, currentWinner.carte, ledSuit, activeTrump));
-      if (winning.length) return { card: [...winning].sort((a, b) => a.valeur - b.valeur)[0], reasonCode: 'FORCE_MISERE_WIN' };
+    const safe = legal.filter(
+      card =>
+        !beats(
+          card,
+          currentWinner.carte,
+          ledSuit,
+          activeTrump
+        )
+    );
+
+    if (!safe.length) {
+      return {
+        card: [...legal].sort(
+          (a, b) => a.valeur - b.valeur
+        )[0],
+        reasonCode: 'CANNOT_WIN',
+      };
     }
-    return { card: discardCard(legal, activeTrump), reasonCode: 'PRESSURE_MISERE' };
+
+    return {
+      card: discardCard(
+        safe,
+        activeTrump,
+        true
+      ),
+      reasonCode: 'SHED_DANGEROUS_HONOR',
+    };
   }
-  if (teammateAhead && calledCard && partnerId === playerId && remainingOpponents) {
-    return { card: calledCard, reasonCode: 'REVEAL_PARTNER' };
+
+  if (
+    isMisereContract(contract) &&
+    contract.joueurId !== playerId
+  ) {
+    if (
+      currentWinner.joueurId ===
+      contract.joueurId
+    ) {
+      const winning = legal.filter(
+        card =>
+          beats(
+            card,
+            currentWinner.carte,
+            ledSuit,
+            activeTrump
+          )
+      );
+
+      if (winning.length) {
+        return {
+          card: [...winning].sort(
+            (a, b) => a.valeur - b.valeur
+          )[0],
+          reasonCode: 'FORCE_MISERE_WIN',
+        };
+      }
+    }
+
+    return {
+      card: discardCard(
+        legal,
+        activeTrump
+      ),
+      reasonCode: 'PRESSURE_MISERE',
+    };
   }
-  if (teammateAhead) return { card: discardCard(legal, activeTrump), reasonCode: 'PARTNER_WINNING' };
-  const winning = legal.filter(card => beats(card, currentWinner.carte, ledSuit, activeTrump));
-  if (winning.length) return { card: [...winning].sort((a, b) => a.valeur - b.valeur)[0], reasonCode: 'CHEAPEST_WINNER' };
-  const safeDiscards = legal.filter(card => card.valeur !== 14 || card.couleur === activeTrump);
+
+  if (
+    teammateAhead &&
+    calledCard &&
+    partnerId === playerId &&
+ ainingOpponents
+  ) {
+    return {
+      card: calledCard,
+      reasonCode: 'REVEAL_PARTNER',
+    };
+  }
+
+  if (teammateAhead) {
+    return {
+      card: discardCard(
+        legal,
+        activeTrump
+      ),
+      reasonCode: 'PARTNER_WINNING',
+    };
+  }
+
+  const winning = legal.filter(
+    card =>
+      beats(
+        card,
+        currentWinner.carte,
+        ledSuit,
+        activeTrump
+      )
+  );
+
+  if (winning.length) {
+    return {
+      card: [...winning].sort(
+        (a, b) => a.valeur - b.valeur
+      )[0],
+      reasonCode: 'CHEAPEST_WINNER',
+    };
+  }
+
+  const safeDiscards = legal.filter(
+    card =>
+      card.valeur !== 14 ||
+      card.couleur === activeTrump
+  );
+
   return {
-    card: discardCard(safeDiscards.length ? safeDiscards : legal, activeTrump),
-    reasonCode: safeDiscards.length ? 'SAFE_DISCARD' : 'CANNOT_WIN',
+    card: discardCard(
+      safeDiscards.length
+        ? safeDiscards
+        : legal,
+      activeTrump
+    ),
+    reasonCode:
+      safeDiscards.length
+        ? 'SAFE_DISCARD'
+        : 'CANNOT_WIN',
   };
 }
 
-function evaluateCandidate({ card, preferredCard, reasonCode, hand, playerId, trick, activeTrump, contract, currentWinner, teammateAhead, visible, options }) {
-  const ledSuit = trick?.couleurDemandee ?? trick?.cartesJouees?.[0]?.carte?.couleur;
-  const isLead = !trick?.cartesJouees?.length;
-  const winsNow = !!currentWinner && beats(card, currentWinner.carte, ledSuit, activeTrump);
-  const unseenHigher = countUnseenHigher(card, hand, visible);
-  const suitLength = hand.filter(candidate => candidate.couleur === card.couleur).length;
-  const isTrump = !!activeTrump && card.couleur === activeTrump;
-  const isPreferred = sameCard(card, preferredCard);
-  const misere = contract?.id?.includes('misere') ?? false;
-  const misereSolist = misere && contract?.joueurId === playerId;
+function evaluateCandidate({
+  card,
+  preferredCard,
+  reasonCode,
+  hand,
+  playerId,
+  trick,
+  activeTrump,
+  contract,
+  currentWinner,
+  teammateAhead,
+  visible,
+  completedTricks,
+  options,
+}) {
+  const ledSuit =
+    trick?.couleurDemandee ??
+    trick?.cartesJouees?.[0]?.carte?.couleur;
+
+  const isLead =
+    !trick?.cartesJouees?.length;
+
+  const winsNow =
+    !!currentWinner &&
+    beats(
+      card,
+      currentWinner.carte,
+      ledSuit,
+      activeTrump
+    );
+
+  const unseenHigher = countUnseenHigher(
+    card,
+    hand,
+    visible
+  );
+
+  const suitLength = hand.filter(
+    candidate =>
+      candidate.couleur === card.couleur
+  ).length;
+
+  const isTrump =
+    !!activeTrump &&
+    card.couleur === activeTrump;
+
+  const isPreferred = sameCard(
+    card,
+    preferredCard
+  );
+
+  const misere =
+    isMisereContract(contract);
+
+  const misereSolist =
+    misere &&
+    contract?.joueurId === playerId;
+
+  const misereDefender =
+    misere &&
+    contract?.joueurId !== playerId;
+
   let score = 50;
 
-  if (isPreferred) score += options.level === 'expert' ? 22 : 18;
-  if (isLead) {
-    score += Math.max(-8, 11 - unseenHigher * 3);
-    if (unseenHigher === 0) score += 9;
-    if (isTrump) score -= options.personality === 'aggressive' ? 1 : 6;
-    if (suitLength >= 4) score += 3;
-  }
-  if (currentWinner) {
-    if (teammateAhead) {
-      score -= Math.max(0, card.valeur - 8) * 1.3;
-      if (isTrump) score -= 8;
-      if (card.valeur === 14) score -= 12;
-    } else if (winsNow) {
-      score += 24;
-      score -= Math.max(0, card.valeur - currentWinner.carte.valeur) * 0.45;
-    } else {
-      score -= Math.max(0, card.valeur - 9) * 0.7;
-    }
-  }
-  if (misereSolist) {
-    if (currentWinner && winsNow) score -= 42;
-    else score += Math.max(0, card.valeur - 7) * 1.4;
-    if (isHonor(card)) score += 6;
-  } else if (misere) {
-    if (currentWinner?.joueurId === contract?.joueurId && winsNow) score += 30;
-    if (isLead && card.valeur >= 11) score += 8;
-  }
-  if (options.personality === 'conservative' && !misereSolist) {
-    if (isHonor(card) && !winsNow) score -= 7;
-    if (isTrump && !winsNow) score -= 6;
-    if (winsNow) score += 2;
-  }
-  if (options.personality === 'aggressive' && !misereSolist) {
-    if (winsNow) score += 8;
-    if (isLead && isHonor(card)) score += 4;
-    if (isLead && isTrump) score += 4;
-  }
-  if (options.personality === 'balanced') {
-    if (winsNow) score += 3;
-    if (card.valeur === 14 && !winsNow) score -= 5;
-  }
-  if (options.level === 'facile') {
-    score = 50 + (score - 50) * 0.55;
-    score += ((card.valeur * 7 + SUITS.indexOf(card.couleur) * 3) % 5) - 2;
-  } else if (options.level === 'expert') {
-    if (unseenHigher === 0) score += 4;
-    if (card.valeur === 14 && !winsNow && !isLead) score -= 4;
-    if (isTrump && teammateAhead) score -= 5;
+  if (isPreferred) {
+    score +=
+      options.level === 'expert'
+        ? 22
+        : 18;
   }
 
-  const personalityReason = options.personality === 'aggressive'
-    ? 'AGGRESSIVE_CONTROL'
-    : options.personality === 'conservative'
-      ? 'CONSERVATIVE_SAVE'
-      : 'BALANCED_PLAY';
-  const finalReason = isPreferred ? reasonCode : personalityReason;
+  /*
+   * La stratégie générique d'entame n'est pas appliquée aux
+   * défenseurs d'une misère. Elle favorisait les cartes maîtresses
+   * et provoquait les entames hautes observées dans les simulations.
+   */
+  if (
+    isLead &&
+    !misereDefender
+  ) {
+    score += Math.max(
+      -8,
+      11 - unseenHigher * 3
+    );
+
+    if (unseenHigher === 0) {
+      score += 9;
+    }
+
+    if (isTrump) {
+      score -=
+        options.personality === 'aggressive'
+          ? 1
+          : 6;
+    }
+
+    if (suitLength >= 4) {
+      score += 3;
+    }
+  }
+
+  if (currentWinner) {
+    if (teammateAhead) {
+      score -=
+        Math.max(
+          0,
+          card.valeur - 8
+        ) * 1.3;
+
+      if (isTrump) {
+        score -= 8;
+      }
+
+      if (card.valeur === 14) {
+        score -= 12;
+      }
+    } else if (winsNow) {
+      score += 24;
+
+      score -=
+        Math.max(
+          0,
+          card.valeur -
+            currentWinner.carte.valeur
+        ) * 0.45;
+    } else {
+      score -=
+        Math.max(
+          0,
+          card.valeur - 9
+        ) * 0.7;
+    }
+  }
+
+  if (misereSolist) {
+    if (
+      currentWinner &&
+      winsNow
+    ) {
+      score -= 42;
+    } else {
+      score +=
+        Math.max(
+          0,
+          card.valeur - 7
+        ) * 1.4;
+    }
+
+    if (isHonor(card)) {
+      score += 6;
+    }
+  } else if (misereDefender) {
+    if (isLead) {
+      /*
+       * Évaluation dédiée de l'entame contre une misère.
+       */
+      score += evaluateMisereDefenseLead(
+        card,
+        hand,
+        contract,
+        completedTricks,
+        trick
+      );
+    } else if (
+      currentWinner?.joueurId ===
+        contract?.joueurId &&
+      winsNow
+    ) {
+      /*
+       * Si le déclarant gagne actuellement le pli, le défenseur
+       * reprend avec la plus petite carte suffisante.
+       */
+      score += 30;
+
+      score -=
+        Math.max(
+          0,
+          card.valeur -
+            currentWinner.carte.valeur
+        ) * 0.8;
+    } else if (
+      teammateAhead
+    ) {
+      /*
+       * Ne pas gaspiller un honneur lorsque l'un des autres
+       * défenseurs maîtrise déjà le pli.
+       */
+      score -=
+        Math.max(
+          0,
+          card.valeur - 8
+        ) * 1.8;
+    }
+  }
+
+  /*
+   * Les ajustements de personnalité ne doivent pas annuler la
+   * stratégie spécifique de défense contre une misère.
+   */
+  if (
+    options.personality === 'conservative' &&
+    !misereSolist &&
+    !misereDefender
+  ) {
+    if (
+      isHonor(card) &&
+      !winsNow
+    ) {
+      score -= 7;
+    }
+
+    if (
+      isTrump &&
+      !winsNow
+    ) {
+      score -= 6;
+    }
+
+    if (winsNow) {
+      score += 2;
+    }
+  }
+
+  if (
+    options.personality === 'aggressive' &&
+    !misereSolist &&
+    !misereDefender
+  ) {
+    if (winsNow) {
+      score += 8;
+    }
+
+    if (
+      isLead &&
+      isHonor(card)
+    ) {
+      score += 4;
+    }
+
+    if (
+      isLead &&
+      isTrump
+    ) {
+      score += 4;
+    }
+  }
+
+  if (
+    options.personality === 'balanced' &&
+    !misereDefender
+  ) {
+    if (winsNow) {
+      score += 3;
+    }
+
+    if (
+      card.valeur === 14 &&
+      !winsNow
+    ) {
+      score -= 5;
+    }
+  }
+
+  if (options.level === 'facile') {
+    score =
+      50 +
+      (score - 50) * 0.55;
+
+    score +=
+      (
+        card.valeur * 7 +
+        SUITS.indexOf(
+          card.couleur
+        ) * 3
+      ) % 5 - 2;
+  } else if (options.level === 'expert') {
+    /*
+     * Le bonus générique de carte maîtresse est désactivé pour
+     * l'entame défensive d'une misère.
+     */
+    if (
+      unseenHigher === 0 &&
+      !(
+        misereDefender &&
+        isLead
+      )
+    ) {
+      score += 4;
+    }
+
+    if (
+      card.valeur === 14 &&
+      !winsNow &&
+      !isLead
+    ) {
+      score -= 4;
+    }
+
+    if (
+      isTrump &&
+      teammateAhead
+    ) {
+      score -= 5;
+    }
+
+    if (
+      misereDefender &&
+      isLead &&
+      card.valeur >= 12 &&
+      suitLength > 1
+    ) {
+      score -= 5;
+    }
+  }
+
+  const personalityReason =
+    options.personality === 'aggressive'
+      ? 'AGGRESSIVE_CONTROL'
+      : options.personality === 'conservative'
+        ? 'CONSERVATIVE_SAVE'
+        : 'BALANCED_PLAY';
+
+  const finalReason =
+    isPreferred
+      ? reasonCode
+      : (
+        misereDefender &&
+        isLead
+          ? 'PRESSURE_MISERE'
+          : personalityReason
+      );
+
   return {
     card,
-    score: Math.round(score * 10) / 10,
+    score:
+      Math.round(score * 10) / 10,
     reasonCode: finalReason,
-    explanation: contextualExplanation(finalReason, { card, ledSuit, activeTrump, currentWinner, unseenHigher }),
+    explanation: contextualExplanation(
+      finalReason,
+      {
+        card,
+        ledSuit,
+        activeTrump,
+        currentWinner,
+        unseenHigher,
+      }
+    ),
   };
 }
 
@@ -679,6 +1533,7 @@ export function analyzeWhistCard(
     currentWinner,
     teammateAhead,
     visible,
+    completedTricks: safeCompletedTricks,
     options,
   })).sort(compareEvaluations);
 
