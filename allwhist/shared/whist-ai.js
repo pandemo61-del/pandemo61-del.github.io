@@ -1,7 +1,7 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.3.3';
+export const WHIST_AI_VERSION = '1.3.4';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
@@ -156,13 +156,14 @@ function canSupportProposal(hand, trump, level) {
   const evaluation = evaluateTrump(hand, trump);
   const margin = difficultyMargin(level);
 
-  if (length >= 5) return evaluation.safeTricks + outsideAces * 0.25 >= 3.5 + margin;
-  if (length >= 4 && (topHonors >= 2 || outsideAces >= 1)) return evaluation.safeTricks >= 3.0 + margin;
+  if (length >= 5) return evaluation.safeTricks + outsideAces * 0.25 >= 3.2 + margin;
+  if (length >= 4 && topHonors >= 1 && (outsideAces >= 1 || topHonors >= 2)) return evaluation.safeTricks >= 3.0 + margin;
   return false;
 }
 
 function successUtility(safeTricks, target, reward, margin) {
-  const surplus = safeTricks - target - margin;
+  const highContractExtraMargin = target >= 9 ? 0.7 : 0.1;
+  const surplus = safeTricks - target - margin - highContractExtraMargin;
   return Math.max(0, surplus) * 1.5 + reward * 4.0 - Math.max(0, -surplus) * 5;
 }
 
