@@ -360,7 +360,9 @@ import {
             if (contratFinal.sa) {
                 ab.innerHTML = '<span class="text-rose-800 text-[10px] font-black uppercase">Sans Atout</span>';
             } else {
-                ab.innerHTML = '<span class="text-rose-800 text-[10px] font-black uppercase">Atout</span><img src="' + ASSET_IMG[contratFinal.atout] + '" class="w-4 h-4 object-contain">';
+                const atout = contratFinal.atout;
+                const atoutColor = (atout === 'COEUR' || atout === 'CARREAU') ? '#dc2626' : '#f7f2e6';
+                ab.innerHTML = `<span class="text-rose-800 text-[10px] font-black uppercase">Atout</span><span class="atout-symbol" style="color:${atoutColor}" aria-label="${atout}">${SYM[atout] || ''}</span>`;
             }
             ab.classList.remove('hidden'); ab.classList.add('flex');
 
