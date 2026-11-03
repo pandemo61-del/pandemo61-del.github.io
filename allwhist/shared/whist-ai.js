@@ -1,7 +1,7 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.3.1';
+export const WHIST_AI_VERSION = '1.3.3';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
@@ -156,10 +156,8 @@ function canSupportProposal(hand, trump, level) {
   const evaluation = evaluateTrump(hand, trump);
   const margin = difficultyMargin(level);
 
-  if (length >= 5) return evaluation.safeTricks + outsideAces * 0.25 >= 3.0 + margin;
-  if (length >= 4 && (topHonors >= 1 || outsideAces >= 1)) return evaluation.safeTricks >= 2.7 + margin;
-  if (length >= 3 && topHonors >= 2) return true;
-  if (length >= 3 && topHonors >= 1 && outsideAces >= 2) return true;
+  if (length >= 5) return evaluation.safeTricks + outsideAces * 0.25 >= 3.5 + margin;
+  if (length >= 4 && (topHonors >= 2 || outsideAces >= 1)) return evaluation.safeTricks >= 3.0 + margin;
   return false;
 }
 
@@ -195,16 +193,22 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
   }
 
   const best = bestTrump(hand);
+  if (best.length === 13 || best.safeTricks >= 12.5) {
+    const contract = availableContract(contracts, 'chelem', hand, currentBid, playerId);
+    if (contract && contractPriority(contract) > currentPriority) {
+      return decisionFor(contract, best.suit);
+    }
+  }
   const candidates = [];
   const soloContracts = [
-    ['solo_6', 5.75, 1, 4, 0],
-    ['solo_7', 6.75, 2, 5, 0],
-    ['solo_8', 7.75, 3, 5, 2],
-    ['abondance_9', 8.8, 4, 6, 2],
-    ['abondance_10', 9.75, 5, 6, 3],
-    ['abondance_11', 10.75, 6, 6, 3],
-    ['abondance_12', 11.7, 7, 7, 3],
-    ['chelem', 12.6, 9, 7, 4],
+    ['solo_6', 6.0, 1, 4, 0],
+    ['solo_7', 7.0, 2, 5, 1],
+    ['solo_8', 8.0, 3, 6, 2],
+    ['abondance_9', 9.0, 4, 6, 2],
+    ['abondance_10', 10.0, 5, 7, 4],
+    ['abondance_11', 11.0, 6, 8, 4],
+    ['abondance_12', 12.0, 7, 9, 5],
+    ['chelem', 12.8, 9, 10, 5],
   ];
 
   for (const [id, target, reward, minLength, minControls] of soloContracts) {
@@ -467,6 +471,12 @@ function evaluateMisereDefenseLead(
    * consommer immédiatement toutes les reprises de main.
    */
   score += Math.min(6, cardsInSuit.length) * 2.4;
+
+  if (card.valeur === 14) score -= 45;
+  else if (card.valeur === 13) score -= 35;
+  else if (card.valeur === 12) score -= 25;
+  else if (card.valeur === 11) score -= 15;
+  else if (card.valeur <= 8) score += 15;
 
   /*
    * Favoriser clairement une petite carte d'une couleur longue.
