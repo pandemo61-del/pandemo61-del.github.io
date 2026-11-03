@@ -1,97 +1,790 @@
-// The original complete game module is kept at this immutable revision. Load it,
-// along with its original inline styles, while this split is repaired/maintained.
-const ORIGINAL_PAGE_URL = 'https://raw.githubusercontent.com/pandemo61-del/AllWhist/f9e90bcc0fec695eed2e2aedabae9f0f94ca98c5/web/play.html';
+import {
+            db, auth, collection, doc, setDoc, onAuthStateChanged, googleProvider, signInWithPopup
+        } from './firebase-config.js';
+        import { getWhistContractName } from '../shared/whist-contracts.js';
+        import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
-function renderPlayerBids() {
-    for (let playerId = 0; playerId < 4; playerId++) {
-        const pill = document.getElementById(`bid-j${playerId}`);
-        if (!pill) continue;
+        const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
+        const COULEUR_CSS = { 'COEUR': 'text-red-600', 'CARREAU': 'text-red-600', 'TREFLE': 'text-slate-900', 'PIQUE': 'text-slate-900' };
+        const ASSET_IMG = { 'COEUR': 'assets/coeur.png', 'CARREAU': 'assets/carreau.png', 'TREFLE': 'assets/trefle.png', 'PIQUE': 'assets/pique.png' };
 
-        const lastAction = [...historiqueEncheres].reverse().find(action => action.joueurId === playerId);
-        if (!lastAction) {
-            pill.textContent = '—';
-            pill.className = 'bid-pill neutral';
-            continue;
+        let currentUser = null;
+        let hands = [[], [], [], []];
+        let mainsInitiales = [[], [], [], []];
+        let pliCourant = [];
+        let plisHistory = [];
+        let leaderId = 0;
+        let plisGagnes = [0, 0, 0, 0];
+        let totalScores = [0, 0, 0, 0];
+        let contratFinal = null;
+        let resolutionPliEnCours = false;
+        let currentManche = 0;
+
+        const SAVED_SETTINGS = localStorage.getItem('allwhist_play_settings');
+        let settings = SAVED_SETTINGS ? JSON.parse(SAVED_SETTINGS) : { sortMethod: 'suit', sortOrder: 'desc', direction: 'lr', son: true, vibration: true, autoBidding: false, autoPlay: false, aiSpeed: 700, maxGames: 13 };
+
+        let donneurId = 3;
+        let meilleureEnchere = null;
+        let historiqueEncheres = [];
+        let tourEnchere = 0;
+        let passesConsecutifs = 0;
+        let propositionRelancee = false;
+        let jeuActif = false;
+
+        const BAREME_IWW = {
+            propose: { pts: 10, prio: 1, obj: 8, seul: false },
+            emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
+            demande: { pts: 10, prio: 1.8, obj: 8, seul: false },
+            solo_6: { pts: 15, prio: 2, obj: 6, seul: true },
+            solo_7: { pts: 20, prio: 3, obj: 7, seul: true },
+            petite_misere: { pts: 30, prio: 4, obj: 0, seul: true, sa: true },
+            solo_8: { pts: 25, prio: 5, obj: 8, seul: true },
+            abondance_9: { pts: 40, prio: 6, obj: 9, seul: true },
+            trou: { pts: 30, prio: 7, obj: 9, seul: false },
+            trou_royal: { pts: 60, prio: 7.5, obj: 9, seul: false },
+            abondance_10: { pts: 50, prio: 8, obj: 10, seul: true },
+            misere: { pts: 60, prio: 9, obj: 0, seul: true, sa: true },
+            abondance_11: { pts: 70, prio: 10, obj: 11, seul: true },
+            abondance_12: { pts: 100, prio: 10.5, obj: 12, seul: true },
+            misere_ouverte: { pts: 120, prio: 11, obj: 0, seul: true, sa: true },
+            chelem: { pts: 250, prio: 12, obj: 13, seul: true }
+        };
+        const WHIST_CONTRACTS = Object.entries(BAREME_IWW).map(([id, contract]) => ({
+            id,
+            priorite: contract.prio,
+            plisMin: contract.obj,
+            seul: contract.seul,
+            sanAtout: contract.sa === true,
+            disponibleSi: (hand, currentBid, playerId) => {
+                if (id === 'trou') return hand.filter(card => card.valeur === 14).length === 3;
+                if (id === 'trou_royal') return hand.filter(card => card.valeur === 14).length === 4;
+                if (id === 'emballe') return currentBid?.id === 'propose' && currentBid.joueurId !== playerId;
+                return true;
+            },
+        }));
+
+        const btnStart = document.getElementById('btn-start');
+        const modalEnchere = document.getElementById('modal-enchere');
+        const modalAtout = document.getElementById('modal-atout');
+        const modalScoreboard = document.getElementById('modal-scoreboard');
+        const modalResume = document.getElementById('modal-resume');
+
+        function hideSummary() {
+            modalResume.classList.add('hidden');
+            modalResume.classList.remove('flex');
         }
-        if (lastAction.action === 'passe') {
-            pill.textContent = 'Passe';
-            pill.className = 'bid-pill pass';
-            continue;
+
+        document.getElementById('btn-close-summary').onclick = hideSummary;
+        document.getElementById('btn-close-summary-secondary').onclick = hideSummary;
+        document.getElementById('btn-next-round').onclick = () => {
+            hideSummary();
+            startNewGame();
+        };
+
+        onAuthStateChanged(auth, user => {
+            currentUser = user;
+            if (user) {
+                document.getElementById('auth-status').innerText = `Joueur: ${user.email}`;
+                document.getElementById('auth-status').className = 'text-xs font-medium px-3 py-2 rounded-full bg-emerald-100 text-emerald-700 flex items-center';
+            }
+        });
+
+        btnStart.onclick = () => startNewGame();
+        document.getElementById('btn-settings').onclick = () => { document.getElementById('modal-settings').classList.add('flex'); document.getElementById('modal-settings').classList.remove('hidden'); };
+        document.getElementById('btn-scoreboard').onclick = () => { renderScoreboard(); modalScoreboard.classList.add('flex'); modalScoreboard.classList.remove('hidden'); };
+
+        window.changeMaxGames = (delta) => { settings.maxGames = Math.max(1, settings.maxGames + delta); document.getElementById('input-max-games').value = settings.maxGames; saveSettings(); };
+        window.setMaxGames = (val) => { settings.maxGames = Math.max(1, parseInt(val) || 1); document.getElementById('input-max-games').value = settings.maxGames; saveSettings(); };
+
+        function generateScenarioDeck(scenarioId) {
+            const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
+            const all = [];
+            suits.forEach(s => { for (let v = 2; v <= 14; v++) all.push({ valeur: v, couleur: s, id: `${v}-${s}` }); });
+            const presetJ0 = [];
+            if (scenarioId === 'gand-propose') {
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 13 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 11 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 10 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 8 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 13 && c.couleur === 'PIQUE'));
+            } else if (scenarioId === 'gand-demande') {
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 13 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 12 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 11 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 10 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'PIQUE'));
+            } else if (scenarioId === 'gand-solo' || scenarioId === 'gand-solo-6') {
+                for (let v = 8; v <= 14; v++) presetJ0.push(all.find(c => c.valeur === v && c.couleur === 'PIQUE'));
+            } else if (scenarioId === 'gand-solo-7') {
+                for (let v = 8; v <= 14; v++) presetJ0.push(all.find(c => c.valeur === v && c.couleur === 'PIQUE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'CARREAU'));
+            } else if (scenarioId === 'gand-solo-8') {
+                for (let v = 7; v <= 14; v++) presetJ0.push(all.find(c => c.valeur === v && c.couleur === 'PIQUE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'TREFLE'));
+            } else if (scenarioId === 'gand-petite-misere') {
+                suits.forEach(s => {
+                    presetJ0.push(all.find(c => c.valeur === 2 && c.couleur === s));
+                    presetJ0.push(all.find(c => c.valeur === 3 && c.couleur === s));
+                });
+            } else if (scenarioId === 'gand-abondance' || scenarioId === 'gand-abondance-9') {
+                for (let v = 8; v <= 14; v++) presetJ0.push(all.find(c => c.valeur === v && c.couleur === 'TREFLE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'PIQUE'));
+            } else if (scenarioId === 'gand-abondance-10') {
+                for (let v = 7; v <= 14; v++) presetJ0.push(all.find(c => c.valeur === v && c.couleur === 'TREFLE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'PIQUE'));
+            } else if (scenarioId === 'gand-trou') {
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'PIQUE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'CARREAU'));
+            } else if (scenarioId === 'gand-trou-royal') {
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'PIQUE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'CARREAU'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'TREFLE'));
+            } else if (scenarioId === 'gand-misere' || scenarioId === 'gand-misere-ouverte') {
+                suits.forEach(s => { presetJ0.push(all.find(c => c.valeur === 2 && c.couleur === s)); presetJ0.push(all.find(c => c.valeur === 3 && c.couleur === s)); });
+            } else if (scenarioId === 'gand-chelem') {
+                for (let v = 6; v <= 14; v++) presetJ0.push(all.find(c => c.valeur === v && c.couleur === 'COEUR'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'PIQUE'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'CARREAU'));
+                presetJ0.push(all.find(c => c.valeur === 14 && c.couleur === 'TREFLE'));
+                presetJ0.push(all.find(c => c.valeur === 13 && c.couleur === 'PIQUE'));
+            }
+            const usedIds = new Set(presetJ0.map(c => c.id));
+            const remaining = all.filter(c => !usedIds.has(c.id)).sort(() => Math.random() - 0.5);
+            const result = [presetJ0, [], [], []];
+            let rIdx = 0;
+            for (let j = 0; j < 4; j++) {
+                while (result[j].length < 13 && rIdx < remaining.length) {
+                    result[j].push(remaining[rIdx++]);
+                }
+            }
+            return result;
         }
 
-        const bid = lastAction.contrat;
-        let label = bid?.nom || 'Enchère';
-        if (bid?.sa) label += ' · Sans atout';
-        else if (bid?.atout && SYM[bid.atout]) label += ` · ${SYM[bid.atout]}`;
-        pill.textContent = label;
-        pill.className = `bid-pill ${meilleureEnchere?.joueurId === playerId ? 'winning' : 'bid'}`;
-    }
-}
+        function startNewGame(isRedeal = false) {
+            if (!isRedeal) {
+                if (currentManche >= settings.maxGames || currentManche === 0) { currentManche = 1; totalScores = [0, 0, 0, 0]; }
+                else { currentManche++; }
+            }
+            plisHistory = [];
+            historiqueEncheres = [];
+            updateMancheBadge();
+            const scenarioId = new URLSearchParams(window.location.search).get('scenario');
+            if (scenarioId) {
+                hands = generateScenarioDeck(scenarioId);
+                donneurId = 3;
 
-function installBidDisplay(source) {
-    source = source.replace(
-        '        const btnStart = document.getElementById(\'btn-start\');',
-        `        ${renderPlayerBids.toString()}` + '\n\n        const btnStart = document.getElementById(\'btn-start\');'
-    );
+                const scenarioMap = {
+                    'gand-propose': { id: 'propose', nom: 'Je propose', sa: false, atout: 'COEUR' },
+                    'gand-demande': { id: 'demande', nom: 'Demande à l\'As', sa: false, atout: 'COEUR', asPartenaire: { id: 'AS_TREFLE', valeur: 14, couleur: 'TREFLE' } },
+                    'gand-solo': { id: 'solo_6', nom: 'Solo 6', sa: false, atout: 'PIQUE' },
+                    'gand-solo-6': { id: 'solo_6', nom: 'Solo 6', sa: false, atout: 'PIQUE' },
+                    'gand-solo-7': { id: 'solo_7', nom: 'Solo 7', sa: false, atout: 'PIQUE' },
+                    'gand-solo-8': { id: 'solo_8', nom: 'Solo 8', sa: false, atout: 'PIQUE' },
+                    'gand-petite-misere': { id: 'petite_misere', nom: 'Petite Misère', sa: true, atout: null },
+                    'gand-abondance': { id: 'abondance_9', nom: 'Abondance 9', sa: false, atout: 'TREFLE' },
+                    'gand-abondance-9': { id: 'abondance_9', nom: 'Abondance 9', sa: false, atout: 'TREFLE' },
+                    'gand-abondance-10': { id: 'abondance_10', nom: 'Abondance 10', sa: false, atout: 'TREFLE' },
+                    'gand-trou': { id: 'trou', nom: 'Le Trou', sa: false, atout: 'TREFLE', asPartenaire: { id: 'AS_TREFLE', valeur: 14, couleur: 'TREFLE' } },
+                    'gand-trou-royal': { id: 'trou_royal', nom: 'Trou Royal', sa: false, atout: 'COEUR', asPartenaire: { id: 'ROI_COEUR', valeur: 13, couleur: 'COEUR' } },
+                    'gand-misere': { id: 'misere', nom: 'Grande Misère', sa: true, atout: null },
+                    'gand-misere-ouverte': { id: 'misere_ouverte', nom: 'Misère sur Table', sa: true, atout: null },
+                    'gand-chelem': { id: 'chelem', nom: 'Chelem', sa: false, atout: 'COEUR' }
+                };
+                const scInfo = scenarioMap[scenarioId] || scenarioMap['gand-solo-6'];
+                meilleureEnchere = {
+                    id: scInfo.id,
+                    nom: scInfo.nom,
+                    atout: scInfo.atout,
+                    sa: scInfo.sa,
+                    joueurId: 0,
+                    partenaireId: (scInfo.id === 'propose' || scInfo.id === 'demande' || scInfo.id === 'trou' || scInfo.id === 'trou_royal') ? 1 : -1,
+                    asPartenaire: scInfo.asPartenaire
+                };
+            } else {
+                donneurId = (donneurId + 1) % 4;
+                const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
+                const deck = [];
+                suits.forEach(s => { for (let v = 2; v <= 14; v++) deck.push({ valeur: v, couleur: s, id: `${v}-${s}` }); });
+                deck.sort(() => Math.random() - 0.5);
+                hands = [[], [], [], []];
+                for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
+            }
+            mainsInitiales = hands.map(hand => hand.map(card => ({ ...card })));
+            updateDealerBadge();
 
-    source = source.replace(
-        '            historiqueEncheres = [];',
-        '            historiqueEncheres = [];\n            renderPlayerBids();'
-    );
-    source = source.replace(
-        "                    historiqueEncheres.push({ joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } });",
-        "                    historiqueEncheres.push({ joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } });\n                    renderPlayerBids();"
-    );
-    source = source.replace(
-        "            historiqueEncheres.push({ joueurId: playerId, action: 'passe' });",
-        "            historiqueEncheres.push({ joueurId: playerId, action: 'passe' });\n            renderPlayerBids();"
-    );
-    source = source.replace(
-        "            historiqueEncheres.push({ joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } });",
-        "            historiqueEncheres.push({ joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } });\n            renderPlayerBids();"
-    );
-    source = source.replace(
-        '            if (scenarioId && meilleureEnchere) {\n                finaliserEnchere();',
-        "            if (scenarioId && meilleureEnchere) {\n                historiqueEncheres.push({ joueurId: meilleureEnchere.joueurId, action: 'enchere', contrat: { ...meilleureEnchere } });\n                renderPlayerBids();\n                finaliserEnchere();"
-    );
-    source = source.replace(
-        '        updateSettingsUI();\n        updatePlisUI();\n        renderHandsUI();',
-        '        updateSettingsUI();\n        updatePlisUI();\n        renderPlayerBids();\n        renderHandsUI();'
-    );
-    return source;
-}
+            plisGagnes = [0, 0, 0, 0];
+            pliCourant = [];
+            leaderId = 0;
+            passesConsecutifs = 0;
+            propositionRelancee = false;
+            jeuActif = false;
+            updatePlisUI();
+            document.getElementById('contrat-badge').classList.add('hidden');
+            document.getElementById('atout-badge').classList.add('hidden');
+            document.getElementById('pli-winner-banner').classList.add('hidden');
+            document.getElementById('current-bid-info').innerText = scenarioId ? `Scénario: ${scenarioId}` : 'Aucune enchère';
+            btnStart.innerHTML = scenarioId ? '<i class="fas fa-redo mr-1"></i> Rejouer l\'annonce' : '<i class="fas fa-plus mr-1"></i> Distribuer';
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`badge-j${i}`).classList.remove('border-emerald-400', 'border-rose-400', 'border-transparent');
+                document.getElementById(`team-j${i}`).classList.add('hidden');
+            }
+            clearTableUI();
+            sortHand();
 
-try {
-    const response = await fetch(ORIGINAL_PAGE_URL);
-    if (!response.ok) throw new Error(`Chargement du module de jeu impossible (${response.status}).`);
+            if (scenarioId && meilleureEnchere) {
+                finaliserEnchere();
+            } else {
+                meilleureEnchere = null;
+                tourEnchere = (donneurId + 1) % 4;
+                renderHandsUI();
+                prochainTourEnchere();
+            }
+        }
 
-    const html = await response.text();
-    const originalDocument = new DOMParser().parseFromString(html, 'text/html');
-    for (const style of originalDocument.querySelectorAll('head style')) {
-        document.head.appendChild(Object.assign(document.createElement('style'), { textContent: style.textContent }));
-    }
+        function sortHand() {
+            const h = hands[0];
+            const mult = settings.sortOrder === 'desc' ? -1 : 1;
+            const reverse = settings.direction === 'rl';
+            if (settings.sortMethod === 'suit') {
+                h.sort((a,b) => a.couleur !== b.couleur ? a.couleur.localeCompare(b.couleur) : (a.valeur - b.valeur) * mult);
+            } else {
+                h.sort((a,b) => a.valeur !== b.valeur ? (a.valeur - b.valeur) * mult : a.couleur.localeCompare(b.couleur));
+            }
+            if (reverse) h.reverse();
+        }
 
-    const originalModule = originalDocument.querySelector('script[type="module"]');
-    if (!originalModule) throw new Error('Le script de jeu original est introuvable.');
+        function updateDealerBadge() {
+            const badge = document.getElementById('dealer-badge');
+            const posElem = document.getElementById(`pos-j${donneurId}`);
+            const tapisElem = document.querySelector('.mat');
+            if (!badge || !posElem || !tapisElem) return;
+            const pos = posElem.getBoundingClientRect();
+            const tapis = tapisElem.getBoundingClientRect();
+            if (!pos || !tapis || tapis.width === 0) return;
+            badge.style.display = 'flex';
+            badge.style.left = (pos.left - tapis.left + pos.width / 2 - 16) + 'px';
+            badge.style.top = (pos.top - tapis.top + pos.height / 2 - 16) + 'px';
+        }
 
-    let source = installBidDisplay(originalModule.textContent);
-    source = source
-        .replaceAll("from './firebase-config.js'", `from '${new URL('./firebase-config.js', location.href).href}'`)
-        .replaceAll("from '../shared/whist-contracts.js'", `from '${new URL('../shared/whist-contracts.js', location.href).href}'`)
-        .replaceAll("from '../shared/whist-ai.js'", `from '${new URL('../shared/whist-ai.js', location.href).href}'`);
+        async function prochainTourEnchere() {
+            if (passesConsecutifs >= 3 && meilleureEnchere) {
+                if (meilleureEnchere.id === 'propose' && !propositionRelancee) {
+                    propositionRelancee = true;
+                    passesConsecutifs = 0;
+                    tourEnchere = meilleureEnchere.joueurId;
+                } else {
+                    finaliserEnchere();
+                    return;
+                }
+            }
+            if (passesConsecutifs >= 4 && !meilleureEnchere) { showMessage("Tout le monde a passé. Redistribution..."); setTimeout(() => startNewGame(true), 2000); return; }
+            const id = tourEnchere % 4;
+            updateTurnIndicator(id);
+            if (id === 0) {
+                if (settings.autoBidding) {
+                    await new Promise(r => setTimeout(r, settings.aiSpeed));
+                    const decision = deciderEnchereIA(hands[0], meilleureEnchere);
+                    const currPrio = meilleureEnchere ? BAREME_IWW[meilleureEnchere.id].prio : -1;
+                    if (decision && BAREME_IWW[decision.id].prio > currPrio) validerEnchereHumain(decision.id, decision.nom, decision.atout, decision.asPartenaire);
+                    else passerEnchereWeb(id);
+                } else openBiddingModal();
+            } else {
+                await new Promise(r => setTimeout(r, settings.aiSpeed));
+                const decision = deciderEnchereIA(hands[id], meilleureEnchere);
+                if (!decision || (meilleureEnchere && BAREME_IWW[decision.id].prio <= BAREME_IWW[meilleureEnchere.id].prio)) {
+                    passerEnchereWeb(id);
+                    return;
+                }
+                else {
+                    let pId = (decision.id === 'emballe') ? meilleureEnchere.joueurId : -1;
+                    meilleureEnchere = { ...decision, joueurId: id, partenaireId: pId };
+                    historiqueEncheres.push({ joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } });
+                    passesConsecutifs = 0;
+                    propositionRelancee = false;
+                    const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout ? ` — Atout ${SYM[meilleureEnchere.atout]}` : '';
+                    document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom}${atoutTrou} (J${id+1})`;
+                }
+                tourEnchere++; prochainTourEnchere();
+            }
+        }
 
-    const moduleUrl = URL.createObjectURL(new Blob([source], { type: 'text/javascript' }));
-    try {
-        await import(moduleUrl);
-    } finally {
-        URL.revokeObjectURL(moduleUrl);
-    }
-} catch (error) {
-    console.error('Erreur de chargement du jeu AllWhist :', error);
-    const message = document.getElementById('game-message-bar');
-    const text = document.getElementById('game-message-text');
-    if (message && text) {
-        text.textContent = 'Le jeu n’a pas pu être chargé. Vérifiez la connexion puis rechargez la page.';
-        message.classList.remove('hidden');
-    }
-}
+        function passerEnchereWeb(playerId) {
+            historiqueEncheres.push({ joueurId: playerId, action: 'passe' });
+            const proposerRefuse = propositionRelancee && meilleureEnchere?.id === 'propose' && meilleureEnchere.joueurId === playerId;
+            if (proposerRefuse) {
+                meilleureEnchere = null;
+                passesConsecutifs = 1;
+                propositionRelancee = false;
+            } else {
+                passesConsecutifs++;
+            }
+            tourEnchere++;
+            prochainTourEnchere();
+        }
+
+        function deciderEnchereIA(hand, currentBid) {
+            const playerId = tourEnchere % 4;
+            const decision = chooseWhistBid(hand, currentBid, 'expert', playerId, WHIST_CONTRACTS);
+            if (decision.action === 'passe' || !decision.contratId) return null;
+            return {
+                ...BAREME_IWW[decision.contratId],
+                ...decision,
+                id: decision.contratId,
+                nom: getWhistContractName({ id: decision.contratId }),
+            };
+        }
+
+        function finaliserEnchere() {
+            contratFinal = meilleureEnchere; jeuActif = true;
+            document.getElementById('turn-indicator').classList.add('hidden');
+
+            const cb = document.getElementById('contrat-badge');
+            let label = contratFinal.nom;
+            if (contratFinal.id === 'emballe') {
+                label = `Propose (J${contratFinal.partenaireId + 1}) & Emballe (J${contratFinal.joueurId + 1})`;
+            } else {
+                label = `${contratFinal.nom} (J${contratFinal.joueurId + 1})`;
+            }
+            cb.innerText = label;
+            cb.classList.remove('hidden');
+
+            const ab = document.getElementById('atout-badge');
+            if (contratFinal.sa) {
+                ab.innerHTML = '<span class="text-rose-800 text-[10px] font-black uppercase">Sans Atout</span>';
+            } else {
+                ab.innerHTML = '<span class="text-rose-800 text-[10px] font-black uppercase">Atout</span><img src="' + ASSET_IMG[contratFinal.atout] + '" class="w-4 h-4 object-contain">';
+            }
+            ab.classList.remove('hidden'); ab.classList.add('flex');
+
+            const bidderId = contratFinal.joueurId;
+            const partnerId = (contratFinal.id === 'propose' || contratFinal.id === 'emballe') ? (contratFinal.partenaireId !== undefined ? contratFinal.partenaireId : -1) : -1;
+            for (let i = 0; i < 4; i++) {
+                const b = document.getElementById(`badge-j${i}`), tl = document.getElementById(`team-j${i}`);
+                b.classList.remove('border-emerald-400', 'border-rose-400');
+                if (i === bidderId || i === partnerId) { b.classList.add('border-emerald-400'); tl.innerText = 'EQUIPE A'; tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-600 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20'; }
+                else { b.classList.add('border-rose-400'); tl.innerText = 'EQUIPE B'; tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-rose-600 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20'; }
+                tl.classList.remove('hidden');
+            }
+            if (contratFinal.id === 'petite_misere') {
+                hands.forEach(hand => {
+                    const discarded = chooseMisereDiscard(hand);
+                    if (discarded) hand.splice(hand.findIndex(card => card.id === discarded.id), 1);
+                });
+                renderHandsUI();
+            }
+            leaderId = (donneurId + 1) % 4; startTrick();
+        }
+
+        function renderHandsUI() {
+            const h0 = document.getElementById('hand-j0');
+            const tourId = (leaderId + pliCourant.length) % 4;
+            const monTour = tourId === 0 && jeuActif;
+            h0.innerHTML = hands[0].map(c => {
+                const playable = monTour && isCardPlayable(c);
+                return `<div class="card-container ${!playable && jeuActif ? 'disabled' : ''}" onclick="window.playHumanCard('${c.id}')"><div class="playing-card ${COULEUR_CSS[c.couleur]}"><div class="card-top"><span class="card-value">${getLabel(c.valeur)}</span><img class="card-suit-img" src="${ASSET_IMG[c.couleur]}" alt="${c.couleur}"></div><div class="card-suit-main"><img src="${ASSET_IMG[c.couleur]}" alt="${c.couleur}"></div><div class="card-bottom"><span class="card-value">${getLabel(c.valeur)}</span><img class="card-suit-img" src="${ASSET_IMG[c.couleur]}" alt="${c.couleur}"></div></div></div>`;
+            }).join('');
+            document.getElementById('hand-j2').innerHTML = hands[2].map(() => `<div class="w-6 h-10 bg-slate-600 rounded border border-white/20 flex items-center justify-center text-[8px] text-white font-black">${Math.random() > 0.5 ? '♠' : '♥'}</div>`).join('');
+        }
+
+        function isCardPlayable(card) {
+            if (pliCourant.length === 0) return true;
+            const cd = pliCourant[0].carte.couleur;
+            return hands[0].some(c => c.couleur === cd) ? card.couleur === cd : true;
+        }
+
+        function openBiddingModal() {
+            const opts = document.getElementById('enchere-options');
+            const bids = [
+                {id:'propose',nom:'Propose'},
+                {id:'emballe',nom:'J\'emballe'},
+                {id:'demande',nom:'Demande à l\'As'},
+                {id:'solo_6',nom:'Solo 6'},
+                {id:'solo_7',nom:'Solo 7'},
+                {id:'petite_misere',nom:'Petite Misère'},
+                {id:'solo_8',nom:'Solo 8'},
+                {id:'abondance_9',nom:'Abondance 9'},
+                {id:'trou',nom:'Trou'},
+                {id:'trou_royal',nom:'Trou Royal'},
+                {id:'abondance_10',nom:'Abondance 10'},
+                {id:'misere',nom:'Grande Misère'},
+                {id:'abondance_11',nom:'Abondance 11'},
+                {id:'abondance_12',nom:'Abondance 12'},
+                {id:'misere_ouverte',nom:'Misère sur Table'},
+                {id:'chelem',nom:'Chelem'}
+            ];
+            const scenarioId = new URLSearchParams(window.location.search).get('scenario');
+            const scenarioMap = {
+                'gand-propose': 'propose', 'gand-demande': 'demande',
+                'gand-solo': 'solo_6', 'gand-solo-6': 'solo_6', 'gand-solo-7': 'solo_7', 'gand-solo-8': 'solo_8',
+                'gand-petite-misere': 'petite_misere', 'gand-abondance': 'abondance_9', 'gand-abondance-9': 'abondance_9',
+                'gand-abondance-10': 'abondance_10', 'gand-trou': 'trou', 'gand-trou-royal': 'trou_royal',
+                'gand-misere': 'misere', 'gand-misere-ouverte': 'misere_ouverte', 'gand-chelem': 'chelem'
+            };
+            const targetBidId = scenarioId ? scenarioMap[scenarioId] : null;
+
+            const curr = meilleureEnchere ? BAREME_IWW[meilleureEnchere.id].prio : -1;
+            const nbAs = hands[0] ? hands[0].filter(c => c.valeur === 14).length : 0;
+            opts.innerHTML = bids.map(p => {
+                let dis = BAREME_IWW[p.id].prio <= curr;
+                if (p.id === 'emballe') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId === 0;
+                if (p.id === 'demande') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId !== 0;
+                if (p.id === 'trou') dis = nbAs !== 3 || curr >= BAREME_IWW['trou'].prio;
+                if (p.id === 'trou_royal') dis = nbAs !== 4 || curr >= BAREME_IWW['trou_royal'].prio;
+
+                const isTarget = targetBidId === p.id;
+                const btnClass = isTarget ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-400 font-black ring-2 ring-amber-400' : (dis ? 'bg-slate-50 text-slate-300 border-slate-200' : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-200');
+                const badge = isTarget ? '<span class="block text-[10px] text-amber-800 uppercase font-black mt-0.5">⭐ Annonce du Scénario</span>' : '';
+                return `<button ${dis?'disabled':''} onclick="window.choisirContratWeb('${p.id}','${p.nom}')" class="p-3 ${btnClass} font-bold text-xs rounded-xl border transition flex flex-col items-center justify-center text-center" type="button">${p.nom}${badge}</button>`;
+            }).join('');
+            modalEnchere.classList.add('flex'); modalEnchere.classList.remove('hidden');
+        }
+
+        window.choisirContratWeb = (id, nom) => {
+            modalEnchere.classList.add('hidden');
+            if (id === 'emballe') validerEnchereHumain(id, nom, meilleureEnchere.atout);
+            else if (BAREME_IWW[id].sa) validerEnchereHumain(id, nom, null);
+            else { window.tmpContrat = { id, nom }; modalAtout.classList.remove('hidden'); modalAtout.classList.add('flex'); }
+        };
+
+        window.validerAtoutWeb = (atout) => { modalAtout.classList.add('hidden'); validerEnchereHumain(window.tmpContrat.id, window.tmpContrat.nom, atout); };
+
+        function validerEnchereHumain(id, nom, atout, asPartenaire) {
+            if (id === 'trou' && !asPartenaire) {
+                const aces = hands[0].filter(card => card.valeur === 14).map(card => card.couleur);
+                const couleurAppelee = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'].find(suit => !aces.includes(suit));
+                asPartenaire = couleurAppelee ? `14_${couleurAppelee}` : undefined;
+                atout = couleurAppelee ?? atout;
+            }
+            if (id === 'trou_royal') {
+                asPartenaire ??= '13_COEUR';
+                atout = 'COEUR';
+            }
+            let pId = (id === 'emballe' && meilleureEnchere) ? meilleureEnchere.joueurId : -1;
+            meilleureEnchere = { id, nom, atout, asPartenaire, sa: !atout, joueurId: 0, partenaireId: pId };
+            historiqueEncheres.push({ joueurId: 0, action: 'enchere', contrat: { ...meilleureEnchere } });
+            propositionRelancee = false;
+            const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout ? ` — Atout ${SYM[atout]}` : '';
+            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (VOUS)`; prochainTourEnchere();
+        }
+
+        document.getElementById('btn-passe').onclick = () => { modalEnchere.classList.add('hidden'); passerEnchereWeb(tourEnchere % 4); };
+
+        function choixCarteWeb(playerId) {
+            const hand = hands[playerId];
+            return chooseWhistCard(
+                hand,
+                playerId,
+                {
+                    numero: plisHistory.length + 1,
+                    couleurDemandee: pliCourant[0]?.carte.couleur,
+                    cartesJouees: pliCourant,
+                },
+                contratFinal?.atout,
+                { ...contratFinal, sanAtout: !!contratFinal?.sa },
+                plisHistory.flatMap(trick => trick.cartesJouees.map(play => play.carte)),
+                plisHistory,
+            );
+        }
+
+        function revealWebPartner(playerId, card) {
+            if (!contratFinal?.asPartenaire || (Number.isInteger(contratFinal.partenaireId) && contratFinal.partenaireId >= 0)) return;
+            const match = String(contratFinal.asPartenaire).match(/^((\d+)[_-](COEUR|CARREAU|TREFLE|PIQUE))$/);
+            if (match && card.valeur === Number(match[2]) && card.couleur === match[3]) {
+                contratFinal.partenaireId = playerId;
+            }
+        }
+
+        function startTrick() {
+            resolutionPliEnCours = false;
+            pliCourant = [];
+            if (leaderId !== 0) playAIUntilHuman();
+            else {
+                updateTurnIndicator(0); renderHandsUI();
+                if (settings.autoPlay) setTimeout(() => {
+                    const card = choixCarteWeb(0);
+                    if (card) window.playHumanCard(card.id);
+                }, settings.aiSpeed);
+            }
+        }
+
+        async function playAIUntilHuman() {
+            while (pliCourant.length < 4) {
+                if (pliCourant.length === 0) clearTableUI();
+                const pid = (leaderId + pliCourant.length) % 4;
+                if (pid === 0) {
+                    updateTurnIndicator(0); renderHandsUI();
+                    if (settings.autoPlay) {
+                        await new Promise(r => setTimeout(r, settings.aiSpeed));
+                        const card = choixCarteWeb(0);
+                        if (card) window.playHumanCard(card.id);
+                    }
+                    return;
+                }
+                updateTurnIndicator(pid); await new Promise(r => setTimeout(r, settings.aiSpeed));
+                const h = hands[pid];
+                const card = choixCarteWeb(pid);
+                if (!card) throw new Error(`Aucune carte jouable pour le joueur ${pid}.`);
+                revealWebPartner(pid, card);
+                h.splice(h.findIndex(held => held.id === card.id), 1);
+                pliCourant.push({ joueurId: pid, carte: card }); renderTableCard(pid, card);
+                if (pliCourant.length === 4) { evaluateTrickEnd(); return; }
+            }
+        }
+
+        window.playHumanCard = (cardId) => {
+            if (!jeuActif) return;
+            const idx = hands[0].findIndex(c => c.id === cardId); if (idx === -1) return;
+            const tid = (leaderId + pliCourant.length) % 4; if (tid !== 0) return;
+            const card = hands[0][idx]; if (!isCardPlayable(card)) return;
+            if (pliCourant.length === 0) clearTableUI();
+            hands[0].splice(idx, 1); revealWebPartner(0, card); pliCourant.push({ joueurId: 0, carte: card }); renderHandsUI(); renderTableCard(0, card);
+            if (pliCourant.length === 4) evaluateTrickEnd(); else playAIUntilHuman();
+        };
+
+        function renderTableCard(pid, card) {
+            const value = getLabel(card.valeur);
+            const suit = ASSET_IMG[card.couleur];
+            document.getElementById(`table-j${pid}`).innerHTML = `
+                <div class="playing-card ${COULEUR_CSS[card.couleur]} shadow-xl border-2 border-white transform" style="width:70px;height:105px;transform:translateY(-4px)">
+                    <div class="card-top">
+                        <span class="card-value">${value}</span>
+                        <img class="card-suit-img" src="${suit}" alt="${card.couleur}">
+                    </div>
+                    <div class="card-suit-main">
+                        <img src="${suit}" alt="${card.couleur}">
+                    </div>
+                    <div class="card-bottom">
+                        <span class="card-value">${value}</span>
+                        <img class="card-suit-img" src="${suit}" alt="${card.couleur}">
+                    </div>
+                </div>
+            `;
+        }
+        function updateTurnIndicator(pid) { const ind = document.getElementById('turn-indicator'), t = document.getElementById(`table-j${pid}`); ind.classList.remove('hidden'); ind.style.left = t ? `${t.offsetLeft + 35}px` : '50%'; ind.style.top = t ? `${t.offsetTop + 20}px` : '50%'; }
+
+        async function evaluateTrickEnd() {
+            if (resolutionPliEnCours || pliCourant.length !== 4) return;
+            resolutionPliEnCours = true;
+
+            // Laisser le navigateur afficher clairement la quatrième carte avant le résultat du pli.
+            await new Promise(r => setTimeout(r, 500));
+
+            const cd = pliCourant[0].carte.couleur, at = contratFinal?.sa ? null : contratFinal.atout;
+            let best = pliCourant[0];
+            for (let i = 1; i < 4; i++) {
+                const c = pliCourant[i], isa = at && c.carte.couleur === at, bisa = at && best.carte.couleur === at;
+                if ((isa && !bisa) || (isa && bisa && c.carte.valeur > best.carte.valeur) || (!isa && !bisa && c.carte.couleur === cd && c.carte.valeur > best.carte.valeur)) best = c;
+            }
+            plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI();
+            plisHistory.push({ numero: plisHistory.length + 1, gagnantId: best.joueurId, cartesJouees: pliCourant.map(p => ({ joueurId: p.joueurId, carte: p.carte })) });
+
+            // Entourer la carte gagnante avec un halo doré éclatant (au lieu d'un texte de bannière)
+            const winnerTableCard = document.querySelector(`#table-j${best.joueurId} .playing-card`);
+            if (winnerTableCard) {
+                winnerTableCard.classList.add('ring-4', 'ring-amber-400', 'scale-105', 'shadow-[0_0_35px_rgba(251,191,36,0.9)]', 'z-30');
+            }
+            await new Promise(r => setTimeout(r, 900));
+
+            // Regrouper et faire voler les cartes vers la main/position du gagnant
+            for (let i = 0; i < 4; i++) {
+                const el = document.querySelector(`#table-j${i} .playing-card`);
+                if (el) {
+                    el.style.animation = `flyTo${best.joueurId} 0.55s ease-in-out forwards`;
+                }
+            }
+            await new Promise(r => setTimeout(r, 550));
+            clearTableUI();
+
+            if (hands[0].length === 0) {
+                jeuActif = false;
+                const resume = calculerPointsFinaux();
+                afficherResumeManche(resume);
+                sauvegarderPartie(resume);
+                if (currentManche >= settings.maxGames) showMessage('Partie terminée ! Scores finaux affichés.');
+                else showMessage('Manche terminée ! Résumé ci-dessous.');
+                return;
+            }
+
+            setTimeout(() => startTrick(), 300);
+        }
+
+        function afficherResumeManche(resultat) {
+            if (!resultat) {
+                console.error('Résumé de manche indisponible.');
+                showMessage('Impossible d’afficher le résumé de la manche.', 5000);
+                return;
+            }
+            const data = resultat;
+            const scoreEquipeA = data.delta[0] + (data.partnerId >= 0 ? data.delta[data.partnerId] : 0);
+            const scoreEquipeB = totalScores.filter((_, index) => index !== 0 && index !== data.partnerId).reduce((a, x) => a + x, 0);
+            const contratLabel = contratFinal ? `${contratFinal.nom}${contratFinal.atout ? ` • Atout ${SYM[contratFinal.atout]}` : ''}` : 'Contrat';
+            const players = [
+                { id: 0, label: 'Vous', score: totalScores[0] },
+                { id: 1, label: 'J2 / Ouest', score: totalScores[1] },
+                { id: 2, label: 'J3 / Nord', score: totalScores[2] },
+                { id: 3, label: 'J4 / Est', score: totalScores[3] }
+            ];
+
+            document.getElementById('resume-content').innerHTML = `
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
+                    <div class="text-[10px] font-black uppercase tracking-wider text-emerald-700 mb-2">Contrat</div>
+                    <div class="text-xl font-black text-emerald-900">${contratLabel}</div>
+                    <div class="mt-3 flex items-center justify-between text-sm">
+                        <span class="text-slate-600">Résultat</span>
+                        <span class="font-black ${data.reussite ? 'text-emerald-700' : 'text-rose-600'}">${data.reussite ? 'Réussi' : 'Échoué'}</span>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between text-sm">
+                        <span class="text-slate-600">Plis faits</span>
+                        <span class="font-black text-slate-800">${data.plisTeam} / ${data.obj}</span>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between text-sm">
+                        <span class="text-slate-600">Équipe</span>
+                        <span class="font-black text-slate-800">${data.partnerId >= 0 ? 'Équipe A' : 'Solo'} ${data.reussite ? 'réussie' : 'ratée'}</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    ${players.map(player => `
+                        <div class="flex items-center justify-between px-3 py-2 rounded-xl ${player.id === 0 ? 'bg-emerald-50 border border-emerald-100' : 'bg-slate-50 border border-slate-100'}">
+                            <span class="font-bold text-slate-700">${player.label}</span>
+                            <span class="font-black ${player.score >= 0 ? 'text-slate-900' : 'text-rose-700'}">${player.score} pts</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            document.getElementById('btn-next-round').innerText = currentManche >= settings.maxGames ? 'Nouvelle partie' : 'Nouvelle manche';
+            modalResume.classList.add('flex');
+            modalResume.classList.remove('hidden');
+        }
+
+        function calculerPointsFinaux() {
+            const bidderId = contratFinal.joueurId;
+            let partnerId = (contratFinal.id === 'emballe' || contratFinal.id === 'propose' || contratFinal.id === 'demande' || contratFinal.id === 'trou' || contratFinal.id === 'trou_royal') ? (contratFinal.partenaireId !== undefined ? contratFinal.partenaireId : -1) : -1;
+            const obj = BAREME_IWW[contratFinal.id].obj, pts = BAREME_IWW[contratFinal.id].pts, plisTeam = plisGagnes[bidderId] + (partnerId !== -1 ? plisGagnes[partnerId] : 0), reussite = (plisTeam >= obj);
+            const delta = [0, 0, 0, 0], defenseIds = [0, 1, 2, 3].filter(id => id !== bidderId && id !== partnerId);
+            let gain = reussite ? pts : -pts;
+            if (reussite && !contratFinal.sa && obj > 0 && contratFinal.id !== 'chelem') gain += (plisTeam - obj);
+            if (reussite) {
+                const total = gain * defenseIds.length;
+                if (partnerId !== -1) {
+                    delta[bidderId] = Math.floor(total / 2);
+                    delta[partnerId] = total - delta[bidderId];
+                } else delta[bidderId] = total;
+            } else {
+                const total = Math.abs(gain) * defenseIds.length;
+                if (partnerId !== -1) {
+                    delta[bidderId] = -Math.floor(total / 2);
+                    delta[partnerId] = -(total - Math.abs(delta[bidderId]));
+                } else delta[bidderId] = -total;
+            }
+            for (let i = 0; i < 4; i++) totalScores[i] += delta[i];
+            updatePlisUI();
+
+            return { bidderId, partnerId, obj, pts, plisTeam, reussite, delta, defenseIds, totalScores: totalScores.slice() };
+        }
+
+        function sauvegarderPartie(resultat) {
+            try {
+                const { bidderId, partnerId, obj, plisTeam, reussite, delta } = resultat;
+                const userId = currentUser?.uid || 'ANONYMOUS_WEB';
+                const userPseudo = currentUser?.email?.split('@')[0] || 'Invité Web';
+
+                const gameData = {
+                    varianteId: 'whist-gand',
+                    manche: currentManche,
+                    isWebPlay: true,
+                    sourcePlatform: 'web',
+                    aiVersion: WHIST_AI_VERSION,
+                    userId,
+                    userPseudo,
+                    createdAt: new Date().toISOString(),
+                    atout: contratFinal?.atout || null,
+                    contrat: {
+                        id: contratFinal.id,
+                        nom: contratFinal.nom,
+                        joueurId: bidderId,
+                        plisObjectif: obj,
+                        ...(contratFinal.asPartenaire ? { asPartenaire: contratFinal.asPartenaire } : {}),
+                        ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
+                    },
+                    donne: mainsInitiales.map((mainInitiale, joueurId) => ({
+                        joueurId,
+                        nom: joueurId === 0 ? userPseudo : `IA-${joueurId}`,
+                        mainInitiale
+                    })),
+                    plis: plisHistory,
+                    resultat: { reussite, plisFaits: plisTeam, deltaScores: delta },
+                    historiqueEncheres,
+                };
+
+                const docId = `WEB_PLAY_${Date.now()}`;
+                Promise.resolve(setDoc(doc(db, 'games', docId), gameData))
+                    .then(() => console.log('Game saved successfully!'))
+                    .catch(err => {
+                        console.error('DB Save Error:', err);
+                        showMessage('Erreur de sauvegarde: ' + err.message, 5000);
+                    });
+            } catch (err) {
+                console.error('DB Save Preparation Error:', err);
+                showMessage('Résultats affichés, mais sauvegarde impossible: ' + err.message, 5000);
+            }
+        }
+
+        function showMessage(msg, dur = 4000) { const bar = document.getElementById('game-message-bar'), txt = document.getElementById('game-message-text'); txt.innerText = msg; bar.classList.remove('hidden'); setTimeout(() => bar.classList.add('hidden'), dur); }
+        function saveSettings() { localStorage.setItem('allwhist_play_settings', JSON.stringify(settings)); }
+        function updatePlisUI() { document.getElementById('plis-j0').innerText = plisGagnes[0]; document.getElementById('score-j0').innerText = totalScores[0]; document.getElementById('plis-j1').innerText = plisGagnes[1]; document.getElementById('score-j1').innerText = totalScores[1]; document.getElementById('plis-j2').innerText = plisGagnes[2]; document.getElementById('score-j2').innerText = totalScores[2]; document.getElementById('plis-j3').innerText = plisGagnes[3]; document.getElementById('score-j3').innerText = totalScores[3]; }
+        function updateMancheBadge() { document.getElementById('manche-badge').innerText = `Manche ${currentManche}/${settings.maxGames}`; }
+        function clearTableUI() { for (let i = 0; i < 4; i++) document.getElementById(`table-j${i}`).innerHTML = ''; }
+        function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }
+        function renderScoreboard() {
+            const list = document.getElementById('scoreboard-list');
+            const players = [ { id: 0, name: 'Vous', score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' }, { id: 1, name: 'Ouest (J2)', score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' }, { id: 2, name: 'Nord (J3)', score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' }, { id: 3, name: 'Est (J4)', score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' } ];
+            players.sort((a, b) => b.score - a.score);
+            list.innerHTML = players.map((p, idx) => `<div class="flex items-center justify-between p-4 ${p.id === 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-slate-50 border-slate-100'} border rounded-2xl"><div class="flex items-center gap-3"><div class="w-8 h-8 ${p.color} rounded-full flex items-center justify-center text-white"><i class="fas ${p.icon}"></i></div><div><div class="font-black text-slate-800">${idx + 1}. ${p.name}</div><div class="text-[10px] uppercase text-slate-400">Score total</div></div></div><span class="font-black text-slate-900">${p.score}</span></div>`).join('');
+        }
+        function updateSettingsUI() {
+            const s = settings; document.getElementById('input-max-games').value = s.maxGames;
+            const styleOn = 'py-2 rounded-xl border-2 font-bold text-sm transition bg-emerald-50 text-emerald-700 border-emerald-500';
+            const styleOff = 'py-2 rounded-xl border-2 font-bold text-sm transition bg-slate-50 text-slate-500 border-slate-200';
+            document.getElementById('set-sort-suit').className = s.sortMethod === 'suit' ? styleOn : styleOff;
+            document.getElementById('set-sort-val').className = s.sortMethod === 'value' ? styleOn : styleOff;
+            document.getElementById('set-sort-desc').className = s.sortOrder === 'desc' ? styleOn : styleOff;
+            document.getElementById('set-sort-asc').className = s.sortOrder === 'asc' ? styleOn : styleOff;
+            document.getElementById('set-dir-lr').className = s.direction === 'lr' ? styleOn : styleOff;
+            document.getElementById('set-dir-rl').className = s.direction === 'rl' ? styleOn : styleOff;
+            document.getElementById('set-son-on').className = s.son ? styleOn : styleOff;
+            document.getElementById('set-son-off').className = !s.son ? styleOn : styleOff;
+            document.getElementById('set-vib-on').className = s.vibration ? styleOn : styleOff;
+            document.getElementById('set-vib-off').className = !s.vibration ? styleOn : styleOff;
+            document.getElementById('set-auto-bid-on').className = s.autoBidding ? styleOn : styleOff;
+            document.getElementById('set-auto-bid-off').className = !s.autoBidding ? styleOn : styleOff;
+            document.getElementById('set-auto-play-on').className = s.autoPlay ? styleOn : styleOff;
+            document.getElementById('set-auto-play-off').className = !s.autoPlay ? styleOn : styleOff;
+            document.getElementById('set-ai-speed').value = s.aiSpeed;
+        }
+        document.getElementById('set-sort-suit').onclick = () => { settings.sortMethod = 'suit'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-sort-val').onclick = () => { settings.sortMethod = 'value'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-sort-desc').onclick = () => { settings.sortOrder = 'desc'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-sort-asc').onclick = () => { settings.sortOrder = 'asc'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-dir-lr').onclick = () => { settings.direction = 'lr'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-dir-rl').onclick = () => { settings.direction = 'rl'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-son-on').onclick = () => { settings.son = true; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-son-off').onclick = () => { settings.son = false; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-vib-on').onclick = () => { settings.vibration = true; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-vib-off').onclick = () => { settings.vibration = false; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-auto-bid-on').onclick = () => { settings.autoBidding = true; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-auto-bid-off').onclick = () => { settings.autoBidding = false; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-auto-play-on').onclick = () => { settings.autoPlay = true; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-auto-play-off').onclick = () => { settings.autoPlay = false; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-ai-speed').oninput = (e) => { settings.aiSpeed = Number(e.target.value); updateSettingsUI(); saveSettings(); };
+        updateSettingsUI();
+        updatePlisUI();
+        renderHandsUI();
