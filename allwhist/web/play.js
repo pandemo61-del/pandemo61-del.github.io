@@ -70,28 +70,6 @@ import {
         const modalResume = document.getElementById('modal-resume');
         const modalAuctionHistory = document.getElementById('modal-auction-history');
         const PLAYER_LABELS = ['Vous (J1)', 'J2 / Ouest', 'J3 / Nord', 'J4 / Est'];
-                
-        function pickAIAvatars() {
-                const pool = Array.from({ length: 16 }, (_, i) => i);
-            
-                for (let i = pool.length - 1; i > 0; i--) {
-                    const r = Math.floor(Math.random() * (i + 1));
-                    [pool[i], pool[r]] = [pool[r], pool[i]];
-                }
-            
-                [1, 2, 3].forEach((pid, i) => {
-                    const avatar = document.getElementById(`avatar-j${pid}`);
-                    const index = pool[i];
-            
-                    if (!avatar) return;
-            
-                    const col = index % 4;
-                    const row = Math.floor(index / 4);
-            
-                    avatar.style.setProperty('--avatar-x', `${col * 100 / 3}%`);
-                    avatar.style.setProperty('--avatar-y', `${row * 100 / 3}%`);
-                });
-        }
         let auctionHistoryResolver = null;
         let auctionHistoryTimer = null;
         function hideBiddingPanel() {
@@ -247,7 +225,6 @@ import {
 
         function startNewGame(isRedeal = false) {
             if (!isRedeal) {
-                pickAIAvatars();
                 if (currentManche >= settings.maxGames || currentManche === 0) { currentManche = 1; totalScores = [0, 0, 0, 0]; }
                 else { currentManche++; }
             }
@@ -521,7 +498,8 @@ import {
             const curr = meilleureEnchere ? BAREME_IWW[meilleureEnchere.id].prio : -1;
             const nbAs = hands[0] ? hands[0].filter(c => c.valeur === 14).length : 0;
             opts.innerHTML = bids.map(p => {
-                let dis = BAREME_IWW[p.id].prio <= curr;
+                let dis = BAREME_IWW[p.id].prio < curr;
+                if (p.id === 'propose') dis = meilleureEnchere ? meilleureEnchere.id !== 'propose' : false;
                 if (p.id === 'emballe') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId === 0;
                 if (p.id === 'demande') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId !== 0;
                 if (p.id === 'trou') dis = nbAs !== 3 || curr >= BAREME_IWW['trou'].prio;
@@ -879,7 +857,6 @@ import {
         document.getElementById('set-auto-play-on').onclick = () => { settings.autoPlay = true; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-auto-play-off').onclick = () => { settings.autoPlay = false; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-ai-speed').oninput = (e) => { settings.aiSpeed = Number(e.target.value); updateSettingsUI(); saveSettings(); };
-        pickAIAvatars();            
         updateSettingsUI();
         updatePlisUI();
         renderHandsUI();
