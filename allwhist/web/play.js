@@ -70,7 +70,7 @@ import {
         const modalScoreboard = document.getElementById('modal-scoreboard');
         const modalResume = document.getElementById('modal-resume');
         const modalAuctionHistory = document.getElementById('modal-auction-history');
-        const PLAYER_LABELS = ['Vous', 'J2', 'J3', 'J4'];
+        const PLAYER_LABELS = ['', '', '', ''];
         const AVATAR_PROFILES = [
             { avatar: 0, gender: 'H', names: ['Thomas', 'Nicolas', 'Julien', 'Laurent', 'Olivier'] },
             { avatar: 1, gender: 'F', names: ['Sophie', 'Julie', 'Claire', 'Émilie', 'Nathalie'] },
@@ -100,6 +100,10 @@ import {
 
         function renderPlayerAvatar() {
             setAvatarSprite(document.getElementById('avatar-j0'), settings.playerAvatar);
+            const profile = AVATAR_PROFILES.find(item => item.avatar === settings.playerAvatar);
+            PLAYER_LABELS[0] = profile.names[0];
+            const nameElement = document.getElementById('name-j0');
+            if (nameElement) nameElement.textContent = PLAYER_LABELS[0];
             document.querySelectorAll('.avatar-choice').forEach(button => {
                 const selected = Number(button.dataset.avatar) === settings.playerAvatar;
                 button.classList.toggle('is-selected', selected);
@@ -141,7 +145,7 @@ import {
 
                 setAvatarSprite(avatar, avatarIndex);
                 const profile = AVATAR_PROFILES.find(item => item.avatar === avatarIndex);
-                PLAYER_LABELS[playerId] = profile.names[Math.floor(Math.random() * profile.names.length)];
+                PLAYER_LABELS[playerId] = profile.names[0];
                 const nameElement = document.getElementById(`name-j${playerId}`);
                 if (nameElement) nameElement.textContent = PLAYER_LABELS[playerId];
             });
@@ -445,7 +449,7 @@ import {
                     passesConsecutifs = 0;
                     propositionRelancee = false;
                     const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout ? ` — Atout ${SYM[meilleureEnchere.atout]}` : '';
-                    document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom}${atoutTrou} (${PLAYER_LABELS[id]})`;
+                    document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom}${atoutTrou} (J${id+1})`;
                 }
                 tourEnchere++; prochainTourEnchere();
             }
@@ -489,9 +493,9 @@ import {
             const cb = document.getElementById('contrat-badge');
             let label = contratFinal.nom;
             if (contratFinal.id === 'emballe') {
-                label = `Propose (${PLAYER_LABELS[contratFinal.partenaireId]}) & Emballe (${PLAYER_LABELS[contratFinal.joueurId]})`;
+                label = `Propose (J${contratFinal.partenaireId + 1}) & Emballe (J${contratFinal.joueurId + 1})`;
             } else {
-                label = `${contratFinal.nom} (${PLAYER_LABELS[contratFinal.joueurId]})`;
+                label = `${contratFinal.nom} (J${contratFinal.joueurId + 1})`;
             }
             cb.innerText = label;
             cb.classList.remove('hidden');
@@ -866,7 +870,7 @@ import {
                     },
                     donne: mainsInitiales.map((mainInitiale, joueurId) => ({
                         joueurId,
-                        nom: joueurId === 0 ? userPseudo : PLAYER_LABELS[joueurId],
+                        nom: PLAYER_LABELS[joueurId],
                         mainInitiale
                     })),
                     plis: plisHistory,
@@ -895,7 +899,7 @@ import {
         function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }
         function renderScoreboard() {
             const list = document.getElementById('scoreboard-list');
-            const players = [ { id: 0, name: 'Vous', score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' }, { id: 1, name: PLAYER_LABELS[1], score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' }, { id: 2, name: PLAYER_LABELS[2], score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' }, { id: 3, name: PLAYER_LABELS[3], score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' } ];
+            const players = [ { id: 0, name: PLAYER_LABELS[0], score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' }, { id: 1, name: PLAYER_LABELS[1], score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' }, { id: 2, name: PLAYER_LABELS[2], score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' }, { id: 3, name: PLAYER_LABELS[3], score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' } ];
             players.sort((a, b) => b.score - a.score);
             list.innerHTML = players.map((p, idx) => `<div class="flex items-center justify-between p-4 ${p.id === 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-slate-50 border-slate-100'} border rounded-2xl"><div class="flex items-center gap-3"><div class="w-8 h-8 ${p.color} rounded-full flex items-center justify-center text-white"><i class="fas ${p.icon}"></i></div><div><div class="font-black text-slate-800">${idx + 1}. ${p.name}</div><div class="text-[10px] uppercase text-slate-400">Score total</div></div></div><span class="font-black text-slate-900">${p.score}</span></div>`).join('');
         }
