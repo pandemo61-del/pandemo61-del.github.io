@@ -290,14 +290,178 @@
       }
 
 /* Encheres: panneau non bloquant et historique lisible */
-#modal-enchere.auction-panel { position: fixed; right: 18px; bottom: 18px; left: auto; top: auto; width: min(420px, calc(100vw - 36px)); z-index: 50; padding: 0; background: transparent; backdrop-filter: none; pointer-events: none; }
-#modal-enchere.auction-panel.flex { display: block; }
-#modal-enchere .auction-panel-card { max-height: min(68vh, 620px); overflow-y: auto; pointer-events: auto; border: 1px solid rgba(216,181,106,.35); box-shadow: 0 18px 50px rgba(0,0,0,.42); }
-.auction-live-history { max-height: 110px; overflow-y: auto; padding: 8px; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; color: #334155; font-size: 12px; }
-.auction-history-row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 11px; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0; color:#334155; }
-#atout-badge .atout-symbol { display:inline-flex; align-items:center; justify-content:center; min-width:18px; font-size:18px; line-height:1; font-weight:900; text-shadow:0 1px 2px rgba(0,0,0,.55); }
-@media (max-width:700px) { #modal-enchere.auction-panel { right:8px; bottom:8px; width:min(360px,calc(100vw - 16px)); } #modal-enchere .auction-panel-card { padding:14px; max-height:55vh; } }
+/* Enchères courantes près des joueurs */
+.player-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 6px;
+}
 
-.player-bid-label { min-width:72px; min-height:22px; padding:3px 8px; border-radius:999px; background:rgba(2,15,11,.7); border:1px solid rgba(255,255,255,.14); color:#f6ecd2; font-size:10px; line-height:14px; font-weight:800; text-align:center; white-space:nowrap; box-shadow:0 4px 12px rgba(0,0,0,.2); }
-.player-bid-label.is-pass { color:#94a3b8; border-color:rgba(148,163,184,.25); }
-.player-bid-label.is-bid { color:#fde68a; border-color:rgba(216,181,106,.5); background:rgba(73,50,12,.62); }
+.player-header-side {
+    flex-direction: column;
+    gap: 4px;
+}
+
+.player-bid-label {
+    min-width: 54px;
+    max-width: 110px;
+    min-height: 19px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(2, 15, 11, .82);
+    border: 1px solid rgba(255, 255, 255, .18);
+    color: #f6ecd2;
+    font-size: 9px;
+    line-height: 13px;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .25);
+}
+
+.player-bid-label.is-pass {
+    color: #94a3b8;
+    border-color: rgba(148, 163, 184, .25);
+}
+
+.player-bid-label.is-bid {
+    color: #fde68a;
+    border-color: rgba(216, 181, 106, .55);
+    background: rgba(73, 50, 12, .82);
+}
+
+/* Fenêtre d'enchère compacte au-dessus de la main */
+#modal-enchere.auction-panel {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 155px;
+    width: min(690px, calc(100vw - 40px));
+    padding: 0;
+    z-index: 50;
+    transform: translateX(-50%);
+    background: transparent;
+    backdrop-filter: none;
+    pointer-events: none;
+}
+
+#modal-enchere.auction-panel.flex {
+    display: block;
+}
+
+#modal-enchere .auction-panel-card {
+    padding: 10px 12px;
+    max-height: none;
+    overflow: visible;
+    pointer-events: auto;
+    border: 1px solid rgba(216, 181, 106, .35);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, .42);
+}
+
+.auction-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+.auction-panel-header h3 {
+    margin: 0;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.auction-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-bottom: 7px;
+}
+
+#modal-enchere .bid-option {
+    min-height: 30px;
+    padding: 3px 5px !important;
+    border-radius: 8px !important;
+    font-size: 9px !important;
+    line-height: 11px;
+}
+
+#modal-enchere .bid-option span {
+    margin-top: 1px !important;
+    font-size: 7px !important;
+    line-height: 9px;
+}
+
+.auction-pass-button {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: 800;
+    transition: background .2s;
+}
+
+.auction-pass-button:hover {
+    background: #e2e8f0;
+}
+
+#atout-badge .atout-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 900;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .55);
+}
+
+@media (max-width: 700px) {
+    #modal-enchere.auction-panel {
+        bottom: 145px;
+        width: calc(100vw - 16px);
+    }
+
+    .auction-options {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #modal-enchere .auction-panel-card {
+        padding: 8px;
+    }
+}
+
+.ai-avatar {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .72);
+    background-image: url('avatars.png');
+    background-repeat: no-repeat;
+    background-size: 400% 400%;
+    background-position: var(--avatar-x, 0%) var(--avatar-y, 0%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .34);
+    cursor: zoom-in;
+    transition: transform .2s ease, box-shadow .2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-avatar:hover {
+    transform: scale(3);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .55);
+    z-index: 100;
+}
+
+#badge-j1,#badge-j2,#badge-j3{min-height:38px}
