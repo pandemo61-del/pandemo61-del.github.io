@@ -302,5 +302,28 @@
 .player-bid-label.is-pass { color:#94a3b8; border-color:rgba(148,163,184,.25); }
 .player-bid-label.is-bid { color:#fde68a; border-color:rgba(216,181,106,.5); background:rgba(73,50,12,.62); }
 
-.ai-avatar{width:30px;height:30px;flex:0 0 30px;display:inline-block;border-radius:50%;border:2px solid rgba(255,255,255,.72);background-image:url('assets/avatars.png');background-repeat:no-repeat;background-size:400% 400%;background-position:var(--avatar-x,0%) var(--avatar-y,0%);box-shadow:0 3px 10px rgba(0,0,0,.34)}
+.ai-avatar {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .72);
+    background-image: url('avatars.png');
+    background-repeat: no-repeat;
+    background-size: 400% 400%;
+    background-position: var(--avatar-x, 0%) var(--avatar-y, 0%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .34);
+    cursor: zoom-in;
+    transition: transform .2s ease, box-shadow .2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-avatar:hover {
+    transform: scale(3);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .55);
+    z-index: 100;
+}
+
 #badge-j1,#badge-j2,#badge-j3{min-height:38px}
