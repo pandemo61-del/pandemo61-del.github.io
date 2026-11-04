@@ -21,7 +21,8 @@ import {
         let currentManche = 0;
 
         const SAVED_SETTINGS = localStorage.getItem('allwhist_play_settings');
-        let settings = SAVED_SETTINGS ? JSON.parse(SAVED_SETTINGS) : { sortMethod: 'suit', sortOrder: 'desc', direction: 'lr', son: true, vibration: true, autoBidding: false, autoPlay: false, aiSpeed: 700, maxGames: 13 };
+        let settings = SAVED_SETTINGS ? JSON.parse(SAVED_SETTINGS) : { sortMethod: 'suit', sortOrder: 'desc', direction: 'lr', son: true, vibration: true, autoBidding: false, autoPlay: false, aiSpeed: 700, maxGames: 13, playerAvatar: 0 };
+        settings.playerAvatar = Number.isInteger(settings.playerAvatar) && settings.playerAvatar >= 0 && settings.playerAvatar < 16 ? settings.playerAvatar : 0;
 
         let donneurId = 3;
         let meilleureEnchere = null;
@@ -70,27 +71,76 @@ import {
         const modalResume = document.getElementById('modal-resume');
         const modalAuctionHistory = document.getElementById('modal-auction-history');
         const PLAYER_LABELS = ['Vous (J1)', 'J2 / Ouest', 'J3 / Nord', 'J4 / Est'];
-                
+        const AVATAR_PROFILES = [
+            { avatar: 0, gender: 'H', names: ['Thomas', 'Nicolas', 'Julien', 'Laurent', 'Olivier'] },
+            { avatar: 1, gender: 'F', names: ['Sophie', 'Julie', 'Claire', 'Émilie', 'Nathalie'] },
+            { avatar: 2, gender: 'H', names: ['Marc', 'Philippe', 'David', 'Christophe', 'Patrick'] },
+            { avatar: 3, gender: 'F', names: ['Isabelle', 'Caroline', 'Valérie', 'Céline', 'Sandrine'] },
+            { avatar: 4, gender: 'H', names: ['Lucas', 'Maxime', 'Antoine', 'Alexandre', 'Jonathan'] },
+            { avatar: 5, gender: 'F', names: ['Laura', 'Chloé', 'Camille', 'Manon', 'Pauline'] },
+            { avatar: 6, gender: 'H', names: ['Pierre', 'Vincent', 'Sébastien', 'Frédéric', 'Benoît'] },
+            { avatar: 7, gender: 'F', names: ['Anne', 'Florence', 'Véronique', 'Catherine', 'Christine'] },
+            { avatar: 8, gender: 'F', names: ['Emma', 'Louise', 'Alice', 'Juliette', 'Charlotte'] },
+            { avatar: 9, gender: 'H', names: ['Arthur', 'Hugo', 'Louis', 'Victor', 'Gabriel'] },
+            { avatar: 10, gender: 'F', names: ['Amélie', 'Audrey', 'Mélanie', 'Aurélie', 'Delphine'] },
+            { avatar: 11, gender: 'H', names: ['Jérôme', 'François', 'Xavier', 'Romain', 'Grégory'] },
+            { avatar: 12, gender: 'H', names: ['Simon', 'Mathias', 'Adrien', 'Quentin', 'Rémi'] },
+            { avatar: 13, gender: 'F', names: ['Sarah', 'Eva', 'Zoé', 'Léa', 'Clara'] },
+            { avatar: 14, gender: 'H', names: ['Bruno', 'Daniel', 'Alain', 'Bernard', 'Michel'] },
+            { avatar: 15, gender: 'F', names: ['Marie', 'Justine', 'Amandine', 'Hélène', 'Lucie'] }
+        ];
+
+        function setAvatarSprite(element, avatarIndex) {
+            if (!element) return;
+            const column = avatarIndex % 4;
+            const row = Math.floor(avatarIndex / 4);
+            element.style.setProperty('--avatar-x', `${column * 100 / 3}%`);
+            element.style.setProperty('--avatar-y', `${row * 100 / 3}%`);
+        }
+
+        function renderPlayerAvatar() {
+            setAvatarSprite(document.getElementById('avatar-j0'), settings.playerAvatar);
+            document.querySelectorAll('.avatar-choice').forEach(button => {
+                const selected = Number(button.dataset.avatar) === settings.playerAvatar;
+                button.classList.toggle('is-selected', selected);
+                button.setAttribute('aria-checked', String(selected));
+            });
+        }
+
+        function renderAvatarPicker() {
+            const picker = document.getElementById('player-avatar-picker');
+            if (!picker) return;
+            picker.innerHTML = AVATAR_PROFILES.map(profile => {
+                const column = profile.avatar % 4;
+                const row = Math.floor(profile.avatar / 4);
+                return `<button type="button" class="avatar-choice" data-avatar="${profile.avatar}" role="radio" title="Avatar ${profile.avatar + 1}" style="--avatar-x:${column * 100 / 3}%;--avatar-y:${row * 100 / 3}%"></button>`;
+            }).join('');
+            picker.querySelectorAll('.avatar-choice').forEach(button => {
+                button.onclick = () => {
+                    settings.playerAvatar = Number(button.dataset.avatar);
+                    renderPlayerAvatar();
+                    pickAIAvatars();
+                    saveSettings();
+                };
+            });
+            renderPlayerAvatar();
+        }
+
         function pickAIAvatars() {
-                const pool = Array.from({ length: 16 }, (_, i) => i);
-            
-                for (let i = pool.length - 1; i > 0; i--) {
-                    const r = Math.floor(Math.random() * (i + 1));
-                    [pool[i], pool[r]] = [pool[r], pool[i]];
-                }
-            
-                [1, 2, 3].forEach((pid, i) => {
-                    const avatar = document.getElementById(`avatar-j${pid}`);
-                    const index = pool[i];
-            
-                    if (!avatar) return;
-            
-                    const col = index % 4;
-                    const row = Math.floor(index / 4);
-            
-                    avatar.style.setProperty('--avatar-x', `${col * 100 / 3}%`);
-                    avatar.style.setProperty('--avatar-y', `${row * 100 / 3}%`);
-                });
+            const pool = AVATAR_PROFILES.map(profile => profile.avatar).filter(avatar => avatar !== settings.playerAvatar);
+
+            for (let i = pool.length - 1; i > 0; i--) {
+                const randomIndex = Math.floor(Math.random() * (i + 1));
+                [pool[i], pool[randomIndex]] = [pool[randomIndex], pool[i]];
+            }
+
+            [1, 2, 3].forEach((playerId, index) => {
+                const avatar = document.getElementById(`avatar-j${playerId}`);
+                const avatarIndex = pool[index];
+                if (!avatar) return;
+
+                setAvatarSprite(avatar, avatarIndex);
+            });
         }
         let auctionHistoryResolver = null;
         let auctionHistoryTimer = null;
@@ -880,7 +930,8 @@ import {
         document.getElementById('set-auto-play-on').onclick = () => { settings.autoPlay = true; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-auto-play-off').onclick = () => { settings.autoPlay = false; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-ai-speed').oninput = (e) => { settings.aiSpeed = Number(e.target.value); updateSettingsUI(); saveSettings(); };
-        pickAIAvatars();            
+        renderAvatarPicker();
+        pickAIAvatars();
         updateSettingsUI();
         updatePlisUI();
         renderHandsUI();
