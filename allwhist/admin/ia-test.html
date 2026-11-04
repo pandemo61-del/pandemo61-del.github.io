@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist - IA Stress Test & Laboratoire</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-mini {
+            width: 25px;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: 2px;
+            background: white;
+        }
+        .suit-red { color: #e11d48; }
+        .suit-black { color: #1e293b; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-slate-800 text-white min-h-screen p-4 fixed left-0 top-0 z-20">
+            <div class="flex items-center gap-3 mb-8 px-2">
+                <img src="assets/icon.png" class="w-10 h-10 rounded-lg shadow-lg" alt="App Icon">
+                <h1 class="text-xl font-bold tracking-tight">AllWhist Admin</h1>
+            </div>
+
+            <nav class="space-y-2">
+                <div class="px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Administration</div>
+                <a href="index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-chart-line w-6"></i> Dashboard
+                </a>
+                <a href="users.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-users w-6"></i> Utilisateurs
+                </a>
+                <a href="games.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-gamepad w-6"></i> Historique Parties
+                </a>
+                <a href="ia-test.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold">
+                    <i class="fas fa-robot w-6"></i> Laboratoire IA
+                </a>
+
+                <div class="pt-4 px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Espace Jeu Web</div>
+                <a href="../web/play.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition text-emerald-400 font-bold">
+                    <i class="fas fa-play-circle w-6"></i> Salle de Jeu
+                </a>
+                <a href="../web/learn.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-graduation-cap w-6"></i> Apprentissage
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-64 p-8">
+            <div id="file-warning" class="hidden mb-6 p-4 bg-red-100 border border-red-200 text-red-700 rounded-xl">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <strong>Attention:</strong> Cette page doit être lancée via un serveur local (ex: <code>npx serve</code>) pour que Firebase fonctionne.
+            </div>
+
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">IA Stress Test (Whist Belge)</h2>
+                    <p class="text-gray-500 text-sm mt-1">Simulation automatique & Banchmark des algorithmes d'IA</p>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button id="btn-login" class="text-sm font-medium px-4 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition">
+                        <i class="fab fa-google mr-2"></i> Connexion
+                    </button>
+                    <div id="auth-status" class="text-sm font-medium px-4 py-2 rounded-full bg-yellow-100 text-yellow-700">
+                        Vérification...
+                    </div>
+                    <button id="btn-logout" class="hidden bg-slate-200 text-slate-600 p-2 rounded-lg hover:bg-slate-300 transition" title="Se déconnecter">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                    <button onclick="window.location.reload()" class="bg-emerald-50 text-emerald-600 p-2 rounded-lg hover:bg-emerald-100 transition">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Actions Bar -->
+            <div class="mb-8 flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <label for="simulationCount" class="text-sm font-bold text-gray-600">
+                            Simulations
+                        </label>
+                        <input
+                            id="simulationCount"
+                            type="number"
+                            min="1"
+                            max="1000"
+                            value="50"
+                            class="w-24 px-3 py-2.5 border border-gray-300 rounded-lg text-center font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                        >
+                    </div>
+                    <button id="runBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg font-bold shadow-sm transition-all flex items-center gap-2">
+                        <i class="fas fa-play"></i>
+                        <span id="btnText">Lancer la simulation</span>
+                    </button>
+                    <p class="text-xs text-gray-400 max-w-xs italic">
+                        17 Annonces du Whist Belge (www.whist-belgique.be). Maximum 1000 simulations.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <button id="exportAllBtn" class="text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2" title="Télécharger toutes les simulations (réussites, échecs et passes)">
+                        <i class="fas fa-download"></i><span>Tout télécharger</span>
+                    </button>
+                    <button id="exportSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2" title="Télécharger uniquement les simulations réussies">
+                        <i class="fas fa-download"></i><span>Réussites</span>
+                    </button>
+                    <button id="exportFailBtn" class="text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2" title="Télécharger uniquement les simulations en échec">
+                        <i class="fas fa-download"></i><span>Échecs</span>
+                    </button>
+                    <button id="deleteSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
+                        <i class="fas fa-check"></i>
+                        <span>Supprimer Succès</span>
+                    </button>
+                    <button id="deleteBtn" class="text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Nettoyer tout</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Simulations</h3>
+                        <i class="fas fa-database text-slate-500 bg-slate-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statTotal" class="text-4xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Réussites</h3>
+                        <i class="fas fa-check-circle text-emerald-500 bg-emerald-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statSuccess" class="text-4xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Échecs</h3>
+                        <i class="fas fa-times-circle text-rose-500 bg-rose-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statFail" class="text-4xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">4 passes</h3>
+                        <i class="fas fa-forward text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statPass" class="text-4xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Taux de succès</h3>
+                        <i class="fas fa-percentage text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
+                    </div>
+                    <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
+                </div>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div id="paginationControls" class="flex items-center justify-between gap-4 p-4 border-t border-gray-200">
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <span>Afficher</span>
+                    <select id="pageSize" class="border border-gray-300 rounded-lg px-2 py-1">
+                        <option value="20">20</option>
+                        <option value="50" selected>50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span>par page</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span id="paginationInfo" class="text-sm text-gray-500"></span>
+                    <button id="prevPage" class="px-3 py-1.5 border rounded-lg disabled:opacity-30">Précédent</button>
+                    <button id="nextPage" class="px-3 py-1.5 border rounded-lg disabled:opacity-30">Suivant</button>
+                </div>
+            </div>
+            
+            <!-- Results Table -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold">
+                        <tr>
+                            <th class="p-4 border-b">Heure</th>
+                            <th class="p-4 border-b">Contrat</th>
+                            <th class="p-4 border-b">Joueur</th>
+                            <th class="p-4 border-b text-center">Objectif</th>
+                            <th class="p-4 border-b text-center">Réalisé</th>
+                            <th class="p-4 border-b">Statut</th>
+                            <th class="p-4 border-b text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody" class="divide-y divide-gray-100">
+                        <tr>
+                            <td colspan="7" class="p-12 text-center text-gray-400 italic">
+                                <i class="fas fa-spinner fa-spin mr-2"></i> Chargement des données...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import {
+            db, auth, collection, getDocs, query, where, orderBy, limit,
+            doc, setDoc, deleteDoc, onAuthStateChanged, googleProvider, signInWithPopup
+        } from './firebase-config.js';
+        import { getWhistContractName } from '../shared/whist-contracts.js';
+        import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
+
+        const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
+        const BOT_UID = "AI-TEST-BOT";
+
+        // --- Check for local file protocol ---
+        if (window.location.protocol === 'file:') {
+            document.getElementById('file-warning')?.classList.remove('hidden');
+        }
+
+        const BAREME_IWW = {
+            propose: { pts: 10, prio: 1, obj: 8, seul: false },
+            emballe: { pts: 10, prio: 1.5, obj: 8, seul: false },
+            demande: { pts: 10, prio: 1.8, obj: 8, seul: false },
+            solo_6: { pts: 15, prio: 2, obj: 6, seul: true },
+            solo_7: { pts: 20, prio: 3, obj: 7, seul: true },
+            petite_misere: { pts: 30, prio: 4, obj: 0, seul: true, sa: true },
+            solo_8: { pts: 25, prio: 5, obj: 8, seul: true },
+            abondance_9: { pts: 40, prio: 6, obj: 9, seul: true },
+            trou: { pts: 30, prio: 7, obj: 9, seul: false },
+            trou_royal: { pts: 60, prio: 7.5, obj: 9, seul: false },
+            abondance_10: { pts: 50, prio: 8, obj: 10, seul: true },
+            misere: { pts: 60, prio: 9, obj: 0, seul: true, sa: true },
+            abondance_11: { pts: 70, prio: 10, obj: 11, seul: true },
+            abondance_12: { pts: 100, prio: 10.5, obj: 12, seul: true },
+            misere_ouverte: { pts: 120, prio: 11, obj: 0, seul: true, sa: true },
+            chelem: { pts: 250, prio: 12, obj: 13, seul: true }
+        };
+
+        const WHIST_CONTRACTS = Object.entries(BAREME_IWW).map(([id, contract]) => ({
+            id,
+            priorite: contract.prio,
+            plisMin: contract.obj,
+            seul: contract.seul,
+            sanAtout: contract.sa === true,
+            disponibleSi: (hand, currentBid, playerId) => {
+                if (id === 'trou') return hand.filter(card => card.valeur === 14).length === 3;
+                if (id === 'trou_royal') return hand.filter(card => card.valeur === 14).length === 4;
+                if (id === 'emballe') return currentBid?.id === 'propose' && currentBid.joueurId !== playerId;
+                return true;
+            },
+        }));
+
+        let stats = {success: 0, fail: 0, pass: 0, total: 0};
+        let allGames = [];
+        let currentPage = 1;
+        let pageSize = 50;
+
+        const resultsBody = document.getElementById('resultsBody');
+        const runBtn = document.getElementById('runBtn');
+        const exportAllBtn = document.getElementById('exportAllBtn');
+        const exportSuccessBtn = document.getElementById('exportSuccessBtn');
+        const exportFailBtn = document.getElementById('exportFailBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const deleteSuccessBtn = document.getElementById('deleteSuccessBtn');
+        const btnLogin = document.getElementById('btn-login');
+        const btnLogout = document.getElementById('btn-logout');
+        const authStatus = document.getElementById('auth-status');
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                authStatus.innerText = `Connecté: ${user.email}`;
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-green-100 text-green-700';
+                btnLogin.classList.add('hidden');
+                btnLogout.classList.remove('hidden');
+                loadExistingGames();
+            } else {
+                authStatus.innerText = 'Accès Restreint';
+                authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-red-100 text-red-700';
+                btnLogin.classList.remove('hidden');
+                btnLogout.classList.add('hidden');
+                resultsBody.innerHTML = '<tr><td colspan="7" class="p-12 text-center text-rose-500 font-bold">Veuillez vous connecter pour accéder aux données.</td></tr>';
+            }
+        });
+
+        btnLogin.onclick = () => {
+            signInWithPopup(auth, googleProvider).catch(err => {
+                console.error("Login failed", err);
+                alert("Erreur de connexion : " + err.message);
+            });
+        };
+
+        btnLogout.onclick = () => {
+            auth.signOut().then(() => window.location.reload());
+        };
+
+        runBtn.addEventListener('click', async () => {
+            if (!auth.currentUser) return alert("Connectez-vous d'abord.");
+
+            const simulationCountInput = document.getElementById('simulationCount');
+
+            let target = parseInt(
+                simulationCountInput.value,
+                10
+            );
+
+            if (Number.isNaN(target)) {
+                target = 50;
+            }
+
+            target = Math.max(
+                1,
+                Math.min(1000, target)
+            );
+
+            simulationCountInput.value = target;
+
+            runBtn.disabled = true;
+            simulationCountInput.disabled = true;
+
+            let simCount = 0;
+
+            try {
+                while (simCount < target) {
+                    document.getElementById('btnText').innerText =
+                        `Simulation ${simCount + 1} / ${target}`;
+
+                    const game = await simulateAndSave(
+                        simCount + 1
+                    );
+
+                    simCount++;
+
+                    /*
+                     * Toutes les distributions sont comptées,
+                     * y compris les donnes avec 4 passes.
+                     */
+                    stats.total++;
+
+                    if (
+                        game.isPasse === true ||
+                        game.contrat?.id === 'passe'
+                    ) {
+                        stats.pass++;
+                    } else if (
+                        game.resultat?.reussite === true
+                    ) {
+                        stats.success++;
+                    } else if (
+                        game.resultat?.reussite === false
+                    ) {
+                        stats.fail++;
+                    }
+
+                    /*
+                     * Les 4 passes ne sont plus éliminées.
+                     * Elles restent visibles dans le tableau.
+                     */
+                    allGames.unshift(game);
+                    currentPage = 1;
+                    renderCurrentPage();
+
+                    updateStatsUI();
+
+                    await new Promise(
+                        resolve => setTimeout(
+                            resolve,
+                            50
+                        )
+                    );
+                }
+            } catch (error) {
+                console.error(
+                    'Erreur pendant la simulation',
+                    error
+                );
+
+                alert(
+                    'Erreur pendant la simulation : ' +
+                    error.message
+                );
+            } finally {
+                runBtn.disabled = false;
+                simulationCountInput.disabled = false;
+
+                document.getElementById('btnText').innerText =
+                    `Relancer ${target} simulation${target > 1 ? 's' : ''}`;
+            }
+        });
+        function downloadJson(data, filename) {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        }
+
+        async function exportSimulations(kind) {
+            const buttons = [exportAllBtn, exportSuccessBtn, exportFailBtn];
+            buttons.forEach(btn => btn.disabled = true);
+            try {
+                const q = query(collection(db, 'games'), where('isAITest', '==', true));
+                const snapshot = await getDocs(q);
+                let games = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                if (kind === 'success') games = games.filter(g => g.resultat?.reussite === true);
+                if (kind === 'fail') games = games.filter(g => g.resultat?.reussite === false && !g.isPasse && g.contrat?.id !== 'passe');
+                games.sort((a, b) => new Date(a.createdAt || 0) - new Date(b.createdAt || 0));
+                if (!games.length) {
+                    alert('Aucune simulation à télécharger pour ce filtre.');
+                    return;
+                }
+                const now = new Date();
+                const stamp = now.toISOString().replace(/[:.]/g, '-');
+                const label = kind === 'success' ? 'reussites' : kind === 'fail' ? 'echecs' : 'toutes';
+                const payload = {
+                    exportedAt: now.toISOString(),
+                    aiVersion: typeof WHIST_AI_VERSION !== 'undefined' ? WHIST_AI_VERSION : null,
+                    filter: label,
+                    count: games.length,
+                    simulations: games
+                };
+                downloadJson(payload, `allwhist-simulations-${label}-${stamp}.json`);
+            } catch (error) {
+                console.error('Export impossible', error);
+                alert('Erreur pendant le téléchargement : ' + error.message);
+            } finally {
+                buttons.forEach(btn => btn.disabled = false);
+            }
+        }
+
+        exportAllBtn.addEventListener('click', () => exportSimulations('all'));
+        exportSuccessBtn.addEventListener('click', () => exportSimulations('success'));
+        exportFailBtn.addEventListener('click', () => exportSimulations('fail'));
+
+        deleteBtn.addEventListener('click', async () => {
+            if (!confirm("Supprimer TOUTES les parties identifiées comme 'AI Test' ?")) return;
+            deleteBtn.disabled = true;
+            const q = query(collection(db, "games"), where("isAITest", "==", true));
+            const snapshot = await getDocs(q);
+            for (const docSnap of snapshot.docs) await deleteDoc(doc(db, "games", docSnap.id));
+            alert(`Parties supprimées.`);
+            window.location.reload();
+        });
+
+        deleteSuccessBtn.addEventListener('click', async () => {
+            if (!confirm("Supprimer uniquement les parties réussies de l'IA ?")) return;
+            deleteSuccessBtn.disabled = true;
+            const q = query(collection(db, "games"), where("isAITest", "==", true), where("resultat.reussite", "==", true));
+            const snapshot = await getDocs(q);
+            for (const docSnap of snapshot.docs) await deleteDoc(doc(db, "games", docSnap.id));
+            alert(`Parties réussies supprimées.`);
+            window.location.reload();
+        });
+
+        async function loadExistingGames() {
+            const q = query(collection(db, "games"), where("isAITest", "==", true));
+
+            try {
+                const snapshot = await getDocs(q);
+
+                allGames = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                allGames.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                stats = { success: 0, fail: 0, pass: 0, total: allGames.length };
+
+                allGames.forEach(game => {
+                    if (game.isPasse === true || game.contrat?.id === 'passe') stats.pass++;
+                    else if (game.resultat?.reussite === true) stats.success++;
+                    else if (game.resultat?.reussite === false) stats.fail++;
+                });
+
+                currentPage = 1;
+                updateStatsUI();
+                renderCurrentPage();
+            } catch (e) {
+                console.error(e);
+                resultsBody.innerHTML = `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
+            }
+        }
+
+                function renderCurrentPage() {
+            resultsBody.innerHTML = '';
+
+            if (!allGames.length) {
+                resultsBody.innerHTML = '<tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune simulation sauvegardée</td></tr>';
+                updatePagination();
+                return;
+            }
+
+            const start = (currentPage - 1) * pageSize;
+            const pageGames = allGames.slice(start, start + pageSize);
+
+            pageGames.forEach(game => addTableRow(game));
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const totalPages = Math.max(1, Math.ceil(allGames.length / pageSize));
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            const start = allGames.length ? (currentPage - 1) * pageSize + 1 : 0;
+            const end = Math.min(currentPage * pageSize, allGames.length);
+
+            document.getElementById('paginationInfo').innerText = `${start}-${end} sur ${allGames.length} • Page ${currentPage}/${totalPages}`;
+            document.getElementById('prevPage').disabled = currentPage <= 1;
+            document.getElementById('nextPage').disabled = currentPage >= totalPages;
+        }
+
+        document.getElementById('pageSize').addEventListener('change', e => {
+            pageSize = Number(e.target.value);
+            currentPage = 1;
+            renderCurrentPage();
+        });
+
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage <= 1) return;
+            currentPage--;
+            renderCurrentPage();
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            if (currentPage * pageSize >= allGames.length) return;
+            currentPage++;
+            renderCurrentPage();
+        });
+                    
+        function updateStatsUI() {
+            document.getElementById('statSuccess').innerText =
+                stats.success;
+
+            document.getElementById('statFail').innerText =
+                stats.fail;
+
+            document.getElementById('statPass').innerText =
+                stats.pass;
+
+            document.getElementById('statTotal').innerText =
+                stats.total;
+
+            const played =
+                stats.success +
+                stats.fail;
+
+            const rate =
+                played > 0
+                    ? Math.round(
+                        (
+                            stats.success /
+                            played
+                        ) * 100
+                    )
+                    : 0;
+
+            document.getElementById('statRate').innerText =
+                `${rate}%`;
+        }
+        async function saveGameToDb(gameData, index) {
+            const cleanUndefined = (obj) => {
+                if (obj === null || typeof obj !== 'object') return obj;
+                if (Array.isArray(obj)) return obj.map(cleanUndefined);
+                const cleaned = {};
+                for (const [key, val] of Object.entries(obj)) {
+                    if (val !== undefined) cleaned[key] = cleanUndefined(val);
+                }
+                return cleaned;
+            };
+            const docId = `AI_STRESS_${Date.now()}_${index}`;
+            await setDoc(doc(db, "games", docId), cleanUndefined(gameData));
+            return { id: docId, ...gameData };
+        }
+        
+        async function simulateAndSave(index) {
+            const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
+            const deck = [];
+            suits.forEach(s => {
+                for (let v = 2; v <= 14; v++) deck.push({ valeur: v, couleur: s, id: `${v}-${s}` });
+            });
+            deck.sort(() => Math.random() - 0.5);
+            const hands = [[], [], [], []];
+            for (let i = 0; i < 52; i++) hands[i % 4].push(deck[i]);
+
+            const initialHands = hands.map((hand, joueurId) => ({
+                joueurId: joueurId,
+                cartes: hand.map(card => ({ ...card }))
+            }));
+
+            let meilleureEnchere = null;
+            let tour = 0;
+            let passes = 0;
+            const historiqueEncheres = [];
+
+            while (passes < 4 && tour < 16) {
+                const pid = tour % 4;
+                const decision = chooseWhistBid(hands[pid], meilleureEnchere, 'expert', pid, WHIST_CONTRACTS);
+
+                historiqueEncheres.push({
+                    tour: tour + 1,
+                    joueurId: pid,
+                    action: decision.action || 'passe',
+                    contratId: decision.contratId || null,
+                    atout: decision.atout || null
+                });
+
+                if (decision.action === 'enchere' && decision.contratId) {
+                    const base = BAREME_IWW[decision.contratId];
+                    meilleureEnchere = {
+                        ...base,
+                        ...decision,
+                        id: decision.contratId,
+                        nom: getWhistContractName({ id: decision.contratId }),
+                        joueurId: pid,
+                        sa: base.sa === true,
+                    };
+                    passes = 0;
+                } else {
+                    passes++;
+                }
+                tour++;
+            }
+
+            if (!meilleureEnchere) {
+                const gameData = {
+                    varianteId: 'whist-gand',
+                    manche: 1,
+                    isAITest: true,
+                    isPasse: true,
+                    aiVersion: WHIST_AI_VERSION,
+                    userId: BOT_UID,
+                    userPseudo: 'IA Expert',
+                    createdAt: new Date().toISOString(),
+                    atout: null,
+                    contrat: {
+                        id: 'passe',
+                        nom: 'Passe',
+                        joueurId: null,
+                        plisObjectif: null
+                    },
+                    mainsInitiales: initialHands,
+                    historiqueEncheres: historiqueEncheres,
+                    plis: [],
+                    resultat: {
+                        reussite: null,
+                        plisFaits: null,
+                        deltaScores: {
+                            0: 0,
+                            1: 0,
+                            2: 0,
+                            3: 0
+                        }
+                    }
+                };
+
+                return await saveGameToDb(gameData, index);
+            }
+
+            const contrat = meilleureEnchere;
+            const bidderId = contrat.joueurId;
+            let partnerId = contrat.partenaireId;
+            if (contrat.id === 'propose' && partnerId === undefined) {
+                for (let j = 1; j < 4; j++) {
+                    const pId = (bidderId + j) % 4;
+                    if (hands[pId].filter(c => c.couleur === contrat.atout).length >= 4) {
+                        partnerId = pId;
+                        break;
+                    }
+                }
+                if (partnerId === undefined) partnerId = -1;
+            } else if (contrat.id === 'trou' && partnerId === undefined) {
+                const asPossedes = hands[bidderId].filter(c => c.valeur === 14).map(c => c.couleur);
+                const asManquant = suits.find(s => !asPossedes.includes(s));
+                for (let j = 0; j < 4; j++) {
+                    if (j !== bidderId && hands[j].some(c => c.valeur === 14 && c.couleur === asManquant)) {
+                        partnerId = j;
+                        break;
+                    }
+                }
+                if (partnerId === undefined) partnerId = -1;
+            } else if (partnerId === undefined) {
+                partnerId = -1;
+            }
+
+            if (contrat.id === 'petite_misere') {
+                const cartesEcartees = {};
+                for (let i = 0; i < 4; i++) {
+                    const discarded = chooseMisereDiscard(hands[i]);
+                    if (discarded) {
+                        hands[i].splice(hands[i].findIndex(c => c.id === discarded.id), 1);
+                        cartesEcartees[i] = discarded;
+                    }
+                }
+                contrat.cartesEcartees = cartesEcartees;
+            }
+
+            const atout = contrat.atout;
+            const plis = [];
+            let leaderId = (bidderId + 1) % 4;
+            const plisGagnes = [0, 0, 0, 0];
+            const playedCardsAll = [];
+            const completedTricks = [];
+
+            for (let pNum = 1; pNum <= 13; pNum++) {
+                if (hands[0].length === 0 || hands[1].length === 0 || hands[2].length === 0 || hands[3].length === 0) {
+                    break;
+                }
+                const pliCartes = [];
+                let currentTrick = { numero: pNum, cartesJouees: pliCartes, couleurDemandee: undefined };
+                for (let i = 0; i < 4; i++) {
+                    const pid = (leaderId + i) % 4;
+                    const hand = hands[pid];
+                    const chosen = chooseWhistCard(
+                        hand,
+                        pid,
+                        currentTrick,
+                        atout,
+                        contrat,
+                        playedCardsAll,
+                        completedTricks,
+                        { level: 'expert' }
+                    );
+                    const cardIndex = hand.findIndex(c => c.id === chosen.id);
+                    const cardToPlay = cardIndex !== -1 ? hand.splice(cardIndex, 1)[0] : hand.pop();
+                    if (i === 0) currentTrick.couleurDemandee = cardToPlay.couleur;
+                    pliCartes.push({ joueurId: pid, carte: cardToPlay });
+                    playedCardsAll.push(cardToPlay);
+                }
+
+                let best = pliCartes[0];
+                const ledSuit = currentTrick.couleurDemandee;
+                for (let i = 1; i < 4; i++) {
+                    const c = pliCartes[i];
+                    const isAtout = atout && c.carte.couleur === atout;
+                    const bestIsAtout = atout && best.carte.couleur === atout;
+                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === ledSuit && c.carte.valeur > best.carte.valeur)) {
+                        best = c;
+                    }
+                }
+
+                completedTricks.push(currentTrick);
+                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
+                plisGagnes[best.joueurId]++;
+                leaderId = best.joueurId;
+            }
+
+            const plisTeam = plisGagnes[bidderId] + (partnerId !== -1 ? plisGagnes[partnerId] : 0);
+            const isSuccess = (contrat.obj === 0) ? (plisGagnes[bidderId] === 0) : (plisTeam >= (contrat.obj || 8));
+            const delta = { 0:0, 1:0, 2:0, 3:0 };
+            const defenseIds = [0,1,2,3].filter(id => id !== bidderId && id !== partnerId);
+            let gainParAdv = isSuccess ? contrat.pts : -contrat.pts;
+
+            if (isSuccess && (contrat.id.includes('solo') || contrat.id === 'propose')) {
+                gainParAdv += (plisTeam - (contrat.obj || 8));
+            }
+
+            if (isSuccess) {
+                const totalGagne = gainParAdv * defenseIds.length;
+                if (partnerId !== -1) {
+                    delta[bidderId] = Math.floor(totalGagne / 2);
+                    delta[partnerId] = totalGagne - delta[bidderId];
+                } else delta[bidderId] = totalGagne;
+                defenseIds.forEach(id => delta[id] = -gainParAdv);
+            } else {
+                const totalPerdu = Math.abs(gainParAdv) * defenseIds.length;
+                if (partnerId !== -1) {
+                    delta[bidderId] = -Math.floor(totalPerdu / 2);
+                    delta[partnerId] = -(totalPerdu - Math.abs(delta[bidderId]));
+                } else delta[bidderId] = -totalPerdu;
+                defenseIds.forEach(id => delta[id] = Math.abs(gainParAdv));
+            }
+
+            const gameData = {
+                varianteId: 'whist-gand',
+                manche: 1,
+                isAITest: true,
+                isPasse: false,
+                aiVersion: WHIST_AI_VERSION,
+                userId: BOT_UID,
+                userPseudo: 'IA Expert',
+                createdAt: new Date().toISOString(),
+                atout: atout !== undefined ? atout : null,
+                mainsInitiales: initialHands,
+                historiqueEncheres: historiqueEncheres,
+                contrat: {
+                    ...contrat,
+                    joueurId: bidderId,
+                    plisObjectif: contrat.obj,
+                    ...(partnerId !== -1 ? { partenaireId: partnerId } : {})
+                },
+                plis: plis,
+                resultat: { reussite: isSuccess, plisFaits: plisTeam, deltaScores: delta }
+            };
+
+            return await saveGameToDb(gameData, index);
+        }
+        
+
+        function addTableRow(game, prepend = false) {
+            const row = document.createElement('tr');
+        
+            const isPasse =
+                game.isPasse === true ||
+                game.contrat?.id === 'passe';
+        
+            const isSuccess =
+                game.resultat?.reussite === true;
+        
+            const date = new Date(
+                game.createdAt
+            ).toLocaleTimeString(
+                'fr-FR',
+                {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                }
+            );
+        
+            const contractName =
+                isPasse
+                    ? 'Tous passent'
+                    : game.contrat?.nom;
+        
+            const trumpDisplay =
+                isPasse
+                    ? ''
+                    : SYM[game.atout] || 'SA';
+        
+            const objectiveDisplay =
+                isPasse
+                    ? '-'
+                    : game.contrat?.plisObjectif;
+        
+            const resultDisplay =
+                isPasse
+                    ? '-'
+                    : game.resultat?.plisFaits;
+        
+            const statusText =
+                isPasse
+                    ? '4 passes'
+                    : isSuccess
+                        ? 'Succès'
+                        : 'Échec';
+        
+            const statusClass =
+                isPasse
+                    ? 'bg-slate-100 text-slate-700'
+                    : isSuccess
+                        ? 'bg-emerald-100 text-emerald-700'
+                        : 'bg-rose-100 text-rose-700';
+        
+            row.className =
+                'hover:bg-gray-50 transition';
+        
+            row.id = `row-${game.id}`;
+        
+            row.innerHTML = `
+                <td class="p-4 text-xs text-gray-500">
+                    ${date}
+                </td>
+        
+                <td class="p-4">
+                    <span class="font-bold text-gray-700">
+                        ${contractName}
+                    </span>
+        
+                    ${
+                        trumpDisplay
+                            ? `
+                                <span class="ml-1 text-rose-500 font-bold">
+                                    ${trumpDisplay}
+                                </span>
+                            `
+                            : ''
+                    }
+                </td>
+        
+                <td class="p-4 text-xs text-slate-400 font-medium">
+                    ${game.userPseudo || 'IA Expert'}
+                </td>
+        
+                <td class="p-4 text-center font-bold text-gray-400">
+                    ${objectiveDisplay}
+                </td>
+        
+                <td class="p-4 text-center font-black ${
+                    isPasse
+                        ? 'text-slate-500'
+                        : isSuccess
+                            ? 'text-emerald-600'
+                            : 'text-rose-600'
+                }">
+                    ${resultDisplay}
+                </td>
+        
+                <td class="p-4">
+                    <span class="
+                        px-2
+                        py-0.5
+                        rounded-lg
+                        text-[10px]
+                        font-bold
+                        uppercase
+                        tracking-wider
+                        ${statusClass}
+                    ">
+                        ${statusText}
+                    </span>
+                </td>
+        
+                <td class="p-4 text-right flex justify-end gap-2">
+                    <a
+                        href="game-detail.html#id=${game.id}"
+                        class="
+                            text-emerald-600
+                            hover:bg-emerald-50
+                            transition
+                            p-2
+                            rounded-lg
+                        "
+                        title="Voir l'analyse"
+                    >
+                        <i class="fas fa-chart-bar"></i>
+                    </a>
+        
+                    <button
+                        onclick="window.deleteSingleGame('${game.id}')"
+                        class="
+                            text-gray-400
+                            hover:text-rose-600
+                            hover:bg-rose-50
+                            transition
+                            p-2
+                            rounded-lg
+                        "
+                        title="Supprimer"
+                    >
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+        
+            if (
+                prepend &&
+                resultsBody.firstChild
+            ) {
+                resultsBody.insertBefore(
+                    row,
+                    resultsBody.firstChild
+                );
+            } else {
+                resultsBody.appendChild(row);
+            }
+        }
+        
+        window.deleteSingleGame = async (id) => {
+            if (!confirm("Supprimer cette partie ?")) return;
+            try {
+                await deleteDoc(doc(db, "games", id));
+                const row = document.getElementById(`row-${id}`);
+                if (row) row.remove();
+            } catch (e) { alert("Erreur: " + e.message); }
+        };
+    </script>
+</body>
+</html>
