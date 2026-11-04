@@ -23,6 +23,8 @@ import {
         const SAVED_SETTINGS = localStorage.getItem('allwhist_play_settings');
         let settings = SAVED_SETTINGS ? JSON.parse(SAVED_SETTINGS) : { sortMethod: 'suit', sortOrder: 'desc', direction: 'lr', son: true, vibration: true, autoBidding: false, autoPlay: false, aiSpeed: 700, maxGames: 13, playerAvatar: 0 };
         settings.playerAvatar = Number.isInteger(settings.playerAvatar) && settings.playerAvatar >= 0 && settings.playerAvatar < 16 ? settings.playerAvatar : 0;
+        settings.playerName = (settings.playerName || '').trim();
+        settings.suitOrder = Array.isArray(settings.suitOrder) && settings.suitOrder.length === 4 ? settings.suitOrder : ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 
         let donneurId = 3;
         let meilleureEnchere = null;
@@ -70,7 +72,7 @@ import {
         const modalScoreboard = document.getElementById('modal-scoreboard');
         const modalResume = document.getElementById('modal-resume');
         const modalAuctionHistory = document.getElementById('modal-auction-history');
-        const PLAYER_LABELS = ['', '', '', ''];
+        const PLAYER_LABELS = ['Vous (J1)', 'J2 / Ouest', 'J3 / Nord', 'J4 / Est'];
         const AVATAR_PROFILES = [
             { avatar: 0, gender: 'H', names: ['Thomas', 'Nicolas', 'Julien', 'Laurent', 'Olivier'] },
             { avatar: 1, gender: 'F', names: ['Sophie', 'Julie', 'Claire', 'Émilie', 'Nathalie'] },
@@ -100,10 +102,8 @@ import {
 
         function renderPlayerAvatar() {
             setAvatarSprite(document.getElementById('avatar-j0'), settings.playerAvatar);
-            const profile = AVATAR_PROFILES.find(item => item.avatar === settings.playerAvatar);
-            PLAYER_LABELS[0] = profile.names[0];
-            const nameElement = document.getElementById('name-j0');
-            if (nameElement) nameElement.textContent = PLAYER_LABELS[0];
+            PLAYER_LABELS[0] = settings.playerName || AVATAR_PROFILES.find(item => item.avatar === settings.playerAvatar).names[0];
+            const playerNameElement = document.getElementById('name-j0'); if (playerNameElement) playerNameElement.textContent = PLAYER_LABELS[0];
             document.querySelectorAll('.avatar-choice').forEach(button => {
                 const selected = Number(button.dataset.avatar) === settings.playerAvatar;
                 button.classList.toggle('is-selected', selected);
@@ -144,10 +144,6 @@ import {
                 if (!avatar) return;
 
                 setAvatarSprite(avatar, avatarIndex);
-                const profile = AVATAR_PROFILES.find(item => item.avatar === avatarIndex);
-                PLAYER_LABELS[playerId] = profile.names[0];
-                const nameElement = document.getElementById(`name-j${playerId}`);
-                if (nameElement) nameElement.textContent = PLAYER_LABELS[playerId];
             });
         }
         let auctionHistoryResolver = null;
@@ -391,9 +387,9 @@ import {
             const mult = settings.sortOrder === 'desc' ? -1 : 1;
             const reverse = settings.direction === 'rl';
             if (settings.sortMethod === 'suit') {
-                h.sort((a,b) => a.couleur !== b.couleur ? a.couleur.localeCompare(b.couleur) : (a.valeur - b.valeur) * mult);
+                h.sort((a,b) => a.couleur !== b.couleur ? settings.suitOrder.indexOf(a.couleur) - settings.suitOrder.indexOf(b.couleur) : (a.valeur - b.valeur) * mult);
             } else {
-                h.sort((a,b) => a.valeur !== b.valeur ? (a.valeur - b.valeur) * mult : a.couleur.localeCompare(b.couleur));
+                h.sort((a,b) => a.valeur !== b.valeur ? (a.valeur - b.valeur) * mult : settings.suitOrder.indexOf(a.couleur) - settings.suitOrder.indexOf(b.couleur));
             }
             if (reverse) h.reverse();
         }
@@ -781,9 +777,9 @@ import {
             const contratLabel = contratFinal ? `${contratFinal.nom}${contratFinal.atout ? ` • Atout ${SYM[contratFinal.atout]}` : ''}` : 'Contrat';
             const players = [
                 { id: 0, label: 'Vous', score: totalScores[0] },
-                { id: 1, label: PLAYER_LABELS[1], score: totalScores[1] },
-                { id: 2, label: PLAYER_LABELS[2], score: totalScores[2] },
-                { id: 3, label: PLAYER_LABELS[3], score: totalScores[3] }
+                { id: 1, label: 'J2 / Ouest', score: totalScores[1] },
+                { id: 2, label: 'J3 / Nord', score: totalScores[2] },
+                { id: 3, label: 'J4 / Est', score: totalScores[3] }
             ];
 
             document.getElementById('resume-content').innerHTML = `
@@ -870,7 +866,7 @@ import {
                     },
                     donne: mainsInitiales.map((mainInitiale, joueurId) => ({
                         joueurId,
-                        nom: PLAYER_LABELS[joueurId],
+                        nom: joueurId === 0 ? userPseudo : `IA-${joueurId}`,
                         mainInitiale
                     })),
                     plis: plisHistory,
@@ -899,12 +895,19 @@ import {
         function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }
         function renderScoreboard() {
             const list = document.getElementById('scoreboard-list');
-            const players = [ { id: 0, name: PLAYER_LABELS[0], score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' }, { id: 1, name: PLAYER_LABELS[1], score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' }, { id: 2, name: PLAYER_LABELS[2], score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' }, { id: 3, name: PLAYER_LABELS[3], score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' } ];
+            const players = [ { id: 0, name: 'Vous', score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' }, { id: 1, name: 'Ouest (J2)', score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' }, { id: 2, name: 'Nord (J3)', score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' }, { id: 3, name: 'Est (J4)', score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' } ];
             players.sort((a, b) => b.score - a.score);
             list.innerHTML = players.map((p, idx) => `<div class="flex items-center justify-between p-4 ${p.id === 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-slate-50 border-slate-100'} border rounded-2xl"><div class="flex items-center gap-3"><div class="w-8 h-8 ${p.color} rounded-full flex items-center justify-center text-white"><i class="fas ${p.icon}"></i></div><div><div class="font-black text-slate-800">${idx + 1}. ${p.name}</div><div class="text-[10px] uppercase text-slate-400">Score total</div></div></div><span class="font-black text-slate-900">${p.score}</span></div>`).join('');
         }
+        function renderSuitOrder() {
+            const box = document.getElementById('suit-order'); if (!box) return;
+            const info = { COEUR:['♥','Cœur'], CARREAU:['♦','Carreau'], TREFLE:['♣','Trèfle'], PIQUE:['♠','Pique'] };
+            box.innerHTML = settings.suitOrder.map(suit => `<span class="suit-order-item ${['COEUR','CARREAU'].includes(suit) ? 'suit-red' : ''}" draggable="true" data-suit="${suit}">${info[suit][0]} ${info[suit][1]}</span>`).join(''); let dragged = null;
+            box.querySelectorAll('.suit-order-item').forEach(item => { item.ondragstart=()=>{dragged=item.dataset.suit;item.classList.add('dragging');}; item.ondragend=()=>item.classList.remove('dragging'); item.ondragover=e=>e.preventDefault(); item.ondrop=e=>{e.preventDefault();const target=item.dataset.suit;if(!dragged||dragged===target)return;const order=[...settings.suitOrder],from=order.indexOf(dragged),to=order.indexOf(target);order.splice(from,1);order.splice(to,0,dragged);settings.suitOrder=order;sortHand();renderHandsUI();saveSettings();renderSuitOrder();}; });
+        }
+
         function updateSettingsUI() {
-            const s = settings; document.getElementById('input-max-games').value = s.maxGames;
+            const s = settings; const nameInput = document.getElementById('player-name-input'); if (nameInput && document.activeElement !== nameInput) nameInput.value = settings.playerName; renderSuitOrder(); document.getElementById('input-max-games').value = s.maxGames;
             const styleOn = 'py-2 rounded-xl border-2 font-bold text-sm transition bg-emerald-50 text-emerald-700 border-emerald-500';
             const styleOff = 'py-2 rounded-xl border-2 font-bold text-sm transition bg-slate-50 text-slate-500 border-slate-200';
             document.getElementById('set-sort-suit').className = s.sortMethod === 'suit' ? styleOn : styleOff;
@@ -923,6 +926,8 @@ import {
             document.getElementById('set-auto-play-off').className = !s.autoPlay ? styleOn : styleOff;
             document.getElementById('set-ai-speed').value = s.aiSpeed;
         }
+        document.getElementById('player-name-input').oninput = event => { settings.playerName = event.target.value.trim().slice(0,20); PLAYER_LABELS[0] = settings.playerName || AVATAR_PROFILES.find(item => item.avatar === settings.playerAvatar).names[0]; const el=document.getElementById('name-j0'); if(el) el.textContent=PLAYER_LABELS[0]; saveSettings(); };
+        renderSuitOrder();
         document.getElementById('set-sort-suit').onclick = () => { settings.sortMethod = 'suit'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
         document.getElementById('set-sort-val').onclick = () => { settings.sortMethod = 'value'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
         document.getElementById('set-sort-desc').onclick = () => { settings.sortOrder = 'desc'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };

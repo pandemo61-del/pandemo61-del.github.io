@@ -88,7 +88,7 @@
                     <div class="player-header">
                         <div class="bg-black/40 text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-2 border-2 border-transparent transition-colors duration-500" id="badge-j2">
                             <span class="ai-avatar" id="avatar-j2" aria-hidden="true"></span>
-                            <span id="name-j2">J3</span> · Plis: <span id="plis-j2" class="text-amber-400">0</span> · Pts: <span id="score-j2" class="text-emerald-400">0</span>
+                            J3 (Nord) · Plis: <span id="plis-j2" class="text-amber-400">0</span> · Pts: <span id="score-j2" class="text-emerald-400">0</span>
                         </div>
                 
                         <div id="bid-j2" class="player-bid-label">—</div>
@@ -107,7 +107,7 @@
                         <div class="player-header player-header-side">
                             <div class="bg-black/40 text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-2 border-2 border-transparent transition-colors duration-500" id="badge-j1">
                                 <span class="ai-avatar" id="avatar-j1" aria-hidden="true"></span>
-                                <span id="name-j1">J2</span>
+                                J2 (Ouest)
                             </div>
                     
                             <div id="bid-j1" class="player-bid-label">—</div>
@@ -141,7 +141,7 @@
                         <div class="player-header player-header-side">
                             <div class="bg-black/40 text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-2 border-2 border-transparent transition-colors duration-500" id="badge-j3">
                                 <span class="ai-avatar" id="avatar-j3" aria-hidden="true"></span>
-                                <span id="name-j3">J4</span>
+                                J4 (Est)
                             </div>
                     
                             <div id="bid-j3" class="player-bid-label">—</div>
@@ -160,7 +160,7 @@
                 <div class="text-center flex flex-col items-center w-full relative" id="pos-j0">
                     <div id="team-j0" class="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-600 text-white text-[10px] font-black rounded-full hidden shadow-lg z-10 border border-white/20">EQUIPE A</div>
                     <div class="bg-emerald-500 text-white px-4 py-1 rounded-full text-xs font-black shadow-md mb-3 flex items-center gap-4 border-2 border-transparent transition-colors duration-500" id="badge-j0">
-                        <div class="flex items-center gap-1"><span id="avatar-j0" class="ai-avatar ai-avatar-user" aria-hidden="true"></span><span id="name-j0">Vous</span></div>
+                        <div class="flex items-center gap-1"><span id="avatar-j0" class="ai-avatar ai-avatar-user" aria-hidden="true"></span><span>VOUS</span></div>
                         <div class="bg-black/20 px-2 py-0.5 rounded-lg">Plis: <span id="plis-j0" class="text-yellow-200">0</span></div>
                         <div class="bg-black/20 px-2 py-0.5 rounded-lg">Points: <span id="score-j0" class="text-emerald-200">0</span></div>
                     </div>
@@ -255,89 +255,13 @@
     </div>
 
     <div id="modal-settings" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-[70] transition">
-        <div class="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-cog text-slate-400 mr-2"></i>Paramètres</h3>
-                <button onclick="document.getElementById('modal-settings').classList.add('hidden')" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-xs font-black uppercase text-slate-400 mb-2">Mon avatar</label>
-                    <div id="player-avatar-picker" class="avatar-picker" role="radiogroup" aria-label="Choix de mon avatar"></div>
-                </div>
-                <div>
-                    <label class="block text-xs font-black uppercase text-slate-400 mb-2">Tri des cartes</label>
-                    <div class="grid grid-cols-2 gap-2">
-                        <button id="set-sort-suit" class="py-2 rounded-xl border-2 font-bold text-sm transition">Par Couleur</button>
-                        <button id="set-sort-val" class="py-2 rounded-xl border-2 font-bold text-sm transition">Par Valeur</button>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-2">Sens du tri</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="set-sort-desc" class="py-2 rounded-xl border-2 font-bold text-sm transition">A → 2</button>
-                            <button id="set-sort-asc" class="py-2 rounded-xl border-2 font-bold text-sm transition">2 → A</button>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-2">Direction</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="set-dir-lr" class="py-2 rounded-xl border-2 font-bold text-sm transition">L → R</button>
-                            <button id="set-dir-rl" class="py-2 rounded-xl border-2 font-bold text-sm transition">R → L</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-2">Sons</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="set-son-on" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">OUI</button>
-                            <button id="set-son-off" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">NON</button>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-2">Vibrations</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="set-vib-on" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">OUI</button>
-                            <button id="set-vib-off" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">NON</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-2">Enchère Auto</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="set-auto-bid-on" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">OUI</button>
-                            <button id="set-auto-bid-off" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">NON</button>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black uppercase text-slate-400 mb-2">Jeu Auto</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button id="set-auto-play-on" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">OUI</button>
-                            <button id="set-auto-play-off" class="py-2 rounded-xl border-2 font-bold text-sm transition text-xs">NON</button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="set-ai-speed" class="block text-xs font-black uppercase text-slate-400 mb-2">Vitesse IA</label>
-                    <input type="range" id="set-ai-speed" min="200" max="2000" step="100" class="w-full accent-emerald-500">
-                    <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-bold">
-                        <span>RAPIDE</span>
-                        <span>LENT</span>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-black uppercase text-slate-400 mb-2">Manches par partie</label>
-                    <div class="flex items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                        <button onclick="window.changeMaxGames(-1)" class="w-10 h-10 bg-white border border-slate-200 rounded-lg shadow-sm flex items-center justify-center text-slate-600 hover:bg-slate-100 transition"><i class="fas fa-minus"></i></button>
-                        <input type="number" id="input-max-games" class="flex-1 text-center font-black text-slate-700 bg-transparent border-none outline-none w-12" value="13" onchange="window.setMaxGames(this.value)">
-                        <button onclick="window.changeMaxGames(1)" class="w-10 h-10 bg-white border border-slate-200 rounded-lg shadow-sm flex items-center justify-center text-slate-600 hover:bg-slate-100 transition"><i class="fas fa-plus"></i></button>
-                    </div>
-                </div>
-            </div>
-            <button onclick="document.getElementById('modal-settings').classList.add('hidden')" class="w-full mt-8 py-3 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 transition">Fermer</button>
+        <div class="settings-panel bg-white rounded-3xl w-full max-w-3xl p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-5"><h3 class="text-xl font-black text-gray-800"><i class="fas fa-cog text-slate-400 mr-2"></i>Paramètres</h3><button onclick="document.getElementById('modal-settings').classList.add('hidden')" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times"></i></button></div>
+            <div class="settings-grid">
+                <section class="settings-card settings-profile"><h4>Joueur</h4><label class="settings-label" for="player-name-input">Nom du joueur</label><input id="player-name-input" class="settings-input" type="text" maxlength="20" autocomplete="nickname" placeholder="Votre prénom"><label class="settings-label mt-4">Mon avatar</label><div id="player-avatar-picker" class="avatar-picker" role="radiogroup" aria-label="Choix de mon avatar"></div></section>
+                <section class="settings-card"><h4>Tri des cartes</h4><label class="settings-label">Méthode</label><div class="grid grid-cols-2 gap-2"><button id="set-sort-suit" class="py-2 rounded-xl border-2 font-bold text-sm transition">Par couleur</button><button id="set-sort-val" class="py-2 rounded-xl border-2 font-bold text-sm transition">Par valeur</button></div><div class="grid grid-cols-2 gap-4 mt-4"><div><label class="settings-label">Valeurs</label><div class="grid grid-cols-2 gap-2"><button id="set-sort-desc" class="py-2 rounded-xl border-2 font-bold text-sm transition">A → 2</button><button id="set-sort-asc" class="py-2 rounded-xl border-2 font-bold text-sm transition">2 → A</button></div></div><div><label class="settings-label">Disposition</label><div class="grid grid-cols-2 gap-2"><button id="set-dir-lr" class="py-2 rounded-xl border-2 font-bold text-sm transition">G → D</button><button id="set-dir-rl" class="py-2 rounded-xl border-2 font-bold text-sm transition">D → G</button></div></div></div><label class="settings-label mt-4">Ordre des couleurs</label><div id="suit-order" class="suit-order"></div><div class="settings-hint">Glissez-déposez les couleurs pour modifier l'ordre.</div></section>
+                <section class="settings-card"><h4>Jeu</h4><div class="settings-row"><span>Son</span><div class="flex gap-2"><button id="set-son-on" class="settings-toggle">ON</button><button id="set-son-off" class="settings-toggle">OFF</button></div></div><div class="settings-row"><span>Vibrations</span><div class="flex gap-2"><button id="set-vib-on" class="settings-toggle">ON</button><button id="set-vib-off" class="settings-toggle">OFF</button></div></div><div class="settings-row"><span>Enchères auto</span><div class="flex gap-2"><button id="set-auto-bid-on" class="settings-toggle">ON</button><button id="set-auto-bid-off" class="settings-toggle">OFF</button></div></div><div class="settings-row"><span>Jeu auto</span><div class="flex gap-2"><button id="set-auto-play-on" class="settings-toggle">ON</button><button id="set-auto-play-off" class="settings-toggle">OFF</button></div></div><label class="settings-label mt-4" for="set-ai-speed">Vitesse IA : <span id="ai-speed-label"></span></label><input id="set-ai-speed" type="range" min="100" max="2000" step="100" class="w-full accent-emerald-600"></section>
+            </div><button onclick="document.getElementById('modal-settings').classList.add('hidden')" class="w-full mt-5 py-3 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 transition">Fermer</button>
         </div>
     </div>
 
