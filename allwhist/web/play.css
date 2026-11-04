@@ -447,7 +447,7 @@
     display: inline-block;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, .72);
-    background-image: url('assets/avatars.png');
+    background-image: url('avatars.png');
     background-repeat: no-repeat;
     background-size: 400% 400%;
     background-position: var(--avatar-x, 0%) var(--avatar-y, 0%);
