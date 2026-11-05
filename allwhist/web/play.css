@@ -290,7 +290,7 @@
       }
 
 /* Encheres: panneau non bloquant et historique lisible */
-/* Enchères courantes près des joueurs */
+/* EnchÃ¨res courantes prÃ¨s des joueurs */
 .player-header {
     display: flex;
     align-items: center;
@@ -334,7 +334,7 @@
     background: rgba(73, 50, 12, .82);
 }
 
-/* Fenêtre d'enchère compacte au-dessus de la main */
+/* FenÃªtre d'enchÃ¨re compacte au-dessus de la main */
 #modal-enchere.auction-panel {
     position: fixed;
     left: 50%;
@@ -467,7 +467,7 @@
 #badge-j1,#badge-j2,#badge-j3{min-height:38px}
 
 
-/* Sélecteur d'avatar du joueur */
+/* SÃ©lecteur d'avatar du joueur */
 .avatar-picker { display:grid; grid-template-columns:repeat(8, 1fr); gap:7px; }
 .avatar-choice { width:100%; aspect-ratio:1; padding:0; border:2px solid transparent; border-radius:50%; background-color:#e2e8f0; background-image:url('assets/avatars.png'); background-repeat:no-repeat; background-size:400% 400%; background-position:var(--avatar-x,0%) var(--avatar-y,0%); box-shadow:0 2px 7px rgba(15,23,42,.2); cursor:pointer; transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
 .avatar-choice:hover { transform:scale(1.16); box-shadow:0 5px 14px rgba(15,23,42,.32); }
