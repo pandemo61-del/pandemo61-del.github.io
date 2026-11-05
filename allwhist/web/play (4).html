@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllWhist - Salle de Jeu Web</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="play.css">
+
+    
+
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex">
+        <aside class="w-64 bg-slate-800 text-white min-h-screen p-4 fixed left-0 top-0 z-20">
+            <div class="flex items-center gap-3 mb-8 px-2">
+                <img src="assets/icon.png" class="w-10 h-10 rounded-lg shadow-lg" alt="App Icon">
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">AllWhist</h1>
+                    <p class="text-xs text-slate-400 font-medium">Whist Belge En Ligne</p>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <div class="px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Espace Jeu</div>
+                <a href="play.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white transition font-bold shadow-md">
+                    <i class="fas fa-play-circle w-6"></i> Salle de Jeu
+                </a>
+                <a href="learn.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-graduation-cap w-6"></i> Apprentissage & Annonces
+                </a>
+
+                <div class="pt-6 px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Administration</div>
+                <a href="../admin/index.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition text-slate-300">
+                    <i class="fas fa-user-shield w-6"></i> Dashboard Admin
+                </a>
+                <a href="../admin/ia-test.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition text-slate-300">
+                    <i class="fas fa-robot w-6"></i> Laboratoire IA
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 ml-64 p-6 flex flex-col h-screen overflow-hidden">
+            <header class="flex justify-between items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-200 mb-4 flex-shrink-0">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-xl font-bold text-gray-800"><i class="fas fa-spade mr-2"></i>Table AllWhist</h2>
+                    <span id="manche-badge" class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-black uppercase rounded-full">Manche 1/13</span>
+                    <span id="contrat-badge" class="hidden px-3 py-1 bg-amber-100 text-amber-800 text-xs font-black uppercase rounded-full"></span>
+                    <div id="atout-badge" class="hidden flex items-center gap-1.5 px-2 py-1 bg-white border border-rose-200 rounded-full shadow-sm">
+                        <span class="text-rose-800 text-[10px] font-black uppercase">Atout</span>
+                        <img id="atout-img" src="" class="w-4 h-4 object-contain" alt="">
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <a href="learn.html" class="p-2 bg-emerald-50 text-emerald-700 rounded-xl hover:bg-emerald-100 transition flex items-center gap-1.5 text-xs font-bold border border-emerald-200">
+                        <i class="fas fa-graduation-cap"></i> Apprentissage
+                    </a>
+                    <button id="btn-scoreboard" class="p-2 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition" title="Scores">
+                        <i class="fas fa-list-ol"></i>
+                    </button>
+                    <button id="btn-settings" class="p-2 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition" title="Paramètres">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button id="btn-start" class="px-4 py-2 bg-emerald-600 text-white rounded-xl font-bold shadow-md hover:bg-emerald-700 transition text-sm">
+                        <i class="fas fa-plus mr-1"></i> Distribuer
+                    </button>
+                    <div id="auth-status" class="text-xs font-medium px-3 py-2 rounded-full bg-green-100 text-green-700 flex items-center">
+                        Mode Local Invité
+                    </div>
+                </div>
+            </header>
+
+            <div id="game-message-bar" class="hidden mb-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl flex items-center justify-center font-bold text-sm shadow-sm transition">
+                <i class="fas fa-info-circle mr-2 text-emerald-500"></i>
+                <span id="game-message-text"></span>
+            </div>
+
+            <div class="flex-1 mat rounded-3xl p-6 relative flex flex-col items-center justify-between border-4 border-slate-700/50 shadow-inner">
+                <div id="dealer-badge" class="absolute w-8 h-8 bg-amber-400 border-2 border-amber-600 rounded-full flex items-center justify-center font-black text-amber-900 text-[10px] shadow-lg z-30 hidden"></div>
+
+                <div class="text-center flex flex-col items-center relative" id="pos-j2">
+                    <div id="team-j2" class="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-slate-700 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20">
+                        EQUIPE
+                    </div>
+                
+                    <div class="player-header">
+                        <div class="bg-black/40 text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-2 border-2 border-transparent transition-colors duration-500" id="badge-j2">
+                            <span class="ai-avatar" id="avatar-j2" aria-hidden="true"></span>
+                            J3 (Nord) · Plis: <span id="plis-j2" class="text-amber-400">0</span> · Pts: <span id="score-j2" class="text-emerald-400">0</span>
+                        </div>
+                
+                        <div id="bid-j2" class="player-bid-label">—</div>
+                    </div>
+                
+                    <div id="hand-j2" class="flex -space-x-4 opacity-60"></div>
+                </div>
+
+                <div class="w-full flex items-center justify-between px-12">
+
+                    <div class="text-center flex flex-col items-center w-32 relative" id="pos-j1">
+                        <div id="team-j1" class="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-slate-700 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20">
+                            EQUIPE
+                        </div>
+                    
+                        <div class="player-header player-header-side">
+                            <div class="bg-black/40 text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-2 border-2 border-transparent transition-colors duration-500" id="badge-j1">
+                                <span class="ai-avatar" id="avatar-j1" aria-hidden="true"></span>
+                                J2 (Ouest)
+                            </div>
+                    
+                            <div id="bid-j1" class="player-bid-label">—</div>
+                        </div>
+                    
+                        <div class="text-white/60 text-[10px] font-bold">
+                            Plis: <span id="plis-j1" class="text-amber-400">0</span>
+                        </div>
+                        <div class="text-white/60 text-[10px] font-bold">
+                            Points: <span id="score-j1" class="text-emerald-400">0</span>
+                        </div>
+                    </div>
+                    <div class="w-80 h-64 bg-black/20 rounded-2xl border border-white/10 flex items-center justify-center relative p-4">
+                        <div id="table-cards" class="grid grid-cols-2 gap-4 w-full h-full relative">
+                            <div id="table-j0" class="absolute bottom-1 left-1/2 -translate-x-1/2 transition-all duration-300"></div>
+                            <div id="table-j1" class="absolute left-1 top-1/2 -translate-y-1/2 transition-all duration-300"></div>
+                            <div id="table-j2" class="absolute top-1 left-1/2 -translate-x-1/2 transition-all duration-300"></div>
+                            <div id="table-j3" class="absolute right-1 top-1/2 -translate-y-1/2 transition-all duration-300"></div>
+                        </div>
+                        <div id="turn-indicator" class="absolute w-6 h-6 border-2 border-white rounded-full animate-ping hidden z-0"></div>
+                        <div id="pli-winner-banner" class="absolute inset-0 bg-emerald-900/90 text-white font-bold rounded-2xl flex flex-col items-center justify-center hidden z-10 transition">
+                            <i class="fas fa-trophy text-amber-400 text-2xl mb-1"></i>
+                            <span id="pli-winner-name"></span>
+                        </div>
+                    </div>
+                    <div class="text-center flex flex-col items-center w-32 relative" id="pos-j3">
+                        <div id="team-j3" class="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-slate-700 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20">
+                            EQUIPE
+                        </div>
+                    
+                        <div class="player-header player-header-side">
+                            <div class="bg-black/40 text-white px-3 py-1 rounded-full text-[10px] font-bold flex items-center gap-2 border-2 border-transparent transition-colors duration-500" id="badge-j3">
+                                <span class="ai-avatar" id="avatar-j3" aria-hidden="true"></span>
+                                J4 (Est)
+                            </div>
+                    
+                            <div id="bid-j3" class="player-bid-label">—</div>
+                        </div>
+                    
+                        <div class="text-white/60 text-[10px] font-bold">
+                            Plis: <span id="plis-j3" class="text-amber-400">0</span>
+                        </div>
+                        <div class="text-white/60 text-[10px] font-bold">
+                            Points: <span id="score-j3" class="text-emerald-400">0</span>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="text-center flex flex-col items-center w-full relative" id="pos-j0">
+                    <div id="team-j0" class="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-600 text-white text-[10px] font-black rounded-full hidden shadow-lg z-10 border border-white/20">EQUIPE A</div>
+                    <div class="bg-emerald-500 text-white px-4 py-1 rounded-full text-xs font-black shadow-md mb-3 flex items-center gap-4 border-2 border-transparent transition-colors duration-500" id="badge-j0">
+                        <div class="flex items-center gap-1"><span id="avatar-j0" class="ai-avatar ai-avatar-user" aria-hidden="true"></span><span>VOUS</span></div>
+                        <div class="bg-black/20 px-2 py-0.5 rounded-lg">Plis: <span id="plis-j0" class="text-yellow-200">0</span></div>
+                        <div class="bg-black/20 px-2 py-0.5 rounded-lg">Points: <span id="score-j0" class="text-emerald-200">0</span></div>
+                    </div>
+                    <div id="hand-j0" class="flex gap-2 max-w-full overflow-x-auto py-2 px-4 justify-center bg-black/10 rounded-2xl border border-white/5 min-h-[120px]">
+                        <div id="empty-hand-msg" class="text-white/40 text-xs self-center italic">Cliquez sur Jouer l'annonce ou Distribuer pour lancer une donne</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="modal-enchere" class="auction-panel hidden transition" role="dialog" aria-label="Vos Enchères">
+        <div class="auction-panel-card bg-white rounded-2xl w-full shadow-2xl">
+            <div class="auction-panel-header">
+                <h3 class="font-black text-gray-800 flex items-center">
+                    <i class="fas fa-gavel text-amber-500 mr-2"></i>
+                    Votre enchère
+                </h3>
+                <div id="current-bid-info" class="text-[9px] font-bold text-slate-400 uppercase">
+                    Aucune enchère
+                </div>
+            </div>
+    
+            <div id="auction-live-history" class="hidden" aria-live="polite"></div>
+    
+            <div id="enchere-options" class="auction-options"></div>
+    
+            <button id="btn-passe" class="auction-pass-button">
+                Passer
+            </button>
+        </div>
+    </div>
+
+    <div id="modal-auction-history" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-[75] transition" role="dialog" aria-modal="true" aria-labelledby="auction-history-title">
+        <div class="bg-white rounded-3xl w-full max-w-lg p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="auction-history-title" class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-list text-amber-500 mr-2"></i>Historique des enchères</h3>
+                <span id="auction-history-mode" class="text-[10px] font-black uppercase text-slate-400"></span>
+            </div>
+            <div id="auction-history-list" class="space-y-2 max-h-[55vh] overflow-y-auto"></div>
+            <button id="btn-auction-history-ok" type="button" class="w-full mt-6 py-3 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 transition">OK</button>
+        </div>
+    </div>
+
+    <div id="modal-atout" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-[60] transition">
+        <div class="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl text-center">
+            <h3 class="text-xl font-black text-gray-800 mb-6">Choisissez l'Atout</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="window.validerAtoutWeb('COEUR')" class="flex flex-col items-center p-4 bg-red-50 hover:bg-red-100 rounded-2xl border border-red-100 transition group">
+                    <img src="assets/coeur.png" class="w-10 h-10 mb-2 group-hover:scale-110 transition" alt="Cœur">
+                    <span class="text-red-700 font-bold">Cœur</span>
+                </button>
+                <button onclick="window.validerAtoutWeb('CARREAU')" class="flex flex-col items-center p-4 bg-red-50 hover:bg-red-100 rounded-2xl border border-red-100 transition group">
+                    <img src="assets/carreau.png" class="w-10 h-10 mb-2 group-hover:scale-110 transition" alt="Carreau">
+                    <span class="text-red-700 font-bold">Carreau</span>
+                </button>
+                <button onclick="window.validerAtoutWeb('PIQUE')" class="flex flex-col items-center p-4 bg-slate-50 hover:bg-slate-100 rounded-2xl border border-slate-200 transition group">
+                    <img src="assets/pique.png" class="w-10 h-10 mb-2 group-hover:scale-110 transition" alt="Pique">
+                    <span class="text-slate-800 font-bold">Pique</span>
+                </button>
+                <button onclick="window.validerAtoutWeb('TREFLE')" class="flex flex-col items-center p-4 bg-slate-50 hover:bg-slate-100 rounded-2xl border border-slate-200 transition group">
+                    <img src="assets/trefle.png" class="w-10 h-10 mb-2 group-hover:scale-110 transition" alt="Trèfle">
+                    <span class="text-slate-800 font-bold">Trèfle</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-scoreboard" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-[80] transition">
+        <div class="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-list-ol text-emerald-500 mr-2"></i>Classement</h3>
+                <button onclick="document.getElementById('modal-scoreboard').classList.add('hidden')" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="scoreboard-list" class="space-y-3"></div>
+            <button onclick="document.getElementById('modal-scoreboard').classList.add('hidden')" class="w-full mt-8 py-3 bg-slate-900 text-white font-bold rounded-xl shadow-lg hover:bg-black transition">Fermer</button>
+        </div>
+    </div>
+
+    <div id="modal-resume" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-[90] transition">
+        <div class="bg-white rounded-3xl w-full max-w-2xl p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-black text-gray-800 flex items-center"><i class="fas fa-clipboard-check text-emerald-500 mr-2"></i>Résumé de la manche</h3>
+                <button id="btn-close-summary" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="resume-content" class="space-y-4"></div>
+            <div class="mt-6 flex gap-3">
+                <button id="btn-next-round" class="flex-1 py-3 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 transition">Nouvelle manche</button>
+                <button id="btn-close-summary-secondary" class="px-4 py-3 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-settings" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-[70] transition">
+        <div class="settings-panel bg-white rounded-3xl w-full max-w-3xl p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-5"><h3 class="text-xl font-black text-gray-800"><i class="fas fa-cog text-slate-400 mr-2"></i>Paramètres</h3><button onclick="document.getElementById('modal-settings').classList.add('hidden')" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times"></i></button></div>
+            <div class="settings-grid">
+                <section class="settings-card settings-profile"><h4>Joueur</h4><label class="settings-label" for="player-name-input">Nom du joueur</label><input id="player-name-input" class="settings-input" type="text" maxlength="20" autocomplete="nickname" placeholder="Votre prénom"><label class="settings-label mt-4">Mon avatar</label><div id="player-avatar-picker" class="avatar-picker" role="radiogroup" aria-label="Choix de mon avatar"></div></section>
+                <section class="settings-card"><h4>Tri des cartes</h4><label class="settings-label">Méthode</label><div class="grid grid-cols-2 gap-2"><button id="set-sort-suit" class="py-2 rounded-xl border-2 font-bold text-sm transition">Par couleur</button><button id="set-sort-val" class="py-2 rounded-xl border-2 font-bold text-sm transition">Par valeur</button></div><div class="grid grid-cols-2 gap-4 mt-4"><div><label class="settings-label">Valeurs</label><div class="grid grid-cols-2 gap-2"><button id="set-sort-desc" class="py-2 rounded-xl border-2 font-bold text-sm transition">A → 2</button><button id="set-sort-asc" class="py-2 rounded-xl border-2 font-bold text-sm transition">2 → A</button></div></div><div><label class="settings-label">Disposition</label><div class="grid grid-cols-2 gap-2"><button id="set-dir-lr" class="py-2 rounded-xl border-2 font-bold text-sm transition">G → D</button><button id="set-dir-rl" class="py-2 rounded-xl border-2 font-bold text-sm transition">D → G</button></div></div></div><label class="settings-label mt-4">Ordre des couleurs</label><div id="suit-order" class="suit-order"></div><div class="settings-hint">Glissez-déposez les couleurs pour modifier l'ordre.</div></section>
+                <section class="settings-card"><h4>Jeu</h4><div class="settings-row"><span>Son</span><div class="flex gap-2"><button id="set-son-on" class="settings-toggle">ON</button><button id="set-son-off" class="settings-toggle">OFF</button></div></div><div class="settings-row"><span>Vibrations</span><div class="flex gap-2"><button id="set-vib-on" class="settings-toggle">ON</button><button id="set-vib-off" class="settings-toggle">OFF</button></div></div><div class="settings-row"><span>Enchères auto</span><div class="flex gap-2"><button id="set-auto-bid-on" class="settings-toggle">ON</button><button id="set-auto-bid-off" class="settings-toggle">OFF</button></div></div><div class="settings-row"><span>Jeu auto</span><div class="flex gap-2"><button id="set-auto-play-on" class="settings-toggle">ON</button><button id="set-auto-play-off" class="settings-toggle">OFF</button></div></div><label class="settings-label mt-4" for="set-ai-speed">Vitesse IA : <span id="ai-speed-label"></span></label><input id="set-ai-speed" type="range" min="100" max="2000" step="100" class="w-full accent-emerald-600"></section>
+            </div><button onclick="document.getElementById('modal-settings').classList.add('hidden')" class="w-full mt-5 py-3 bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:bg-emerald-700 transition">Fermer</button>
+        </div>
+    </div>
+
+    <script type="module" src="play.js"></script>
+</body>
+</html>
