@@ -72,7 +72,7 @@ import {
         const modalScoreboard = document.getElementById('modal-scoreboard');
         const modalResume = document.getElementById('modal-resume');
         const modalAuctionHistory = document.getElementById('modal-auction-history');
-        const PLAYER_LABELS = ['Vous (J1)', 'J2 / Ouest', 'J3 / Nord', 'J4 / Est'];
+        const PLAYER_LABELS = ['VOUS', 'J2', 'J3', 'J4'];
         const AVATAR_PROFILES = [
             { avatar: 0, gender: 'H', names: ['Thomas', 'Nicolas', 'Julien', 'Laurent', 'Olivier'] },
             { avatar: 1, gender: 'F', names: ['Sophie', 'Julie', 'Claire', 'Ã‰milie', 'Nathalie'] },
@@ -130,22 +130,28 @@ import {
             renderPlayerAvatar();
         }
 
-        function pickAIAvatars() {
-            const pool = AVATAR_PROFILES.map(profile => profile.avatar).filter(avatar => avatar !== settings.playerAvatar);
-
-            for (let i = pool.length - 1; i > 0; i--) {
-                const randomIndex = Math.floor(Math.random() * (i + 1));
-                [pool[i], pool[randomIndex]] = [pool[randomIndex], pool[i]];
+            function pickAIAvatars() {
+                const pool = AVATAR_PROFILES.map(profile => profile.avatar).filter(avatar => avatar !== settings.playerAvatar);
+            
+                for (let i = pool.length - 1; i > 0; i--) {
+                    const randomIndex = Math.floor(Math.random() * (i + 1));
+                    [pool[i], pool[randomIndex]] = [pool[randomIndex], pool[i]];
+                }
+            
+                [1, 2, 3].forEach((playerId, index) => {
+                    const avatarIndex = pool[index];
+                    const profile = AVATAR_PROFILES.find(item => item.avatar === avatarIndex);
+                    const name = profile.names[Math.floor(Math.random() * profile.names.length)];
+            
+                    PLAYER_LABELS[playerId] = name;
+            
+                    const avatar = document.getElementById(`avatar-j${playerId}`);
+                    const nameElement = document.getElementById(`name-j${playerId}`);
+            
+                    if (avatar) setAvatarSprite(avatar, avatarIndex);
+                    if (nameElement) nameElement.textContent = name;
+                });
             }
-
-            [1, 2, 3].forEach((playerId, index) => {
-                const avatar = document.getElementById(`avatar-j${playerId}`);
-                const avatarIndex = pool[index];
-                if (!avatar) return;
-
-                setAvatarSprite(avatar, avatarIndex);
-            });
-        }
         let auctionHistoryResolver = null;
         let auctionHistoryTimer = null;
         function hideBiddingPanel() {
@@ -224,8 +230,19 @@ import {
         document.getElementById('btn-settings').onclick = () => { document.getElementById('modal-settings').classList.add('flex'); document.getElementById('modal-settings').classList.remove('hidden'); };
         document.getElementById('btn-scoreboard').onclick = () => { renderScoreboard(); modalScoreboard.classList.add('flex'); modalScoreboard.classList.remove('hidden'); };
 
-        window.changeMaxGames = (delta) => { settings.maxGames = Math.max(1, settings.maxGames + delta); document.getElementById('input-max-games').value = settings.maxGames; saveSettings(); };
-        window.setMaxGames = (val) => { settings.maxGames = Math.max(1, parseInt(val) || 1); document.getElementById('input-max-games').value = settings.maxGames; saveSettings(); };
+	window.changeMaxGames = delta => {
+	    settings.maxGames = Math.max(1, settings.maxGames + delta);
+	    const el = document.getElementById('input-max-games');
+	    if (el) el.value = settings.maxGames;
+	    saveSettings();
+	};
+	
+	window.setMaxGames = val => {
+	    settings.maxGames = Math.max(1, parseInt(val) || 1);
+	    const el = document.getElementById('input-max-games');
+	    if (el) el.value = settings.maxGames;
+	    saveSettings();
+	};
 
         function generateScenarioDeck(scenarioId) {
             const suits = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
@@ -621,7 +638,7 @@ import {
             announceAuctionAction(actionEnchere);
             propositionRelancee = false;
             const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout ? ` â€” Atout ${SYM[atout]}` : '';
-            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (VOUS)`; prochainTourEnchere();
+            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (${PLAYER_LABELS[0]})`; prochainTourEnchere();
         }
 
         document.getElementById('btn-passe').onclick = () => { hideBiddingPanel(); passerEnchereWeb(tourEnchere % 4); };
@@ -906,26 +923,19 @@ import {
             box.querySelectorAll('.suit-order-item').forEach(item => { item.ondragstart=()=>{dragged=item.dataset.suit;item.classList.add('dragging');}; item.ondragend=()=>item.classList.remove('dragging'); item.ondragover=e=>e.preventDefault(); item.ondrop=e=>{e.preventDefault();const target=item.dataset.suit;if(!dragged||dragged===target)return;const order=[...settings.suitOrder],from=order.indexOf(dragged),to=order.indexOf(target);order.splice(from,1);order.splice(to,0,dragged);settings.suitOrder=order;sortHand();renderHandsUI();saveSettings();renderSuitOrder();}; });
         }
 
-        function updateSettingsUI() {
-            const s = settings; const nameInput = document.getElementById('player-name-input'); if (nameInput && document.activeElement !== nameInput) nameInput.value = settings.playerName; renderSuitOrder(); document.getElementById('input-max-games').value = s.maxGames;
-            const styleOn = 'py-2 rounded-xl border-2 font-bold text-sm transition bg-emerald-50 text-emerald-700 border-emerald-500';
-            const styleOff = 'py-2 rounded-xl border-2 font-bold text-sm transition bg-slate-50 text-slate-500 border-slate-200';
-            document.getElementById('set-sort-suit').className = s.sortMethod === 'suit' ? styleOn : styleOff;
-            document.getElementById('set-sort-val').className = s.sortMethod === 'value' ? styleOn : styleOff;
-            document.getElementById('set-sort-desc').className = s.sortOrder === 'desc' ? styleOn : styleOff;
-            document.getElementById('set-sort-asc').className = s.sortOrder === 'asc' ? styleOn : styleOff;
-            document.getElementById('set-dir-lr').className = s.direction === 'lr' ? styleOn : styleOff;
-            document.getElementById('set-dir-rl').className = s.direction === 'rl' ? styleOn : styleOff;
-            document.getElementById('set-son-on').className = s.son ? styleOn : styleOff;
-            document.getElementById('set-son-off').className = !s.son ? styleOn : styleOff;
-            document.getElementById('set-vib-on').className = s.vibration ? styleOn : styleOff;
-            document.getElementById('set-vib-off').className = !s.vibration ? styleOn : styleOff;
-            document.getElementById('set-auto-bid-on').className = s.autoBidding ? styleOn : styleOff;
-            document.getElementById('set-auto-bid-off').className = !s.autoBidding ? styleOn : styleOff;
-            document.getElementById('set-auto-play-on').className = s.autoPlay ? styleOn : styleOff;
-            document.getElementById('set-auto-play-off').className = !s.autoPlay ? styleOn : styleOff;
-            document.getElementById('set-ai-speed').value = s.aiSpeed;
-        }
+function updateSettingsUI() {
+    const s = settings;
+    const nameInput = document.getElementById('player-name-input');
+
+    if (nameInput && document.activeElement !== nameInput) {
+        nameInput.value = settings.playerName;
+    }
+
+    renderSuitOrder();
+
+    const maxGamesInput = document.getElementById('input-max-games');
+    if (maxGamesInput) maxGamesInput.value = s.maxGames;
+}
         document.getElementById('player-name-input').oninput = event => { settings.playerName = event.target.value.trim().slice(0,20); PLAYER_LABELS[0] = settings.playerName || AVATAR_PROFILES.find(item => item.avatar === settings.playerAvatar).names[0]; const el=document.getElementById('name-j0'); if(el) el.textContent=PLAYER_LABELS[0]; saveSettings(); };
         renderSuitOrder();
         document.getElementById('set-sort-suit').onclick = () => { settings.sortMethod = 'suit'; sortHand(); renderHandsUI(); updateSettingsUI(); saveSettings(); };
