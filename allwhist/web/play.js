@@ -4,7 +4,7 @@ import {
         import { getWhistContractName } from '../shared/whist-contracts.js';
         import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
 
-        const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
+        const SYM = { 'COEUR': 'â™¥', 'CARREAU': 'â™¦', 'TREFLE': 'â™£', 'PIQUE': 'â™ ' };
         const COULEUR_CSS = { 'COEUR': 'text-red-600', 'CARREAU': 'text-red-600', 'TREFLE': 'text-slate-900', 'PIQUE': 'text-slate-900' };
         const ASSET_IMG = { 'COEUR': 'assets/coeur.png', 'CARREAU': 'assets/carreau.png', 'TREFLE': 'assets/trefle.png', 'PIQUE': 'assets/pique.png' };
 
@@ -75,21 +75,21 @@ import {
         const PLAYER_LABELS = ['Vous (J1)', 'J2 / Ouest', 'J3 / Nord', 'J4 / Est'];
         const AVATAR_PROFILES = [
             { avatar: 0, gender: 'H', names: ['Thomas', 'Nicolas', 'Julien', 'Laurent', 'Olivier'] },
-            { avatar: 1, gender: 'F', names: ['Sophie', 'Julie', 'Claire', 'Émilie', 'Nathalie'] },
+            { avatar: 1, gender: 'F', names: ['Sophie', 'Julie', 'Claire', 'Ã‰milie', 'Nathalie'] },
             { avatar: 2, gender: 'H', names: ['Marc', 'Philippe', 'David', 'Christophe', 'Patrick'] },
-            { avatar: 3, gender: 'F', names: ['Isabelle', 'Caroline', 'Valérie', 'Céline', 'Sandrine'] },
+            { avatar: 3, gender: 'F', names: ['Isabelle', 'Caroline', 'ValÃ©rie', 'CÃ©line', 'Sandrine'] },
             { avatar: 4, gender: 'H', names: ['Lucas', 'Maxime', 'Antoine', 'Alexandre', 'Jonathan'] },
-            { avatar: 5, gender: 'F', names: ['Laura', 'Chloé', 'Camille', 'Manon', 'Pauline'] },
-            { avatar: 6, gender: 'H', names: ['Pierre', 'Vincent', 'Sébastien', 'Frédéric', 'Benoît'] },
-            { avatar: 7, gender: 'F', names: ['Anne', 'Florence', 'Véronique', 'Catherine', 'Christine'] },
+            { avatar: 5, gender: 'F', names: ['Laura', 'ChloÃ©', 'Camille', 'Manon', 'Pauline'] },
+            { avatar: 6, gender: 'H', names: ['Pierre', 'Vincent', 'SÃ©bastien', 'FrÃ©dÃ©ric', 'BenoÃ®t'] },
+            { avatar: 7, gender: 'F', names: ['Anne', 'Florence', 'VÃ©ronique', 'Catherine', 'Christine'] },
             { avatar: 8, gender: 'F', names: ['Emma', 'Louise', 'Alice', 'Juliette', 'Charlotte'] },
             { avatar: 9, gender: 'H', names: ['Arthur', 'Hugo', 'Louis', 'Victor', 'Gabriel'] },
-            { avatar: 10, gender: 'F', names: ['Amélie', 'Audrey', 'Mélanie', 'Aurélie', 'Delphine'] },
-            { avatar: 11, gender: 'H', names: ['Jérôme', 'François', 'Xavier', 'Romain', 'Grégory'] },
-            { avatar: 12, gender: 'H', names: ['Simon', 'Mathias', 'Adrien', 'Quentin', 'Rémi'] },
-            { avatar: 13, gender: 'F', names: ['Sarah', 'Eva', 'Zoé', 'Léa', 'Clara'] },
+            { avatar: 10, gender: 'F', names: ['AmÃ©lie', 'Audrey', 'MÃ©lanie', 'AurÃ©lie', 'Delphine'] },
+            { avatar: 11, gender: 'H', names: ['JÃ©rÃ´me', 'FranÃ§ois', 'Xavier', 'Romain', 'GrÃ©gory'] },
+            { avatar: 12, gender: 'H', names: ['Simon', 'Mathias', 'Adrien', 'Quentin', 'RÃ©mi'] },
+            { avatar: 13, gender: 'F', names: ['Sarah', 'Eva', 'ZoÃ©', 'LÃ©a', 'Clara'] },
             { avatar: 14, gender: 'H', names: ['Bruno', 'Daniel', 'Alain', 'Bernard', 'Michel'] },
-            { avatar: 15, gender: 'F', names: ['Marie', 'Justine', 'Amandine', 'Hélène', 'Lucie'] }
+            { avatar: 15, gender: 'F', names: ['Marie', 'Justine', 'Amandine', 'HÃ©lÃ¨ne', 'Lucie'] }
         ];
 
         function setAvatarSprite(element, avatarIndex) {
@@ -155,12 +155,12 @@ import {
         function formatAuctionAction(entry) {
             if (entry.action === 'passe') return 'Passe';
             const c = entry.contrat || {};
-            return `${c.nom || c.id || 'Enchère'}${c.atout ? ` ${SYM[c.atout] || ''}` : ''}`;
+            return `${c.nom || c.id || 'EnchÃ¨re'}${c.atout ? ` ${SYM[c.atout] || ''}` : ''}`;
         }
         function renderLiveAuctionHistory() {
             const box = document.getElementById('auction-live-history');
             if (!box) return;
-            box.innerHTML = historiqueEncheres.length ? historiqueEncheres.map((e, i) => `<div><strong>${i + 1}. ${PLAYER_LABELS[e.joueurId]}</strong> : ${formatAuctionAction(e)}</div>`).join('') : '<span class="text-slate-400">Aucune enchère précédente</span>';
+            box.innerHTML = historiqueEncheres.length ? historiqueEncheres.map((e, i) => `<div><strong>${i + 1}. ${PLAYER_LABELS[e.joueurId]}</strong> : ${formatAuctionAction(e)}</div>`).join('') : '<span class="text-slate-400">Aucune enchÃ¨re prÃ©cÃ©dente</span>';
             box.scrollTop = box.scrollHeight;
         }
         function renderPlayerBidLabels() {
@@ -168,7 +168,7 @@ import {
                 const el = document.getElementById(`bid-j${pid}`);
                 if (!el) continue;
                 const last = [...historiqueEncheres].reverse().find(e => e.joueurId === pid);
-                el.textContent = last ? formatAuctionAction(last) : '—';
+                el.textContent = last ? formatAuctionAction(last) : 'â€”';
                 el.classList.toggle('is-pass', last?.action === 'passe');
                 el.classList.toggle('is-bid', last?.action === 'enchere');
             }
@@ -187,7 +187,7 @@ import {
         }
         function showAuctionHistory() {
             hideBiddingPanel();
-            document.getElementById('auction-history-list').innerHTML = historiqueEncheres.map((e, i) => `<div class="auction-history-row"><span class="font-bold">${i + 1}. ${PLAYER_LABELS[e.joueurId]}</span><span class="font-black">${formatAuctionAction(e)}</span></div>`).join('') || '<div class="text-slate-500 text-center py-4">Aucune enchère enregistrée</div>';
+            document.getElementById('auction-history-list').innerHTML = historiqueEncheres.map((e, i) => `<div class="auction-history-row"><span class="font-bold">${i + 1}. ${PLAYER_LABELS[e.joueurId]}</span><span class="font-black">${formatAuctionAction(e)}</span></div>`).join('') || '<div class="text-slate-500 text-center py-4">Aucune enchÃ¨re enregistrÃ©e</div>';
             const auto = settings.autoBidding;
             document.getElementById('auction-history-mode').innerText = auto ? 'Fermeture automatique' : 'Validation manuelle';
             document.getElementById('btn-auction-history-ok').classList.toggle('hidden', auto);
@@ -316,19 +316,19 @@ import {
 
                 const scenarioMap = {
                     'gand-propose': { id: 'propose', nom: 'Je propose', sa: false, atout: 'COEUR' },
-                    'gand-demande': { id: 'demande', nom: 'Demande à l\'As', sa: false, atout: 'COEUR', asPartenaire: { id: 'AS_TREFLE', valeur: 14, couleur: 'TREFLE' } },
+                    'gand-demande': { id: 'demande', nom: 'Demande Ã  l\'As', sa: false, atout: 'COEUR', asPartenaire: { id: 'AS_TREFLE', valeur: 14, couleur: 'TREFLE' } },
                     'gand-solo': { id: 'solo_6', nom: 'Solo 6', sa: false, atout: 'PIQUE' },
                     'gand-solo-6': { id: 'solo_6', nom: 'Solo 6', sa: false, atout: 'PIQUE' },
                     'gand-solo-7': { id: 'solo_7', nom: 'Solo 7', sa: false, atout: 'PIQUE' },
                     'gand-solo-8': { id: 'solo_8', nom: 'Solo 8', sa: false, atout: 'PIQUE' },
-                    'gand-petite-misere': { id: 'petite_misere', nom: 'Petite Misère', sa: true, atout: null },
+                    'gand-petite-misere': { id: 'petite_misere', nom: 'Petite MisÃ¨re', sa: true, atout: null },
                     'gand-abondance': { id: 'abondance_9', nom: 'Abondance 9', sa: false, atout: 'TREFLE' },
                     'gand-abondance-9': { id: 'abondance_9', nom: 'Abondance 9', sa: false, atout: 'TREFLE' },
                     'gand-abondance-10': { id: 'abondance_10', nom: 'Abondance 10', sa: false, atout: 'TREFLE' },
                     'gand-trou': { id: 'trou', nom: 'Le Trou', sa: false, atout: 'TREFLE', asPartenaire: { id: 'AS_TREFLE', valeur: 14, couleur: 'TREFLE' } },
                     'gand-trou-royal': { id: 'trou_royal', nom: 'Trou Royal', sa: false, atout: 'COEUR', asPartenaire: { id: 'ROI_COEUR', valeur: 13, couleur: 'COEUR' } },
-                    'gand-misere': { id: 'misere', nom: 'Grande Misère', sa: true, atout: null },
-                    'gand-misere-ouverte': { id: 'misere_ouverte', nom: 'Misère sur Table', sa: true, atout: null },
+                    'gand-misere': { id: 'misere', nom: 'Grande MisÃ¨re', sa: true, atout: null },
+                    'gand-misere-ouverte': { id: 'misere_ouverte', nom: 'MisÃ¨re sur Table', sa: true, atout: null },
                     'gand-chelem': { id: 'chelem', nom: 'Chelem', sa: false, atout: 'COEUR' }
                 };
                 const scInfo = scenarioMap[scenarioId] || scenarioMap['gand-solo-6'];
@@ -363,7 +363,7 @@ import {
             document.getElementById('contrat-badge').classList.add('hidden');
             document.getElementById('atout-badge').classList.add('hidden');
             document.getElementById('pli-winner-banner').classList.add('hidden');
-            document.getElementById('current-bid-info').innerText = scenarioId ? `Scénario: ${scenarioId}` : 'Aucune enchère';
+            document.getElementById('current-bid-info').innerText = scenarioId ? `ScÃ©nario: ${scenarioId}` : 'Aucune enchÃ¨re';
             btnStart.innerHTML = scenarioId ? '<i class="fas fa-redo mr-1"></i> Rejouer l\'annonce' : '<i class="fas fa-plus mr-1"></i> Distribuer';
             for (let i = 0; i < 4; i++) {
                 document.getElementById(`badge-j${i}`).classList.remove('border-emerald-400', 'border-rose-400', 'border-transparent');
@@ -418,7 +418,7 @@ import {
                     return;
                 }
             }
-            if (passesConsecutifs >= 4 && !meilleureEnchere) { hideBiddingPanel(); await showAuctionHistory(); showMessage("Tout le monde a passé. Redistribution..."); setTimeout(() => startNewGame(true), 1200); return; }
+            if (passesConsecutifs >= 4 && !meilleureEnchere) { hideBiddingPanel(); await showAuctionHistory(); showMessage("Tout le monde a passÃ©. Redistribution..."); setTimeout(() => startNewGame(true), 1200); return; }
             const id = tourEnchere % 4;
             updateTurnIndicator(id);
             if (id === 0) {
@@ -444,7 +444,7 @@ import {
                     announceAuctionAction(actionEnchere);
                     passesConsecutifs = 0;
                     propositionRelancee = false;
-                    const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout ? ` — Atout ${SYM[meilleureEnchere.atout]}` : '';
+                    const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout ? ` â€” Atout ${SYM[meilleureEnchere.atout]}` : '';
                     document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom}${atoutTrou} (J${id+1})`;
                 }
                 tourEnchere++; prochainTourEnchere();
@@ -533,7 +533,7 @@ import {
                 const playable = monTour && isCardPlayable(c);
                 return `<div class="card-container ${!playable && jeuActif ? 'disabled' : ''}" onclick="window.playHumanCard('${c.id}')"><div class="playing-card ${COULEUR_CSS[c.couleur]}"><div class="card-top"><span class="card-value">${getLabel(c.valeur)}</span><img class="card-suit-img" src="${ASSET_IMG[c.couleur]}" alt="${c.couleur}"></div><div class="card-suit-main"><img src="${ASSET_IMG[c.couleur]}" alt="${c.couleur}"></div><div class="card-bottom"><span class="card-value">${getLabel(c.valeur)}</span><img class="card-suit-img" src="${ASSET_IMG[c.couleur]}" alt="${c.couleur}"></div></div></div>`;
             }).join('');
-            document.getElementById('hand-j2').innerHTML = hands[2].map(() => `<div class="w-6 h-10 bg-slate-600 rounded border border-white/20 flex items-center justify-center text-[8px] text-white font-black">${Math.random() > 0.5 ? '♠' : '♥'}</div>`).join('');
+            document.getElementById('hand-j2').innerHTML = hands[2].map(() => `<div class="w-6 h-10 bg-slate-600 rounded border border-white/20 flex items-center justify-center text-[8px] text-white font-black">${Math.random() > 0.5 ? 'â™ ' : 'â™¥'}</div>`).join('');
         }
 
         function isCardPlayable(card) {
@@ -547,19 +547,19 @@ import {
             const bids = [
                 {id:'propose',nom:'Propose'},
                 {id:'emballe',nom:'J\'emballe'},
-                {id:'demande',nom:'Demande à l\'As'},
+                {id:'demande',nom:'Demande Ã  l\'As'},
                 {id:'solo_6',nom:'Solo 6'},
                 {id:'solo_7',nom:'Solo 7'},
-                {id:'petite_misere',nom:'Petite Misère'},
+                {id:'petite_misere',nom:'Petite MisÃ¨re'},
                 {id:'solo_8',nom:'Solo 8'},
                 {id:'abondance_9',nom:'Abondance 9'},
                 {id:'trou',nom:'Trou'},
                 {id:'trou_royal',nom:'Trou Royal'},
                 {id:'abondance_10',nom:'Abondance 10'},
-                {id:'misere',nom:'Grande Misère'},
+                {id:'misere',nom:'Grande MisÃ¨re'},
                 {id:'abondance_11',nom:'Abondance 11'},
                 {id:'abondance_12',nom:'Abondance 12'},
-                {id:'misere_ouverte',nom:'Misère sur Table'},
+                {id:'misere_ouverte',nom:'MisÃ¨re sur Table'},
                 {id:'chelem',nom:'Chelem'}
             ];
             const scenarioId = new URLSearchParams(window.location.search).get('scenario');
@@ -584,7 +584,7 @@ import {
 
                 const isTarget = targetBidId === p.id;
                 const btnClass = isTarget ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-400 font-black ring-2 ring-amber-400' : (dis ? 'bg-slate-50 text-slate-300 border-slate-200' : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-200');
-                const badge = isTarget ? '<span class="block text-[10px] text-amber-800 uppercase font-black mt-0.5">⭐ Annonce du Scénario</span>' : '';
+                const badge = isTarget ? '<span class="block text-[10px] text-amber-800 uppercase font-black mt-0.5">â­ Annonce du ScÃ©nario</span>' : '';
                 return `<button ${dis?'disabled':''} data-bid-id="${p.id}" data-bid-name="${p.nom.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="bid-option p-3 ${btnClass} font-bold text-xs rounded-xl border transition flex flex-col items-center justify-center text-center" type="button">${p.nom}${badge}</button>`;
             }).join('');
             opts.querySelectorAll('.bid-option').forEach(button => {
@@ -620,7 +620,7 @@ import {
             historiqueEncheres.push(actionEnchere);
             announceAuctionAction(actionEnchere);
             propositionRelancee = false;
-            const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout ? ` — Atout ${SYM[atout]}` : '';
+            const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout ? ` â€” Atout ${SYM[atout]}` : '';
             passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (VOUS)`; prochainTourEnchere();
         }
 
@@ -723,7 +723,7 @@ import {
             if (resolutionPliEnCours || pliCourant.length !== 4) return;
             resolutionPliEnCours = true;
 
-            // Laisser le navigateur afficher clairement la quatrième carte avant le résultat du pli.
+            // Laisser le navigateur afficher clairement la quatriÃ¨me carte avant le rÃ©sultat du pli.
             await new Promise(r => setTimeout(r, 500));
 
             const cd = pliCourant[0].carte.couleur, at = contratFinal?.sa ? null : contratFinal.atout;
@@ -735,7 +735,7 @@ import {
             plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI();
             plisHistory.push({ numero: plisHistory.length + 1, gagnantId: best.joueurId, cartesJouees: pliCourant.map(p => ({ joueurId: p.joueurId, carte: p.carte })) });
 
-            // Entourer la carte gagnante avec un halo doré éclatant (au lieu d'un texte de bannière)
+            // Entourer la carte gagnante avec un halo dorÃ© Ã©clatant (au lieu d'un texte de banniÃ¨re)
             const winnerTableCard = document.querySelector(`#table-j${best.joueurId} .playing-card`);
             if (winnerTableCard) {
                 winnerTableCard.classList.add('ring-4', 'ring-amber-400', 'scale-105', 'shadow-[0_0_35px_rgba(251,191,36,0.9)]', 'z-30');
@@ -757,8 +757,8 @@ import {
                 const resume = calculerPointsFinaux();
                 afficherResumeManche(resume);
                 sauvegarderPartie(resume);
-                if (currentManche >= settings.maxGames) showMessage('Partie terminée ! Scores finaux affichés.');
-                else showMessage('Manche terminée ! Résumé ci-dessous.');
+                if (currentManche >= settings.maxGames) showMessage('Partie terminÃ©e ! Scores finaux affichÃ©s.');
+                else showMessage('Manche terminÃ©e ! RÃ©sumÃ© ci-dessous.');
                 return;
             }
 
@@ -767,14 +767,14 @@ import {
 
         function afficherResumeManche(resultat) {
             if (!resultat) {
-                console.error('Résumé de manche indisponible.');
-                showMessage('Impossible d’afficher le résumé de la manche.', 5000);
+                console.error('RÃ©sumÃ© de manche indisponible.');
+                showMessage('Impossible dâ€™afficher le rÃ©sumÃ© de la manche.', 5000);
                 return;
             }
             const data = resultat;
             const scoreEquipeA = data.delta[0] + (data.partnerId >= 0 ? data.delta[data.partnerId] : 0);
             const scoreEquipeB = totalScores.filter((_, index) => index !== 0 && index !== data.partnerId).reduce((a, x) => a + x, 0);
-            const contratLabel = contratFinal ? `${contratFinal.nom}${contratFinal.atout ? ` • Atout ${SYM[contratFinal.atout]}` : ''}` : 'Contrat';
+            const contratLabel = contratFinal ? `${contratFinal.nom}${contratFinal.atout ? ` â€¢ Atout ${SYM[contratFinal.atout]}` : ''}` : 'Contrat';
             const players = [
                 { id: 0, label: 'Vous', score: totalScores[0] },
                 { id: 1, label: 'J2 / Ouest', score: totalScores[1] },
@@ -787,16 +787,16 @@ import {
                     <div class="text-[10px] font-black uppercase tracking-wider text-emerald-700 mb-2">Contrat</div>
                     <div class="text-xl font-black text-emerald-900">${contratLabel}</div>
                     <div class="mt-3 flex items-center justify-between text-sm">
-                        <span class="text-slate-600">Résultat</span>
-                        <span class="font-black ${data.reussite ? 'text-emerald-700' : 'text-rose-600'}">${data.reussite ? 'Réussi' : 'Échoué'}</span>
+                        <span class="text-slate-600">RÃ©sultat</span>
+                        <span class="font-black ${data.reussite ? 'text-emerald-700' : 'text-rose-600'}">${data.reussite ? 'RÃ©ussi' : 'Ã‰chouÃ©'}</span>
                     </div>
                     <div class="mt-2 flex items-center justify-between text-sm">
                         <span class="text-slate-600">Plis faits</span>
                         <span class="font-black text-slate-800">${data.plisTeam} / ${data.obj}</span>
                     </div>
                     <div class="mt-2 flex items-center justify-between text-sm">
-                        <span class="text-slate-600">Équipe</span>
-                        <span class="font-black text-slate-800">${data.partnerId >= 0 ? 'Équipe A' : 'Solo'} ${data.reussite ? 'réussie' : 'ratée'}</span>
+                        <span class="text-slate-600">Ã‰quipe</span>
+                        <span class="font-black text-slate-800">${data.partnerId >= 0 ? 'Ã‰quipe A' : 'Solo'} ${data.reussite ? 'rÃ©ussie' : 'ratÃ©e'}</span>
                     </div>
                 </div>
                 <div class="space-y-2">
@@ -844,7 +844,7 @@ import {
             try {
                 const { bidderId, partnerId, obj, plisTeam, reussite, delta } = resultat;
                 const userId = currentUser?.uid || 'ANONYMOUS_WEB';
-                const userPseudo = currentUser?.email?.split('@')[0] || 'Invité Web';
+                const userPseudo = currentUser?.email?.split('@')[0] || 'InvitÃ© Web';
 
                 const gameData = {
                     varianteId: 'whist-gand',
@@ -883,7 +883,7 @@ import {
                     });
             } catch (err) {
                 console.error('DB Save Preparation Error:', err);
-                showMessage('Résultats affichés, mais sauvegarde impossible: ' + err.message, 5000);
+                showMessage('RÃ©sultats affichÃ©s, mais sauvegarde impossible: ' + err.message, 5000);
             }
         }
 
@@ -901,7 +901,7 @@ import {
         }
         function renderSuitOrder() {
             const box = document.getElementById('suit-order'); if (!box) return;
-            const info = { COEUR:['♥','Cœur'], CARREAU:['♦','Carreau'], TREFLE:['♣','Trèfle'], PIQUE:['♠','Pique'] };
+            const info = { COEUR:['â™¥','CÅ“ur'], CARREAU:['â™¦','Carreau'], TREFLE:['â™£','TrÃ¨fle'], PIQUE:['â™ ','Pique'] };
             box.innerHTML = settings.suitOrder.map(suit => `<span class="suit-order-item ${['COEUR','CARREAU'].includes(suit) ? 'suit-red' : ''}" draggable="true" data-suit="${suit}">${info[suit][0]} ${info[suit][1]}</span>`).join(''); let dragged = null;
             box.querySelectorAll('.suit-order-item').forEach(item => { item.ondragstart=()=>{dragged=item.dataset.suit;item.classList.add('dragging');}; item.ondragend=()=>item.classList.remove('dragging'); item.ondragover=e=>e.preventDefault(); item.ondrop=e=>{e.preventDefault();const target=item.dataset.suit;if(!dragged||dragged===target)return;const order=[...settings.suitOrder],from=order.indexOf(dragged),to=order.indexOf(target);order.splice(from,1);order.splice(to,0,dragged);settings.suitOrder=order;sortHand();renderHandsUI();saveSettings();renderSuitOrder();}; });
         }
