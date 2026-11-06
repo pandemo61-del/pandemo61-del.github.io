@@ -380,7 +380,7 @@ import {
             passesConsecutifs = 0;
             propositionRelancee = false;
             jeuActif = false;
-            updatePlisUI();
+            updatePlisUI(); updateTrickProgress();
             document.getElementById('contrat-badge').classList.add('hidden');
             document.getElementById('atout-badge').classList.add('hidden');
             document.getElementById('pli-winner-banner').classList.add('hidden');
@@ -394,9 +394,6 @@ import {
             sortHand();
 
             if (scenarioId && meilleureEnchere) {
-                const actionEnchere = { joueurId: meilleureEnchere.joueurId, action: 'enchere', contrat: { ...meilleureEnchere } };
-                historiqueEncheres.push(actionEnchere);
-                announceAuctionAction(actionEnchere);
                 finaliserEnchere();
             } else {
                 meilleureEnchere = null;
@@ -765,7 +762,7 @@ import {
                 const c = pliCourant[i], isa = at && c.carte.couleur === at, bisa = at && best.carte.couleur === at;
                 if ((isa && !bisa) || (isa && bisa && c.carte.valeur > best.carte.valeur) || (!isa && !bisa && c.carte.couleur === cd && c.carte.valeur > best.carte.valeur)) best = c;
             }
-            plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI();
+            plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI(); updateTrickProgress();
             plisHistory.push({ numero: plisHistory.length + 1, gagnantId: best.joueurId, cartesJouees: pliCourant.map(p => ({ joueurId: p.joueurId, carte: p.carte })) });
 
             // Entourer la carte gagnante avec un halo doré éclatant
@@ -883,7 +880,7 @@ import {
                 } else delta[bidderId] = -total;
             }
             for (let i = 0; i < 4; i++) totalScores[i] += delta[i];
-            updatePlisUI();
+            updatePlisUI(); updateTrickProgress();
 
             return { bidderId, partnerId, obj, pts, plisTeam, reussite, delta, defenseIds, totalScores: totalScores.slice() };
         }
@@ -937,6 +934,28 @@ import {
 
         function showMessage(msg, dur = 4000) { const bar = document.getElementById('game-message-bar'), txt = document.getElementById('game-message-text'); txt.innerText = msg; bar.classList.remove('hidden'); setTimeout(() => bar.classList.add('hidden'), dur); }
         function saveSettings() { localStorage.setItem('allwhist_play_settings', JSON.stringify(settings)); }
+        function updateTrickProgress() {
+            document.querySelectorAll('.trick-progress').forEach(el => el.remove());
+            if (!contratFinal) return;
+            const bidderId = contratFinal.joueurId, partnerId = contratFinal.partenaireId ?? -1;
+            const bidTeam = new Set([bidderId, ...(partnerId >= 0 ? [partnerId] : [])]);
+            const anchorId = BAREME_IWW[contratFinal.id]?.seul ? bidderId : bidderId;
+            const anchor = document.getElementById(`name-j${anchorId}`)?.closest('.bg-black\/20, .bg-slate-900\/80, .bg-slate-800\/80') || document.getElementById(`name-j${anchorId}`)?.parentElement;
+            if (!anchor) return;
+            const wonBid = [...bidTeam].reduce((n,id) => n + plisGagnes[id], 0), wonDef = plisGagnes.reduce((n,v,id) => n + (bidTeam.has(id) ? 0 : v), 0);
+            const target = BAREME_IWW[contratFinal.id]?.obj ?? 0;
+            const row = document.createElement('div'); row.className = 'trick-progress flex justify-center items-center gap-1 mt-1';
+            row.setAttribute('aria-label', `${wonBid} plis équipe enchérissante, ${wonDef} plis attaquants${target ? `, objectif ${target}` : ''}`);
+            for (let i=0; i<13; i++) {
+                const dot = document.createElement('span'); dot.className = 'inline-block rounded-full bg-slate-500/50 border border-white/20';
+                const isTarget = target > 0 && i === target - 1; dot.style.width = dot.style.height = isTarget ? '11px' : '7px';
+                if (i < wonBid) dot.className = dot.className.replace('bg-slate-500/50','bg-emerald-400');
+                if (i >= 13 - wonDef) dot.className = dot.className.replace('bg-slate-500/50','bg-rose-400');
+                row.appendChild(dot);
+            }
+            anchor.insertAdjacentElement('afterend', row);
+        }
+
         function updatePlisUI() { document.getElementById('plis-j0').innerText = plisGagnes[0]; document.getElementById('score-j0').innerText = totalScores[0]; document.getElementById('plis-j1').innerText = plisGagnes[1]; document.getElementById('score-j1').innerText = totalScores[1]; document.getElementById('plis-j2').innerText = plisGagnes[2]; document.getElementById('score-j2').innerText = totalScores[2]; document.getElementById('plis-j3').innerText = plisGagnes[3]; document.getElementById('score-j3').innerText = totalScores[3]; }
         function updateMancheBadge() { document.getElementById('manche-badge').innerText = `Manche ${currentManche}/${settings.maxGames}`; }
         function clearTableUI() { for (let i = 0; i < 4; i++) document.getElementById(`table-j${i}`).innerHTML = ''; }
@@ -1029,5 +1048,5 @@ function updateSettingsUI() {
         renderAvatarPicker();
         pickAIAvatars();
         updateSettingsUI();
-        updatePlisUI();
+        updatePlisUI(); updateTrickProgress();
         renderHandsUI();
