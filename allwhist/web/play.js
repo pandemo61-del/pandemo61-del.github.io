@@ -394,6 +394,9 @@ import {
             sortHand();
 
             if (scenarioId && meilleureEnchere) {
+                const actionEnchere = { joueurId: meilleureEnchere.joueurId, action: 'enchere', contrat: { ...meilleureEnchere } };
+                historiqueEncheres.push(actionEnchere);
+                announceAuctionAction(actionEnchere);
                 finaliserEnchere();
             } else {
                 meilleureEnchere = null;
