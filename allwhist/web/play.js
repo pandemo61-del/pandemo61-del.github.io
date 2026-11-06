@@ -394,6 +394,9 @@ import {
             sortHand();
 
             if (scenarioId && meilleureEnchere) {
+                const actionEnchere = { joueurId: meilleureEnchere.joueurId, action: 'enchere', contrat: { ...meilleureEnchere } };
+                historiqueEncheres.push(actionEnchere);
+                announceAuctionAction(actionEnchere);
                 finaliserEnchere();
             } else {
                 meilleureEnchere = null;
@@ -935,25 +938,22 @@ import {
         function showMessage(msg, dur = 4000) { const bar = document.getElementById('game-message-bar'), txt = document.getElementById('game-message-text'); txt.innerText = msg; bar.classList.remove('hidden'); setTimeout(() => bar.classList.add('hidden'), dur); }
         function saveSettings() { localStorage.setItem('allwhist_play_settings', JSON.stringify(settings)); }
         function updateTrickProgress() {
-            document.querySelectorAll('.trick-progress').forEach(el => el.remove());
+            document.querySelectorAll('.trick-progress').forEach(el => { el.classList.remove('is-visible'); el.replaceChildren(); });
             if (!contratFinal) return;
-            const bidderId = contratFinal.joueurId, partnerId = contratFinal.partenaireId ?? -1;
-            const bidTeam = new Set([bidderId, ...(partnerId >= 0 ? [partnerId] : [])]);
-            const anchorId = BAREME_IWW[contratFinal.id]?.seul ? bidderId : bidderId;
-            const anchor = document.getElementById(`name-j${anchorId}`)?.closest('.bg-black\/20, .bg-slate-900\/80, .bg-slate-800\/80') || document.getElementById(`name-j${anchorId}`)?.parentElement;
-            if (!anchor) return;
-            const wonBid = [...bidTeam].reduce((n,id) => n + plisGagnes[id], 0), wonDef = plisGagnes.reduce((n,v,id) => n + (bidTeam.has(id) ? 0 : v), 0);
-            const target = BAREME_IWW[contratFinal.id]?.obj ?? 0;
-            const row = document.createElement('div'); row.className = 'trick-progress flex justify-center items-center gap-1 mt-1';
-            row.setAttribute('aria-label', `${wonBid} plis équipe enchérissante, ${wonDef} plis attaquants${target ? `, objectif ${target}` : ''}`);
+            const bidderId = contratFinal.joueurId, partnerId = contratFinal.partenaireId ?? -1, bidTeam = new Set([bidderId, ...(partnerId >= 0 ? [partnerId] : [])]);
+            const holder = document.getElementById(`trick-progress-j${bidderId}`);
+            if (!holder) return;
+            const wonBid = [...bidTeam].reduce((n,id) => n + (plisGagnes[id] || 0), 0), wonDef = plisGagnes.reduce((n,v,id) => n + (bidTeam.has(id) ? 0 : v), 0);
+            const bareme = BAREME_IWW[contratFinal.id] || {}, isMisere = /mis[eè]re/i.test(`${contratFinal.id || ''} ${bareme.nom || ''}`), target = isMisere ? 0 : (bareme.obj || contratFinal.target || 0);
+            holder.classList.add('is-visible');
+            holder.setAttribute('aria-label', `${wonBid} plis équipe enchérissante, ${wonDef} plis attaquants${target ? `, objectif ${target}` : ''}`);
             for (let i=0; i<13; i++) {
-                const dot = document.createElement('span'); dot.className = 'inline-block rounded-full bg-slate-500/50 border border-white/20';
-                const isTarget = target > 0 && i === target - 1; dot.style.width = dot.style.height = isTarget ? '11px' : '7px';
-                if (i < wonBid) dot.className = dot.className.replace('bg-slate-500/50','bg-emerald-400');
-                if (i >= 13 - wonDef) dot.className = dot.className.replace('bg-slate-500/50','bg-rose-400');
-                row.appendChild(dot);
+                const dot = document.createElement('span'); dot.className = 'trick-dot';
+                if (target > 0 && i === target - 1) dot.classList.add('is-target');
+                if (i < wonBid) dot.classList.add('is-bid');
+                if (i >= 13 - wonDef) dot.classList.add('is-def');
+                holder.appendChild(dot);
             }
-            anchor.insertAdjacentElement('afterend', row);
         }
 
         function updatePlisUI() { document.getElementById('plis-j0').innerText = plisGagnes[0]; document.getElementById('score-j0').innerText = totalScores[0]; document.getElementById('plis-j1').innerText = plisGagnes[1]; document.getElementById('score-j1').innerText = totalScores[1]; document.getElementById('plis-j2').innerText = plisGagnes[2]; document.getElementById('score-j2').innerText = totalScores[2]; document.getElementById('plis-j3').innerText = plisGagnes[3]; document.getElementById('score-j3').innerText = totalScores[3]; }
