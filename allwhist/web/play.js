@@ -189,11 +189,21 @@ import {
             auctionHistoryTimer = null;
             modalAuctionHistory.classList.add('hidden');
             modalAuctionHistory.classList.remove('flex');
+            document.querySelectorAll('.trick-progress').forEach(el => { el.classList.remove('is-visible'); el.replaceChildren(); });
             if (auctionHistoryResolver) { const resolve = auctionHistoryResolver; auctionHistoryResolver = null; resolve(); }
         }
         function showAuctionHistory() {
             hideBiddingPanel();
-            document.getElementById('auction-history-list').innerHTML = historiqueEncheres.map((e, i) => `<div class="auction-history-row"><span class="font-bold">${i + 1}. ${PLAYER_LABELS[e.joueurId]}</span><span class="font-black">${formatAuctionAction(e)}</span></div>`).join('') || '<div class="text-slate-500 text-center py-4">Aucune enchère enregistrée</div>';
+            const historiqueAffiche = historiqueEncheres.map(e => ({ ...e, contrat: e.contrat ? { ...e.contrat } : undefined }));
+            const historyList = document.getElementById('auction-history-list');
+            historyList.replaceChildren();
+            if (historiqueAffiche.length) historiqueAffiche.forEach((e, i) => {
+                const row = document.createElement('div'); row.className = 'auction-history-row';
+                const player = document.createElement('span'); player.className = 'font-bold'; player.textContent = `${i + 1}. ${PLAYER_LABELS[e.joueurId]}`;
+                const action = document.createElement('span'); action.className = 'font-black'; action.textContent = formatAuctionAction(e);
+                row.append(player, action); historyList.appendChild(row);
+            });
+            else historyList.innerHTML = '<div class="text-slate-500 text-center py-4">Aucune enchère enregistrée</div>';
             const auto = settings.autoBidding;
             document.getElementById('auction-history-mode').innerText = auto ? 'Fermeture automatique' : 'Validation manuelle';
             document.getElementById('btn-auction-history-ok').classList.toggle('hidden', auto);
@@ -396,6 +406,7 @@ import {
             if (scenarioId && meilleureEnchere) {
                 const actionEnchere = { joueurId: meilleureEnchere.joueurId, action: 'enchere', contrat: { ...meilleureEnchere } };
                 historiqueEncheres.push(actionEnchere);
+                for (let offset = 1; offset < 4; offset++) historiqueEncheres.push({ joueurId: (meilleureEnchere.joueurId + offset) % 4, action: 'passe' });
                 announceAuctionAction(actionEnchere);
                 finaliserEnchere();
             } else {
@@ -1050,3 +1061,4 @@ function updateSettingsUI() {
         updateSettingsUI();
         updatePlisUI(); updateTrickProgress();
         renderHandsUI();
+
