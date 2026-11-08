@@ -42,11 +42,11 @@
                 <a href="users.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
                     <i class="fas fa-users w-6"></i> Utilisateurs
                 </a>
-                <a href="games.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                <a id="nav-history" href="ia-test.html?view=normal" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
                     <i class="fas fa-gamepad w-6"></i> Historique Parties
                 </a>
-                <a href="ia-test.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold">
-                    <i class="fas fa-robot w-6"></i> Laboratoire IA
+                <a id="nav-ai" href="ia-test.html?view=ai" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold">
+                    <i class="fas fa-robot w-6"></i> IA & historique
                 </a>
 
                 <div class="pt-4 px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Espace Jeu Web</div>
@@ -68,8 +68,8 @@
 
             <header class="flex justify-between items-center mb-8">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-800">IA Stress Test (Whist Belge)</h2>
-                    <p class="text-gray-500 text-sm mt-1">Simulation automatique & Banchmark des algorithmes d'IA</p>
+                    <h2 id="pageTitle" class="text-3xl font-bold text-gray-800">Laboratoire IA</h2>
+                    <p id="pageSubtitle" class="text-gray-500 text-sm mt-1">Simulation automatique & benchmark des algorithmes d’IA</p>
                 </div>
 
                 <div class="flex items-center gap-3">
@@ -88,8 +88,18 @@
                 </div>
             </header>
 
+            <section class="mb-6 flex flex-wrap items-center gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm" aria-label="Filtrer l’historique">
+                <label for="sourceFilter" class="text-sm font-bold text-gray-600">Afficher</label>
+                <select id="sourceFilter" class="rounded-lg border border-gray-300 px-3 py-2 text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <option value="ai">Parties IA</option>
+                    <option value="normal">Jeu normal</option>
+                    <option value="both">Les deux</option>
+                </select>
+                <span id="sourceSummary" class="text-xs text-slate-500"></span>
+            </section>
+
             <!-- Actions Bar -->
-            <div class="mb-8 flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+            <div id="simulationActions" class="mb-8 flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-gray-200">
                 <div class="flex items-center gap-4">
                     <div class="flex items-center gap-2">
                         <label for="simulationCount" class="text-sm font-bold text-gray-600">
@@ -135,7 +145,7 @@
             </div>
 
             <!-- Stats Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+            <div id="simulationStats" class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Simulations</h3>
@@ -196,7 +206,8 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold">
                         <tr>
-                            <th class="p-4 border-b">Heure</th>
+                            <th class="p-4 border-b">Date / heure</th>
+                            <th class="p-4 border-b">Source</th>
                             <th class="p-4 border-b">Contrat</th>
                             <th class="p-4 border-b">Joueur</th>
                             <th class="p-4 border-b text-center">Objectif</th>
@@ -207,7 +218,7 @@
                     </thead>
                     <tbody id="resultsBody" class="divide-y divide-gray-100">
                         <tr>
-                            <td colspan="7" class="p-12 text-center text-gray-400 italic">
+                            <td colspan="8" class="p-12 text-center text-gray-400 italic">
                                 <i class="fas fa-spinner fa-spin mr-2"></i> Chargement des données...
                             </td>
                         </tr>
@@ -224,6 +235,7 @@
         } from './firebase-config.js';
         import { getWhistContractName } from '../shared/whist-contracts.js';
         import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
+        import { determinerGagnant } from '../shared/game-domain.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const BOT_UID = "AI-TEST-BOT";
@@ -267,9 +279,14 @@
         }));
 
         let stats = {success: 0, fail: 0, pass: 0, total: 0};
+        let aiGames = [];
+        let normalGames = [];
         let allGames = [];
         let currentPage = 1;
         let pageSize = 50;
+        const sourceFilter = document.getElementById('sourceFilter');
+        const initialView = new URLSearchParams(window.location.search).get('view');
+        sourceFilter.value = ['ai', 'normal', 'both'].includes(initialView) ? initialView : 'ai';
 
         const resultsBody = document.getElementById('resultsBody');
         const runBtn = document.getElementById('runBtn');
@@ -294,7 +311,7 @@
                 authStatus.className = 'text-sm font-medium px-4 py-2 rounded-full bg-red-100 text-red-700';
                 btnLogin.classList.remove('hidden');
                 btnLogout.classList.add('hidden');
-                resultsBody.innerHTML = '<tr><td colspan="7" class="p-12 text-center text-rose-500 font-bold">Veuillez vous connecter pour accéder aux données.</td></tr>';
+                resultsBody.innerHTML = '<tr><td colspan="8" class="p-12 text-center text-rose-500 font-bold">Veuillez vous connecter pour accéder aux données.</td></tr>';
             }
         });
 
@@ -371,10 +388,8 @@
                      * Les 4 passes ne sont plus éliminées.
                      * Elles restent visibles dans le tableau.
                      */
-                    allGames.unshift(game);
-                    currentPage = 1;
-                    renderCurrentPage();
-
+                    aiGames.unshift(game);
+                    applyViewFilter(false);
                     updateStatsUI();
 
                     await new Promise(
@@ -472,36 +487,73 @@
         });
 
         async function loadExistingGames() {
-            const q = query(collection(db, "games"), where("isAITest", "==", true));
+            const q = query(collection(db, 'games'), orderBy('createdAt', 'desc'), limit(500));
 
             try {
                 const snapshot = await getDocs(q);
+                const loadedGames = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                aiGames = loadedGames.filter(game => game.isAITest === true);
+                normalGames = loadedGames.filter(game => game.isAITest !== true);
 
-                allGames = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                allGames.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-                stats = { success: 0, fail: 0, pass: 0, total: allGames.length };
-
-                allGames.forEach(game => {
+                stats = { success: 0, fail: 0, pass: 0, total: aiGames.length };
+                aiGames.forEach(game => {
                     if (game.isPasse === true || game.contrat?.id === 'passe') stats.pass++;
                     else if (game.resultat?.reussite === true) stats.success++;
                     else if (game.resultat?.reussite === false) stats.fail++;
                 });
 
-                currentPage = 1;
                 updateStatsUI();
-                renderCurrentPage();
+                applyViewFilter(false);
             } catch (e) {
                 console.error(e);
-                resultsBody.innerHTML = `<tr><td colspan="7" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
+                resultsBody.innerHTML = `<tr><td colspan="8" class="p-12 text-center text-rose-500">Erreur : ${e.message}</td></tr>`;
             }
         }
 
-                function renderCurrentPage() {
+        function applyViewFilter(updateUrl = true) {
+            const view = sourceFilter.value;
+            document.getElementById('simulationActions').classList.toggle('hidden', view !== 'ai');
+            document.getElementById('simulationStats').classList.toggle('hidden', view !== 'ai');
+            const navActive = 'flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold';
+            const navIdle = 'flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition';
+            document.getElementById('nav-history').className = view === 'normal' ? navActive : navIdle;
+            document.getElementById('nav-ai').className = view === 'normal' ? navIdle : navActive;
+            allGames = view === 'ai'
+                ? [...aiGames]
+                : view === 'normal'
+                    ? [...normalGames]
+                    : [...aiGames, ...normalGames].sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+            const viewLabels = { ai: 'Parties IA', normal: 'Parties de jeu normal', both: 'Toutes les parties' };
+            const pageTitles = {
+                ai: ['Laboratoire IA', 'Simulation automatique & benchmark des algorithmes d’IA'],
+                normal: ['Historique des parties', 'Consultez les parties jouées dans l’application et sur le Web'],
+                both: ['IA & historique des parties', 'Comparez les simulations IA aux parties réellement jouées'],
+            };
+            document.getElementById('pageTitle').innerText = pageTitles[view][0];
+            document.getElementById('pageSubtitle').innerText = pageTitles[view][1];
+            document.getElementById('sourceSummary').innerText = `${viewLabels[view]} · ${allGames.length} résultat(s)`;
+            currentPage = 1;
+            if (updateUrl) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('view', view);
+                history.replaceState({}, '', url);
+            }
+            renderCurrentPage();
+        }
+
+        sourceFilter.addEventListener('change', () => applyViewFilter());
+
+        function renderCurrentPage() {
             resultsBody.innerHTML = '';
 
             if (!allGames.length) {
-                resultsBody.innerHTML = '<tr><td colspan="7" class="p-12 text-center text-gray-400 italic">Aucune simulation sauvegardée</td></tr>';
+                const emptyLabel = sourceFilter.value === 'normal'
+                    ? 'Aucune partie de jeu normal enregistrée'
+                    : sourceFilter.value === 'both'
+                        ? 'Aucune partie enregistrée'
+                        : 'Aucune simulation sauvegardée';
+                resultsBody.innerHTML = `<tr><td colspan="8" class="p-12 text-center text-gray-400 italic">${emptyLabel}</td></tr>`;
                 updatePagination();
                 return;
             }
@@ -603,19 +655,32 @@
                 cartes: hand.map(card => ({ ...card }))
             }));
 
+            const donneurId = Math.floor(Math.random() * 4);
             let meilleureEnchere = null;
             let tour = 0;
             let passes = 0;
+            let premierTourAsTermine = false;
             const historiqueEncheres = [];
 
-            while (passes < 4 && tour < 16) {
-                const pid = tour % 4;
-                const decision = chooseWhistBid(hands[pid], meilleureEnchere, 'expert', pid, WHIST_CONTRACTS);
+            while (tour < 24) {
+                if (passes >= 4) break;
+                if (passes >= 3 && meilleureEnchere && meilleureEnchere.id !== 'propose') break;
+
+                const pid = (donneurId + 1 + tour) % 4;
+                const decision = chooseWhistBid(
+                    hands[pid],
+                    meilleureEnchere,
+                    'expert',
+                    pid,
+                    WHIST_CONTRACTS,
+                    { premierTourAs: !premierTourAsTermine },
+                );
 
                 historiqueEncheres.push({
                     tour: tour + 1,
                     joueurId: pid,
                     action: decision.action || 'passe',
+                    actionLabel: decision.action === 'passe' && !premierTourAsTermine && !meilleureEnchere ? 'Passe-trou' : undefined,
                     contratId: decision.contratId || null,
                     atout: decision.atout || null
                 });
@@ -632,9 +697,22 @@
                     };
                     passes = 0;
                 } else {
-                    passes++;
+                    const proposerRefuse =
+                        meilleureEnchere?.id === 'propose' &&
+                        passes >= 3 &&
+                        meilleureEnchere.joueurId === pid;
+                    if (proposerRefuse) {
+                        meilleureEnchere = null;
+                        passes = 1;
+                    } else {
+                        passes++;
+                    }
                 }
                 tour++;
+                if (!premierTourAsTermine && tour >= 4) {
+                    premierTourAsTermine = true;
+                    if (!meilleureEnchere && passes >= 4) passes = 0;
+                }
             }
 
             if (!meilleureEnchere) {
@@ -643,6 +721,7 @@
                     manche: 1,
                     isAITest: true,
                     isPasse: true,
+                    donneurId,
                     aiVersion: WHIST_AI_VERSION,
                     userId: BOT_UID,
                     userPseudo: 'IA Expert',
@@ -712,7 +791,7 @@
 
             const atout = contrat.atout;
             const plis = [];
-            let leaderId = (bidderId + 1) % 4;
+            let leaderId = (donneurId + 1) % 4;
             const plisGagnes = [0, 0, 0, 0];
             const playedCardsAll = [];
             const completedTricks = [];
@@ -743,21 +822,12 @@
                     playedCardsAll.push(cardToPlay);
                 }
 
-                let best = pliCartes[0];
-                const ledSuit = currentTrick.couleurDemandee;
-                for (let i = 1; i < 4; i++) {
-                    const c = pliCartes[i];
-                    const isAtout = atout && c.carte.couleur === atout;
-                    const bestIsAtout = atout && best.carte.couleur === atout;
-                    if ((isAtout && !bestIsAtout) || (isAtout && bestIsAtout && c.carte.valeur > best.carte.valeur) || (!isAtout && !bestIsAtout && c.carte.couleur === ledSuit && c.carte.valeur > best.carte.valeur)) {
-                        best = c;
-                    }
-                }
+                const bestPlayerId = determinerGagnant(currentTrick, atout);
 
                 completedTricks.push(currentTrick);
-                plis.push({ numero: pNum, gagnantId: best.joueurId, cartesJouees: pliCartes });
-                plisGagnes[best.joueurId]++;
-                leaderId = best.joueurId;
+                plis.push({ numero: pNum, gagnantId: bestPlayerId, cartesJouees: pliCartes });
+                plisGagnes[bestPlayerId]++;
+                leaderId = bestPlayerId;
             }
 
             const plisTeam = plisGagnes[bidderId] + (partnerId !== -1 ? plisGagnes[partnerId] : 0);
@@ -791,6 +861,7 @@
                 manche: 1,
                 isAITest: true,
                 isPasse: false,
+                donneurId,
                 aiVersion: WHIST_AI_VERSION,
                 userId: BOT_UID,
                 userPseudo: 'IA Expert',
@@ -818,20 +889,13 @@
             const isPasse =
                 game.isPasse === true ||
                 game.contrat?.id === 'passe';
-        
-            const isSuccess =
-                game.resultat?.reussite === true;
-        
-            const date = new Date(
-                game.createdAt
-            ).toLocaleTimeString(
-                'fr-FR',
-                {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
-                }
-            );
+
+            const isSuccess = game.resultat?.reussite === true;
+            const hasResult = typeof game.resultat?.reussite === 'boolean';
+            const sourceLabel = game.isAITest === true ? 'IA' : game.isWebPlay === true ? 'Jeu Web' : 'Jeu normal';
+            const date = game.createdAt
+                ? new Date(game.createdAt).toLocaleString('fr-FR')
+                : 'Date inconnue';
         
             const contractName =
                 isPasse
@@ -852,20 +916,15 @@
                 isPasse
                     ? '-'
                     : game.resultat?.plisFaits;
-        
-            const statusText =
-                isPasse
-                    ? '4 passes'
-                    : isSuccess
-                        ? 'Succès'
-                        : 'Échec';
-        
-            const statusClass =
-                isPasse
-                    ? 'bg-slate-100 text-slate-700'
-                    : isSuccess
-                        ? 'bg-emerald-100 text-emerald-700'
-                        : 'bg-rose-100 text-rose-700';
+
+            const statusText = isPasse ? '4 passes' : isSuccess ? 'Succès' : hasResult ? 'Échec' : 'En cours';
+            const statusClass = isPasse
+                ? 'bg-slate-100 text-slate-700'
+                : isSuccess
+                    ? 'bg-emerald-100 text-emerald-700'
+                    : hasResult
+                        ? 'bg-rose-100 text-rose-700'
+                        : 'bg-amber-100 text-amber-700';
         
             row.className =
                 'hover:bg-gray-50 transition';
@@ -873,10 +932,12 @@
             row.id = `row-${game.id}`;
         
             row.innerHTML = `
-                <td class="p-4 text-xs text-gray-500">
+                <td class="p-4 text-xs text-gray-500 whitespace-nowrap">
                     ${date}
                 </td>
-        
+                <td class="p-4">
+                    <span class="rounded-full px-2 py-1 text-[10px] font-black uppercase tracking-wide ${game.isAITest === true ? 'bg-violet-100 text-violet-700' : game.isWebPlay === true ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-700'}">${sourceLabel}</span>
+                </td>
                 <td class="p-4">
                     <span class="font-bold text-gray-700">
                         ${contractName}
@@ -894,7 +955,7 @@
                 </td>
         
                 <td class="p-4 text-xs text-slate-400 font-medium">
-                    ${game.userPseudo || 'IA Expert'}
+                    ${game.userPseudo || (game.isAITest ? 'IA Expert' : 'Anonyme')}
                 </td>
         
                 <td class="p-4 text-center font-bold text-gray-400">
@@ -904,11 +965,13 @@
                 <td class="p-4 text-center font-black ${
                     isPasse
                         ? 'text-slate-500'
-                        : isSuccess
-                            ? 'text-emerald-600'
-                            : 'text-rose-600'
+                        : !hasResult
+                            ? 'text-amber-600'
+                            : isSuccess
+                                ? 'text-emerald-600'
+                                : 'text-rose-600'
                 }">
-                    ${resultDisplay}
+                    ${resultDisplay ?? '-'}
                 </td>
         
                 <td class="p-4">
@@ -941,20 +1004,14 @@
                         <i class="fas fa-chart-bar"></i>
                     </a>
         
+                    ${game.isAITest === true ? `
                     <button
                         onclick="window.deleteSingleGame('${game.id}')"
-                        class="
-                            text-gray-400
-                            hover:text-rose-600
-                            hover:bg-rose-50
-                            transition
-                            p-2
-                            rounded-lg
-                        "
-                        title="Supprimer"
+                        class="text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition p-2 rounded-lg"
+                        title="Supprimer cette simulation"
                     >
                         <i class="fas fa-trash"></i>
-                    </button>
+                    </button>` : ''}
                 </td>
             `;
         
@@ -975,8 +1032,15 @@
             if (!confirm("Supprimer cette partie ?")) return;
             try {
                 await deleteDoc(doc(db, "games", id));
-                const row = document.getElementById(`row-${id}`);
-                if (row) row.remove();
+                aiGames = aiGames.filter(game => game.id !== id);
+                stats = { success: 0, fail: 0, pass: 0, total: aiGames.length };
+                aiGames.forEach(game => {
+                    if (game.isPasse === true || game.contrat?.id === 'passe') stats.pass++;
+                    else if (game.resultat?.reussite === true) stats.success++;
+                    else if (game.resultat?.reussite === false) stats.fail++;
+                });
+                updateStatsUI();
+                applyViewFilter(false);
             } catch (e) { alert("Erreur: " + e.message); }
         };
     </script>

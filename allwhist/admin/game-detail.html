@@ -47,12 +47,26 @@
         .expert-icon-error { background-color: #ef4444; }
         .expert-icon-warn  { background-color: #f59e0b; }
         .expert-icon-good  { background-color: #10b981; }
+        .review-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border-radius: 9999px;
+            padding: 4px 8px;
+            font-size: 10px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        .review-chip-error { color: #b91c1c; background: #fee2e2; }
+        .review-chip-warning { color: #a16207; background: #fef3c7; }
+        .review-chip-good { color: #047857; background: #d1fae5; }
 
         .pli-row {
             display: grid;
-            grid-template-columns: 40px 50px 60px 1fr;
+            grid-template-columns: 40px 50px minmax(120px, 180px) minmax(400px, 1fr);
             align-items: center;
             gap: 12px;
+            min-width: 720px;
         }
     </style>
 </head>
@@ -73,11 +87,11 @@
                 <a href="users.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
                     <i class="fas fa-users w-6"></i> Utilisateurs
                 </a>
-                <a href="games.html" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold">
+                <a href="ia-test.html?view=normal" class="flex items-center gap-3 p-3 rounded-lg bg-emerald-600 text-white font-bold">
                     <i class="fas fa-gamepad w-6"></i> Historique Parties
                 </a>
-                <a href="ia-test.html" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
-                    <i class="fas fa-robot w-6"></i> Laboratoire IA
+                <a href="ia-test.html?view=ai" class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-700 transition">
+                    <i class="fas fa-robot w-6"></i> IA & historique
                 </a>
 
                 <div class="pt-4 px-3 py-1 text-[10px] font-black uppercase text-slate-400 tracking-wider">Espace Jeu Web</div>
@@ -94,7 +108,7 @@
         <main class="flex-1 ml-64 p-8">
             <header class="flex justify-between items-center mb-8">
                 <div>
-                    <a href="games.html" class="text-emerald-600 hover:text-emerald-700 font-medium mb-2 block">
+                    <a href="ia-test.html?view=normal" class="text-emerald-600 hover:text-emerald-700 font-medium mb-2 block">
                         <i class="fas fa-arrow-left mr-1"></i> Retour à la liste
                     </a>
                     <h2 id="page-title" class="text-3xl font-bold text-gray-800">Analyse de la Manche</h2>
@@ -112,8 +126,10 @@
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 animate-pulse h-20"></div>
             </div>
 
+            <section id="review-summary" class="mb-6"></section>
+
             <!-- Analysis Table -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden mb-8">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-x-auto mb-8">
                 <div class="bg-slate-800 text-white px-6 py-4 pli-row text-[10px] font-black uppercase tracking-widest">
                     <div class="text-center">#</div>
                     <div class="text-center">Total</div>
@@ -168,6 +184,19 @@
 
         const SYMBOLE = { PIQUE: '♠', COEUR: '♥', CARREAU: '♦', TREFLE: '♣' };
         const CARD_COLOR = { PIQUE: 'text-slate-900', TREFLE: 'text-slate-900', COEUR: 'text-red-600', CARREAU: 'text-red-600' };
+        const AI_FIRST_NAMES = ['Marc', 'Julie', 'Paul'];
+
+        function getPlayerDisplayName(data, playerId) {
+            if (playerId === 0) return 'Vous';
+
+            const player = (data.donne || []).find(item => Number(item.joueurId) === playerId);
+            const savedName = player?.nom || player?.pseudo;
+            if (savedName && !/^(IA(?:[- _]?\d+)?|J\d+)$/i.test(savedName.trim())) {
+                return savedName;
+            }
+
+            return AI_FIRST_NAMES[playerId - 1] || `Joueur ${playerId + 1}`;
+        }
 
         function getGameId() {
             if (window.location.hash.includes('id=')) return window.location.hash.split('id=')[1]?.split('&')[0];
@@ -264,7 +293,7 @@
                         return `
                             <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 shadow-sm">
                                 <div class="flex justify-between items-center mb-3">
-                                    <span class="font-bold text-gray-800 text-sm">Joueur ${pid + 1} ${pid === 0 ? '(Vous)' : ''}</span>
+                                    <span class="font-bold text-gray-800 text-sm">${getPlayerDisplayName(data, pid)}</span>
                                     <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-medium">${sortedHand.length} cartes</span>
                                 </div>
                                 <div class="flex flex-wrap gap-1.5">
@@ -286,6 +315,8 @@
             const list = document.getElementById('tricks-list');
             if (!list) return;
 
+            renderReviewSummary(data);
+
             const bidderId = data.contrat?.joueurId;
             const partnerId = data.contrat?.partenaireId;
             const teamIds = [bidderId, partnerId].filter(id => id !== undefined);
@@ -297,7 +328,7 @@
                 if (el) {
                     const isBidder = j.joueurId === bidderId;
                     const isPartner = j.joueurId === partnerId;
-                    el.innerHTML = `${j.joueurId === 0 ? 'VOUS' : (j.nom ? j.nom.toUpperCase() : 'IA')} ${isBidder ? '🎯' : (isPartner ? '🤝' : '')}`;
+                    el.innerHTML = `${getPlayerDisplayName(data, j.joueurId).toUpperCase()} ${isBidder ? '🎯' : (isPartner ? '🤝' : '')}`;
                     if (isBidder || isPartner) el.className = "text-emerald-500 font-black";
                 }
             });
@@ -348,20 +379,26 @@
             const tricksHtml = data.plis.map((pli, idx) => {
                 if (teamIds.includes(pli.gagnantId)) teamTotal++;
 
-                const errors = (data.erreurs || []).filter(e => e.pliNum === idx);
+                const errors = (data.erreurs || []).filter(error => {
+                    const trickNumber = Number(error.pliNum ?? error.pliNumero ?? error.numeroPli);
+                    return Number.isFinite(trickNumber) && trickNumber === idx + 1;
+                });
 
                 return `
                     <div class="pli-row px-6 py-4 hover:bg-slate-50 transition border-l-4 ${teamIds.includes(pli.gagnantId) ? 'border-emerald-500' : 'border-transparent'}">
                         <div class="text-center text-xs font-bold text-slate-400">${idx + 1}</div>
                         <div class="text-center text-sm font-black text-emerald-600">${teamTotal}</div>
-                        <div class="flex gap-1 justify-center">
-                            ${errors.map(e => `
-                                <div class="expert-icon ${e.type === 'error' ? 'expert-icon-error' : 'expert-icon-warn'}"
-                                     onclick="window.showTip('${e.type}', '${e.titre || 'Avis'}', '${(e.message || e.description || '').replace(/'/g, "\\'")}')">
-                                    ${e.type === 'error' ? '!' : '?'}
-                                </div>
-                            `).join('')}
-                            ${errors.length === 0 ? '<div class="expert-icon expert-icon-good">★</div>' : ''}
+                        <div class="flex flex-wrap gap-1 justify-center">
+                            ${errors.length
+                                ? errors.map(error => {
+                                    const type = ['error', 'warning', 'good'].includes(error.type) ? error.type : 'warning';
+                                    const title = error.titre || error.title || 'Avis de jeu';
+                                    const description = error.description || error.message || '';
+                                    const icon = type === 'error' ? '!' : type === 'good' ? '✓' : 'i';
+                                    const label = type === 'error' ? 'Erreur' : type === 'good' ? 'Bon coup' : 'Conseil';
+                                    return `<button type="button" class="review-chip review-chip-${type}" data-review-type="${escapeHtml(type)}" data-review-title="${escapeHtml(title)}" data-review-description="${escapeHtml(description)}" title="${escapeHtml(description || title)}"><span aria-hidden="true">${icon}</span><span>${label}</span></button>`;
+                                }).join('')
+                                : '<span class="text-[10px] font-bold text-emerald-700">Aucun avis</span>'}
                         </div>
                         <div class="grid grid-cols-4 gap-4">
                             ${[0,1,2,3].map(pid => {
@@ -386,6 +423,48 @@
             });
 
             list.innerHTML = [...rowsHtml, ...tricksHtml].join('');
+            list.querySelectorAll('[data-review-type]').forEach(button => {
+                button.addEventListener('click', () => {
+                    showTip(button.dataset.reviewType, button.dataset.reviewTitle, button.dataset.reviewDescription);
+                });
+            });
+        }
+
+        function renderReviewSummary(data) {
+            const container = document.getElementById('review-summary');
+            const reviews = Array.isArray(data.erreurs) ? data.erreurs : [];
+            const counts = reviews.reduce((result, review) => {
+                const type = ['error', 'warning', 'good'].includes(review.type) ? review.type : 'warning';
+                result[type]++;
+                return result;
+            }, { error: 0, warning: 0, good: 0 });
+            const unlinkedReviews = reviews.filter(review => !Number.isFinite(Number(review.pliNum ?? review.pliNumero ?? review.numeroPli)));
+            const unlinkedMarkup = unlinkedReviews.length
+                ? `<div class="mt-4 border-t border-amber-200 pt-4"><p class="mb-2 text-xs font-black uppercase tracking-wide text-amber-800">${unlinkedReviews.length} avis sans numéro de pli</p><ul class="space-y-2">${unlinkedReviews.map(review => `<li class="rounded-lg bg-white/70 p-3 text-sm text-amber-950"><strong>${escapeHtml(review.titre || review.title || 'Avis de jeu')}</strong><span class="text-xs text-amber-800"> · Joueur ${Number(review.joueurId ?? 0) + 1}</span><p class="mt-1 text-xs leading-relaxed">${escapeHtml(review.description || review.message || '')}</p></li>`).join('')}</ul></div>`
+                : '';
+            container.innerHTML = `
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <div><h3 class="font-black text-slate-800">Avis sur la manche</h3><p class="mt-1 text-xs text-slate-500">${reviews.length ? 'Les avis sont regroupés par pli dans le tableau.' : 'Aucun commentaire détaillé n’est enregistré pour cette partie.'}</p></div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="review-chip review-chip-error">${counts.error} erreur(s)</span>
+                            <span class="review-chip review-chip-warning">${counts.warning} conseil(s)</span>
+                            <span class="review-chip review-chip-good">${counts.good} bon(s) coup(s)</span>
+                        </div>
+                    </div>
+                    ${unlinkedMarkup}
+                </div>
+            `;
+        }
+
+        function escapeHtml(value) {
+            return String(value ?? '').replace(/[&<>"']/g, character => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;',
+            })[character]);
         }
 
         function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }
@@ -398,8 +477,10 @@
             document.getElementById('expert-title').innerText = title;
             document.getElementById('expert-desc').innerText = desc;
 
-            badge.className = `w-12 h-12 rounded-full flex items-center justify-center text-white mb-4 ${type === 'error' ? 'bg-red-500' : 'bg-amber-500'}`;
-            icon.className = `fas ${type === 'error' ? 'fa-bolt' : 'fa-question-circle'} text-xl`;
+            const isError = type === 'error';
+            const isGood = type === 'good';
+            badge.className = `w-12 h-12 rounded-full flex items-center justify-center text-white mb-4 ${isError ? 'bg-red-500' : isGood ? 'bg-emerald-500' : 'bg-amber-500'}`;
+            icon.className = `fas ${isError ? 'fa-bolt' : isGood ? 'fa-check' : 'fa-lightbulb'} text-xl`;
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');
