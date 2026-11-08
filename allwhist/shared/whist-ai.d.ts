@@ -24,6 +24,7 @@ export function chooseWhistBid(
   level: 'facile' | 'moyen' | 'expert',
   playerId: number,
   contracts: WhistBidContract[],
+  options?: { premierTourAs?: boolean },
 ): { action: 'passe' | 'enchere'; contratId?: string; atout?: Couleur; asPartenaire?: string };
 
 export function chooseMisereDiscard(hand: WhistCard[]): WhistCard | undefined;

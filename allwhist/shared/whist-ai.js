@@ -167,15 +167,46 @@ function successUtility(safeTricks, target, reward, margin) {
   return Math.max(0, surplus) * 1.5 + reward * 4.0 - Math.max(0, -surplus) * 5;
 }
 
-export function chooseWhistBid(hand, currentBid, level, playerId, contracts) {
+export function getTrouRoyalPartnerCard(hand) {
+  const heartValues = new Set(
+    (hand || []).filter(c => c.couleur === 'COEUR').map(c => c.valeur)
+  );
+  for (let val = 13; val >= 2; val--) {
+    if (!heartValues.has(val)) {
+      return { id: `${val}_COEUR`, valeur: val, couleur: 'COEUR' };
+    }
+  }
+  return { id: '13_COEUR', valeur: 13, couleur: 'COEUR' };
+}
+
+export function chooseWhistBid(hand, currentBid, level, playerId, contracts, options = {}) {
   const currentPriority = contractPriority(currentBid);
   const margin = difficultyMargin(level);
   const aces = hand.filter(card => card.valeur === 14);
 
+  if (options.premierTourAs) {
+    if (aces.length === 4 && currentPriority < 7.5) {
+      const contract = availableContract(contracts, 'trou_royal', hand, currentBid, playerId);
+      if (contract && contractPriority(contract) > currentPriority) {
+        const partnerCard = getTrouRoyalPartnerCard(hand);
+        return decisionFor(contract, 'COEUR', partnerCard.id);
+      }
+    }
+    if (aces.length === 3 && currentPriority < 7) {
+      const calledSuit = SUITS.find(suit => !aces.some(card => card.couleur === suit));
+      const contract = availableContract(contracts, 'trou', hand, currentBid, playerId);
+      if (contract && contractPriority(contract) > currentPriority) {
+        return decisionFor(contract, calledSuit, calledSuit ? `14_${calledSuit}` : undefined);
+      }
+    }
+    return { action: 'passe' };
+  }
+
   if (aces.length === 4 && currentPriority < 7.5) {
     const contract = availableContract(contracts, 'trou_royal', hand, currentBid, playerId);
     if (contract && contractPriority(contract) > currentPriority) {
-      return decisionFor(contract, 'COEUR', '13_COEUR');
+      const partnerCard = getTrouRoyalPartnerCard(hand);
+      return decisionFor(contract, 'COEUR', partnerCard.id);
     }
   }
   if (aces.length === 3 && currentPriority < 7) {
