@@ -314,58 +314,115 @@
         filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
       }
 
-      #table-j0 .table-card, #table-j1 .table-card, #table-j2 .table-card, #table-j3 .table-card,
-      #table-j0 .playing-card, #table-j1 .playing-card, #table-j2 .playing-card, #table-j3 .playing-card {
-        animation: cardArrival .32s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      /* Halo doré éclatant sur la carte gagnante à sa position exacte */
+      .winner-glow {
+        box-shadow: 0 0 0 4px #fbbf24, 0 0 25px rgba(251, 191, 36, 0.95), 0 0 50px rgba(245, 158, 11, 0.75) !important;
+        border-radius: 10px !important;
+        transform: scale(1.08) !important;
+        z-index: 50 !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease !important;
       }
-      @keyframes cardArrival {
-        0% { opacity: 0; transform: translateY(45px) scale(0.65) rotate(-14deg); }
-        60% { opacity: 1; transform: translateY(-8px) scale(1.03) rotate(2deg); }
-        100% { opacity: 1; transform: translateY(-4px) scale(1) rotate(0deg); }
+
+      /* Styles pour le résumé / l'historique des enchères */
+      .auction-history-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 10px 16px !important;
+        margin-bottom: 8px !important;
+        background-color: #f8fafc !important;
+        border: 1.5px solid #e2e8f0 !important;
+        border-radius: 14px !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+        transition: all 0.2s ease !important;
+      }
+      .auction-history-row.is-bid {
+        background-color: #ecfdf5 !important;
+        border-color: #a7f3d0 !important;
+      }
+      .auction-history-row .auction-player {
+        font-weight: 800 !important;
+        color: #1e293b !important;
+        font-size: 13px !important;
+      }
+      .auction-history-row .auction-action {
+        font-weight: 900 !important;
+        color: #047857 !important;
+        font-size: 14px !important;
+      }
+      .auction-history-row.is-pass .auction-action {
+        color: #64748b !important;
+        font-weight: 700 !important;
+      }
+
+      #table-j0 .table-card, #table-j0 .playing-card { animation: cardArrival_0 .36s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+      #table-j1 .table-card, #table-j1 .playing-card { animation: cardArrival_1 .36s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+      #table-j2 .table-card, #table-j2 .playing-card { animation: cardArrival_2 .36s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+      #table-j3 .table-card, #table-j3 .playing-card { animation: cardArrival_3 .36s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+
+      @keyframes cardArrival_0 {
+        0% { opacity: 0; transform: translateY(80px) scale(0.68) rotate(-14deg); }
+        70% { opacity: 1; transform: translateY(-4px) scale(1.03) rotate(1deg); }
+        100% { opacity: 1; transform: translateY(0) scale(1) rotate(-3deg); }
+      }
+      @keyframes cardArrival_1 {
+        0% { opacity: 0; transform: translateX(-80px) scale(0.68) rotate(-14deg); }
+        70% { opacity: 1; transform: translateX(4px) scale(1.03) rotate(2deg); }
+        100% { opacity: 1; transform: translateX(0) scale(1) rotate(5deg); }
+      }
+      @keyframes cardArrival_2 {
+        0% { opacity: 0; transform: translateY(-80px) scale(0.68) rotate(-14deg); }
+        70% { opacity: 1; transform: translateY(4px) scale(1.03) rotate(2deg); }
+        100% { opacity: 1; transform: translateY(0) scale(1) rotate(-4deg); }
+      }
+      @keyframes cardArrival_3 {
+        0% { opacity: 0; transform: translateX(80px) scale(0.68) rotate(14deg); }
+        70% { opacity: 1; transform: translateX(-4px) scale(1.03) rotate(-2deg); }
+        100% { opacity: 1; transform: translateX(0) scale(1) rotate(6deg); }
       }
 
       /* Rassemblement des 4 cartes au centre du tapis */
       @keyframes gatherToCenter_0 {
         0% { transform: translateY(-4px) rotate(0deg); }
-        100% { transform: translateY(-50px) rotate(-4deg); }
+        100% { transform: translateY(-2px) translateX(3px) rotate(-8deg) scale(0.92); }
       }
       @keyframes gatherToCenter_1 {
         0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateX(52px) translateY(0) rotate(3deg); }
+        100% { transform: translateX(-3px) translateY(2px) rotate(4deg) scale(0.92); }
       }
       @keyframes gatherToCenter_2 {
         0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateY(50px) rotate(-2deg); }
+        100% { transform: translateY(3px) translateX(-2px) rotate(-4deg) scale(0.92); }
       }
       @keyframes gatherToCenter_3 {
         0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateX(-52px) translateY(0) rotate(5deg); }
+        100% { transform: translateX(4px) translateY(-2px) rotate(6deg) scale(0.92); }
       }
 
       /* Vol des cartes rassemblées depuis le centre vers chaque joueur */
       /* Slot 0 (Sud / Vous) */
-      @keyframes flyFromCenter_0_to_0 { from { transform: translateY(-50px) rotate(-4deg); opacity: 1; } to { transform: translateY(170px) rotate(-8deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_0_to_1 { from { transform: translateY(-50px) rotate(-4deg); opacity: 1; } to { transform: translateY(-50px) translateX(-210px) rotate(-15deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_0_to_2 { from { transform: translateY(-50px) rotate(-4deg); opacity: 1; } to { transform: translateY(-180px) rotate(-4deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_0_to_3 { from { transform: translateY(-50px) rotate(-4deg); opacity: 1; } to { transform: translateY(-50px) translateX(210px) rotate(15deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_0_to_0 { from { transform: translateY(-2px) translateX(3px) rotate(-8deg) scale(0.92); opacity: 1; } to { transform: translateY(220px) rotate(-10deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_0_to_1 { from { transform: translateY(-2px) translateX(3px) rotate(-8deg) scale(0.92); opacity: 1; } to { transform: translateX(-240px) rotate(-15deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_0_to_2 { from { transform: translateY(-2px) translateX(3px) rotate(-8deg) scale(0.92); opacity: 1; } to { transform: translateY(-220px) rotate(-4deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_0_to_3 { from { transform: translateY(-2px) translateX(3px) rotate(-8deg) scale(0.92); opacity: 1; } to { transform: translateX(240px) rotate(15deg) scale(0.35); opacity: 0; } }
 
       /* Slot 1 (Ouest / J2) */
-      @keyframes flyFromCenter_1_to_0 { from { transform: translateX(52px) rotate(3deg); opacity: 1; } to { transform: translateX(52px) translateY(170px) rotate(8deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_1_to_1 { from { transform: translateX(52px) rotate(3deg); opacity: 1; } to { transform: translateX(-210px) rotate(-12deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_1_to_2 { from { transform: translateX(52px) rotate(3deg); opacity: 1; } to { transform: translateX(52px) translateY(-180px) rotate(3deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_1_to_3 { from { transform: translateX(52px) rotate(3deg); opacity: 1; } to { transform: translateX(210px) rotate(12deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_1_to_0 { from { transform: translateX(-3px) translateY(2px) rotate(4deg) scale(0.92); opacity: 1; } to { transform: translateY(220px) rotate(8deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_1_to_1 { from { transform: translateX(-3px) translateY(2px) rotate(4deg) scale(0.92); opacity: 1; } to { transform: translateX(-240px) rotate(-12deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_1_to_2 { from { transform: translateX(-3px) translateY(2px) rotate(4deg) scale(0.92); opacity: 1; } to { transform: translateY(-220px) rotate(3deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_1_to_3 { from { transform: translateX(-3px) translateY(2px) rotate(4deg) scale(0.92); opacity: 1; } to { transform: translateX(240px) rotate(12deg) scale(0.35); opacity: 0; } }
 
       /* Slot 2 (Nord / J3) */
-      @keyframes flyFromCenter_2_to_0 { from { transform: translateY(50px) rotate(-2deg); opacity: 1; } to { transform: translateY(170px) rotate(-4deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_2_to_1 { from { transform: translateY(50px) rotate(-2deg); opacity: 1; } to { transform: translateY(50px) translateX(-210px) rotate(-15deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_2_to_2 { from { transform: translateY(50px) rotate(-2deg); opacity: 1; } to { transform: translateY(-180px) rotate(-2deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_2_to_3 { from { transform: translateY(50px) rotate(-2deg); opacity: 1; } to { transform: translateY(50px) translateX(210px) rotate(15deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_2_to_0 { from { transform: translateY(3px) translateX(-2px) rotate(-4deg) scale(0.92); opacity: 1; } to { transform: translateY(220px) rotate(-6deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_2_to_1 { from { transform: translateY(3px) translateX(-2px) rotate(-4deg) scale(0.92); opacity: 1; } to { transform: translateX(-240px) rotate(-15deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_2_to_2 { from { transform: translateY(3px) translateX(-2px) rotate(-4deg) scale(0.92); opacity: 1; } to { transform: translateY(-220px) rotate(-2deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_2_to_3 { from { transform: translateY(3px) translateX(-2px) rotate(-4deg) scale(0.92); opacity: 1; } to { transform: translateX(240px) rotate(15deg) scale(0.35); opacity: 0; } }
 
       /* Slot 3 (Est / J4) */
-      @keyframes flyFromCenter_3_to_0 { from { transform: translateX(-52px) rotate(5deg); opacity: 1; } to { transform: translateX(-52px) translateY(170px) rotate(10deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_3_to_1 { from { transform: translateX(-52px) rotate(5deg); opacity: 1; } to { transform: translateX(-210px) rotate(-12deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_3_to_2 { from { transform: translateX(-52px) rotate(5deg); opacity: 1; } to { transform: translateX(-52px) translateY(-180px) rotate(5deg) scale(0.35); opacity: 0; } }
-      @keyframes flyFromCenter_3_to_3 { from { transform: translateX(-52px) rotate(5deg); opacity: 1; } to { transform: translateX(210px) rotate(15deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_3_to_0 { from { transform: translateX(4px) translateY(-2px) rotate(6deg) scale(0.92); opacity: 1; } to { transform: translateY(220px) rotate(10deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_3_to_1 { from { transform: translateX(4px) translateY(-2px) rotate(6deg) scale(0.92); opacity: 1; } to { transform: translateX(-240px) rotate(-12deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_3_to_2 { from { transform: translateX(4px) translateY(-2px) rotate(6deg) scale(0.92); opacity: 1; } to { transform: translateY(-180px) rotate(5deg) scale(0.35); opacity: 0; } }
+      @keyframes flyFromCenter_3_to_3 { from { transform: translateX(4px) translateY(-2px) rotate(6deg) scale(0.92); opacity: 1; } to { transform: translateX(240px) rotate(15deg) scale(0.35); opacity: 0; } }
 
       /* Premium, consistent overlays. */
       [id^="modal-"] { backdrop-filter: blur(10px); }

@@ -3,6 +3,7 @@ import {
         } from './firebase-config.js';
         import { getWhistContractName } from '../shared/whist-contracts.js';
         import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
+        import { cartesJouables, determinerGagnant, estRevelationPartenaire, calculerScoreWhistGand } from '../shared/game-domain.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
         const COULEUR_CSS = { 'COEUR': 'text-red-600', 'CARREAU': 'text-red-600', 'TREFLE': 'text-slate-900', 'PIQUE': 'text-slate-900' };
@@ -33,6 +34,172 @@ import {
         let passesConsecutifs = 0;
         let propositionRelancee = false;
         let jeuActif = false;
+
+        // ─── COOKIES & SAUVEGARDE DE L'ÉTAT ACTIF DE LA PARTIE ─────
+
+        function setCookie(name, value, days = 1) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/;SameSite=Lax";
+        }
+
+        function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(cname) === 0) return c.substring(cname.length, c.length);
+            }
+            return "";
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        function saveActiveGameState() {
+            if (!hands || !hands[0] || (hands[0].length === 0 && !pliCourant.length && !jeuActif && !meilleureEnchere)) {
+                clearActiveGameState();
+                return;
+            }
+            const state = {
+                currentManche,
+                donneurId,
+                leaderId,
+                hands,
+                mainsInitiales,
+                meilleureEnchere,
+                contratFinal,
+                historiqueEncheres,
+                tourEnchere,
+                passesConsecutifs,
+                propositionRelancee,
+                jeuActif,
+                pliCourant,
+                plisGagnes,
+                plisHistory,
+                totalScores,
+                timestamp: Date.now()
+            };
+            const jsonStr = JSON.stringify(state);
+            try {
+                localStorage.setItem('allwhist_active_game_state', jsonStr);
+                setCookie('allwhist_active_game_state', jsonStr, 1);
+            } catch (e) {
+                console.warn('Erreur lors de la sauvegarde de la partie active:', e);
+            }
+        }
+
+        function clearActiveGameState() {
+            try {
+                localStorage.removeItem('allwhist_active_game_state');
+                eraseCookie('allwhist_active_game_state');
+            } catch (e) {}
+        }
+
+        function loadActiveGameState() {
+            try {
+                let jsonStr = localStorage.getItem('allwhist_active_game_state');
+                if (!jsonStr) {
+                    jsonStr = getCookie('allwhist_active_game_state');
+                }
+                if (!jsonStr) return false;
+
+                const state = JSON.parse(jsonStr);
+                if (!state || !state.hands || !Array.isArray(state.hands) || state.hands.length !== 4) return false;
+
+                // Ne pas charger une partie de plus de 24h
+                if (Date.now() - (state.timestamp || 0) > 24 * 60 * 60 * 1000) {
+                    clearActiveGameState();
+                    return false;
+                }
+
+                currentManche = state.currentManche || 1;
+                donneurId = state.donneurId ?? 3;
+                leaderId = state.leaderId ?? 0;
+                hands = state.hands;
+                mainsInitiales = state.mainsInitiales || state.hands;
+                meilleureEnchere = state.meilleureEnchere || null;
+                contratFinal = state.contratFinal || null;
+                historiqueEncheres = state.historiqueEncheres || [];
+                tourEnchere = state.tourEnchere ?? 0;
+                passesConsecutifs = state.passesConsecutifs ?? 0;
+                propositionRelancee = state.propositionRelancee ?? false;
+                jeuActif = state.jeuActif ?? false;
+                pliCourant = state.pliCourant || [];
+                plisGagnes = state.plisGagnes || [0, 0, 0, 0];
+                plisHistory = state.plisHistory || [];
+                totalScores = state.totalScores || [0, 0, 0, 0];
+
+                updateMancheBadge();
+                updateDealerBadge();
+                updatePlisUI();
+                updateTrickProgress();
+                sortHand();
+                renderHandsUI();
+                renderPlayerBidLabels();
+
+                if (contratFinal) {
+                    const cb = document.getElementById('contrat-badge');
+                    if (cb) {
+                        cb.classList.remove('hidden');
+                        document.getElementById('contrat-name').innerText = contratFinal.nom || getWhistContractName(contratFinal);
+                        const targetObj = BAREME_IWW[contratFinal.id]?.obj ?? 0;
+                        const currentTeamPlis = plisGagnes[contratFinal.joueurId] + (contratFinal.partenaireId >= 0 ? plisGagnes[contratFinal.partenaireId] : 0);
+                        document.getElementById('contrat-target').innerText = `${currentTeamPlis}/${targetObj}`;
+                    }
+                    if (contratFinal.atout) {
+                        const ab = document.getElementById('atout-badge');
+                        if (ab) {
+                            ab.classList.remove('hidden');
+                            const sym = document.getElementById('atout-symbol');
+                            if (sym) sym.innerHTML = SYM[contratFinal.atout] || '';
+                        }
+                    }
+                    for (let pid = 0; pid < 4; pid++) {
+                        const isBidder = pid === contratFinal.joueurId;
+                        const isPartner = pid === contratFinal.partenaireId;
+                        const badge = document.getElementById(`badge-j${pid}`);
+                        const teamTag = document.getElementById(`team-j${pid}`);
+                        if (badge) {
+                            badge.classList.toggle('border-emerald-400', isBidder || isPartner);
+                            badge.classList.toggle('border-rose-400', !isBidder && !isPartner);
+                        }
+                        if (teamTag) {
+                            teamTag.classList.remove('hidden');
+                            teamTag.innerText = (isBidder || isPartner) ? 'Preneur' : 'Défense';
+                        }
+                    }
+                }
+
+                clearTableUI();
+                if (pliCourant && pliCourant.length > 0) {
+                    pliCourant.forEach(p => {
+                        renderTableCard(p.joueurId, p.carte);
+                    });
+                }
+
+                showMessage("Partie reprise après rafraîchissement d'écran !");
+
+                if (jeuActif) {
+                    const tid = (leaderId + pliCourant.length) % 4;
+                    updateTurnIndicator(tid);
+                    if (tid !== 0) {
+                        playAIUntilHuman();
+                    }
+                } else {
+                    prochainTourEnchere();
+                }
+
+                return true;
+            } catch (e) {
+                console.warn('Erreur lors de la restauration de la partie active:', e);
+                clearActiveGameState();
+                return false;
+            }
+        }
 
         const BAREME_IWW = {
             propose: { pts: 10, prio: 1, obj: 8, seul: false },
@@ -159,9 +326,15 @@ import {
             modalEnchere.classList.remove('flex');
         }
         function formatAuctionAction(entry) {
+            if (!entry) return '—';
+            if (entry.actionLabel) return entry.actionLabel;
+            if (entry.isBoucheTrou) return 'Bouche-Trou';
+            if (entry.isPasseTrou) return 'Passe-trou';
             if (entry.action === 'passe') return 'Passe';
             const c = entry.contrat || {};
-            return `${c.nom || c.id || 'Enchère'}${c.atout ? ` ${SYM[c.atout] || ''}` : ''}`;
+            const name = c.nom || (c.id ? getWhistContractName(c) : 'Enchère');
+            const suitSymbol = c.atout && SYM[c.atout] ? ` ${SYM[c.atout]}` : '';
+            return `${name}${suitSymbol}`;
         }
         function renderLiveAuctionHistory() {
             const box = document.getElementById('auction-live-history');
@@ -194,24 +367,45 @@ import {
         }
         function showAuctionHistory() {
             hideBiddingPanel();
-            const historiqueAffiche = historiqueEncheres.map(e => ({ ...e, contrat: e.contrat ? { ...e.contrat } : undefined }));
             const historyList = document.getElementById('auction-history-list');
-            historyList.replaceChildren();
-            if (historiqueAffiche.length) historiqueAffiche.forEach((e, i) => {
-                const row = document.createElement('div'); row.className = 'auction-history-row';
-                const player = document.createElement('span'); player.className = 'font-bold'; player.textContent = `${i + 1}. ${PLAYER_LABELS[e.joueurId]}`;
-                const action = document.createElement('span'); action.className = 'font-black'; action.textContent = formatAuctionAction(e);
-                row.append(player, action); historyList.appendChild(row);
-            });
-            else historyList.innerHTML = '<div class="text-slate-500 text-center py-4">Aucune enchère enregistrée</div>';
+            if (!historyList) return Promise.resolve();
+            historyList.innerHTML = '';
+
+            if (historiqueEncheres && historiqueEncheres.length > 0) {
+                historiqueEncheres.forEach((e, i) => {
+                    const row = document.createElement('div');
+                    row.className = `auction-history-row ${e.action === 'passe' ? 'is-pass' : 'is-bid'}`;
+
+                    const player = document.createElement('span');
+                    player.className = 'auction-player';
+                    player.textContent = `${i + 1}. ${PLAYER_LABELS[e.joueurId] || ('Joueur ' + (e.joueurId + 1))}`;
+
+                    const action = document.createElement('span');
+                    action.className = 'auction-action';
+                    action.textContent = formatAuctionAction(e);
+
+                    row.append(player, action);
+                    historyList.appendChild(row);
+                });
+            } else {
+                historyList.innerHTML = '<div class="text-slate-500 text-center py-6 font-bold">Aucune enchère enregistrée</div>';
+            }
+
             const auto = settings.autoBidding;
-            document.getElementById('auction-history-mode').innerText = auto ? 'Fermeture automatique' : 'Validation manuelle';
-            document.getElementById('btn-auction-history-ok').classList.toggle('hidden', auto);
+            const modeEl = document.getElementById('auction-history-mode');
+            if (modeEl) modeEl.innerText = auto ? 'Fermeture automatique' : 'Validation manuelle';
+
+            const okBtn = document.getElementById('btn-auction-history-ok');
+            if (okBtn) okBtn.classList.toggle('hidden', auto);
+
             modalAuctionHistory.classList.remove('hidden');
             modalAuctionHistory.classList.add('flex');
+
             return new Promise(resolve => {
                 auctionHistoryResolver = resolve;
-                if (auto) auctionHistoryTimer = setTimeout(closeAuctionHistory, Math.max(3000, settings.aiSpeed * 3));
+                if (auto) {
+                    auctionHistoryTimer = setTimeout(closeAuctionHistory, Math.max(3500, settings.aiSpeed * 3));
+                }
             });
         }
         document.getElementById('btn-auction-history-ok').onclick = closeAuctionHistory;
@@ -219,6 +413,15 @@ import {
         function hideSummary() {
             modalResume.classList.add('hidden');
             modalResume.classList.remove('flex');
+            contratFinal = null;
+            document.querySelectorAll('.trick-progress').forEach(el => {
+                el.classList.remove('is-visible');
+                el.replaceChildren();
+            });
+            const cBadge = document.getElementById('contrat-badge');
+            if (cBadge) cBadge.classList.add('hidden');
+            const aBadge = document.getElementById('atout-badge');
+            if (aBadge) aBadge.classList.add('hidden');
         }
 
         document.getElementById('btn-close-summary').onclick = hideSummary;
@@ -384,6 +587,7 @@ import {
             mainsInitiales = hands.map(hand => hand.map(card => ({ ...card })));
             updateDealerBadge();
 
+            contratFinal = null;
             plisGagnes = [0, 0, 0, 0];
             pliCourant = [];
             leaderId = 0;
@@ -413,6 +617,7 @@ import {
                 meilleureEnchere = null;
                 tourEnchere = (donneurId + 1) % 4;
                 renderHandsUI();
+                saveActiveGameState();
                 prochainTourEnchere();
             }
         }
@@ -453,7 +658,25 @@ import {
                     return;
                 }
             }
-            if (passesConsecutifs >= 4 && !meilleureEnchere) { hideBiddingPanel(); await showAuctionHistory(); showMessage("Tout le monde a passé. Redistribution..."); setTimeout(() => startNewGame(true), 1200); return; }
+            if (passesConsecutifs >= 4 && !meilleureEnchere) {
+                if (historiqueEncheres.length === 4) {
+                    passesConsecutifs = 0;
+                    showMessage("Aucun Trou annoncé. Début des enchères ordinaires.");
+                    saveActiveGameState();
+                    return prochainTourEnchere();
+                }
+                hideBiddingPanel();
+                await showAuctionHistory();
+                const sauvegardeReussie = await sauvegarderPasse();
+                showMessage(
+                    sauvegardeReussie
+                        ? "Tout le monde a passé. Donne enregistrée, redistribution..."
+                        : "Tout le monde a passé. Sauvegarde impossible, redistribution...",
+                    5000,
+                );
+                setTimeout(() => startNewGame(true), 1200);
+                return;
+            }
             const id = tourEnchere % 4;
             updateTurnIndicator(id);
             if (id === 0) {
@@ -482,13 +705,30 @@ import {
                     const atoutTrou = ['trou', 'trou_royal'].includes(meilleureEnchere.id) && meilleureEnchere.atout ? ` — Atout ${SYM[meilleureEnchere.atout]}` : '';
                     document.getElementById('current-bid-info').innerText = `${meilleureEnchere.nom}${atoutTrou} (J${id+1})`;
                 }
+                saveActiveGameState();
                 tourEnchere++; prochainTourEnchere();
             }
         }
 
         function passerEnchereWeb(playerId) {
             hideBiddingPanel();
-            const actionPasse = { joueurId: playerId, action: 'passe' };
+            let isBoucheTrou = false;
+            let isPasseTrou = false;
+            let actionLabel = 'Passe';
+
+            if (meilleureEnchere && (meilleureEnchere.id === 'trou' || meilleureEnchere.id === 'trou_royal')) {
+                const targetMatch = meilleureEnchere.asPartenaire ? String(meilleureEnchere.asPartenaire).match(/^(\d+)[_-](COEUR|CARREAU|TREFLE|PIQUE)$/) : null;
+                if (targetMatch && hands[playerId].some(c => c.valeur === Number(targetMatch[1]) && c.couleur === targetMatch[2])) {
+                    isBoucheTrou = true;
+                    actionLabel = 'Bouche-Trou';
+                    meilleureEnchere.partenaireId = playerId;
+                }
+            } else if (!meilleureEnchere && historiqueEncheres.length < 4) {
+                isPasseTrou = true;
+                actionLabel = 'Passe-trou';
+            }
+
+            const actionPasse = { joueurId: playerId, action: 'passe', isBoucheTrou, isPasseTrou, actionLabel };
             historiqueEncheres.push(actionPasse);
             announceAuctionAction(actionPasse);
             const proposerRefuse = propositionRelancee && meilleureEnchere?.id === 'propose' && meilleureEnchere.joueurId === playerId;
@@ -499,13 +739,21 @@ import {
             } else {
                 passesConsecutifs++;
             }
+            saveActiveGameState();
             tourEnchere++;
             prochainTourEnchere();
         }
 
         function deciderEnchereIA(hand, currentBid) {
             const playerId = tourEnchere % 4;
-            const decision = chooseWhistBid(hand, currentBid, 'expert', playerId, WHIST_CONTRACTS);
+            const decision = chooseWhistBid(
+                hand,
+                currentBid,
+                'expert',
+                playerId,
+                WHIST_CONTRACTS,
+                { premierTourAs: historiqueEncheres.length < 4 },
+            );
             if (decision.action === 'passe' || !decision.contratId) return null;
             return {
                 ...BAREME_IWW[decision.contratId],
@@ -542,13 +790,32 @@ import {
             ab.classList.remove('hidden'); ab.classList.add('flex');
 
             const bidderId = contratFinal.joueurId;
-            const partnerId = (contratFinal.id === 'propose' || contratFinal.id === 'emballe') ? (contratFinal.partenaireId !== undefined ? contratFinal.partenaireId : -1) : -1;
+            const hasPartner = (
+                (contratFinal.id === 'propose' || contratFinal.id === 'emballe' || contratFinal.id === 'trou' || contratFinal.id === 'trou_royal') &&
+                contratFinal.partenaireId !== undefined &&
+                contratFinal.partenaireId !== null &&
+                contratFinal.partenaireId >= 0 &&
+                contratFinal.partenaireId !== bidderId
+            );
+            const partnerId = hasPartner ? contratFinal.partenaireId : -1;
+            const isKnownSolo = !hasPartner && !contratFinal.asPartenaire;
             for (let i = 0; i < 4; i++) {
                 const b = document.getElementById(`badge-j${i}`), tl = document.getElementById(`team-j${i}`);
+                if (!b || !tl) continue;
                 b.classList.remove('border-emerald-400', 'border-rose-400');
-                if (i === bidderId || i === partnerId) { b.classList.add('border-emerald-400'); tl.innerText = 'EQUIPE A'; tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-600 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20'; }
-                else { b.classList.add('border-rose-400'); tl.innerText = 'EQUIPE B'; tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-rose-600 text-white text-[8px] font-black rounded-full hidden z-10 border border-white/20'; }
-                tl.classList.remove('hidden');
+                if (i === bidderId || (hasPartner && i === partnerId)) {
+                    b.classList.add('border-emerald-400');
+                    tl.innerText = isKnownSolo ? 'SOLO' : 'EQUIPE A';
+                    tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-600 text-white text-[8px] font-black rounded-full z-10 border border-white/20';
+                    tl.classList.remove('hidden');
+                } else if (isKnownSolo || hasPartner) {
+                    b.classList.add('border-rose-400');
+                    tl.innerText = 'EQUIPE B';
+                    tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-rose-600 text-white text-[8px] font-black rounded-full z-10 border border-white/20';
+                    tl.classList.remove('hidden');
+                } else {
+                    tl.classList.add('hidden');
+                }
             }
             if (contratFinal.id === 'petite_misere') {
                 hands.forEach(hand => {
@@ -572,9 +839,10 @@ import {
         }
 
         function isCardPlayable(card) {
-            if (pliCourant.length === 0) return true;
-            const cd = pliCourant[0].carte.couleur;
-            return hands[0].some(c => c.couleur === cd) ? card.couleur === cd : true;
+            return cartesJouables(hands[0], {
+                cartesJouees: pliCourant,
+                couleurDemandee: pliCourant[0]?.carte.couleur,
+            }).some(playable => playable.id === card.id);
         }
 
         function openBiddingModal() {
@@ -588,8 +856,8 @@ import {
                 {id:'petite_misere',nom:'Petite Misère'},
                 {id:'solo_8',nom:'Solo 8'},
                 {id:'abondance_9',nom:'Abondance 9'},
-                {id:'trou',nom:'Trou'},
-                {id:'trou_royal',nom:'Trou Royal'},
+                {id:'trou',nom:'Trou (3 As)'},
+                {id:'trou_royal',nom:'Trou Royal (4 As)'},
                 {id:'abondance_10',nom:'Abondance 10'},
                 {id:'misere',nom:'Grande Misère'},
                 {id:'abondance_11',nom:'Abondance 11'},
@@ -609,13 +877,55 @@ import {
 
             const curr = meilleureEnchere ? BAREME_IWW[meilleureEnchere.id].prio : -1;
             const nbAs = hands[0] ? hands[0].filter(c => c.valeur === 14).length : 0;
-            opts.innerHTML = bids.map(p => {
-                let dis = BAREME_IWW[p.id].prio < curr;
-                if (p.id === 'propose') dis = meilleureEnchere ? meilleureEnchere.id !== 'propose' : false;
-                if (p.id === 'emballe') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId === 0;
-                if (p.id === 'demande') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId !== 0;
-                if (p.id === 'trou') dis = nbAs !== 3 || curr >= BAREME_IWW['trou'].prio;
-                if (p.id === 'trou_royal') dis = nbAs !== 4 || curr >= BAREME_IWW['trou_royal'].prio;
+            const estPremierTourAs = historiqueEncheres.length < 4;
+            const isTrouActif = meilleureEnchere && (meilleureEnchere.id === 'trou' || meilleureEnchere.id === 'trou_royal');
+            let aLe4emeAs = false;
+            if (isTrouActif && meilleureEnchere.asPartenaire) {
+                const targetMatch = String(meilleureEnchere.asPartenaire).match(/^(\d+)[_-](COEUR|CARREAU|TREFLE|PIQUE)$/);
+                if (targetMatch) {
+                    const v = Number(targetMatch[1]), suit = targetMatch[2];
+                    aLe4emeAs = hands[0].some(c => c.valeur === v && c.couleur === suit);
+                }
+            }
+
+            const doitAnnoncerTrou = estPremierTourAs &&
+                ((nbAs === 3 && curr < BAREME_IWW.trou.prio) ||
+                    (nbAs === 4 && curr < BAREME_IWW.trou_royal.prio));
+            const btnPasse = document.getElementById('btn-passe');
+            if (btnPasse) {
+                btnPasse.disabled = doitAnnoncerTrou;
+                if (aLe4emeAs) {
+                    btnPasse.textContent = meilleureEnchere?.id === 'trou_royal'
+                        ? "Bouche-Trou (Roi de Cœur)"
+                        : "Bouche-Trou (4ème As)";
+                    btnPasse.className = "auction-pass-button bg-amber-500 hover:bg-amber-600 text-white font-black";
+                } else if (estPremierTourAs && !meilleureEnchere) {
+                    btnPasse.textContent = doitAnnoncerTrou
+                        ? (nbAs === 4 ? "Trou Royal obligatoire" : "Trou obligatoire")
+                        : "Passe-trou (Moins de 3 As)";
+                    btnPasse.className = "auction-pass-button";
+                } else {
+                    btnPasse.textContent = "Passer";
+                    btnPasse.className = "auction-pass-button";
+                }
+            }
+
+            opts.innerHTML = bids
+                .filter(p => !estPremierTourAs || p.id === 'trou' || p.id === 'trou_royal')
+                .map(p => {
+                let dis;
+                if (estPremierTourAs) {
+                    dis = p.id === 'trou'
+                        ? nbAs !== 3 || curr >= BAREME_IWW.trou.prio
+                        : nbAs !== 4 || curr >= BAREME_IWW.trou_royal.prio;
+                } else {
+                    dis = BAREME_IWW[p.id].prio < curr;
+                    if (p.id === 'propose') dis = meilleureEnchere ? meilleureEnchere.id !== 'propose' : false;
+                    if (p.id === 'emballe') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId === 0;
+                    if (p.id === 'demande') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId !== 0;
+                    if (p.id === 'trou') dis = nbAs !== 3 || curr >= BAREME_IWW['trou'].prio;
+                    if (p.id === 'trou_royal') dis = nbAs !== 4 || curr >= BAREME_IWW['trou_royal'].prio;
+                }
 
                 const isTarget = targetBidId === p.id;
                 const btnClass = isTarget ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-400 font-black ring-2 ring-amber-400' : (dis ? 'bg-slate-50 text-slate-300 border-slate-200' : 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-200');
@@ -656,7 +966,9 @@ import {
             announceAuctionAction(actionEnchere);
             propositionRelancee = false;
             const atoutTrou = ['trou', 'trou_royal'].includes(id) && atout ? ` — Atout ${SYM[atout]}` : '';
-            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (${PLAYER_LABELS[0]})`; prochainTourEnchere();
+            passesConsecutifs = 0; tourEnchere++; document.getElementById('current-bid-info').innerText = `${nom}${atoutTrou} (${PLAYER_LABELS[0]})`;
+            saveActiveGameState();
+            prochainTourEnchere();
         }
 
         document.getElementById('btn-passe').onclick = () => { hideBiddingPanel(); passerEnchereWeb(tourEnchere % 4); };
@@ -680,15 +992,38 @@ import {
 
         function revealWebPartner(playerId, card) {
             if (!contratFinal?.asPartenaire || (Number.isInteger(contratFinal.partenaireId) && contratFinal.partenaireId >= 0)) return;
-            const match = String(contratFinal.asPartenaire).match(/^((\d+)[_-](COEUR|CARREAU|TREFLE|PIQUE))$/);
-            if (match && card.valeur === Number(match[2]) && card.couleur === match[3]) {
+            if (estRevelationPartenaire(card, contratFinal)) {
                 contratFinal.partenaireId = playerId;
+                const bidderId = contratFinal.joueurId;
+                const isSolo = (playerId === bidderId);
+                for (let i = 0; i < 4; i++) {
+                    const b = document.getElementById(`badge-j${i}`), tl = document.getElementById(`team-j${i}`);
+                    if (!b || !tl) continue;
+                    b.classList.remove('border-emerald-400', 'border-rose-400');
+                    if (i === bidderId || (!isSolo && i === playerId)) {
+                        b.classList.add('border-emerald-400');
+                        tl.innerText = isSolo ? 'SOLO' : 'EQUIPE A';
+                        tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-emerald-600 text-white text-[8px] font-black rounded-full z-10 border border-white/20';
+                    } else {
+                        b.classList.add('border-rose-400');
+                        tl.innerText = 'EQUIPE B';
+                        tl.className = 'absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-rose-600 text-white text-[8px] font-black rounded-full z-10 border border-white/20';
+                    }
+                    tl.classList.remove('hidden');
+                }
+                const cardLabel = `${card.valeur === 14 ? 'As' : card.valeur === 13 ? 'Roi' : card.valeur} de ${SYM[card.couleur] || card.couleur}`;
+                if (isSolo) {
+                    showMessage(`${PLAYER_LABELS[bidderId]} a joué le ${cardLabel} et joue donc seul !`, 3500);
+                } else {
+                    showMessage(`${PLAYER_LABELS[playerId]} a joué le ${cardLabel} : Partenaire de ${PLAYER_LABELS[bidderId]} !`, 3500);
+                }
             }
         }
 
         function startTrick() {
             resolutionPliEnCours = false;
             pliCourant = [];
+            saveActiveGameState();
             if (leaderId !== 0) playAIUntilHuman();
             else {
                 updateTurnIndicator(0); renderHandsUI();
@@ -719,6 +1054,7 @@ import {
                 revealWebPartner(pid, card);
                 h.splice(h.findIndex(held => held.id === card.id), 1);
                 pliCourant.push({ joueurId: pid, carte: card }); renderTableCard(pid, card);
+                saveActiveGameState();
                 if (pliCourant.length === 4) { evaluateTrickEnd(); return; }
             }
         }
@@ -730,6 +1066,7 @@ import {
             const card = hands[0][idx]; if (!isCardPlayable(card)) return;
             if (pliCourant.length === 0) clearTableUI();
             hands[0].splice(idx, 1); revealWebPartner(0, card); pliCourant.push({ joueurId: 0, carte: card }); renderHandsUI(); renderTableCard(0, card);
+            saveActiveGameState();
             if (pliCourant.length === 4) evaluateTrickEnd(); else playAIUntilHuman();
         };
 
@@ -770,54 +1107,84 @@ import {
             // Laisser le navigateur afficher clairement la quatrième carte avant le résultat du pli.
             await new Promise(r => setTimeout(r, 450));
 
-            const cd = pliCourant[0].carte.couleur, at = contratFinal?.sa ? null : contratFinal.atout;
-            let best = pliCourant[0];
-            for (let i = 1; i < 4; i++) {
-                const c = pliCourant[i], isa = at && c.carte.couleur === at, bisa = at && best.carte.couleur === at;
-                if ((isa && !bisa) || (isa && bisa && c.carte.valeur > best.carte.valeur) || (!isa && !bisa && c.carte.couleur === cd && c.carte.valeur > best.carte.valeur)) best = c;
-            }
+            const at = contratFinal?.sa ? null : contratFinal.atout;
+            const bestPlayerId = determinerGagnant(pliCourant, at);
+            const best = pliCourant.find(play => play.joueurId === bestPlayerId);
             plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI(); updateTrickProgress();
             plisHistory.push({ numero: plisHistory.length + 1, gagnantId: best.joueurId, cartesJouees: pliCourant.map(p => ({ joueurId: p.joueurId, carte: p.carte })) });
 
-            // Entourer la carte gagnante avec un halo doré éclatant
-            const winnerTableCard = document.querySelector(`#table-j${best.joueurId} .table-card`) || document.querySelector(`#table-j${best.joueurId} .playing-card`);
-            if (winnerTableCard) {
-                winnerTableCard.classList.add('ring-4', 'ring-amber-400', 'scale-105', 'shadow-[0_0_35px_rgba(251,191,36,0.9)]', 'z-30');
+            // 1. Mise en évidence de la carte gagnante à sa position exacte
+            const winnerFrontCard = document.querySelector(`#table-j${best.joueurId} .card-face-front`) || document.querySelector(`#table-j${best.joueurId} .table-card`);
+            if (winnerFrontCard) {
+                winnerFrontCard.classList.add('winner-glow');
             }
-            await new Promise(r => setTimeout(r, 700));
+            await new Promise(r => setTimeout(r, 750));
 
-            if (winnerTableCard) {
-                winnerTableCard.classList.remove('ring-4', 'ring-amber-400', 'scale-105', 'shadow-[0_0_35px_rgba(251,191,36,0.9)]');
+            if (winnerFrontCard) {
+                winnerFrontCard.classList.remove('winner-glow');
             }
 
-            // 1. Rassembler les cartes au centre en les retournant (dos visible avec le logo de l'application)
+            // 2. Regroupement des 4 cartes EN SE RETOURNANT directement SUR la carte gagnante
+            const winnerSlot = document.getElementById(`table-j${best.joueurId}`);
+            const winnerRect = winnerSlot ? winnerSlot.getBoundingClientRect() : null;
+            const offsets = [];
+
             for (let i = 0; i < 4; i++) {
-                const el = document.querySelector(`#table-j${i} .table-card`) || document.querySelector(`#table-j${i} .playing-card`);
-                if (el) {
-                    el.style.zIndex = `${20 + i}`;
-                    el.classList.add('is-flipped');
-                    el.style.animation = `gatherToCenter_${i} 0.48s cubic-bezier(0.25, 1, 0.5, 1) forwards`;
+                const slot = document.getElementById(`table-j${i}`);
+                const cardEl = slot ? slot.querySelector('.table-card') : null;
+                if (cardEl && slot && winnerRect) {
+                    const slotRect = slot.getBoundingClientRect();
+                    const jitterX = (Math.random() * 8) - 4;
+                    const jitterY = (Math.random() * 8) - 4;
+                    const rot = (Math.random() * 12) - 6;
+
+                    const dx = winnerRect.left - slotRect.left + jitterX;
+                    const dy = winnerRect.top - slotRect.top + jitterY;
+
+                    offsets[i] = { dx, dy, rot };
+
+                    cardEl.style.zIndex = `${20 + i}`;
+                    cardEl.classList.add('is-flipped');
+                    cardEl.style.transition = 'transform 0.48s cubic-bezier(0.25, 1, 0.5, 1)';
+                    cardEl.style.transform = `translate(${dx}px, ${dy}px) rotate(${rot}deg) scale(0.92)`;
                 }
             }
             await new Promise(r => setTimeout(r, 520));
 
-            // 2. Faire voler les cartes rassemblées et retournées vers le joueur gagnant
+            // 3. Envol du tas rassemblé depuis la carte gagnante vers le joueur gagnant
+            const flyVector = [
+                { x: 0, y: 220 },    // Joueur 0 (Sud) -> vole vers le bas
+                { x: -240, y: 0 },   // Joueur 1 (Ouest) -> vole vers la gauche
+                { x: 0, y: -220 },   // Joueur 2 (Nord) -> vole vers le haut
+                { x: 240, y: 0 }     // Joueur 3 (Est) -> vole vers la droite
+            ][best.joueurId];
+
             for (let i = 0; i < 4; i++) {
-                const el = document.querySelector(`#table-j${i} .table-card`) || document.querySelector(`#table-j${i} .playing-card`);
-                if (el) {
-                    el.style.animation = `flyFromCenter_${i}_to_${best.joueurId} 0.48s ease-in-out forwards`;
+                const slot = document.getElementById(`table-j${i}`);
+                const cardEl = slot ? slot.querySelector('.table-card') : null;
+                if (cardEl && offsets[i]) {
+                    const { dx, dy, rot } = offsets[i];
+                    const finalX = dx + flyVector.x;
+                    const finalY = dy + flyVector.y;
+
+                    cardEl.style.transition = 'transform 0.45s ease-in, opacity 0.45s ease-in';
+                    cardEl.style.transform = `translate(${finalX}px, ${finalY}px) rotate(${rot + (best.joueurId % 2 === 0 ? -10 : 10)}deg) scale(0.3)`;
+                    cardEl.style.opacity = '0';
                 }
             }
             await new Promise(r => setTimeout(r, 480));
             clearTableUI();
 
-            if (hands[0].length === 0) {
+            const isMisereContract = contratFinal?.id && String(contratFinal.id).includes('misere');
+            const miserePlayerLost = isMisereContract && best.joueurId === contratFinal.joueurId;
+
+            if (hands[0].length === 0 || miserePlayerLost) {
                 jeuActif = false;
                 const resume = calculerPointsFinaux();
                 afficherResumeManche(resume);
                 sauvegarderPartie(resume);
                 if (currentManche >= settings.maxGames) showMessage('Partie terminée ! Scores finaux affichés.');
-                else showMessage('Manche terminée ! Résumé ci-dessous.');
+                else showMessage(miserePlayerLost ? 'Misère chutée ! La manche est terminée.' : 'Manche terminée ! Résumé ci-dessous.');
                 return;
             }
 
@@ -834,11 +1201,20 @@ import {
             const scoreEquipeA = data.delta[0] + (data.partnerId >= 0 ? data.delta[data.partnerId] : 0);
             const scoreEquipeB = totalScores.filter((_, index) => index !== 0 && index !== data.partnerId).reduce((a, x) => a + x, 0);
             const contratLabel = contratFinal ? `${contratFinal.nom}${contratFinal.atout ? ` • Atout ${SYM[contratFinal.atout]}` : ''}` : 'Contrat';
+            const getPlayerLabel = (id) => {
+                const name = PLAYER_LABELS[id];
+                if (id === 0) {
+                    return (name && name.toUpperCase() !== 'VOUS') ? `${name} (Vous)` : 'Vous';
+                }
+                const pos = id === 1 ? 'Ouest' : id === 2 ? 'Nord' : 'Est';
+                return name ? `${name} (${pos})` : `J${id + 1} (${pos})`;
+            };
+
             const players = [
-                { id: 0, label: 'Vous', score: totalScores[0] },
-                { id: 1, label: 'J2 / Ouest', score: totalScores[1] },
-                { id: 2, label: 'J3 / Nord', score: totalScores[2] },
-                { id: 3, label: 'J4 / Est', score: totalScores[3] }
+                { id: 0, label: getPlayerLabel(0), score: totalScores[0] },
+                { id: 1, label: getPlayerLabel(1), score: totalScores[1] },
+                { id: 2, label: getPlayerLabel(2), score: totalScores[2] },
+                { id: 3, label: getPlayerLabel(3), score: totalScores[3] }
             ];
 
             document.getElementById('resume-content').innerHTML = `
@@ -862,7 +1238,10 @@ import {
                     ${players.map(player => `
                         <div class="flex items-center justify-between px-3 py-2 rounded-xl ${player.id === 0 ? 'bg-emerald-50 border border-emerald-100' : 'bg-slate-50 border border-slate-100'}">
                             <span class="font-bold text-slate-700">${player.label}</span>
-                            <span class="font-black ${player.score >= 0 ? 'text-slate-900' : 'text-rose-700'}">${player.score} pts</span>
+                            <div class="text-right">
+                                <span class="font-black ${player.score >= 0 ? 'text-slate-900' : 'text-rose-700'}">${player.score} pts</span>
+                                <span class="text-xs ml-1 font-bold ${data.delta[player.id] >= 0 ? 'text-emerald-600' : 'text-rose-600'}">(${data.delta[player.id] >= 0 ? '+' : ''}${data.delta[player.id]})</span>
+                            </div>
                         </div>
                     `).join('')}
                 </div>
@@ -874,29 +1253,78 @@ import {
         }
 
         function calculerPointsFinaux() {
-            const bidderId = contratFinal.joueurId;
-            let partnerId = (contratFinal.id === 'emballe' || contratFinal.id === 'propose' || contratFinal.id === 'demande' || contratFinal.id === 'trou' || contratFinal.id === 'trou_royal') ? (contratFinal.partenaireId !== undefined ? contratFinal.partenaireId : -1) : -1;
-            const obj = BAREME_IWW[contratFinal.id].obj, pts = BAREME_IWW[contratFinal.id].pts, plisTeam = plisGagnes[bidderId] + (partnerId !== -1 ? plisGagnes[partnerId] : 0), reussite = (plisTeam >= obj);
-            const delta = [0, 0, 0, 0], defenseIds = [0, 1, 2, 3].filter(id => id !== bidderId && id !== partnerId);
-            let gain = reussite ? pts : -pts;
-            if (reussite && !contratFinal.sa && obj > 0 && contratFinal.id !== 'chelem') gain += (plisTeam - obj);
-            if (reussite) {
-                const total = gain * defenseIds.length;
-                if (partnerId !== -1) {
-                    delta[bidderId] = Math.floor(total / 2);
-                    delta[partnerId] = total - delta[bidderId];
-                } else delta[bidderId] = total;
-            } else {
-                const total = Math.abs(gain) * defenseIds.length;
-                if (partnerId !== -1) {
-                    delta[bidderId] = -Math.floor(total / 2);
-                    delta[partnerId] = -(total - Math.abs(delta[bidderId]));
-                } else delta[bidderId] = -total;
-            }
-            for (let i = 0; i < 4; i++) totalScores[i] += delta[i];
-            updatePlisUI(); updateTrickProgress();
+            const bareme = BAREME_IWW[contratFinal.id];
+            const score = calculerScoreWhistGand({
+                ...contratFinal,
+                obj: bareme.obj,
+                pts: bareme.pts,
+            }, Object.fromEntries(plisGagnes.map((count, id) => [id, count])));
+            const delta = Array.from({ length: 4 }, (_, id) => score.deltaScores[id] ?? 0);
+            for (let id = 0; id < 4; id++) totalScores[id] += delta[id];
+            updatePlisUI();
+            updateTrickProgress();
 
-            return { bidderId, partnerId, obj, pts, plisTeam, reussite, delta, defenseIds, totalScores: totalScores.slice() };
+            return {
+                bidderId: score.bidderId,
+                partnerId: score.partnerId,
+                obj: score.objective,
+                pts: score.points,
+                plisTeam: score.teamTricks,
+                reussite: score.reussite,
+                delta,
+                defenseIds: score.defenseIds,
+                totalScores: totalScores.slice(),
+            };
+        }
+
+        async function sauvegarderPasse() {
+            try {
+                const userId = currentUser?.uid || 'ANONYMOUS_WEB';
+                const userPseudo = currentUser?.email?.split('@')[0] || 'Invité Web';
+                const initialHands = mainsInitiales.map((main, joueurId) => ({
+                    joueurId,
+                    cartes: main.map(card => ({ ...card })),
+                }));
+                const gameData = {
+                    varianteId: 'whist-gand',
+                    manche: currentManche,
+                    isWebPlay: true,
+                    isPasse: true,
+                    sourcePlatform: 'web',
+                    aiVersion: WHIST_AI_VERSION,
+                    userId,
+                    userPseudo,
+                    createdAt: new Date().toISOString(),
+                    atout: null,
+                    contrat: {
+                        id: 'passe',
+                        nom: 'Passe',
+                        joueurId: null,
+                        plisObjectif: null,
+                    },
+                    mainsInitiales: initialHands,
+                    donne: initialHands.map(({ joueurId, cartes }) => ({
+                        joueurId,
+                        nom: PLAYER_LABELS[joueurId] || `Joueur ${joueurId + 1}`,
+                        mainInitiale: cartes,
+                    })),
+                    plis: [],
+                    resultat: {
+                        reussite: null,
+                        plisFaits: null,
+                        deltaScores: { 0: 0, 1: 0, 2: 0, 3: 0 },
+                    },
+                    historiqueEncheres,
+                };
+
+                const docId = `WEB_PASS_${Date.now()}_${currentManche}`;
+                await setDoc(doc(db, 'games', docId), gameData);
+                console.log('Passed Web deal saved successfully!');
+                return true;
+            } catch (err) {
+                console.error('DB Pass Save Error:', err);
+                return false;
+            }
         }
 
         function sauvegarderPartie(resultat) {
@@ -956,13 +1384,23 @@ import {
             if (!holder) return;
             const wonBid = [...bidTeam].reduce((n,id) => n + (plisGagnes[id] || 0), 0), wonDef = plisGagnes.reduce((n,v,id) => n + (bidTeam.has(id) ? 0 : v), 0);
             const bareme = BAREME_IWW[contratFinal.id] || {}, isMisere = /mis[eè]re/i.test(`${contratFinal.id || ''} ${bareme.nom || ''}`), target = isMisere ? 0 : (bareme.obj || contratFinal.target || 0);
+            const totalDots = contratFinal.id === 'petite_misere' ? 12 : 13;
             holder.classList.add('is-visible');
-            holder.setAttribute('aria-label', `${wonBid} plis équipe enchérissante, ${wonDef} plis attaquants${target ? `, objectif ${target}` : ''}`);
-            for (let i=0; i<13; i++) {
+            holder.setAttribute('aria-label', isMisere
+                ? `${wonDef} plis adversaires (bons), ${wonBid} plis preneur (chute)`
+                : `${wonBid} plis équipe enchérissante, ${wonDef} plis défenseurs${target ? `, objectif ${target}` : ''}`);
+            for (let i = 0; i < totalDots; i++) {
                 const dot = document.createElement('span'); dot.className = 'trick-dot';
-                if (target > 0 && i === target - 1) dot.classList.add('is-target');
-                if (i < wonBid) dot.classList.add('is-bid');
-                if (i >= 13 - wonDef) dot.classList.add('is-def');
+                if (isMisere) {
+                    // Pour la misère : les plis des adversaires sont bons = vert
+                    if (i < wonDef) dot.classList.add('is-bid');
+                    // Tout pli pris par le preneur fait chuter = rouge
+                    if (i >= totalDots - wonBid) dot.classList.add('is-def');
+                } else {
+                    if (target > 0 && i === target - 1) dot.classList.add('is-target');
+                    if (i < wonBid) dot.classList.add('is-bid');
+                    if (i >= totalDots - wonDef) dot.classList.add('is-def');
+                }
                 holder.appendChild(dot);
             }
         }
@@ -973,7 +1411,18 @@ import {
         function getLabel(v) { return v === 14 ? 'A' : v === 13 ? 'R' : v === 12 ? 'D' : v === 11 ? 'V' : v; }
         function renderScoreboard() {
             const list = document.getElementById('scoreboard-list');
-            const players = [ { id: 0, name: 'Vous', score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' }, { id: 1, name: 'Ouest (J2)', score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' }, { id: 2, name: 'Nord (J3)', score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' }, { id: 3, name: 'Est (J4)', score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' } ];
+            const getPlayerScoreLabel = (id) => {
+                const name = PLAYER_LABELS[id];
+                if (id === 0) return (name && name.toUpperCase() !== 'VOUS') ? `${name} (Vous)` : 'Vous';
+                const pos = id === 1 ? 'Ouest' : id === 2 ? 'Nord' : 'Est';
+                return name ? `${name} (${pos})` : `${pos} (J${id + 1})`;
+            };
+            const players = [
+                { id: 0, name: getPlayerScoreLabel(0), score: totalScores[0], icon: 'fa-user-tie', color: 'bg-emerald-500' },
+                { id: 1, name: getPlayerScoreLabel(1), score: totalScores[1], icon: 'fa-robot', color: 'bg-sky-500' },
+                { id: 2, name: getPlayerScoreLabel(2), score: totalScores[2], icon: 'fa-robot', color: 'bg-violet-500' },
+                { id: 3, name: getPlayerScoreLabel(3), score: totalScores[3], icon: 'fa-robot', color: 'bg-amber-500' }
+            ];
             players.sort((a, b) => b.score - a.score);
             list.innerHTML = players.map((p, idx) => `<div class="flex items-center justify-between p-4 ${p.id === 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-slate-50 border-slate-100'} border rounded-2xl"><div class="flex items-center gap-3"><div class="w-8 h-8 ${p.color} rounded-full flex items-center justify-center text-white"><i class="fas ${p.icon}"></i></div><div><div class="font-black text-slate-800">${idx + 1}. ${p.name}</div><div class="text-[10px] uppercase text-slate-400">Score total</div></div></div><span class="font-black text-slate-900">${p.score}</span></div>`).join('');
         }
@@ -1051,9 +1500,25 @@ function updateSettingsUI() {
         document.getElementById('set-son-off').onclick = () => { settings.son = false; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-vib-on').onclick = () => { settings.vibration = true; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-vib-off').onclick = () => { settings.vibration = false; updateSettingsUI(); saveSettings(); };
-        document.getElementById('set-auto-bid-on').onclick = () => { settings.autoBidding = true; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-auto-bid-on').onclick = () => {
+            settings.autoBidding = true;
+            updateSettingsUI();
+            saveSettings();
+            if (typeof tourEnchere !== 'undefined' && tourEnchere % 4 === 0 && typeof jeuActif !== 'undefined' && !jeuActif) {
+                const modalEnchere = document.getElementById('modal-enchere');
+                if (modalEnchere) { modalEnchere.classList.add('hidden'); modalEnchere.classList.remove('flex'); }
+                prochainTourEnchere();
+            }
+        };
         document.getElementById('set-auto-bid-off').onclick = () => { settings.autoBidding = false; updateSettingsUI(); saveSettings(); };
-        document.getElementById('set-auto-play-on').onclick = () => { settings.autoPlay = true; updateSettingsUI(); saveSettings(); };
+        document.getElementById('set-auto-play-on').onclick = () => {
+            settings.autoPlay = true;
+            updateSettingsUI();
+            saveSettings();
+            if (typeof tourJeu !== 'undefined' && tourJeu % 4 === 0 && typeof jeuActif !== 'undefined' && jeuActif) {
+                choixCarteWeb(0);
+            }
+        };
         document.getElementById('set-auto-play-off').onclick = () => { settings.autoPlay = false; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-ai-speed').oninput = (e) => { settings.aiSpeed = Number(e.target.value); updateSettingsUI(); saveSettings(); };
         renderAvatarPicker();
@@ -1061,4 +1526,7 @@ function updateSettingsUI() {
         updateSettingsUI();
         updatePlisUI(); updateTrickProgress();
         renderHandsUI();
+
+        // Restauration automatique si une partie était en cours avant le rafraîchissement d'écran
+        loadActiveGameState();
 
