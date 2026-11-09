@@ -2,7 +2,7 @@ import {
             db, auth, collection, doc, setDoc, onAuthStateChanged, googleProvider, signInWithPopup
         } from './firebase-config.js';
         import { getWhistContractName } from '../shared/whist-contracts.js';
-        import { chooseMisereDiscard, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
+        import { chooseMisereDiscard, chooseTrouTrump, chooseWhistBid, chooseWhistCard, WHIST_AI_VERSION } from '../shared/whist-ai.js';
         import { cartesJouables, determinerGagnant, estRevelationPartenaire, calculerScoreWhistGand } from '../shared/game-domain.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
@@ -721,8 +721,19 @@ import {
                 const targetMatch = meilleureEnchere.asPartenaire ? String(meilleureEnchere.asPartenaire).match(/^(\d+)[_-](COEUR|CARREAU|TREFLE|PIQUE)$/) : null;
                 if (targetMatch && hands[playerId].some(c => c.valeur === Number(targetMatch[1]) && c.couleur === targetMatch[2])) {
                     isBoucheTrou = true;
-                    actionLabel = 'Bouche-Trou';
                     meilleureEnchere.partenaireId = playerId;
+                    if (meilleureEnchere.id === 'trou' && !meilleureEnchere.atout) {
+                        if (playerId === 0 && !settings.autoBidding) {
+                            window.tmpContrat = { choixAtoutTrou: true, boucheTrouId: playerId };
+                            modalAtout.classList.remove('hidden');
+                            modalAtout.classList.add('flex');
+                            showMessage('Vous êtes Bouche-Trou : choisissez la couleur d’atout.');
+                            return;
+                        }
+                        meilleureEnchere.atout = chooseTrouTrump(hands[playerId]);
+                    }
+                    const atoutLabel = meilleureEnchere.atout ? ` · ${SYM[meilleureEnchere.atout]} ${SUIT_NAME[meilleureEnchere.atout]}` : '';
+                    actionLabel = `Bouche-Trou${atoutLabel}`;
                 }
             } else if (!meilleureEnchere && historiqueEncheres.length < 4) {
                 isPasseTrou = true;
@@ -766,6 +777,18 @@ import {
 
         async function finaliserEnchere() {
             hideBiddingPanel();
+            if (meilleureEnchere?.id === 'trou' && !meilleureEnchere.atout) {
+                const boucheTrouId = meilleureEnchere.partenaireId;
+                if (Number.isInteger(boucheTrouId) && boucheTrouId > 0) {
+                    meilleureEnchere.atout = chooseTrouTrump(hands[boucheTrouId]);
+                } else {
+                    window.tmpContrat = { choixAtoutTrou: true, boucheTrouId: boucheTrouId ?? 0 };
+                    modalAtout.classList.remove('hidden');
+                    modalAtout.classList.add('flex');
+                    showMessage('Le Bouche-Trou doit choisir la couleur d’atout.');
+                    return;
+                }
+            }
             await showAuctionHistory();
             contratFinal = meilleureEnchere; jeuActif = true;
             document.getElementById('turn-indicator').classList.add('hidden');
@@ -967,18 +990,28 @@ import {
         window.choisirContratWeb = (id, nom) => {
             hideBiddingPanel();
             if (id === 'emballe') validerEnchereHumain(id, nom, meilleureEnchere.atout);
-            else if (BAREME_IWW[id].sa) validerEnchereHumain(id, nom, null);
+            else if (id === 'trou' || BAREME_IWW[id].sa) validerEnchereHumain(id, nom, null);
             else { window.tmpContrat = { id, nom }; modalAtout.classList.remove('hidden'); modalAtout.classList.add('flex'); }
         };
 
-        window.validerAtoutWeb = (atout) => { modalAtout.classList.add('hidden'); validerEnchereHumain(window.tmpContrat.id, window.tmpContrat.nom, atout); };
+        window.validerAtoutWeb = (atout) => {
+            modalAtout.classList.add('hidden');
+            if (window.tmpContrat?.choixAtoutTrou) {
+                meilleureEnchere.atout = atout;
+                const boucheTrouId = window.tmpContrat.boucheTrouId;
+                window.tmpContrat = null;
+                passerEnchereWeb(boucheTrouId);
+                return;
+            }
+            validerEnchereHumain(window.tmpContrat.id, window.tmpContrat.nom, atout);
+        };
 
         function validerEnchereHumain(id, nom, atout, asPartenaire) {
             if (id === 'trou' && !asPartenaire) {
                 const aces = hands[0].filter(card => card.valeur === 14).map(card => card.couleur);
                 const couleurAppelee = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'].find(suit => !aces.includes(suit));
                 asPartenaire = couleurAppelee ? `14_${couleurAppelee}` : undefined;
-                atout = couleurAppelee ?? atout;
+                atout = null;
             }
             if (id === 'trou_royal') {
                 asPartenaire ??= '13_COEUR';
