@@ -518,7 +518,7 @@
     left: 50%;
     right: auto;
     top: auto;
-    bottom: 155px;
+    bottom: auto;
     width: min(690px, calc(100vw - 40px));
     padding: 0;
     z-index: 50;
@@ -605,7 +605,7 @@
 
 @media (max-width: 700px) {
     #modal-enchere.auction-panel {
-        bottom: 145px;
+
         width: calc(100vw - 16px);
     }
 
