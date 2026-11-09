@@ -220,7 +220,20 @@
         backdrop-filter: blur(10px); box-shadow: 0 0 45px rgba(50,203,137,.25);
       }
       #turn-indicator { border-color: #f3d58d !important; box-shadow: 0 0 18px #e6be62; }
-      #dealer-badge { background: linear-gradient(135deg,#f5d986,#b9862f) !important; border-color: #fff0bc !important; }
+      #dealer-badge {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        background: linear-gradient(135deg,#f5d986,#b9862f) !important;
+        border: 1px solid #fff0bc !important;
+        box-shadow: 0 2px 7px rgba(0,0,0,.35) !important;
+        font-size: 0 !important;
+        opacity: .9;
+        pointer-events: none;
+      }
+      #dealer-badge::after { content: "D"; color: #291b02; font-size: 10px; line-height: 1; font-weight: 900; }
 
       #hand-j0 {
         width: min(100%, 1050px); min-height: 136px !important; overflow: visible !important;
@@ -484,7 +497,7 @@
 
 .player-bid-label {
     min-width: 54px;
-    max-width: 110px;
+    max-width: 145px;
     min-height: 19px;
     padding: 2px 7px;
     border-radius: 999px;
@@ -535,7 +548,9 @@
 #modal-enchere .auction-panel-card {
     padding: 10px 12px;
     max-height: none;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
+    overscroll-behavior: contain;
     pointer-events: auto;
     border: 1px solid rgba(216, 181, 106, .35);
     box-shadow: 0 14px 36px rgba(0, 0, 0, .42);

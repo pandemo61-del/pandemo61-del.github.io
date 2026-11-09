@@ -6,6 +6,7 @@ import {
         import { cartesJouables, determinerGagnant, estRevelationPartenaire, calculerScoreWhistGand } from '../shared/game-domain.js';
 
         const SYM = { 'COEUR': '♥', 'CARREAU': '♦', 'TREFLE': '♣', 'PIQUE': '♠' };
+        const SUIT_NAME = { 'COEUR': 'Cœur', 'CARREAU': 'Carreau', 'TREFLE': 'Trèfle', 'PIQUE': 'Pique' };
         const COULEUR_CSS = { 'COEUR': 'text-red-600', 'CARREAU': 'text-red-600', 'TREFLE': 'text-slate-900', 'PIQUE': 'text-slate-900' };
         const ASSET_IMG = { 'COEUR': 'assets/coeur.png', 'CARREAU': 'assets/carreau.png', 'TREFLE': 'assets/trefle.png', 'PIQUE': 'assets/pique.png' };
 
@@ -333,8 +334,8 @@ import {
             if (entry.action === 'passe') return 'Passe';
             const c = entry.contrat || {};
             const name = c.nom || (c.id ? getWhistContractName(c) : 'Enchère');
-            const suitSymbol = c.atout && SYM[c.atout] ? ` ${SYM[c.atout]}` : '';
-            return `${name}${suitSymbol}`;
+            const suit = c.atout && SYM[c.atout] ? ` ${SYM[c.atout]} ${SUIT_NAME[c.atout]}` : '';
+            return `${name}${suit}`;
         }
         function renderLiveAuctionHistory() {
             const box = document.getElementById('auction-live-history');
@@ -636,15 +637,15 @@ import {
 
         function updateDealerBadge() {
             const badge = document.getElementById('dealer-badge');
-            const posElem = document.getElementById(`pos-j${donneurId}`);
+            const playerBadge = document.getElementById(`badge-j${donneurId}`);
             const tapisElem = document.querySelector('.mat');
-            if (!badge || !posElem || !tapisElem) return;
-            const pos = posElem.getBoundingClientRect();
-            const tapis = tapisElem.getBoundingClientRect();
-            if (!pos || !tapis || tapis.width === 0) return;
+            if (!badge || !playerBadge || !tapisElem) return;
+            const playerRect = playerBadge.getBoundingClientRect();
+            const tapisRect = tapisElem.getBoundingClientRect();
+            if (!playerRect.width || !tapisRect.width) return;
             badge.style.display = 'flex';
-            badge.style.left = (pos.left - tapis.left + pos.width / 2 - 16) + 'px';
-            badge.style.top = (pos.top - tapis.top + pos.height / 2 - 16) + 'px';
+            badge.style.left = `${Math.round(playerRect.right - tapisRect.left - 9)}px`;
+            badge.style.top = `${Math.round(playerRect.top - tapisRect.top - 7)}px`;
         }
 
         async function prochainTourEnchere() {
@@ -844,24 +845,28 @@ import {
                 couleurDemandee: pliCourant[0]?.carte.couleur,
             }).some(playable => playable.id === card.id);
         }
+        function positionBiddingPanel() {
+            if (!modalEnchere || modalEnchere.classList.contains('hidden')) return;
+            const hand = document.getElementById('hand-j0');
+            const panel = modalEnchere.querySelector('.auction-panel-card');
+            if (!hand || !panel) return;
 
-		function positionBiddingPanel() {
-		    if (!modalEnchere || modalEnchere.classList.contains('hidden')) return;
-		
-		    const hand = document.getElementById('hand-j0');
-		    const panel = modalEnchere.querySelector('.auction-panel-card');
-		    if (!hand || !panel) return;
-		
-		    const handRect = hand.getBoundingClientRect();
-		    const panelHeight = panel.offsetHeight;
-		    const gap = 12;
-		    const margin = 8;
-		
-		    let top = handRect.top - panelHeight - gap;
-		    top = Math.max(margin, top);
-		
-		    modalEnchere.style.top = `${Math.round(top)}px`;
-		}
+            const cards = [...hand.querySelectorAll('.card-container, .playing-card')];
+            const visibleTops = cards.map(card => card.getBoundingClientRect().top).filter(Number.isFinite);
+            const handTop = visibleTops.length ? Math.min(...visibleTops) : hand.getBoundingClientRect().top;
+            const margin = 8;
+            const gap = 16;
+            const availableHeight = Math.max(120, Math.floor(handTop - gap - margin));
+
+            panel.style.maxHeight = `${availableHeight}px`;
+            panel.style.overflowY = panel.scrollHeight > availableHeight ? 'auto' : 'visible';
+            const panelHeight = Math.min(panel.getBoundingClientRect().height, availableHeight);
+            modalEnchere.style.top = `${Math.max(margin, Math.floor(handTop - panelHeight - gap))}px`;
+        }
+
+        function scheduleBiddingPanelPosition() {
+            requestAnimationFrame(() => requestAnimationFrame(positionBiddingPanel));
+        }
 
         function openBiddingModal() {
             const opts = document.getElementById('enchere-options');
@@ -955,11 +960,10 @@ import {
             });
             renderLiveAuctionHistory();
             modalEnchere.classList.add('flex'); modalEnchere.classList.remove('hidden');
-			requestAnimationFrame(positionBiddingPanel);
+			scheduleBiddingPanelPosition();
         }
-		window.addEventListener('resize', () => {
-		    if (!modalEnchere.classList.contains('hidden')) positionBiddingPanel();
-		});
+		window.addEventListener('resize', scheduleBiddingPanelPosition);
+        window.visualViewport?.addEventListener('resize', scheduleBiddingPanelPosition);
         window.choisirContratWeb = (id, nom) => {
             hideBiddingPanel();
             if (id === 'emballe') validerEnchereHumain(id, nom, meilleureEnchere.atout);
