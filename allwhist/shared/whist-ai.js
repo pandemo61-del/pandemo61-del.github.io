@@ -1,7 +1,7 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.3.4';
+export const WHIST_AI_VERSION = '1.3.5';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
@@ -82,6 +82,12 @@ function bestTrump(hand) {
       b.controls - a.controls ||
       b.length - a.length
     )[0];
+}
+
+export function chooseTrouTrump(hand) {
+  const safeHand = Array.isArray(hand) ? hand : [];
+  if (!safeHand.length) return undefined;
+  return bestTrump(safeHand).suit;
 }
 
 function cardMisereRisk(card, bySuit) {
@@ -196,7 +202,7 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts, opt
       const calledSuit = SUITS.find(suit => !aces.some(card => card.couleur === suit));
       const contract = availableContract(contracts, 'trou', hand, currentBid, playerId);
       if (contract && contractPriority(contract) > currentPriority) {
-        return decisionFor(contract, calledSuit, calledSuit ? `14_${calledSuit}` : undefined);
+        return decisionFor(contract, undefined, calledSuit ? `14_${calledSuit}` : undefined);
       }
     }
     return { action: 'passe' };
@@ -213,7 +219,7 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts, opt
     const calledSuit = SUITS.find(suit => !aces.some(card => card.couleur === suit));
     const contract = availableContract(contracts, 'trou', hand, currentBid, playerId);
     if (contract && contractPriority(contract) > currentPriority) {
-      return decisionFor(contract, calledSuit, calledSuit ? `14_${calledSuit}` : undefined);
+      return decisionFor(contract, undefined, calledSuit ? `14_${calledSuit}` : undefined);
     }
   }
 
