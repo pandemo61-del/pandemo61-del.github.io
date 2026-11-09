@@ -845,6 +845,24 @@ import {
             }).some(playable => playable.id === card.id);
         }
 
+		function positionBiddingPanel() {
+		    if (!modalEnchere || modalEnchere.classList.contains('hidden')) return;
+		
+		    const hand = document.getElementById('hand-j0');
+		    const panel = modalEnchere.querySelector('.auction-panel-card');
+		    if (!hand || !panel) return;
+		
+		    const handRect = hand.getBoundingClientRect();
+		    const panelHeight = panel.offsetHeight;
+		    const gap = 12;
+		    const margin = 8;
+		
+		    let top = handRect.top - panelHeight - gap;
+		    top = Math.max(margin, top);
+		
+		    modalEnchere.style.top = `${Math.round(top)}px`;
+		}
+
         function openBiddingModal() {
             const opts = document.getElementById('enchere-options');
             const bids = [
@@ -937,8 +955,11 @@ import {
             });
             renderLiveAuctionHistory();
             modalEnchere.classList.add('flex'); modalEnchere.classList.remove('hidden');
+			requestAnimationFrame(positionBiddingPanel);
         }
-
+		window.addEventListener('resize', () => {
+		    if (!modalEnchere.classList.contains('hidden')) positionBiddingPanel();
+		});
         window.choisirContratWeb = (id, nom) => {
             hideBiddingPanel();
             if (id === 'emballe') validerEnchereHumain(id, nom, meilleureEnchere.atout);
