@@ -145,7 +145,7 @@
             </div>
 
             <!-- Stats Grid -->
-            <div id="simulationStats" class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+            <div id="simulationStats" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Simulations</h3>
@@ -158,28 +158,21 @@
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Réussites</h3>
                         <i class="fas fa-check-circle text-emerald-500 bg-emerald-50 p-2 rounded-lg"></i>
                     </div>
-                    <p id="statSuccess" class="text-4xl font-bold text-gray-800">0</p>
+                    <p class="flex items-baseline gap-2"><span id="statSuccess" class="text-4xl font-bold text-gray-800">0</span><span id="statSuccessPct" class="text-sm font-semibold text-gray-400">0%</span></p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Échecs</h3>
                         <i class="fas fa-times-circle text-rose-500 bg-rose-50 p-2 rounded-lg"></i>
                     </div>
-                    <p id="statFail" class="text-4xl font-bold text-gray-800">0</p>
+                    <p class="flex items-baseline gap-2"><span id="statFail" class="text-4xl font-bold text-gray-800">0</span><span id="statFailPct" class="text-sm font-semibold text-gray-400">0%</span></p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">4 passes</h3>
                         <i class="fas fa-forward text-amber-500 bg-amber-50 p-2 rounded-lg"></i>
                     </div>
-                    <p id="statPass" class="text-4xl font-bold text-gray-800">0</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-gray-500 font-medium text-sm uppercase tracking-wider">Taux de succès</h3>
-                        <i class="fas fa-percentage text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
-                    </div>
-                    <p id="statRate" class="text-4xl font-bold text-gray-800">0%</p>
+                    <p class="flex items-baseline gap-2"><span id="statPass" class="text-4xl font-bold text-gray-800">0</span><span id="statPassPct" class="text-sm font-semibold text-gray-400">0%</span></p>
                 </div>
             </div>
 
@@ -607,23 +600,10 @@
 
             document.getElementById('statTotal').innerText =
                 stats.total;
-
-            const played =
-                stats.success +
-                stats.fail;
-
-            const rate =
-                played > 0
-                    ? Math.round(
-                        (
-                            stats.success /
-                            played
-                        ) * 100
-                    )
-                    : 0;
-
-            document.getElementById('statRate').innerText =
-                `${rate}%`;
+            const pct = value => stats.total > 0 ? Math.round((value / stats.total) * 100) : 0;
+            document.getElementById('statSuccessPct').innerText = `${pct(stats.success)}%`;
+            document.getElementById('statFailPct').innerText = `${pct(stats.fail)}%`;
+            document.getElementById('statPassPct').innerText = `${pct(stats.pass)}%`;
         }
         async function saveGameToDb(gameData, index) {
             const cleanUndefined = (obj) => {
