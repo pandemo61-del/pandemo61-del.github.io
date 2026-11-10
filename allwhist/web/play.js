@@ -23,8 +23,7 @@ import {
         let currentManche = 0;
 
         const SAVED_SETTINGS = localStorage.getItem('allwhist_play_settings');
-        let settings = SAVED_SETTINGS ? JSON.parse(SAVED_SETTINGS) : { sortMethod: 'suit', sortOrder: 'desc', direction: 'lr', son: true, vibration: true, autoBidding: false, autoPlay: false, animation: true, aiSpeed: 700, maxGames: 13, playerAvatar: 0 };
-        settings.animation = settings.animation !== false;
+        let settings = SAVED_SETTINGS ? JSON.parse(SAVED_SETTINGS) : { sortMethod: 'suit', sortOrder: 'desc', direction: 'lr', son: true, vibration: true, autoBidding: false, autoPlay: false, aiSpeed: 700, maxGames: 13, playerAvatar: 0 };
         settings.playerAvatar = Number.isInteger(settings.playerAvatar) && settings.playerAvatar >= 0 && settings.playerAvatar < 16 ? settings.playerAvatar : 0;
         settings.playerName = (settings.playerName || '').trim();
         settings.suitOrder = Array.isArray(settings.suitOrder) && settings.suitOrder.length === 4 ? settings.suitOrder : ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
@@ -37,8 +36,9 @@ import {
         let propositionRelancee = false;
         let droitsEnchere = initDroitsEnchere();
         let jeuActif = false;
-        let autoPaused = false;
+        let humanAutoPaused = false;
         let autoStopped = false;
+        let passSaveInProgress = false;
 
         function initDroitsEnchere() {
             return Array.from({ length: 4 }, () => ({ hasProposed: false, hasPassed: false, hasPacked: false }));
@@ -51,19 +51,32 @@ import {
         // ─── COOKIES & SAUVEGARDE DE L'ÉTAT ACTIF DE LA PARTIE ─────
 
         function isAutomaticMode() { return settings.autoBidding || settings.autoPlay; }
-
         function updateAutoControls() {
-            const box = document.getElementById('auto-controls');
-            const pause = document.getElementById('btn-auto-pause');
+            const box = document.getElementById('auto-controls'), pause = document.getElementById('btn-auto-pause');
             if (!box || !pause) return;
             box.classList.toggle('hidden', !isAutomaticMode());
-            pause.innerHTML = autoPaused ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
-            pause.title = autoPaused ? 'Reprendre' : 'Pause';
+            pause.innerHTML = humanAutoPaused ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
+            pause.title = humanAutoPaused ? 'Reprendre la main automatique du joueur' : 'Suspendre uniquement la main automatique du joueur';
         }
-
-        async function waitAutoControl() {
-            while (autoPaused && !autoStopped) await new Promise(r => setTimeout(r, 100));
-            return !autoStopped;
+        function humanTurnId() { return (leaderId + pliCourant.length) % 4; }
+        function playHumanAutomaticallyIfNeeded() {
+            if (!jeuActif || !settings.autoPlay || humanAutoPaused || autoStopped || humanTurnId() !== 0) return false;
+            const card = choixCarteWeb(0); if (!card) return false;
+            window.playHumanCard(card.id); return true;
+        }
+        function validateCardState(context = '') {
+            const remaining = hands.reduce((sum, hand) => sum + hand.length, 0);
+            const discarded = contratFinal?.id === 'petite_misere' ? 4 : 0;
+            const expected = 52 - plisHistory.length * 4 - pliCourant.length - discarded;
+            const lengths = hands.map(hand => hand.length), spread = Math.max(...lengths) - Math.min(...lengths);
+            if (remaining === expected && spread <= 1) return true;
+            console.error('Card state mismatch', { context, remaining, expected, lengths, pli: pliCourant.length, tricks: plisHistory.length });
+            settings.autoPlay = false; humanAutoPaused = false; autoStopped = true; updateAutoControls(); saveSettings();
+            showMessage('Incohérence de cartes détectée. Le jeu automatique est arrêté.', 6000); return false;
+        }
+        function uniqueGameId(prefix) {
+            const uuid = globalThis.crypto?.randomUUID?.() || `${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+            return `${prefix}_${uuid}`;
         }
 
         function setCookie(name, value, days = 1) {
@@ -736,7 +749,6 @@ import {
             if (id === 0) {
                 if (settings.autoBidding) {
                     await new Promise(r => setTimeout(r, settings.aiSpeed));
-                    if (!await waitAutoControl()) return;
                     const decision = deciderEnchereIA(hands[0], meilleureEnchere);
                     const currPrio = meilleureEnchere ? BAREME_IWW[meilleureEnchere.id].prio : -1;
                     if (decision && BAREME_IWW[decision.id].prio > currPrio) validerEnchereHumain(decision.id, decision.nom, decision.atout, decision.asPartenaire);
@@ -744,7 +756,6 @@ import {
                 } else openBiddingModal();
             } else {
                 await new Promise(r => setTimeout(r, settings.aiSpeed));
-                if (!await waitAutoControl()) return;
                 const decision = deciderEnchereIA(hands[id], meilleureEnchere);
                 const propositionConcurrente = decision?.id === 'propose' && meilleureEnchere?.id === 'propose' && meilleureEnchere.joueurId !== id && !droitsJoueur(id).hasProposed;
                 if (!decision || (meilleureEnchere && BAREME_IWW[decision.id].prio <= BAREME_IWW[meilleureEnchere.id].prio && !propositionConcurrente)) {
@@ -1149,11 +1160,7 @@ import {
             if (leaderId !== 0) playAIUntilHuman();
             else {
                 updateTurnIndicator(0); renderHandsUI();
-                if (settings.autoPlay) setTimeout(async () => {
-                    if (!await waitAutoControl()) return;
-                    const card = choixCarteWeb(0);
-                    if (card) window.playHumanCard(card.id);
-                }, settings.aiSpeed);
+                if (settings.autoPlay && !humanAutoPaused && !autoStopped) setTimeout(playHumanAutomaticallyIfNeeded, settings.aiSpeed);
             }
         }
 
@@ -1163,22 +1170,20 @@ import {
                 const pid = (leaderId + pliCourant.length) % 4;
                 if (pid === 0) {
                     updateTurnIndicator(0); renderHandsUI();
-                    if (settings.autoPlay) {
+                    if (settings.autoPlay && !humanAutoPaused && !autoStopped) {
                         await new Promise(r => setTimeout(r, settings.aiSpeed));
-                        if (!await waitAutoControl()) return;
-                        const card = choixCarteWeb(0);
-                        if (card) window.playHumanCard(card.id);
+                        playHumanAutomaticallyIfNeeded();
                     }
                     return;
                 }
                 updateTurnIndicator(pid); await new Promise(r => setTimeout(r, settings.aiSpeed));
-                if (isAutomaticMode() && !await waitAutoControl()) return;
                 const h = hands[pid];
                 const card = choixCarteWeb(pid);
                 if (!card) throw new Error(`Aucune carte jouable pour le joueur ${pid}.`);
                 revealWebPartner(pid, card);
                 h.splice(h.findIndex(held => held.id === card.id), 1);
                 pliCourant.push({ joueurId: pid, carte: card }); renderTableCard(pid, card);
+                validateCardState('AI play');
                 saveActiveGameState();
                 if (pliCourant.length === 4) { evaluateTrickEnd(); return; }
             }
@@ -1191,31 +1196,12 @@ import {
             const card = hands[0][idx]; if (!isCardPlayable(card)) return;
             if (pliCourant.length === 0) clearTableUI();
             hands[0].splice(idx, 1); revealWebPartner(0, card); pliCourant.push({ joueurId: 0, carte: card }); renderHandsUI(); renderTableCard(0, card);
+            validateCardState('human play');
             saveActiveGameState();
             if (pliCourant.length === 4) evaluateTrickEnd(); else playAIUntilHuman();
         };
 
-        function getCardSourceElement(pid, card) {
-            if (pid === 0) return [...document.querySelectorAll('#hand-j0 .card-container')].find(el => el.querySelector('.card-value')?.textContent === getLabel(card.valeur) && el.querySelector('.card-suit-img')?.alt === card.couleur) || document.getElementById('hand-j0');
-            return document.getElementById(`pos-j${pid}`) || document.getElementById(`badge-j${pid}`);
-        }
-
-        function animateCardToTable(pid, cardEl, sourceEl) {
-            if (!settings.animation || !cardEl || !sourceEl) return;
-            const sourceRect = sourceEl.getBoundingClientRect();
-            const targetRect = cardEl.getBoundingClientRect();
-            const dx = sourceRect.left + sourceRect.width / 2 - (targetRect.left + targetRect.width / 2);
-            const dy = sourceRect.top + sourceRect.height / 2 - (targetRect.top + targetRect.height / 2);
-            const angle = Math.round(Math.random() * 60 - 30);
-            cardEl.style.setProperty('--deal-x', `${dx}px`);
-            cardEl.style.setProperty('--deal-y', `${dy}px`);
-            cardEl.style.setProperty('--table-angle', `${angle}deg`);
-            cardEl.classList.add('card-deal-animation');
-            cardEl.addEventListener('animationend', () => cardEl.classList.remove('card-deal-animation'), { once: true });
-        }
-
         function renderTableCard(pid, card) {
-            const sourceEl = getCardSourceElement(pid, card);
             const value = getLabel(card.valeur);
             const suit = ASSET_IMG[card.couleur];
             document.getElementById(`table-j${pid}`).innerHTML = `
@@ -1242,7 +1228,6 @@ import {
                     </div>
                 </div>
             `;
-            requestAnimationFrame(() => animateCardToTable(pid, document.querySelector(`#table-j${pid} .table-card`), sourceEl));
         }
         function updateTurnIndicator(pid) { const ind = document.getElementById('turn-indicator'), t = document.getElementById(`table-j${pid}`); ind.classList.remove('hidden'); ind.style.left = t ? `${t.offsetLeft + 35}px` : '50%'; ind.style.top = t ? `${t.offsetTop + 20}px` : '50%'; }
 
@@ -1259,9 +1244,6 @@ import {
             plisGagnes[best.joueurId]++; leaderId = best.joueurId; updatePlisUI(); updateTrickProgress();
             plisHistory.push({ numero: plisHistory.length + 1, gagnantId: best.joueurId, cartesJouees: pliCourant.map(p => ({ joueurId: p.joueurId, carte: p.carte })) });
 
-            if (!settings.animation) {
-                clearTableUI();
-            } else {
             // 1. Mise en évidence de la carte gagnante à sa position exacte
             const winnerFrontCard = document.querySelector(`#table-j${best.joueurId} .card-face-front`) || document.querySelector(`#table-j${best.joueurId} .table-card`);
             if (winnerFrontCard) {
@@ -1301,12 +1283,12 @@ import {
             await new Promise(r => setTimeout(r, 520));
 
             // 3. Envol du tas rassemblé depuis la carte gagnante vers le joueur gagnant
-            const winnerBadge = document.getElementById(`badge-j${best.joueurId}`) || document.getElementById(`pos-j${best.joueurId}`);
-            const badgeRect = winnerBadge?.getBoundingClientRect();
-            const flyVector = badgeRect && winnerRect ? {
-                x: badgeRect.left + badgeRect.width / 2 - (winnerRect.left + winnerRect.width / 2),
-                y: badgeRect.top + badgeRect.height / 2 - (winnerRect.top + winnerRect.height / 2)
-            } : [{ x: 0, y: 220 }, { x: -240, y: 0 }, { x: 0, y: -220 }, { x: 240, y: 0 }][best.joueurId];
+            const flyVector = [
+                { x: 0, y: 220 },    // Joueur 0 (Sud) -> vole vers le bas
+                { x: -240, y: 0 },   // Joueur 1 (Ouest) -> vole vers la gauche
+                { x: 0, y: -220 },   // Joueur 2 (Nord) -> vole vers le haut
+                { x: 240, y: 0 }     // Joueur 3 (Est) -> vole vers la droite
+            ][best.joueurId];
 
             for (let i = 0; i < 4; i++) {
                 const slot = document.getElementById(`table-j${i}`);
@@ -1323,21 +1305,22 @@ import {
             }
             await new Promise(r => setTimeout(r, 480));
             clearTableUI();
-            }
 
             const isMisereContract = contratFinal?.id && String(contratFinal.id).includes('misere');
             const miserePlayerLost = isMisereContract && best.joueurId === contratFinal.joueurId;
 
-            if (hands[0].length === 0 || miserePlayerLost) {
+            const allHandsEmpty = hands.every(hand => hand.length === 0);
+            if (allHandsEmpty || miserePlayerLost) {
                 jeuActif = false;
                 const resume = calculerPointsFinaux();
                 afficherResumeManche(resume);
-                sauvegarderPartie(resume);
+                await sauvegarderPartie(resume);
                 if (currentManche >= settings.maxGames) showMessage('Partie terminée ! Scores finaux affichés.');
                 else showMessage(miserePlayerLost ? 'Misère chutée ! La manche est terminée.' : 'Manche terminée ! Résumé ci-dessous.');
                 return;
             }
 
+            if (!validateCardState('completed trick')) return;
             setTimeout(() => startTrick(), 300);
         }
 
@@ -1428,6 +1411,8 @@ import {
         }
 
         async function sauvegarderPasse() {
+            if (passSaveInProgress) return false;
+            passSaveInProgress = true;
             try {
                 const userId = currentUser?.uid || 'ANONYMOUS_WEB';
                 const userPseudo = currentUser?.email?.split('@')[0] || 'Invité Web';
@@ -1467,8 +1452,8 @@ import {
                     historiqueEncheres,
                 };
 
-                const docId = `WEB_PASS_${Date.now()}_${currentManche}`;
-                await setDoc(doc(db, 'games', docId), gameData);
+                const docId = uniqueGameId('WEB_PASS');
+                await setDoc(doc(db, 'games', docId), { ...gameData, recordType: 'passed-deal' });
                 console.log('Passed Web deal saved successfully!');
                 return true;
             } catch (err) {
@@ -1477,7 +1462,7 @@ import {
             }
         }
 
-        function sauvegarderPartie(resultat) {
+        async function sauvegarderPartie(resultat) {
             try {
                 const { bidderId, partnerId, obj, plisTeam, reussite, delta } = resultat;
                 const userId = currentUser?.uid || 'ANONYMOUS_WEB';
@@ -1511,13 +1496,10 @@ import {
                     historiqueEncheres,
                 };
 
-                const docId = `WEB_PLAY_${Date.now()}`;
-                Promise.resolve(setDoc(doc(db, 'games', docId), gameData))
-                    .then(() => console.log('Game saved successfully!'))
-                    .catch(err => {
-                        console.error('DB Save Error:', err);
-                        showMessage('Erreur de sauvegarde: ' + err.message, 5000);
-                    });
+                const docId = uniqueGameId('WEB_PLAY');
+                await setDoc(doc(db, 'games', docId), { ...gameData, recordType: 'completed-game', isPasse: false });
+                console.log('Game saved successfully!', docId);
+                return true;
             } catch (err) {
                 console.error('DB Save Preparation Error:', err);
                 showMessage('Résultats affichés, mais sauvegarde impossible: ' + err.message, 5000);
@@ -1614,8 +1596,7 @@ function updateSettingsUI() {
         ['set-son-on', 'set-son-off', s.son],
         ['set-vib-on', 'set-vib-off', s.vibration],
         ['set-auto-bid-on', 'set-auto-bid-off', s.autoBidding],
-        ['set-auto-play-on', 'set-auto-play-off', s.autoPlay],
-        ['set-animation-on', 'set-animation-off', s.animation]
+        ['set-auto-play-on', 'set-auto-play-off', s.autoPlay]
     ];
     toggles.forEach(([onId, offId, active]) => {
         const onEl = document.getElementById(onId);
@@ -1651,10 +1632,8 @@ function updateSettingsUI() {
         document.getElementById('set-son-off').onclick = () => { settings.son = false; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-vib-on').onclick = () => { settings.vibration = true; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-vib-off').onclick = () => { settings.vibration = false; updateSettingsUI(); saveSettings(); };
-        document.getElementById('set-animation-on').onclick = () => { settings.animation = true; updateSettingsUI(); saveSettings(); };
-        document.getElementById('set-animation-off').onclick = () => { settings.animation = false; updateSettingsUI(); saveSettings(); };
         document.getElementById('set-auto-bid-on').onclick = () => {
-            settings.autoBidding = true; autoStopped = false; autoPaused = false; updateAutoControls();
+            settings.autoBidding = true; autoStopped = false; updateAutoControls();
             updateSettingsUI();
             saveSettings();
             if (typeof tourEnchere !== 'undefined' && tourEnchere % 4 === 0 && typeof jeuActif !== 'undefined' && !jeuActif) {
@@ -1663,16 +1642,16 @@ function updateSettingsUI() {
                 prochainTourEnchere();
             }
         };
-        document.getElementById('set-auto-bid-off').onclick = () => { settings.autoBidding = false; updateSettingsUI(); saveSettings(); updateAutoControls(); };
+        document.getElementById('set-auto-bid-off').onclick = () => { settings.autoBidding = false; updateSettingsUI(); updateAutoControls(); saveSettings(); };
         document.getElementById('set-auto-play-on').onclick = () => {
-            settings.autoPlay = true; autoStopped = false; autoPaused = false; updateAutoControls();
+            settings.autoPlay = true; autoStopped = false; humanAutoPaused = false; updateAutoControls();
             updateSettingsUI();
             saveSettings();
             if (typeof tourJeu !== 'undefined' && tourJeu % 4 === 0 && typeof jeuActif !== 'undefined' && jeuActif) {
                 choixCarteWeb(0);
             }
         };
-        document.getElementById('set-auto-play-off').onclick = () => { settings.autoPlay = false; updateSettingsUI(); saveSettings(); updateAutoControls(); };
+        document.getElementById('set-auto-play-off').onclick = () => { settings.autoPlay = false; humanAutoPaused = false; updateSettingsUI(); updateAutoControls(); saveSettings(); };
         document.getElementById('set-ai-speed').oninput = (e) => { settings.aiSpeed = Number(e.target.value); updateSettingsUI(); saveSettings(); };
         renderAvatarPicker();
         pickAIAvatars();
@@ -1681,17 +1660,14 @@ function updateSettingsUI() {
         renderHandsUI();
 
         document.getElementById('btn-auto-pause').onclick = () => {
-            autoPaused = !autoPaused;
-            updateAutoControls();
-            showMessage(autoPaused ? 'Mode automatique en pause.' : 'Mode automatique repris.', 1800);
-            if (!autoPaused && jeuActif) playAIUntilHuman();
-            else if (!autoPaused && !jeuActif) prochainTourEnchere();
+            humanAutoPaused = !humanAutoPaused; autoStopped = false; updateAutoControls();
+            showMessage(humanAutoPaused ? 'Main automatique du joueur en pause. Les IA continuent.' : 'Main automatique du joueur reprise.', 2500);
+            if (!humanAutoPaused) playHumanAutomaticallyIfNeeded();
         };
         document.getElementById('btn-auto-stop').onclick = () => {
-            autoStopped = true; autoPaused = false;
-            settings.autoBidding = false; settings.autoPlay = false;
-            saveSettings(); updateSettingsUI(); updateAutoControls();
-            showMessage('Mode automatique arrêté. La partie reste dans son état actuel.', 2500);
+            autoStopped = true; humanAutoPaused = false; settings.autoBidding = false; settings.autoPlay = false;
+            updateSettingsUI(); updateAutoControls(); saveSettings();
+            showMessage('Mode automatique arrêté. La partie reste disponible en manuel.', 2500);
         };
         updateAutoControls();
 
