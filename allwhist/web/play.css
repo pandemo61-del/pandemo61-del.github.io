@@ -747,3 +747,21 @@
   #hand-j0{min-height:110px!important;padding-top:5px!important}
   .ai-avatar{width:28px;height:28px;flex-basis:28px}
 }
+
+/* Regression fix: reserve header for owner menu + 10vh player identity */
+:root{--player-zone-h:10vh}
+@media (min-width:901px){
+  #owner-menu.owner-menu{left:8px!important;top:8px!important}
+  main>header{padding-left:62px!important}
+  main>header>div:first-child{min-width:0!important;padding-left:0!important}
+  main>header h2{display:flex!important;white-space:nowrap!important}
+  #pos-j0,#pos-j1,#pos-j2,#pos-j3{min-height:var(--player-zone-h)!important;max-height:var(--player-zone-h)!important}
+  .player-header{height:var(--player-zone-h)!important;max-height:var(--player-zone-h)!important;margin-bottom:0!important;align-items:center!important}
+  .ai-avatar{width:var(--player-zone-h)!important;height:var(--player-zone-h)!important;flex:0 0 var(--player-zone-h)!important;max-width:var(--player-zone-h)!important;max-height:var(--player-zone-h)!important}
+  .ai-avatar-user{width:var(--player-zone-h)!important;height:var(--player-zone-h)!important;flex:0 0 var(--player-zone-h)!important;max-width:var(--player-zone-h)!important;max-height:var(--player-zone-h)!important}
+  #badge-j0,#badge-j1,#badge-j2,#badge-j3{max-height:var(--player-zone-h)!important}
+}
+@media (max-width:900px){
+  #owner-menu.owner-menu{left:6px!important;top:6px!important}
+  main>header{padding-left:52px!important}
+}
