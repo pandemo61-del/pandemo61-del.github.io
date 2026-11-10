@@ -1,7 +1,7 @@
 const SUITS = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'];
 const HONOR_RISK = { 14: 12, 13: 7, 12: 4, 11: 2.5, 10: 1, 9: 0.5 };
 
-export const WHIST_AI_VERSION = '1.3.5';
+export const WHIST_AI_VERSION = '1.3.6';
 
 function contractPriority(contract) {
   return contract?.priorite ?? contract?.prio ?? -1;
@@ -187,6 +187,8 @@ export function getTrouRoyalPartnerCard(hand) {
 
 export function chooseWhistBid(hand, currentBid, level, playerId, contracts, options = {}) {
   const currentPriority = contractPriority(currentBid);
+  const auctionRights = options.auctionRights ?? {};
+  if (auctionRights.hasPassed) return { action: 'passe' };
   const margin = difficultyMargin(level);
   const aces = hand.filter(card => card.valeur === 14);
 
@@ -277,8 +279,9 @@ export function chooseWhistBid(hand, currentBid, level, playerId, contracts, opt
     if (risk <= maxRisk && utility > 0) candidates.push({ contract, trump: null, utility });
   }
 
-  const proposal = availableContract(contracts, 'propose', hand, currentBid, playerId);
-  if (proposal && contractPriority(proposal) > currentPriority && best.length >= 4 && best.safeTricks < 10) {
+  const proposal = auctionRights.hasProposed ? null : availableContract(contracts, 'propose', hand, currentBid, playerId);
+  const proposalCanCompete = proposal && (contractPriority(proposal) > currentPriority || (currentBid?.id === 'propose' && currentBid.joueurId !== playerId));
+  if (proposalCanCompete && best.length >= 4 && best.safeTricks < 10) {
     const bySuit = cardsBySuit(hand);
     const trumpValues = bySuit[best.suit];
     const conditions = [
