@@ -765,3 +765,14 @@
   #owner-menu.owner-menu{left:6px!important;top:6px!important}
   main>header{padding-left:52px!important}
 }
+
+/* Fix: 10vh applies to player identity, never to South hand container */
+@media (min-width:901px){
+  #pos-j0,#pos-j1,#pos-j2,#pos-j3{min-height:0!important;max-height:none!important;overflow:visible!important}
+  .player-header{height:10vh!important;max-height:10vh!important;min-height:10vh!important;overflow:visible!important}
+  .ai-avatar,.ai-avatar-user{width:10vh!important;height:10vh!important;flex:0 0 10vh!important;max-width:10vh!important;max-height:10vh!important}
+  #pos-j0{height:auto!important;max-height:none!important;overflow:visible!important;flex-shrink:0!important}
+  #hand-j0{display:flex!important;visibility:visible!important;opacity:1!important;overflow:visible!important;position:relative!important;z-index:20!important;margin-top:4px!important;min-height:clamp(140px,18vh,184px)!important}
+  #hand-j0 .card-container{display:block!important;visibility:visible!important;opacity:1!important;flex:0 0 auto!important}
+  #hand-j0 .playing-card{display:block!important;visibility:visible!important;opacity:1!important}
+}
