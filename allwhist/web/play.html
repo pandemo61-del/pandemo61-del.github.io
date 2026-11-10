@@ -47,6 +47,10 @@
                     <button id="btn-start" class="px-4 py-2 bg-emerald-600 text-white rounded-xl font-bold shadow-md hover:bg-emerald-700 transition text-sm">
                         <i class="fas fa-plus mr-1"></i> Distribuer
                     </button>
+                    <div id="auto-controls" class="hidden flex items-center gap-1">
+                        <button id="btn-auto-pause" type="button" class="px-3 py-2 bg-amber-500 text-white rounded-xl font-bold shadow-md hover:bg-amber-600 transition text-sm" title="Pause"><i class="fas fa-pause"></i></button>
+                        <button id="btn-auto-stop" type="button" class="px-3 py-2 bg-rose-600 text-white rounded-xl font-bold shadow-md hover:bg-rose-700 transition text-sm" title="Arrêter"><i class="fas fa-stop"></i></button>
+                    </div>
                     <div id="auth-status" class="text-xs font-medium px-3 py-2 rounded-full bg-green-100 text-green-700 flex items-center">
                         Mode Local Invité
                     </div>
@@ -277,6 +281,13 @@
                             <div class="flex gap-1.5">
                                 <button id="set-vib-on" type="button" class="settings-toggle">ON</button>
                                 <button id="set-vib-off" type="button" class="settings-toggle">OFF</button>
+                            </div>
+                        </div>
+                        <div class="settings-row">
+                            <span>Animations</span>
+                            <div class="flex gap-1.5">
+                                <button id="set-animation-on" type="button" class="settings-toggle">ON</button>
+                                <button id="set-animation-off" type="button" class="settings-toggle">OFF</button>
                             </div>
                         </div>
                         <div class="settings-row">

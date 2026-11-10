@@ -748,3 +748,14 @@
   #owner-menu.owner-menu{left:6px!important;top:6px!important}
   main>header{padding-left:48px!important}
 }
+
+
+/* Optional card motion */
+.table-card{transform:rotate(var(--table-angle,0deg));transform-origin:center center}
+.card-deal-animation{animation:cardFromHandToTable .48s cubic-bezier(.2,.75,.25,1) both!important}
+@keyframes cardFromHandToTable{
+  0%{transform:translate(var(--deal-x),var(--deal-y)) rotate(calc(var(--table-angle,0deg) - 18deg)) scale(.72);opacity:.35}
+  68%{opacity:1}
+  100%{transform:translate(0,0) rotate(var(--table-angle,0deg)) scale(1);opacity:1}
+}
+@media(prefers-reduced-motion:reduce){.card-deal-animation{animation:none!important}}
