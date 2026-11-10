@@ -708,3 +708,11 @@
 .owner-menu-item,.owner-menu-version{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;color:#d7e7df;font-size:12px;font-weight:700;white-space:nowrap}
 .owner-menu-item:hover{background:rgba(255,255,255,.08);color:#fff}.owner-menu-item i,.owner-menu-version i{width:17px;text-align:center;color:#efcf82}.owner-menu-version{border-top:1px solid rgba(255,255,255,.08);margin-top:4px;padding-top:10px;color:#8fb7a6}
 @media(max-width:900px){.owner-menu{left:8px!important;top:8px!important;bottom:auto!important;transform:none!important}.owner-menu-toggle{width:40px;height:40px}.owner-menu-panel{top:47px}}
+
+/* Fix: owner menu must not inherit the legacy aside hiding rules */
+#owner-menu.owner-menu{display:block;position:fixed!important;left:14px!important;top:14px!important;bottom:auto!important;z-index:100!important;width:auto!important;height:auto!important;min-height:0!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;box-shadow:none!important;transform:none!important}
+#owner-menu.owner-menu.hidden{display:none!important}
+#owner-menu .owner-menu-toggle{display:flex!important}
+#owner-menu .owner-menu-panel{display:block}
+#owner-menu .owner-menu-panel.hidden{display:none!important}
+@media(max-width:900px){#owner-menu.owner-menu{left:8px!important;top:8px!important;bottom:auto!important;transform:none!important}}
