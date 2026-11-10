@@ -699,25 +699,3 @@
 .trick-dot.is-bid{background:#34d399;border-color:#a7f3d0}
 .trick-dot.is-def{background:#fb7185;border-color:#fecdd3}
 @media(max-width:480px){.trick-progress{gap:3px}.trick-dot{width:6px;height:6px;flex-basis:6px}.trick-dot.is-target{width:10px;height:10px;flex-basis:10px}}
-
-/* Adaptive table space optimisation */
-:root{--game-header-h:58px;--game-gap:10px;--table-pad-x:clamp(10px,2vw,30px);--table-pad-y:clamp(8px,1.5vh,18px)}
-main{padding:clamp(8px,1.2vh,14px) clamp(10px,1.2vw,18px) clamp(8px,1.5vh,18px) 84px!important;min-height:0!important}
-main>header{min-height:var(--game-header-h);margin-bottom:var(--game-gap)!important;flex:0 0 auto}
-.mat{min-height:0!important;height:auto;flex:1 1 auto;padding:var(--table-pad-y) var(--table-pad-x)!important;border-width:clamp(5px,.55vw,9px)!important;border-radius:clamp(34px,5vw,82px)!important;display:grid!important;grid-template-rows:minmax(72px,.75fr) minmax(210px,2.7fr) minmax(142px,1.25fr);align-items:center;overflow:hidden}
-#pos-j2{align-self:start;margin-top:0}
-.mat>div:nth-of-type(3){align-self:stretch;height:100%;padding:0 clamp(4px,1.5vw,24px)!important;display:grid!important;grid-template-columns:minmax(110px,1fr) minmax(220px,clamp(240px,24vw,360px)) minmax(110px,1fr);align-items:center;gap:clamp(10px,2vw,34px)}
-#pos-j1{justify-self:start;width:auto!important;min-width:110px}
-#pos-j3{justify-self:end;width:auto!important;min-width:110px}
-.mat>div:nth-of-type(3)>div:nth-child(2){width:min(100%,clamp(240px,24vw,360px))!important;height:min(100%,clamp(210px,31vh,330px))!important;aspect-ratio:1.18/1;margin:auto}
-#pos-j0{align-self:end;min-height:0}
-#badge-j0{margin-bottom:clamp(4px,.8vh,10px)!important}
-#hand-j0{width:min(94%,1100px);min-height:clamp(104px,15vh,144px)!important;padding:clamp(6px,1vh,14px) clamp(12px,2vw,28px) 4px!important;align-items:flex-end}
-.playing-card,.table-card{width:clamp(54px,min(5vw,7.2vh),78px);height:clamp(82px,min(7.5vw,10.8vh),116px)}
-#hand-j0 .card-container{margin-left:clamp(-24px,-1.3vw,-10px)}
-#hand-j2>div{width:clamp(20px,1.55vw,27px)!important;height:clamp(32px,4.8vh,42px)!important}
-.player-header{margin-bottom:3px}.player-header-side{gap:2px}.player-bid-label{min-height:17px;line-height:11px}
-@media (min-width:901px) and (max-height:820px){:root{--game-header-h:48px;--game-gap:6px}.mat{grid-template-rows:minmax(58px,.65fr) minmax(180px,2.4fr) minmax(118px,1.05fr)}main>header{padding-top:5px!important;padding-bottom:5px!important}.mat>div:nth-of-type(3)>div:nth-child(2){height:min(100%,250px)!important}.playing-card,.table-card{width:clamp(50px,6.5vh,66px);height:clamp(76px,9.8vh,99px)}#hand-j0{min-height:102px!important;padding-top:5px!important}}
-@media (min-width:901px) and (min-height:1000px){.mat{grid-template-rows:minmax(88px,.8fr) minmax(300px,3fr) minmax(165px,1.35fr)}.mat>div:nth-of-type(3)>div:nth-child(2){width:clamp(300px,25vw,390px)!important;height:clamp(260px,32vh,350px)!important}}
-@media (max-width:900px){main{padding:6px 6px 76px!important}.mat{display:flex!important;min-height:calc(100dvh - 150px)!important;height:auto!important;padding:12px 8px 8px!important}.mat>div:nth-of-type(3){display:grid!important;grid-template-columns:76px minmax(180px,1fr) 76px;gap:6px;height:auto!important}.mat>div:nth-of-type(3)>div:nth-child(2){width:min(52vw,240px)!important;height:min(52vw,240px)!important}#hand-j0{width:100%;min-height:112px!important;padding:6px!important}}
-@media (max-width:560px){main>header{min-height:44px}.mat{min-height:calc(100dvh - 126px)!important;border-width:5px!important;border-radius:28px!important}.mat>div:nth-of-type(3){grid-template-columns:62px minmax(150px,1fr) 62px}.mat>div:nth-of-type(3)>div:nth-child(2){width:min(48vw,205px)!important;height:min(48vw,205px)!important}#pos-j1,#pos-j3{min-width:0}.player-bid-label{max-width:78px}.ai-avatar{width:25px;height:25px;flex-basis:25px}}

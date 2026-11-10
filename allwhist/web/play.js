@@ -34,7 +34,16 @@ import {
         let tourEnchere = 0;
         let passesConsecutifs = 0;
         let propositionRelancee = false;
+        let droitsEnchere = initDroitsEnchere();
         let jeuActif = false;
+
+        function initDroitsEnchere() {
+            return Array.from({ length: 4 }, () => ({ hasProposed: false, hasPassed: false, hasPacked: false }));
+        }
+
+        function droitsJoueur(playerId) {
+            return droitsEnchere[playerId] ?? { hasProposed: false, hasPassed: false, hasPacked: false };
+        }
 
         // ─── COOKIES & SAUVEGARDE DE L'ÉTAT ACTIF DE LA PARTIE ─────
 
@@ -77,6 +86,7 @@ import {
                 tourEnchere,
                 passesConsecutifs,
                 propositionRelancee,
+                droitsEnchere,
                 jeuActif,
                 pliCourant,
                 plisGagnes,
@@ -128,6 +138,7 @@ import {
                 tourEnchere = state.tourEnchere ?? 0;
                 passesConsecutifs = state.passesConsecutifs ?? 0;
                 propositionRelancee = state.propositionRelancee ?? false;
+                droitsEnchere = Array.isArray(state.droitsEnchere) && state.droitsEnchere.length === 4 ? state.droitsEnchere : initDroitsEnchere();
                 jeuActif = state.jeuActif ?? false;
                 pliCourant = state.pliCourant || [];
                 plisGagnes = state.plisGagnes || [0, 0, 0, 0];
@@ -594,6 +605,7 @@ import {
             leaderId = 0;
             passesConsecutifs = 0;
             propositionRelancee = false;
+            droitsEnchere = initDroitsEnchere();
             jeuActif = false;
             updatePlisUI(); updateTrickProgress();
             document.getElementById('contrat-badge').classList.add('hidden');
@@ -691,11 +703,15 @@ import {
             } else {
                 await new Promise(r => setTimeout(r, settings.aiSpeed));
                 const decision = deciderEnchereIA(hands[id], meilleureEnchere);
-                if (!decision || (meilleureEnchere && BAREME_IWW[decision.id].prio <= BAREME_IWW[meilleureEnchere.id].prio)) {
+                const propositionConcurrente = decision?.id === 'propose' && meilleureEnchere?.id === 'propose' && meilleureEnchere.joueurId !== id && !droitsJoueur(id).hasProposed;
+                if (!decision || (meilleureEnchere && BAREME_IWW[decision.id].prio <= BAREME_IWW[meilleureEnchere.id].prio && !propositionConcurrente)) {
                     passerEnchereWeb(id);
                     return;
                 }
                 else {
+                    if (decision.id === 'propose' && droitsJoueur(id).hasProposed) return passerEnchereWeb(id);
+                    if (decision.id === 'propose') droitsJoueur(id).hasProposed = true;
+                    if (decision.id === 'emballe') droitsJoueur(id).hasPacked = true;
                     let pId = (decision.id === 'emballe') ? meilleureEnchere.joueurId : -1;
                     meilleureEnchere = { ...decision, joueurId: id, partenaireId: pId };
                     const actionEnchere = { joueurId: id, action: 'enchere', contrat: { ...meilleureEnchere } };
@@ -741,6 +757,7 @@ import {
             }
 
             const actionPasse = { joueurId: playerId, action: 'passe', isBoucheTrou, isPasseTrou, actionLabel };
+            if (!isPasseTrou && !isBoucheTrou) droitsJoueur(playerId).hasPassed = true;
             historiqueEncheres.push(actionPasse);
             announceAuctionAction(actionPasse);
             const proposerRefuse = propositionRelancee && meilleureEnchere?.id === 'propose' && meilleureEnchere.joueurId === playerId;
@@ -764,7 +781,7 @@ import {
                 'expert',
                 playerId,
                 WHIST_CONTRACTS,
-                { premierTourAs: historiqueEncheres.length < 4 },
+                { premierTourAs: historiqueEncheres.length < 4, auctionRights: droitsJoueur(playerId) },
             );
             if (decision.action === 'passe' || !decision.contratId) return null;
             return {
@@ -966,7 +983,7 @@ import {
                         : nbAs !== 4 || curr >= BAREME_IWW.trou_royal.prio;
                 } else {
                     dis = BAREME_IWW[p.id].prio < curr;
-                    if (p.id === 'propose') dis = meilleureEnchere ? meilleureEnchere.id !== 'propose' : false;
+                    if (p.id === 'propose') dis = droitsJoueur(0).hasProposed || droitsJoueur(0).hasPassed || (meilleureEnchere ? meilleureEnchere.id !== 'propose' : false);
                     if (p.id === 'emballe') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId === 0;
                     if (p.id === 'demande') dis = !meilleureEnchere || meilleureEnchere.id !== 'propose' || meilleureEnchere.joueurId !== 0;
                     if (p.id === 'trou') dis = nbAs !== 3 || curr >= BAREME_IWW['trou'].prio;
@@ -1007,6 +1024,10 @@ import {
         };
 
         function validerEnchereHumain(id, nom, atout, asPartenaire) {
+            if (droitsJoueur(0).hasPassed) return passerEnchereWeb(0);
+            if (id === 'propose' && droitsJoueur(0).hasProposed) return passerEnchereWeb(0);
+            if (id === 'propose') droitsJoueur(0).hasProposed = true;
+            if (id === 'emballe') droitsJoueur(0).hasPacked = true;
             if (id === 'trou' && !asPartenaire) {
                 const aces = hands[0].filter(card => card.valeur === 14).map(card => card.couleur);
                 const couleurAppelee = ['COEUR', 'CARREAU', 'TREFLE', 'PIQUE'].find(suit => !aces.includes(suit));
