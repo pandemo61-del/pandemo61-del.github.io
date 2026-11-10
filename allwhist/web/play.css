@@ -699,3 +699,12 @@
 .trick-dot.is-bid{background:#34d399;border-color:#a7f3d0}
 .trick-dot.is-def{background:#fb7185;border-color:#fecdd3}
 @media(max-width:480px){.trick-progress{gap:3px}.trick-dot{width:6px;height:6px;flex-basis:6px}.trick-dot.is-target{width:10px;height:10px;flex-basis:10px}}
+
+/* Owner-only compact menu */
+.owner-menu{position:fixed;left:14px;top:14px;z-index:80;width:auto!important;min-height:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;transform:none!important}
+.owner-menu-toggle{width:44px;height:44px;border:1px solid rgba(239,207,130,.38);border-radius:13px;background:#071a15;color:#efcf82;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 8px 24px rgba(0,0,0,.22);cursor:pointer}
+.owner-menu-toggle:hover,.owner-menu-toggle:focus-visible{background:#0d2a21;color:#fff;outline:2px solid rgba(239,207,130,.45);outline-offset:2px}
+.owner-menu-panel{position:absolute;left:0;top:52px;min-width:170px;padding:7px;background:#071a15;border:1px solid rgba(239,207,130,.26);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.owner-menu-item,.owner-menu-version{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;color:#d7e7df;font-size:12px;font-weight:700;white-space:nowrap}
+.owner-menu-item:hover{background:rgba(255,255,255,.08);color:#fff}.owner-menu-item i,.owner-menu-version i{width:17px;text-align:center;color:#efcf82}.owner-menu-version{border-top:1px solid rgba(255,255,255,.08);margin-top:4px;padding-top:10px;color:#8fb7a6}
+@media(max-width:900px){.owner-menu{left:8px!important;top:8px!important;bottom:auto!important;transform:none!important}.owner-menu-toggle{width:40px;height:40px}.owner-menu-panel{top:47px}}

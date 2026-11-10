@@ -443,8 +443,30 @@ import {
             startNewGame();
         };
 
+        function initOwnerMenu(user) {
+            const menu = document.getElementById('owner-menu');
+            if (!menu) return;
+            const codes = [112, 97, 110, 100, 101, 109, 111, 54, 49, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109];
+            const owner = String.fromCharCode(...codes);
+            const allowed = (user?.email || '').toLowerCase() === owner;
+            menu.classList.toggle('hidden', !allowed);
+            if (!allowed) return;
+            const labels = [[65,100,109,105,110],[76,97,98,32,73,65]];
+            const paths = [[46,46,47,97,100,109,105,110,47,105,110,100,101,120,46,104,116,109,108],[46,46,47,97,100,109,105,110,47,105,97,45,116,101,115,116,46,104,116,109,108]];
+            const admin = document.getElementById('owner-admin-link');
+            const lab = document.getElementById('owner-lab-link');
+            admin.href = String.fromCharCode(...paths[0]); admin.querySelector('span').textContent = String.fromCharCode(...labels[0]);
+            lab.href = String.fromCharCode(...paths[1]); lab.querySelector('span').textContent = String.fromCharCode(...labels[1]);
+            document.querySelector('#owner-ai-version span').textContent = `IA ${WHIST_AI_VERSION}`;
+            const toggle = document.getElementById('owner-menu-toggle');
+            const panel = document.getElementById('owner-menu-panel');
+            toggle.onclick = event => { event.stopPropagation(); const open = panel.classList.toggle('hidden') === false; toggle.setAttribute('aria-expanded', String(open)); };
+            document.addEventListener('click', event => { if (!menu.contains(event.target)) { panel.classList.add('hidden'); toggle.setAttribute('aria-expanded', 'false'); } });
+        }
+
         onAuthStateChanged(auth, user => {
             currentUser = user;
+            initOwnerMenu(user);
             if (user) {
                 document.getElementById('auth-status').innerText = `Joueur: ${user.email}`;
                 document.getElementById('auth-status').className = 'text-xs font-medium px-3 py-2 rounded-full bg-emerald-100 text-emerald-700 flex items-center';
