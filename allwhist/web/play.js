@@ -67,7 +67,10 @@ import {
         function validateCardState(context = '') {
             const remaining = hands.reduce((sum, hand) => sum + hand.length, 0);
             const discarded = contratFinal?.id === 'petite_misere' ? 4 : 0;
-            const expected = 52 - plisHistory.length * 4 - pliCourant.length - discarded;
+            const currentTrickAlreadyArchived = pliCourant.length === 4 && plisHistory.length > 0 && plisHistory[plisHistory.length - 1]?.numero === plisHistory.length;
+            const archivedCards = plisHistory.length * 4;
+            const currentCards = currentTrickAlreadyArchived ? 0 : pliCourant.length;
+            const expected = 52 - archivedCards - currentCards - discarded;
             const lengths = hands.map(hand => hand.length), spread = Math.max(...lengths) - Math.min(...lengths);
             if (remaining === expected && spread <= 1) return true;
             console.error('Card state mismatch', { context, remaining, expected, lengths, pli: pliCourant.length, tricks: plisHistory.length });
