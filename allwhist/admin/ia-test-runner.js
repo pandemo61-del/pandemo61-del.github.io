@@ -41,27 +41,7 @@ function clone(value) {
     );
 }
 
-function normalizeSeed(value) {
-    const parsed = Number.parseInt(value, 10);
-    return Number.isFinite(parsed) ? parsed >>> 0 : 1;
-}
-function randomSeed() {
-    return require('crypto').randomBytes(4).readUInt32LE(0) || 1;
-}
-function seededRandom(seed) {
-    let state = normalizeSeed(seed);
-    return () => {
-        state |= 0;
-        state = state + 0x6D2B79F5 | 0;
-        let t = Math.imul(state ^ state >>> 15, 1 | state);
-        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-        return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
-}
-async function runSimulation(count = 50, options = {}) {
-    const mode = options.mode || 'random';
-    const level = options.level || 'expert';
-    const baseSeed = normalizeSeed(options.seed ?? randomSeed());
+async function runSimulation(count = 50) {
     const results = [];
 
     let successes = 0;
@@ -73,13 +53,9 @@ async function runSimulation(count = 50, options = {}) {
     );
 
     for (let i = 0; i < count; i++) {
-        const seed = mode === 'random' ? randomSeed() : (baseSeed + i) >>> 0;
-        const originalRandom = Math.random;
-        Math.random = seededRandom(seed);
         const jeu = melanger(
             creerJeu(WhistGand.avecJoker)
         );
-        Math.random = originalRandom;
 
         const mains = distribuer(
             jeu,
