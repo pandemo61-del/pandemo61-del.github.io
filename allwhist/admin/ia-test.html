@@ -120,6 +120,12 @@
                     <button id="exportFailBtn" class="text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2" title="Télécharger uniquement les simulations en échec">
                         <i class="fas fa-download"></i><span>Échecs</span>
                     </button>
+                    <button id="exportDatasetJsonBtn" class="text-violet-600 hover:text-violet-700 bg-violet-50 hover:bg-violet-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2" title="Exporter le dataset IA complet en JSON">
+                        <i class="fas fa-file-code"></i><span>Dataset JSON</span>
+                    </button>
+                    <button id="exportDatasetCsvBtn" class="text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2" title="Exporter games, bids, plays et differences en CSV">
+                        <i class="fas fa-file-csv"></i><span>Dataset CSV</span>
+                    </button>
                     <button id="deleteSuccessBtn" class="text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
                         <i class="fas fa-check"></i>
                         <span>Supprimer Succès</span>
@@ -312,6 +318,8 @@
         testMode.addEventListener('change', updateModeUI);
         queueMicrotask(updateModeUI);
         const exportAllBtn = document.getElementById('exportAllBtn');
+        const exportDatasetJsonBtn = document.getElementById('exportDatasetJsonBtn');
+        const exportDatasetCsvBtn = document.getElementById('exportDatasetCsvBtn');
         const exportSuccessBtn = document.getElementById('exportSuccessBtn');
         const exportFailBtn = document.getElementById('exportFailBtn');
         const deleteBtn = document.getElementById('deleteBtn');
@@ -422,6 +430,76 @@
                 buttons.forEach(btn => btn.disabled = false);
             }
         }
+
+        function downloadText(content, filename, type = 'text/plain;charset=utf-8') {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url; link.download = filename; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+        }
+        function csvValue(value) {
+            if (value === null || value === undefined) return '';
+            const text = typeof value === 'object' ? JSON.stringify(value) : String(value);
+            return /[";,\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+        }
+        function toCsv(rows, columns) {
+            return '\ufeff' + [columns.join(';'), ...rows.map(row => columns.map(column => csvValue(row[column])).join(';'))].join('\n');
+        }
+        function cardText(card) {
+            if (card === null || card === undefined) return '';
+            if (typeof card === 'string') return card;
+            return card.code || card.id || [card.valeur ?? card.value ?? card.rang ?? card.rank, card.couleur ?? card.suit].filter(v => v !== undefined).join('-') || JSON.stringify(card);
+        }
+        function buildAiDataset() {
+            const games = aiGames.filter(game => game?.isAITest === true);
+            const gameRows = games.map((game, index) => ({
+                gameId: game.id || game.docId || index + 1, createdAt: game.createdAt || '', testMode: game.testMode || 'legacy', seed: game.seed ?? '', rotation: game.rotation ?? 0,
+                aiVersion: game.aiVersion || '', aiLevel: game.aiLevel || '', dealer: game.donneurId ?? '', contract: game.contrat?.id || '', trump: game.atout ?? game.contrat?.atout ?? '',
+                declarer: game.contrat?.joueurId ?? '', partner: game.contrat?.partenaireId ?? '', target: game.contrat?.plisObjectif ?? game.contrat?.obj ?? '', tricks: game.resultat?.plisFaits ?? '',
+                success: game.resultat?.reussite ?? '', passed: game.isPasse === true, scoreDelta: JSON.stringify(game.resultat?.deltaScores || {})
+            }));
+            const bidRows = [], playRows = [];
+            games.forEach((game, gameIndex) => {
+                const gameId = game.id || game.docId || gameIndex + 1;
+                (game.historiqueEncheres || []).forEach((bid, step) => bidRows.push({ gameId, seed: game.seed ?? '', rotation: game.rotation ?? 0, aiLevel: game.aiLevel || '', aiVersion: game.aiVersion || '', step: step + 1, player: bid.joueurId ?? bid.playerId ?? bid.joueur ?? '', bid: bid.action || bid.annonce || bid.bid || bid.contrat?.id || '', suit: bid.couleur ?? bid.atout ?? bid.contrat?.atout ?? '', target: bid.obj ?? bid.plisObjectif ?? bid.contrat?.obj ?? '', rights: bid.droits || bid.playerRights || '', raw: bid }));
+                (game.plis || []).forEach((trick, trickIndex) => {
+                    const cards = trick.cartes || trick.cards || trick.pli || [];
+                    if (Array.isArray(cards) && cards.length) cards.forEach((entry, playIndex) => playRows.push({ gameId, seed: game.seed ?? '', rotation: game.rotation ?? 0, aiLevel: game.aiLevel || '', aiVersion: game.aiVersion || '', trick: trickIndex + 1, order: playIndex + 1, player: entry.joueurId ?? entry.playerId ?? entry.joueur ?? '', card: cardText(entry.carte ?? entry.card ?? entry), winner: trick.gagnantId ?? trick.winnerId ?? trick.gagnant ?? '', trump: game.atout ?? game.contrat?.atout ?? '' }));
+                    else playRows.push({ gameId, seed: game.seed ?? '', rotation: game.rotation ?? 0, aiLevel: game.aiLevel || '', aiVersion: game.aiVersion || '', trick: trickIndex + 1, order: '', player: '', card: '', winner: trick.gagnantId ?? trick.winnerId ?? trick.gagnant ?? '', trump: game.atout ?? game.contrat?.atout ?? '', raw: trick });
+                });
+            });
+            const groups = new Map();
+            games.filter(game => game.testMode === 'comparison' && game.seed !== undefined).forEach(game => {
+                const key = `${game.seed}|${game.rotation ?? 0}`;
+                if (!groups.has(key)) groups.set(key, { seed: game.seed, rotation: game.rotation ?? 0 });
+                groups.get(key)[game.aiLevel] = game;
+            });
+            const differences = [...groups.values()].map(group => {
+                const row = { seed: group.seed, rotation: group.rotation };
+                ['beginner','intermediate','expert'].forEach(level => { const game = group[level]; row[`${level}Contract`] = game?.contrat?.id || ''; row[`${level}Tricks`] = game?.resultat?.plisFaits ?? ''; row[`${level}Success`] = game?.resultat?.reussite ?? ''; });
+                const b = Number(row.beginnerTricks), i = Number(row.intermediateTricks), e = Number(row.expertTricks);
+                row.expertVsBeginner = Number.isFinite(e) && Number.isFinite(b) ? e - b : ''; row.expertVsIntermediate = Number.isFinite(e) && Number.isFinite(i) ? e - i : '';
+                row.classification = Number.isFinite(e) && Number.isFinite(i) ? e < i ? 'EXPERT_REGRESSION' : e === i ? 'NO_SEPARATION' : 'EXPECTED_SEPARATION' : 'INCOMPLETE';
+                return row;
+            });
+            return { exportedAt: new Date().toISOString(), schemaVersion: 1, games: gameRows, bids: bidRows, plays: playRows, differences, rawGames: games };
+        }
+        function exportDatasetJson() {
+            const dataset = buildAiDataset();
+            downloadText(JSON.stringify(dataset, null, 2), `allwhist-ai-dataset-${new Date().toISOString().replace(/[:.]/g, '-')}.json`, 'application/json;charset=utf-8');
+        }
+        function exportDatasetCsv() {
+            const dataset = buildAiDataset(), stamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const files = [
+                ['games', dataset.games, ['gameId','createdAt','testMode','seed','rotation','aiVersion','aiLevel','dealer','contract','trump','declarer','partner','target','tricks','success','passed','scoreDelta']],
+                ['bids', dataset.bids, ['gameId','seed','rotation','aiLevel','aiVersion','step','player','bid','suit','target','rights','raw']],
+                ['plays', dataset.plays, ['gameId','seed','rotation','aiLevel','aiVersion','trick','order','player','card','winner','trump','raw']],
+                ['differences', dataset.differences, ['seed','rotation','beginnerContract','beginnerTricks','beginnerSuccess','intermediateContract','intermediateTricks','intermediateSuccess','expertContract','expertTricks','expertSuccess','expertVsBeginner','expertVsIntermediate','classification']]
+            ];
+            files.forEach(([name, rows, columns], index) => setTimeout(() => downloadText(toCsv(rows, columns), `allwhist-${name}-${stamp}.csv`, 'text/csv;charset=utf-8'), index * 200));
+        }
+        exportDatasetJsonBtn.addEventListener('click', exportDatasetJson);
+        exportDatasetCsvBtn.addEventListener('click', exportDatasetCsv);
 
         exportAllBtn.addEventListener('click', () => exportSimulations('all'));
         exportSuccessBtn.addEventListener('click', () => exportSimulations('success'));
