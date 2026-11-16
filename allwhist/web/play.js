@@ -67,7 +67,13 @@ import {
         function validateCardState(context = '') {
             const remaining = hands.reduce((sum, hand) => sum + hand.length, 0);
             const discarded = contratFinal?.id === 'petite_misere' ? 4 : 0;
-            const currentTrickAlreadyArchived = pliCourant.length === 4 && plisHistory.length > 0 && plisHistory[plisHistory.length - 1]?.numero === plisHistory.length;
+            const lastArchivedTrick = plisHistory[plisHistory.length - 1];
+            const currentTrickAlreadyArchived = pliCourant.length === 4 &&
+                lastArchivedTrick?.cartesJouees?.length === pliCourant.length &&
+                pliCourant.every((play, index) => {
+                    const archivedPlay = lastArchivedTrick.cartesJouees[index];
+                    return archivedPlay?.joueurId === play.joueurId && archivedPlay?.carte?.id === play.carte?.id;
+                });
             const archivedCards = plisHistory.length * 4;
             const currentCards = currentTrickAlreadyArchived ? 0 : pliCourant.length;
             const expected = 52 - archivedCards - currentCards - discarded;
