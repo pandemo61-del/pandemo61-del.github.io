@@ -807,3 +807,68 @@
   #hand-j0 .card-container{display:block!important;visibility:visible!important;opacity:1!important;flex:0 0 auto!important}
   #hand-j0 .playing-card{display:block!important;visibility:visible!important;opacity:1!important}
 }
+
+/* Fix: keep all West/East player information inside the outlined player panel */
+@media (min-width: 901px) {
+  #pos-j1, #pos-j3 {
+    width: clamp(250px, 19vw, 340px) !important;
+    flex: 0 0 clamp(250px, 19vw, 340px) !important;
+  }
+  #pos-j1 .player-header, #pos-j3 .player-header {
+    width: 100% !important;
+    height: auto !important;
+    min-height: max(10vh, 116px) !important;
+    max-height: none !important;
+  }
+  #badge-j1, #badge-j3 {
+    width: 100% !important;
+    min-height: max(10vh, 116px) !important;
+    max-height: none !important;
+    padding: 8px 12px !important;
+    display: grid !important;
+    grid-template-columns: 10vh minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 10px !important;
+    row-gap: 4px !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    overflow: visible !important;
+  }
+  #badge-j1 .ai-avatar, #badge-j3 .ai-avatar {
+    grid-row: 1 / 3;
+    grid-column: 1;
+  }
+  #badge-j1 .player-name-line, #badge-j3 .player-name-line {
+    grid-row: 1;
+    grid-column: 2;
+    min-width: 0;
+    justify-content: flex-start;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  #badge-j1 .trick-progress, #badge-j3 .trick-progress {
+    grid-row: 2;
+    grid-column: 2;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    white-space: normal;
+  }
+  #pos-j1 .player-bid-label, #pos-j3 .player-bid-label {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 760px) {
+  #pos-j1, #pos-j3 {
+    width: clamp(220px, 18vw, 300px) !important;
+    flex-basis: clamp(220px, 18vw, 300px) !important;
+  }
+  #pos-j1 .player-header, #pos-j3 .player-header,
+  #badge-j1, #badge-j3 {
+    min-height: 92px !important;
+  }
+  #badge-j1, #badge-j3 {
+    grid-template-columns: 76px minmax(0, 1fr) !important;
+  }
+}
