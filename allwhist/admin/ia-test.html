@@ -305,8 +305,8 @@
             const rotateField = document.getElementById('rotateField');
             rotateField.classList.toggle('hidden', mode !== 'comparison');
             rotateField.classList.toggle('flex', mode === 'comparison');
-            document.getElementById('simulationCount').disabled = mode === 'replay';
-            document.getElementById('modeHelp').innerText = mode === 'random' ? 'Chaque donne aléatoire reçoit un seed sauvegardé et peut être rejouée.' : mode === 'replay' ? 'Le même seed reproduit la distribution et le donneur.' : 'Chaque donne est exécutée par Beginner, Intermediate et Expert sur le même état initial.';
+            document.getElementById('simulationCount').disabled = false;
+            document.getElementById('modeHelp').innerText = mode === 'random' ? 'Chaque donne aléatoire reçoit un seed sauvegardé et peut être rejouée.' : mode === 'replay' ? 'Le seed initial reproduit une série déterministe de donnes consécutives.' : 'Chaque donne est exécutée par Beginner, Intermediate et Expert sur le même état initial.';
             if (typeof renderComparisonDashboard === 'function') renderComparisonDashboard();
         }
         testMode.addEventListener('change', updateModeUI);
@@ -351,7 +351,7 @@
             if (!auth.currentUser) return alert("Connectez-vous d'abord.");
             const countInput = document.getElementById('simulationCount');
             const mode = testMode.value;
-            let target = mode === 'replay' ? 1 : parseInt(countInput.value, 10);
+            let target = parseInt(countInput.value, 10);
             if (!Number.isFinite(target)) target = 50;
             target = Math.max(1, Math.min(1000, target));
             countInput.value = target;
